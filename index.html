@@ -1343,4 +1343,1336 @@
 <script src="assets/JS/main.js"></script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آیدین بیرام پور | طراح سایت، برنامه‌نویس و طراح لوگو</title>
+
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- تنظیمات سفارشی Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0A192F',
+                        navyLight: '#112240',
+                        turquoise: '#64FFDA',
+                        grayLight: '#8892B0',
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #0A192F;
+            color: #FFFFFF;
+        }
+
+        /* افکت هاور برای دکمه‌ها */
+        .btn-primary:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* افکت هاور برای آیکون‌های شبکه اجتماعی */
+        .social-icon:hover {
+            color: #64FFDA;
+            transform: translateY(-3px);
+        }
+
+        /* انیمیشن fade-in */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<!-- ========== Navbar ========== -->
+<nav class="navbar">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+        <!-- لوگو -->
+        <a href="#hero" class="text-2xl font-bold text-turquoise">
+            آیدین بیرام پور
+        </a>
+
+        <!-- دکمه منوی موبایل -->
+        <button id="menu-toggle" class="md:hidden text-turquoise text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- منوی اصلی -->
+        <ul id="nav-menu" class="hidden md:flex gap-8">
+            <li><a href="#hero" class="active">خانه</a></li>
+            <li><a href="#about">درباره من</a></li>
+            <li><a href="#skills">مهارت‌ها</a></li>
+            <li><a href="#projects">پروژه‌ها</a></li>
+            <li><a href="#services">خدمات</a></li>
+            <li><a href="#contact">تماس</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<!-- ========== Back to Top ========== -->
+<a href="#" id="back-to-top" class="fixed bottom-8 left-8 w-12 h-12 rounded-full bg-turquoise text-navy flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50">
+    <i class="fas fa-arrow-up text-xl"></i>
+</a>
+
+<body>
+
+    <!-- ========== Hero Section ========== -->
+    <section id="hero" class="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20">
+
+        <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <!-- ستون متن (سمت راست در RTL) -->
+            <div class="fade-in text-right order-2 lg:order-1">
+
+                <!-- خوش‌آمد -->
+                <p class="text-turquoise text-lg md:text-xl mb-4 font-medium">
+                    سلام، من
+                </p>
+
+                <!-- نام -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    آیدین بیرام پور
+                </h1>
+
+                <!-- عنوان شغلی -->
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-grayLight mb-8 leading-relaxed">
+                    طراح سایت، برنامه‌نویس نرم‌افزار، طراح لوگو و کمپین‌نویس فروش
+                </h2>
+
+                <!-- ارزش پیشنهادی -->
+                <p class="text-grayLight text-lg md:text-xl mb-6 leading-relaxed max-w-2xl">
+                    کسب‌وکار شما را از ایده تا فروش همراهی می‌کنم.
+                </p>
+
+                <!-- شعار -->
+                <p class="text-turquoise text-xl md:text-2xl font-semibold mb-10">
+                    «نظم + تمرکز + عمل = موفقیت»
+                </p>
+
+                <!-- دکمه‌ها -->
+                <div class="flex flex-wrap gap-4 mb-10">
+                    <a href="#projects"
+                       class="btn-primary bg-turquoise text-navy font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                        <i class="fas fa-code ml-2"></i>
+                        مشاهده پروژه‌ها
+                    </a>
+
+                    <a href="#resume"
+                       class="btn-secondary border-2 border-turquoise text-turquoise font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        مشاهده رزومه
+                    </a>
+
+                    <a href="#contact"
+                       class="btn-secondary border-2 border-turquoise text-turquoise font-bold py-3 px-8 rounded-lg transition-all duration-300">
+                        <i class="fas fa-envelope ml-2"></i>
+                        تماس با من
+                    </a>
+                </div>
+
+                <!-- شبکه‌های اجتماعی -->
+                <div class="flex flex-wrap gap-6 text-2xl">
+                    <a href="https://github.com/programmer-87" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="گیت‌هاب">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aydin-birampour-3086a0417/" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="لینکدین">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/aydinaicode" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="اینستاگرام">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/programmer1837" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="تلگرام">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/989301269621" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="واتساپ">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://x.com/Aydinc4av" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="توییتر">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="mailto:aydin1387tabriz@gmail.com" class="social-icon text-grayLight transition-all duration-300" title="ایمیل">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+989301269621" class="social-icon text-grayLight transition-all duration-300" title="تماس">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- ستون عکس (سمت چپ در RTL) -->
+            <div class="fade-in order-1 lg:order-2 flex justify-center lg:justify-start">
+                    <img src="assets/img/profile.jpg" 
+                         alt="آیدین بیرام پور" 
+                         class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-turquoise shadow-2xl">
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========== About Me Section ========== -->
+<section id="about" class="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-navyLight">
+
+    <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- ستون متن (سمت راست) -->
+        <div class="fade-in text-right order-1">
+
+            <!-- عنوان بخش -->
+            <div class="mb-10">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                    درباره <span class="text-turquoise">من</span>
+                </h2>
+                <div class="w-20 h-1 bg-turquoise rounded"></div>
+            </div>
+
+            <!-- داستان من -->
+            <p class="text-grayLight text-lg leading-relaxed mb-6">
+                از بچگی با کامپیوتر قدیمی‌ام وقت می‌گذروندم و در ۱۴ سالگی با کنجکاوی به دنیای کامپیوتر وارد شدم و کم‌کم عاشق کدنویسی شدم. من در هنرستان رشته <span class="text-turquoise">شبکه و نرم افزار</span> خواندم. الان دانشجوی مهندسی نرم‌افزار در <span class="text-turquoise">دانشگاه ملی مهارت شماره ۱ تبریز</span> هستم و مسیرم رو با جدیت ادامه می‌دم.
+            </p>
+
+            <!-- تخصص‌ها -->
+            <p class="text-grayLight text-lg leading-relaxed mb-6">
+                به جای فقط کدنویسی، اول <span class="text-turquoise">مشکل مشتری رو پیدا و درک می‌کنم</span> و بعد بهترین راه‌حل رو ارائه می‌دم. کیفیت رو فدای سرعت نمی‌کنم و به هر پروژه تمام تمرکزم رو می‌ذارم.
+            </p>
+
+            <!-- در حال یادگیری -->
+            <p class="text-grayLight text-lg leading-relaxed mb-8">
+                در حال حاضر مشغول یادگیری <span class="text-turquoise">هوش مصنوعی</span> با ترکیب نرم‌افزارهای اتوماسیونی کسب‌وکارها هستم.
+            </p>
+
+            <!-- اطلاعات سریع -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+
+                <div class="flex items-center gap-3 text-grayLight">
+                    <i class="fas fa-map-marker-alt text-turquoise text-xl"></i>
+                    <span>ساکن تبریز</span>
+                </div>
+
+                <div class="flex items-center gap-3 text-grayLight">
+                    <i class="fas fa-graduation-cap text-turquoise text-xl"></i>
+                    <span>دانشجوی مهندسی نرم‌افزار</span>
+                </div>
+
+                <div class="flex items-center gap-3 text-grayLight">
+                    <i class="fas fa-futbol text-turquoise text-xl"></i>
+                    <span>عاشق ورزش در هوای آزاد</span>
+                </div>
+
+                <div class="flex items-center gap-3 text-grayLight">
+                    <i class="fas fa-brain text-turquoise text-xl"></i>
+                    <span>در حال یادگیری هوش مصنوعی</span>
+                </div>
+
+            </div>
+
+            <!-- دکمه تماس -->
+            <a href="#contact"
+               class="btn-secondary border-2 border-turquoise text-turquoise font-bold py-3 px-8 rounded-lg transition-all duration-300 inline-block">
+                <i class="fas fa-comments ml-2"></i>
+                بیایید صحبت کنیم
+            </a>
+
+        </div>
+
+        <!-- ستون تصویر/کارت (سمت چپ) -->
+        <div class="fade-in order-2 flex justify-center lg:justify-start">
+
+            <div class="relative">
+
+                <!-- کارت اصلی -->
+                <div class="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-navy border-2 border-turquoise p-8 flex flex-col items-center justify-center shadow-2xl">
+
+                    <i class="fas fa-code text-turquoise text-6xl mb-6"></i>
+
+                    <p class="text-white text-xl font-semibold text-center mb-2">
+                        نظم + تمرکز + عمل
+                    </p>
+                    <p class="text-turquoise text-lg font-bold text-center">
+                        = موفقیت
+                    </p>
+
+                </div>
+
+                <!-- افکت تزئینی -->
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-turquoise rounded-2xl -z-10"></div>
+                <div class="absolute -top-4 -right-4 w-24 h-24 border-2 border-turquoise rounded-2xl -z-10"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========== Skills Section ========== -->
+<section id="skills" class="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-navy">
+
+    <div class="max-w-7xl w-full">
+
+        <!-- عنوان بخش -->
+        <div class="fade-in text-center mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                مهارت‌های <span class="text-turquoise">من</span>
+            </h2>
+            <div class="w-20 h-1 bg-turquoise rounded mx-auto mb-6"></div>
+            <p class="text-grayLight text-lg max-w-2xl mx-auto">
+                ابزارها و تخصص‌هایی که برای ساخت، طراحی و رشد کسب‌وکار شما به کار می‌برم.
+            </p>
+        </div>
+
+        <!-- گرید کارت‌های مهارت -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- کارت ۱: توسعه وب -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                        <i class="fas fa-code text-turquoise text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">توسعه وب</h3>
+                </div>
+
+                <!-- HTML -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">HTML</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <!-- CSS -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">CSS5</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">JavaScript</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- React -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">React</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+
+                <!-- Tailwind -->
+                <div class="mb-0">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Tailwind CSS</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- کارت ۲: توسعه نرم‌افزار -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-turquoise text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">توسعه نرم‌افزار</h3>
+                </div>
+
+                <!-- C# -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">C#</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Python</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- C++ -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">C++</span>
+                        <span class="text-grayLight text-sm font-semibold">مبتدی</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 35%"></div>
+                    </div>
+                </div>
+
+                <!-- SQL Server -->
+                <div class="mb-0">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">SQL Server 2022</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- کارت ۳: طراحی گرافیک -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                        <i class="fas fa-palette text-turquoise text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">طراحی گرافیک</h3>
+                </div>
+
+                <!-- Adobe Illustrator -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Adobe Illustrator</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Photoshop -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Adobe Photoshop</span>
+                        <span class="text-grayLight text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Figma -->
+                <div class="mb-0">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Figma</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- کارت ۴: کمپین‌نویسی و فروش -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                        <i class="fas fa-bullhorn text-turquoise text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">کمپین‌نویسی و فروش</h3>
+                </div>
+
+                <!-- Copywriting -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Copywriting</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Sales Strategy -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Sales Strategy</span>
+                        <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Sales Funnel -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Sales Funnel</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+
+                <!-- Storytelling -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Storytelling / Fiction Writing</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+
+                <!-- Screenwriting -->
+                <div class="mb-0">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Screenwriting</span>
+                        <span class="text-grayLight text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========== Projects Section ========== -->
+<section id="projects" class="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-navyLight">
+
+    <div class="max-w-7xl w-full">
+
+        <!-- عنوان بخش -->
+        <div class="fade-in text-center mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                پروژه‌های <span class="text-turquoise">من</span>
+            </h2>
+            <div class="w-20 h-1 bg-turquoise rounded mx-auto mb-6"></div>
+            <p class="text-grayLight text-lg max-w-2xl mx-auto">
+                نمونه‌کارهایی از طراحی، توسعه و خلاقیت که با تمرکز و کیفیت ساخته‌ام.
+            </p>
+        </div>
+
+        <!-- ========== دسته ۱: طراحی گرافیک (لوگو و کارت ویزیت) ========== -->
+        <div class="mb-20">
+
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                    <i class="fas fa-palette text-turquoise text-xl"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold">طراحی گرافیک</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- پروژه ۱ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/logo-1.jpg" alt="طراحی لوگو ۱" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">طراحی لوگو</h4>
+                        <p class="text-grayLight text-sm mb-4">لوگوی مینیمال برای یک برند شخصی</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Illustrator</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Branding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- پروژه ۲ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/logo-2.jpg" alt="طراحی لوگو ۲" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">طراحی لوگو</h4>
+                        <p class="text-grayLight text-sm mb-4">لوگوی مدرن برای یک کافه</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Illustrator</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Logo Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- پروژه ۳ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/card-1.jpg" alt="طراحی کارت ویزیت" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">کارت ویزیت</h4>
+                        <p class="text-grayLight text-sm mb-4">کارت ویزیت دوطرفه برای یک شرکت مشاوره</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Photoshop</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Print Design</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ========== دسته ۲: پروژه‌های وب ========== -->
+        <div class="mb-20">
+
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                    <i class="fas fa-code text-turquoise text-xl"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold">پروژه‌های وب</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- پروژه وب ۱ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/web-1.jpg" alt="وب‌سایت کافه خاطرات" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">وب‌سایت کافه خاطرات</h4>
+                        <p class="text-grayLight text-sm mb-4">وب‌سایت تک‌صفحه‌ای واکنش‌گرا برای یک کافه</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">HTML</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">CSS</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://programmer-87.github.io/cafe-khaterat/" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
+                                <i class="fas fa-external-link-alt ml-1"></i> مشاهده دمو
+                            </a>
+                            <a href="https://github.com/programmer-87/cafe-khaterat" target="_blank" class="text-grayLight text-sm font-semibold hover:text-turquoise hover:underline">
+                                <i class="fab fa-github ml-1"></i> گیت‌هاب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- پروژه وب ۲ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/web-2.jpg" alt="پروژه وب ۲" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">پروژه وب ۲</h4>
+                        <p class="text-grayLight text-sm mb-4">توضیح کوتاه پروژه</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">React</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Tailwind</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
+                                <i class="fas fa-external-link-alt ml-1"></i> مشاهده دمو
+                            </a>
+                            <a href="#" target="_blank" class="text-grayLight text-sm font-semibold hover:text-turquoise hover:underline">
+                                <i class="fab fa-github ml-1"></i> گیت‌هاب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- پروژه وب ۳ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/web-3.jpg" alt="پروژه وب ۳" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">پروژه وب ۳</h4>
+                        <p class="text-grayLight text-sm mb-4">توضیح کوتاه پروژه</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">HTML</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
+                                <i class="fas fa-external-link-alt ml-1"></i> مشاهده دمو
+                            </a>
+                            <a href="#" target="_blank" class="text-grayLight text-sm font-semibold hover:text-turquoise hover:underline">
+                                <i class="fab fa-github ml-1"></i> گیت‌هاب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ========== دسته ۳: نرم‌افزارهای اتوماسیونی و مدیریتی ========== -->
+        <div class="mb-20">
+
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                    <i class="fas fa-laptop-code text-turquoise text-xl"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold">نرم‌افزارهای اتوماسیونی و مدیریتی</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- نرم‌افزار ۱ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/software-1.jpg" alt="نرم‌افزار ۱" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">نرم‌افزار حسابداری</h4>
+                        <p class="text-grayLight text-sm mb-4">سیستم مدیریت مالی برای کسب‌وکارهای کوچک</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">C#</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">SQL Server</span>
+                        </div>
+                        <a href="https://www.aparat.com/v/your-video-id" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
+                            <i class="fas fa-play-circle ml-1"></i> مشاهده ویدیو
+                        </a>
+                    </div>
+                </div>
+
+                <!-- نرم‌افزار ۲ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/software-2.jpg" alt="نرم‌افزار ۲" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">نرم‌افزار اتوماسیون</h4>
+                        <p class="text-grayLight text-sm mb-4">اتوماسیون فرآیندهای تکراری کسب‌وکار</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Python</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Automation</span>
+                        </div>
+                        <a href="https://www.aparat.com/v/your-video-id" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
+                            <i class="fas fa-play-circle ml-1"></i> مشاهده ویدیو
+                        </a>
+                    </div>
+                </div>
+
+                <!-- نرم‌افزار ۳ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/software-3.jpg" alt="نرم‌افزار ۳" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">نرم‌افزار مدیریتی</h4>
+                        <p class="text-grayLight text-sm mb-4">سیستم مدیریت انبار و فروش</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">C#</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Management</span>
+                        </div>
+                        <a href="https://www.aparat.com/v/your-video-id" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
+                            <i class="fas fa-play-circle ml-1"></i> مشاهده ویدیو
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ========== دسته ۴: کمپین‌نویسی و فروش ========== -->
+        <div class="mb-0">
+
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-12 h-12 rounded-xl bg-turquoise/10 flex items-center justify-center">
+                    <i class="fas fa-bullhorn text-turquoise text-xl"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold">کمپین‌نویسی و فروش</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- نمونه ۱ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/copy-1.jpg" alt="نمونه کمپین ۱" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">کمپین فروش</h4>
+                        <p class="text-grayLight text-sm mb-4">افزایش ۴۰٪ فروش برای یک فروشگاه آنلاین</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Copywriting</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Sales Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نمونه ۲ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/copy-2.jpg" alt="نمونه کمپین ۲" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">صفحه فرود</h4>
+                        <p class="text-grayLight text-sm mb-4">نوشتن متن قانع‌کننده برای یک محصول دیجیتال</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Copywriting</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Sales Funnel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- نمونه ۳ -->
+                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <img src="img/projects/copy-3.jpg" alt="نمونه کمپین ۳" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">داستان برند</h4>
+                        <p class="text-grayLight text-sm mb-4">روایت داستان یک برند برای ارتباط با مخاطب</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Storytelling</span>
+                            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Branding</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========== Services Section ========== -->
+<section id="services" class="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-navy">
+
+    <div class="max-w-7xl w-full">
+
+        <!-- عنوان بخش -->
+        <div class="fade-in text-center mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                خدمات <span class="text-turquoise">من</span>
+            </h2>
+            <div class="w-20 h-1 bg-turquoise rounded mx-auto mb-6"></div>
+            <p class="text-grayLight text-lg max-w-2xl mx-auto">
+                راه‌حل‌های کامل برای حضور دیجیتال، رشد و موفقیت کسب‌وکار شما.
+            </p>
+        </div>
+
+        <!-- گرید خدمات -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- خدمت ۱: طراحی وب‌سایت -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group flex flex-col">
+
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-xl bg-turquoise/10 flex items-center justify-center group-hover:bg-turquoise/20 transition-all duration-300">
+                        <i class="fas fa-globe text-turquoise text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">طراحی و توسعه وب‌سایت</h3>
+                </div>
+
+                <p class="text-grayLight text-lg leading-relaxed mb-8 flex-grow">
+                    وب‌سایت‌های سریع، مدرن و واکنش‌گرا که کسب‌وکار شما را در دنیای دیجیتال متمایز می‌کنند و تجربه‌ای بی‌نقص برای مشتریان‌تان می‌سازند.
+                </p>
+
+                <a href="#contact" class="btn-secondary border-2 border-turquoise text-turquoise font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center">
+                    <i class="fas fa-comments ml-2"></i>
+                    درخواست مشاوره
+                </a>
+
+            </div>
+
+            <!-- خدمت ۲: نرم‌افزارهای مدیریتی -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group flex flex-col">
+
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-xl bg-turquoise/10 flex items-center justify-center group-hover:bg-turquoise/20 transition-all duration-300">
+                        <i class="fas fa-chart-line text-turquoise text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">ساخت نرم‌افزارهای مدیریتی</h3>
+                </div>
+
+                <p class="text-grayLight text-lg leading-relaxed mb-8 flex-grow">
+                    نرم‌افزارهای حسابداری، انبارداری و مدیریتی که فرآیندهای کسب‌وکار شما را ساده، دقیق و خودکار می‌کنند.
+                </p>
+
+                <a href="#contact" class="btn-secondary border-2 border-turquoise text-turquoise font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center">
+                    <i class="fas fa-comments ml-2"></i>
+                    درخواست مشاوره
+                </a>
+
+            </div>
+
+            <!-- خدمت ۳: طراحی لوگو و هویت بصری -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group flex flex-col">
+
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-xl bg-turquoise/10 flex items-center justify-center group-hover:bg-turquoise/20 transition-all duration-300">
+                        <i class="fas fa-paint-brush text-turquoise text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">طراحی لوگو و هویت بصری</h3>
+                </div>
+
+                <p class="text-grayLight text-lg leading-relaxed mb-8 flex-grow">
+                    لوگو و هویت بصری ماندگار که برند شما را در ذهن مشتری حک می‌کند و اعتماد را از همان نگاه اول جلب می‌کند.
+                </p>
+
+                <a href="#contact" class="btn-secondary border-2 border-turquoise text-turquoise font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center">
+                    <i class="fas fa-comments ml-2"></i>
+                    درخواست مشاوره
+                </a>
+
+            </div>
+
+            <!-- خدمت ۴: کمپین‌نویسی و استراتژی فروش -->
+            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group flex flex-col">
+
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-16 h-16 rounded-xl bg-turquoise/10 flex items-center justify-center group-hover:bg-turquoise/20 transition-all duration-300">
+                        <i class="fas fa-bullhorn text-turquoise text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">کمپین‌نویسی و استراتژی فروش</h3>
+                </div>
+
+                <p class="text-grayLight text-lg leading-relaxed mb-8 flex-grow">
+                    متن‌های تبلیغاتی و استراتژی‌های فروش دقیق که مخاطب را به مشتری وفادار تبدیل می‌کند و فروش شما را به‌طور قابل اندازه‌گیری افزایش می‌دهد.
+                </p>
+
+                <a href="#contact" class="btn-secondary border-2 border-turquoise text-turquoise font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center">
+                    <i class="fas fa-comments ml-2"></i>
+                    درخواست مشاوره
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========== Contact Section ========== -->
+<section id="contact" class="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-navyLight">
+
+    <div class="max-w-7xl w-full">
+
+        <!-- عنوان بخش -->
+        <div class="fade-in text-center mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                تماس با <span class="text-turquoise">من</span>
+            </h2>
+            <div class="w-20 h-1 bg-turquoise rounded mx-auto mb-6"></div>
+            <p class="text-grayLight text-lg max-w-2xl mx-auto">
+                ایده‌ای در ذهن دارید؟ بیایید با هم درباره‌اش صحبت کنیم.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- ========== ستون چپ: اطلاعات تماس ========== -->
+            <div class="fade-in">
+
+                <h3 class="text-2xl font-bold mb-8 text-turquoise">
+                    <i class="fas fa-address-card ml-2"></i>
+                    اطلاعات تماس
+                </h3>
+
+                <!-- ایمیل -->
+                <div class="flex items-center gap-4 mb-6 bg-navy rounded-xl p-5 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-envelope text-turquoise text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-grayLight text-sm mb-1">ایمیل</p>
+                        <a href="mailto:aydin1387tabriz@gmail.com" class="text-white font-semibold hover:text-turquoise transition" dir="ltr">
+                            aydin1387tabriz@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- شماره تماس -->
+                <div class="flex items-center gap-4 mb-6 bg-navy rounded-xl p-5 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-phone text-turquoise text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-grayLight text-sm mb-1">شماره تماس</p>
+                        <a href="tel:+989301269621" class="text-white font-semibold hover:text-turquoise transition" dir="ltr">
+                            0930 126 9621
+                        </a>
+                    </div>
+                </div>
+
+                <!-- واتساپ -->
+                <div class="flex items-center gap-4 mb-6 bg-navy rounded-xl p-5 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fab fa-whatsapp text-turquoise text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-grayLight text-sm mb-1">واتساپ</p>
+                        <a href="https://wa.me/989301269621" target="_blank" class="text-white font-semibold hover:text-turquoise transition">
+                            گفتگو در واتساپ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- تلگرام -->
+                <div class="flex items-center gap-4 mb-6 bg-navy rounded-xl p-5 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fab fa-telegram text-turquoise text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-grayLight text-sm mb-1">تلگرام</p>
+                        <a href="https://t.me/programmer1837" target="_blank" class="text-white font-semibold hover:text-turquoise transition">
+                            پیام در تلگرام
+                        </a>
+                    </div>
+                </div>
+
+                <!-- موقعیت -->
+                <div class="flex items-center gap-4 mb-8 bg-navy rounded-xl p-5 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-map-marker-alt text-turquoise text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-grayLight text-sm mb-1">موقعیت</p>
+                        <p class="text-white font-semibold">تبریز، آذربایجان شرقی، ایران</p>
+                    </div>
+                </div>
+
+                <!-- شبکه‌های اجتماعی -->
+                <h3 class="text-xl font-bold mb-4 text-turquoise">
+                    <i class="fas fa-share-alt ml-2"></i>
+                    شبکه‌های اجتماعی
+                </h3>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://github.com/programmer-87" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="گیت‌هاب">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aydin-birampour-3086a0417/" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="لینکدین">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/aydinaicode" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="اینستاگرام">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://t.me/programmer1837" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="تلگرام">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                    <a href="https://x.com/Aydinc4av" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="توییتر">
+                        <i class="fab fa-x-twitter text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/989301269621" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="واتساپ">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- ========== ستون راست: فرم تماس ========== -->
+            <div class="fade-in">
+
+                <h3 class="text-2xl font-bold mb-8 text-turquoise">
+                    <i class="fas fa-paper-plane ml-2"></i>
+                    ارسال پیام
+                </h3>
+
+                <form action="#" method="POST" class="space-y-6">
+
+                    <!-- نام -->
+                    <div>
+                        <label for="name" class="block text-grayLight text-sm mb-2">نام شما</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
+                               placeholder="نام و نام خانوادگی">
+                    </div>
+
+                    <!-- ایمیل -->
+                    <div>
+                        <label for="email" class="block text-grayLight text-sm mb-2">ایمیل شما</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
+                               placeholder="example@email.com" dir="ltr">
+                    </div>
+
+                    <!-- موضوع -->
+                    <div>
+                        <label for="subject" class="block text-grayLight text-sm mb-2">موضوع</label>
+                        <input type="text" id="subject" name="subject"
+                               class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
+                               placeholder="موضوع پیام">
+                    </div>
+
+                    <!-- پیام -->
+                    <div>
+                        <label for="message" class="block text-grayLight text-sm mb-2">پیام شما</label>
+                        <textarea id="message" name="message" rows="6" required
+                                  class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300 resize-none"
+                                  placeholder="پیام خود را اینجا بنویسید..."></textarea>
+                    </div>
+
+                    <!-- دکمه ارسال -->
+                    <button type="submit"
+                            class="btn-primary bg-turquoise text-navy font-bold py-3 px-8 rounded-lg transition-all duration-300 w-full">
+                        <i class="fas fa-paper-plane ml-2"></i>
+                        ارسال پیام
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========== Footer Section ========== -->
+<footer class="bg-navy border-t border-turquoise/20 pt-16 pb-8 px-6 md:px-12 lg:px-24">
+
+    <div class="max-w-7xl w-full mx-auto">
+
+        <!-- بخش اصلی فوتر -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+            <!-- ========== ستون ۱: معرفی کوتاه ========== -->
+            <div class="fade-in">
+
+                <h3 class="text-2xl font-bold text-turquoise mb-4">
+                    آیدین بیرام پور
+                </h3>
+
+                <p class="text-grayLight text-sm leading-relaxed mb-4">
+                    طراح سایت، برنامه‌نویس نرم‌افزار، طراح لوگو و کمپین‌نویس فروش — کسب‌وکار شما را از ایده تا فروش همراهی می‌کنم.
+                </p>
+
+                <p class="text-turquoise text-sm font-semibold">
+                    «نظم + تمرکز + عمل = موفقیت»
+                </p>
+
+            </div>
+
+            <!-- ========== ستون ۲: لینک‌های سریع ========== -->
+            <div class="fade-in">
+
+                <h4 class="text-lg font-bold text-white mb-5 relative pb-3">
+                    لینک‌های سریع
+                    <span class="absolute bottom-0 right-0 w-10 h-0.5 bg-turquoise rounded"></span>
+                </h4>
+
+                <ul class="space-y-3">
+                    <li>
+                        <a href="#hero" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-angle-left text-turquoise text-xs"></i>
+                            خانه
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-angle-left text-turquoise text-xs"></i>
+                            درباره من
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-angle-left text-turquoise text-xs"></i>
+                            مهارت‌ها
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-angle-left text-turquoise text-xs"></i>
+                            پروژه‌ها
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#services" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-angle-left text-turquoise text-xs"></i>
+                            خدمات
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-angle-left text-turquoise text-xs"></i>
+                            تماس با من
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- ========== ستون ۳: خدمات ========== -->
+            <div class="fade-in">
+
+                <h4 class="text-lg font-bold text-white mb-5 relative pb-3">
+                    خدمات من
+                    <span class="absolute bottom-0 right-0 w-10 h-0.5 bg-turquoise rounded"></span>
+                </h4>
+
+                <ul class="space-y-3">
+                    <li class="text-grayLight text-sm flex items-center gap-2">
+                        <i class="fas fa-globe text-turquoise text-xs"></i>
+                        طراحی و توسعه وب‌سایت
+                    </li>
+                    <li class="text-grayLight text-sm flex items-center gap-2">
+                        <i class="fas fa-chart-line text-turquoise text-xs"></i>
+                        ساخت نرم‌افزارهای مدیریتی
+                    </li>
+                    <li class="text-grayLight text-sm flex items-center gap-2">
+                        <i class="fas fa-paint-brush text-turquoise text-xs"></i>
+                        طراحی لوگو و هویت بصری
+                    </li>
+                    <li class="text-grayLight text-sm flex items-center gap-2">
+                        <i class="fas fa-bullhorn text-turquoise text-xs"></i>
+                        کمپین‌نویسی و استراتژی فروش
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- ========== ستون ۴: تماس و شبکه‌های اجتماعی ========== -->
+            <div class="fade-in">
+
+                <h4 class="text-lg font-bold text-white mb-5 relative pb-3">
+                    در ارتباط باشیم
+                    <span class="absolute bottom-0 right-0 w-10 h-0.5 bg-turquoise rounded"></span>
+                </h4>
+
+                <!-- اطلاعات تماس -->
+                <ul class="space-y-3 mb-6">
+                    <li>
+                        <a href="mailto:aydin1387tabriz@gmail.com" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-envelope text-turquoise text-xs"></i>
+                            <span dir="ltr">aydin1387tabriz@gmail.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+989301269621" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-phone text-turquoise text-xs"></i>
+                            <span dir="ltr">0930 126 9621</span>
+                        </a>
+                    </li>
+                    <li class="text-grayLight text-sm flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-turquoise text-xs"></i>
+                        تبریز، آذربایجان شرقی
+                    </li>
+                </ul>
+
+                <!-- شبکه‌های اجتماعی -->
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://github.com/programmer-87" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="گیت‌هاب">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aydin-birampour-3086a0417/" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="لینکدین">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/aydinaicode" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="اینستاگرام">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/programmer1837" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="تلگرام">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://wa.me/989301269621" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="واتساپ">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://x.com/Aydinc4av" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="توییتر">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- خط جداکننده -->
+        <div class="border-t border-turquoise/20 pt-6">
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+
+                <!-- کپی‌رایت -->
+                <p class="text-grayLight text-sm text-center md:text-right">
+                    © ۲۰۲۶ <span class="text-turquoise font-semibold">آیدین بیرام پور</span>. تمامی حقوق محفوظ است.
+                </p>
+
+                <!-- طراح سایت -->
+                <p class="text-grayLight text-sm text-center md:text-left">
+                    طراحی و توسعه با <i class="fas fa-heart text-turquoise mx-1"></i> توسط
+                    <a href="https://github.com/programmer-87" target="_blank" class="text-turquoise font-semibold hover:underline">
+                        آیدین بیرام پور
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="assets/JS/main.js"></script>
+
+</body>
 </html>
