@@ -577,3 +577,16 @@ body.menu-open {
         background-position: center;
     }
 }
+
+#bg-3d{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  display:block;
+}
+.navbar, main, footer{position:relative;z-index:1}
+#hero,#about,#skills,#projects,#services,#resume,#contact{background:transparent !important}
+#about,#projects,#resume{background:rgba(17,34,64,.55) !important}
+.hero-overlay{background:linear-gradient(180deg,rgba(10,25,47,.55),rgba(10,25,47,.88)) !important}

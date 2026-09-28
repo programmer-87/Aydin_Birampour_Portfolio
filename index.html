@@ -104,22 +104,24 @@
 </a>
 
 <body>
-
+    <canvas id="bg-3d" aria-hidden="true"></canvas>
     <!-- ========== Hero Section ========== -->
-<section id="hero" class="hero-section min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20">
+    <section id="hero" class="hero-section min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20">
 
     <!-- ویدیو پس‌زمینه -->
-    <video 
+    <!-- <video 
         class="hero-video" 
         autoplay 
         muted 
         loop 
         playsinline 
         >
-        <!-- <source src="assets/background/background.WebM" type="video/WebM"> -->
-        <!-- اگر WebM هم داشتی، این خط را از کامنت دربیار -->
+        
         <source src="assets/background/Background.webm" type="video/webm">
-    </video>
+    </video> -->
+
+    
+    <div class="hero-overlay" aria-hidden="true"></div>
 
     <!-- لایه تیره برای خوانایی متن -->
     <div class="hero-overlay"></div>
@@ -728,7 +730,7 @@
                             <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">bootstrap</span>
                         </div>
                         <div class="flex gap-3">
-                            <a href="#" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
+                            <a href="https://programmer-87.github.io/clothes-Store/" target="_blank" class="text-turquoise text-sm font-semibold hover:underline">
                                 <i class="fas fa-external-link-alt ml-1"></i> مشاهده دمو
                             </a>
                             <a href="#" target="_blank" class="text-grayLight text-sm font-semibold hover:text-turquoise hover:underline">
@@ -1348,9 +1350,9 @@
 
 
 
-<script src="assets/JS/main.js"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/js/bg3d.js"></script>
+<script src="assets/js/main.js"></script>
 
 
 
