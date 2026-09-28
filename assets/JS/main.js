@@ -278,6 +278,9 @@
         handleMobileMenu();
         handleBackToTop();
         handleActiveLink();
+        handleSkillCards();
+        initProjectModal();
+
 
         // لاگ در کنسول (فقط برای توسعه)
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
@@ -294,3 +297,262 @@
 
 })();
 
+
+/* ==========================================================================
+   Skills Section - Intersection Observer
+   ========================================================================== */
+
+/**
+ * نمایش پله‌ای کارت‌های مهارت + پر شدن نوار پیشرفت
+ */
+function handleSkillCards() {
+    const skillCards = document.querySelectorAll('.skill-card');
+    
+    if (!skillCards.length) return;
+
+    // اگه مرورگر از IntersectionObserver پشتیبانی نمی‌کنه، همه رو نشون بده
+    if (!('IntersectionObserver' in window)) {
+        skillCards.forEach(function (card) {
+            card.classList.add('visible');
+        });
+        return;
+    }
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                // تأخیر کوچک برای اطمینان از رندر شدن
+                setTimeout(function () {
+                    entry.target.classList.add('visible');
+                }, 100);
+                
+                obs.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    skillCards.forEach(function (card) {
+        observer.observe(card);
+    });
+}
+
+// اضافه کردن به init
+// در تابع init()، این خط رو اضافه کن:
+// handleSkillCards();
+
+
+/* ==========================================================================
+   Project Modal (Lightbox) - Combined Method
+   ========================================================================== */
+
+function initProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+
+    // انتخاب عناصر
+    const els = {
+        image: document.getElementById('modal-image'),
+        title: document.getElementById('modal-title'),
+        desc: document.getElementById('modal-description'),
+        tags: document.getElementById('modal-tags'),
+        counter: document.getElementById('modal-counter'),
+        dots: document.getElementById('modal-dots'),
+        close: document.getElementById('modal-close'),
+        prev: document.getElementById('modal-prev'),
+        next: document.getElementById('modal-next')
+    };
+
+    let currentProject = null;
+    let currentIndex = 0;
+
+    // ========== توابع اصلی ==========
+
+    function openModal(projectData, index = 0) {
+        if (!projectData) return;
+        currentProject = projectData;
+        currentIndex = index;
+        updateContent();
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+        setTimeout(() => els.close.focus(), 100);
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        currentProject = null;
+        currentIndex = 0;
+    }
+
+    function updateContent() {
+        if (!currentProject) return;
+        const image = currentProject.images[currentIndex];
+
+        // تصویر
+        els.image.classList.add('loading');
+        els.image.src = image.src;
+        els.image.alt = image.alt || currentProject.title;
+        els.image.onload = () => els.image.classList.remove('loading');
+
+        // متن
+        els.title.textContent = currentProject.title;
+        els.desc.textContent = currentProject.description;
+
+        // تگ‌ها
+        els.tags.innerHTML = '';
+        (currentProject.tags || []).forEach(tag => {
+            const span = document.createElement('span');
+            span.textContent = tag;
+            els.tags.appendChild(span);
+        });
+
+        // شمارنده
+        els.counter.textContent = `${currentIndex + 1} / ${currentProject.images.length}`;
+
+        // نقطه‌ها
+        renderDots();
+
+        // دکمه‌های ناوبری
+        const hasMultiple = currentProject.images.length > 1;
+        els.prev.style.display = hasMultiple ? 'flex' : 'none';
+        els.next.style.display = hasMultiple ? 'flex' : 'none';
+        els.dots.style.display = hasMultiple ? 'flex' : 'none';
+    }
+
+    function renderDots() {
+        if (!currentProject) return;
+        els.dots.innerHTML = '';
+        currentProject.images.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'modal-dot' + (i === currentIndex ? ' active' : '');
+            dot.setAttribute('aria-label', `تصویر ${i + 1}`);
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateContent();
+            });
+            els.dots.appendChild(dot);
+        });
+    }
+
+    function nextImage() {
+        if (!currentProject) return;
+        currentIndex = (currentIndex + 1) % currentProject.images.length;
+        updateContent();
+    }
+
+    function prevImage() {
+        if (!currentProject) return;
+        currentIndex = (currentIndex - 1 + currentProject.images.length) % currentProject.images.length;
+        updateContent();
+    }
+
+    // ========== رویدادها ==========
+
+    els.close.addEventListener('click', closeModal);
+    els.next.addEventListener('click', nextImage);
+    els.prev.addEventListener('click', prevImage);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') nextImage();
+        if (e.key === 'ArrowRight') prevImage();
+    });
+
+    // ========== اتصال کارت‌های پروژه ==========
+    // روش ترکیبی: اول data-project، اگه نبود → ترتیب
+
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            const projectKey = card.getAttribute('data-project');
+            const projectData = projectKey
+                ? projectsData[projectKey]
+                : Object.values(projectsData)[index];
+
+            if (projectData) openModal(projectData, 0);
+        });
+    });
+}
+
+// اضافه کردن به init
+// در تابع init()، این خط رو اضافه کن:
+// initProjectModal();
+
+
+/* ==========================================================================
+   Project Data
+   ========================================================================== */
+
+const projectsData = {
+    // ⚠️ کلیدها با data-project کارت‌ها یکسان باشه
+    'logo-1': {
+        title: 'طراحی لوگو',
+        description: 'لوگوی مینیمال برای یک برند شخصی با تمرکز بر سادگی و ماندگاری.',
+        tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+        images: [
+            { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' },
+            { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
+            { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' }
+        ]
+    },
+    'logo-2': {
+        title: 'طراحی لوگو',
+        description: 'لوگوی مینیمال برای یک برند شخصی با تمرکز بر سادگی و ماندگاری.',
+        tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+        images: [
+            { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
+            { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' },
+            { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' }
+        ]
+    },
+    'logo-3': {
+        title: 'طراحی لوگو',
+        description: 'لوگوی مینیمال برای یک برند شخصی با تمرکز بر سادگی و ماندگاری.',
+        tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+        images: [
+            { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' },
+            { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
+            { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' }
+        ]
+    },
+    'card-1': {
+        title: 'کارت ویزیت',
+        description: 'کارت ویزیت دوطرفه برای یک شرکت مشاوره با طراحی مینیمال.',
+        tags: ['Photoshop', 'Print Design'],
+        images: [
+            { src: 'assets/img/projects/card-1.jpg', alt: 'کارت ۱' },
+            { src: 'assets/img/projects/card-2.jpg', alt: 'کارت ۲' }
+        ]
+    },
+    'web-1': {
+        title: 'وب‌سایت کافه خاطرات',
+        description: 'وب‌سایت تک‌صفحه‌ای واکنش‌گرا برای یک کافه با منو، درباره ما و فرم تماس.',
+        tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
+        images: [
+            { src: 'assets/img/projects/web-1.jpg', alt: 'کافه خاطرات' },
+            { src: 'assets/img/projects/web-2.jpg', alt: 'صفحه منو' },
+            { src: 'assets/img/projects/web-3.jpg', alt: 'صفحه تماس' }
+        ]
+    },
+    'software-1': {
+        title: 'نرم‌افزار حسابداری',
+        description: 'سیستم مدیریت مالی برای کسب‌وکارهای کوچک با C# و SQL Server.',
+        tags: ['C#', 'SQL Server', 'Desktop App'],
+        images: [
+            { src: 'assets/img/projects/software-1.jpg', alt: 'نرم‌افزار ۱' },
+            { src: 'assets/img/projects/software-2.jpg', alt: 'نرم‌افزار ۲' }
+        ]
+    }
+};

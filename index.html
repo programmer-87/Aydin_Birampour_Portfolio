@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>آیدین بیرام پور | برنامه نویس نرم افزار</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="png" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="png" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="png" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="png" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
     <!-- فونت وزیرمتن -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 
@@ -104,28 +112,10 @@
 </a>
 
 <body>
-    <canvas id="bg-3d" aria-hidden="true"></canvas>
+
     <!-- ========== Hero Section ========== -->
-    <section id="hero" class="hero-section min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20">
-
-    <!-- ویدیو پس‌زمینه -->
-    <!-- <video 
-        class="hero-video" 
-        autoplay 
-        muted 
-        loop 
-        playsinline 
-        >
-        
-        <source src="assets/background/Background.webm" type="video/webm">
-    </video> -->
-
+<section id="hero" class="hero-section min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20">
     
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <!-- لایه تیره برای خوانایی متن -->
-    <div class="hero-overlay"></div>
-
     <!-- محتوای Hero -->
     <div class="hero-content max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
@@ -180,30 +170,7 @@
 
             <!-- شبکه‌های اجتماعی -->
             <div class="flex flex-wrap gap-6 text-2xl">
-                <a href="https://github.com/programmer-87" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="گیت‌هاب">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/aydin-birampour-3086a0417/" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="لینکدین">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/aydinaicode" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="اینستاگرام">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://t.me/programmer1837" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="تلگرام">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="https://wa.me/989301269621" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="واتساپ">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://x.com/Aydinc4av" target="_blank" class="social-icon text-grayLight transition-all duration-300" title="توییتر">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-                <a href="mailto:aydin1387tabriz@gmail.com" class="social-icon text-grayLight transition-all duration-300" title="ایمیل">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="tel:+989301269621" class="social-icon text-grayLight transition-all duration-300" title="تماس">
-                    <i class="fas fa-phone"></i>
-                </a>
+                <!-- ... آیکون‌های شبکه‌های اجتماعی ... -->
             </div>
 
         </div>
@@ -235,19 +202,19 @@
                 <div class="w-20 h-1 bg-turquoise rounded"></div>
             </div>
 
-            <!-- داستان من -->
+            <!-- پاراگراف ۱: شروع و تحصیلات -->
             <p class="text-grayLight text-lg leading-relaxed mb-6">
-                از بچگی با کامپیوتر قدیمی‌ام وقت می‌گذروندم و در ۱۴ سالگی با کنجکاوی به دنیای کامپیوتر وارد شدم و کم‌کم عاشق کدنویسی شدم. من در هنرستان رشته <span class="text-turquoise">شبکه و نرم افزار</span> خواندم. الان دانشجوی مهندسی نرم‌افزار در <span class="text-turquoise">دانشگاه ملی مهارت شماره ۱ تبریز</span> هستم و مسیرم رو با جدیت ادامه می‌دم.
+                از بچگی با کامپیوتر قدیمی‌ام وقت می‌گذروندم و در ۱۴ سالگی با کنجکاوی به دنیای کامپیوتر وارد شدم. در هنرستان رشته شبکه و نرم‌افزار خواندم و الان دانشجوی مهندسی نرم‌افزار در <span class="text-turquoise">دانشگاه ملی مهارت شماره ۱ تبریز</span> هستم.
             </p>
 
-            <!-- تخصص‌ها -->
+            <!-- پاراگراف ۲: مسیر خودآموز و اولین فروش -->
             <p class="text-grayLight text-lg leading-relaxed mb-6">
-                به جای فقط کدنویسی، اول <span class="text-turquoise">مشکل مشتری رو پیدا و درک می‌کنم</span> و بعد بهترین راه‌حل رو ارائه می‌دم. کیفیت رو فدای سرعت نمی‌کنم و به هر پروژه تمام تمرکزم رو می‌ذارم.
+                وقتی شروع کردم، وضع مالی خانواده‌ام اجازه نداد در کلاس‌های حضوری شرکت کنم. اما این مانع، من رو متوقف نکرد. <span class="text-turquoise">از اینترنت به‌صورت رایگان آموزش دیدم، روزی ۷ ساعت تمرین می‌کردم و یک سال بی‌وقفه تلاش کردم.</span> نتیجه‌ی این تلاش، ساخت اولین محصولم بود: یک <span class="text-turquoise">نرم‌افزار مدیریت کالا با C# و SQL Server 2012</span> که آن را به بقالی محله‌مان فروختم. از همان‌جا یاد گرفتم که هر مهارتی، وقتی به محصول قابل فروش تبدیل شود، ارزش واقعی‌اش را نشان می‌دهد.
             </p>
 
-            <!-- در حال یادگیری -->
+            <!-- پاراگراف ۳: امروز و رویکرد کاری -->
             <p class="text-grayLight text-lg leading-relaxed mb-8">
-                در حال حاضر مشغول یادگیری <span class="text-turquoise">هوش مصنوعی</span> با ترکیب نرم‌افزارهای اتوماسیونی کسب‌وکارها هستم.
+                امروز بعد از ۳ سال تلاش مستمر و خودآموز، <span class="text-turquoise">یک ایده را در کمترین زمان به یک محصول قابل فروش تبدیل می‌کنم.</span> به جای فقط کدنویسی، اول مشکل مشتری را درک می‌کنم و کیفیت را فدای سرعت نمی‌کنم. در حال حاضر هم مشغول یادگیری <span class="text-turquoise">هوش مصنوعی</span> با ترکیب نرم‌افزارهای اتوماسیونی کسب‌وکارها هستم.
             </p>
 
             <!-- اطلاعات سریع -->
@@ -332,16 +299,16 @@
         </div>
 
         <!-- گرید کارت‌های مهارت -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
 
             <!-- کارت ۱: توسعه وب -->
-            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+            <div class="skill-card fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
 
                 <div class="flex items-center gap-4 mb-8">
                     <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
                         <i class="fas fa-code text-turquoise text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold">توسعه وب</h3>
+                    <h3 class="text-2xl font-bold">توسعه وب (فول استک)</h3>
                 </div>
 
                 <!-- HTML -->
@@ -350,6 +317,7 @@
                         <span class="text-white font-medium">HTML</span>
                         <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
                     </div>
+                    
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
                         <div class="h-full bg-turquoise rounded-full" style="width: 95%"></div>
                     </div>
@@ -358,7 +326,7 @@
                 <!-- CSS -->
                 <div class="mb-6">
                     <div class="flex justify-between mb-2">
-                        <span class="text-white font-medium">CSS5</span>
+                        <span class="text-white font-medium">CSS</span>
                         <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
@@ -373,7 +341,7 @@
                         <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                        <div class="h-full bg-turquoise rounded-full" style="width: 95%"></div>
                     </div>
                 </div>
 
@@ -384,25 +352,69 @@
                         <span class="text-grayLight text-sm font-semibold">متوسط</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                        <div class="h-full bg-grayLight rounded-full" style="width: 55%"></div>
                     </div>
                 </div>
 
                 <!-- Tailwind -->
-                <div class="mb-0">
+                <div class="mb-6">
                     <div class="flex justify-between mb-2">
                         <span class="text-white font-medium">Tailwind CSS</span>
                         <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                        <div class="h-full bg-turquoise rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                            <!-- Node.js -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Node.js</span>
+                        <span class="text-turquoise text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- Express.js -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Express.js</span>
+                        <span class="text-turquoise text-sm font-semibold">مبتدی</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight opacity-60 rounded-full" style="width: 35%"></div>
+                    </div>
+                </div>
+
+                <!-- Django -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Django</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- SQL Server -->
+                <div class="mb-0">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">SQL Server</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight rounded-full" style="width: 60%"></div>
                     </div>
                 </div>
 
             </div>
 
             <!-- کارت ۲: توسعه نرم‌افزار -->
-            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+            <div class="skill-card fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
 
                 <div class="flex items-center gap-4 mb-8">
                     <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
@@ -437,28 +449,39 @@
                 <div class="mb-6">
                     <div class="flex justify-between mb-2">
                         <span class="text-white font-medium">C++</span>
-                        <span class="text-grayLight text-sm font-semibold">مبتدی</span>
+                        <span class="text-grayLight text-sm font-semibold">متوسط</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-grayLight rounded-full" style="width: 35%"></div>
+                        <div class="h-full bg-grayLight rounded-full" style="width: 50%"></div>
                     </div>
                 </div>
 
                 <!-- SQL Server -->
-                <div class="mb-0">
+                <div class="mb-6">
                     <div class="flex justify-between mb-2">
                         <span class="text-white font-medium">SQL Server 2022</span>
                         <span class="text-grayLight text-sm font-semibold">متوسط</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                        <div class="h-full bg-grayLight rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="mb-0">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-white font-medium">Java</span>
+                        <span class="text-grayLight text-sm font-semibold">مبتدی</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-grayLight opacity-60 rounded-full" style="width: 35%"></div>
                     </div>
                 </div>
 
             </div>
 
             <!-- کارت ۳: طراحی گرافیک -->
-            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+            <div class="skill-card fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
 
                 <div class="flex items-center gap-4 mb-8">
                     <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
@@ -474,7 +497,7 @@
                         <span class="text-turquoise text-sm font-semibold">پیشرفته</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                        <div class="h-full bg-turquoise rounded-full" style="width: 95%"></div>
                     </div>
                 </div>
 
@@ -485,25 +508,36 @@
                         <span class="text-grayLight text-sm font-semibold">پیشرفته</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                        <div class="h-full bg-turquoise rounded-full" style="width: 95%"></div>
                     </div>
                 </div>
 
                 <!-- Figma -->
-                <div class="mb-0">
+                <div class="mb-6">
                     <div class="flex justify-between mb-2">
                         <span class="text-white font-medium">Figma</span>
                         <span class="text-grayLight text-sm font-semibold">متوسط</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                        <div class="h-full bg-grayLight rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <!-- AI -->
+                <div class="mb-0">
+                    <div class="flex justify-between mb-3">
+                        <span class="text-white font-medium">AI</span>
+                        <span class="text-grayLight text-sm font-semibold">پیشرفته</span>
+                    </div>
+                    <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
+                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
                     </div>
                 </div>
 
             </div>
 
             <!-- کارت ۴: کمپین‌نویسی و فروش -->
-            <div class="fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
+            <div class="skill-card fade-in bg-navyLight rounded-2xl p-8 border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl">
 
                 <div class="flex items-center gap-4 mb-8">
                     <div class="w-14 h-14 rounded-xl bg-turquoise/10 flex items-center justify-center">
@@ -552,7 +586,7 @@
                         <span class="text-grayLight text-sm font-semibold">متوسط</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-grayLight rounded-full" style="width: 65%"></div>
+                        <div class="h-full bg-grayLight rounded-full" style="width: 60%"></div>
                     </div>
                 </div>
 
@@ -563,7 +597,7 @@
                         <span class="text-grayLight text-sm font-semibold">پیشرفته</span>
                     </div>
                     <div class="w-full h-2 bg-navy rounded-full overflow-hidden">
-                        <div class="h-full bg-turquoise rounded-full" style="width: 90%"></div>
+                        <div class="h-full bg-turquoise rounded-full" style="width: 85%"></div>
                     </div>
                 </div>
 
@@ -591,7 +625,22 @@
             </p>
         </div>
 
-        <!-- ========== دسته ۱: طراحی گرافیک (لوگو و کارت ویزیت) ========== -->
+        <!-- نمونه: کارت پروژه‌ی طراحی لوگو
+<div data-project="logo-1" class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+        <img src="assets/img/projects/logo-1.jpg" alt="طراحی لوگو" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+    </div>
+    <div class="p-6">
+        <h4 class="text-xl font-bold mb-2">طراحی لوگو</h4>
+        <p class="text-grayLight text-sm mb-4">لوگوی مینیمال برای یک برند شخصی</p>
+        <div class="flex flex-wrap gap-2">
+            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Illustrator</span>
+            <span class="text-xs bg-turquoise/10 text-turquoise px-3 py-1 rounded-full">Branding</span>
+        </div>
+    </div>
+</div> -->
+        
+<!-- ========== دسته ۱: طراحی گرافیک (لوگو و کارت ویزیت) ========== -->
         <div class="mb-20">
 
             <div class="flex items-center gap-4 mb-10">
@@ -604,8 +653,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- پروژه ۱ -->
-                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
-                    <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
+                        <div data-project="logo-1" class="project-card fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                        <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
                         <img src="assets/img/logo_1.jpg" alt="طراحی لوگو ۱" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6">
@@ -619,7 +668,7 @@
                 </div>
 
                 <!-- پروژه ۲ -->
-                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                <div data-project="logo-2" class="project-card fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
                     <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
                         <img src="assets/img/logo_2.jpg" alt="طراحی لوگو ۲" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -635,7 +684,7 @@
                 </div>
 
                 <!-- پروژه ۳ -->
-                <div class="fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
+                <div data-project="logo-3" class="project-card fade-in bg-navy rounded-2xl overflow-hidden border border-turquoise/20 hover:border-turquoise/60 transition-all duration-300 shadow-xl group">
                     <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden">
                         <img src="assets/img/logo_3.jpg" alt="طراحی بنر تبلیغاتی" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -1073,7 +1122,7 @@
                     </div>
                     <div>
                         <p class="text-grayLight text-sm mb-1">موقعیت</p>
-                        <p class="text-white font-semibold">تبریز، آذربایجان شرقی، ایران</p>
+                        <p class="text-white font-semibold">ایران، آذربایجان شرقی، تبریز</p>
                     </div>
                 </div>
 
@@ -1099,9 +1148,9 @@
                     <a href="https://x.com/Aydinc4av" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="توییتر">
                         <i class="fab fa-x-twitter text-xl"></i>
                     </a>
-                    <a href="https://wa.me/989301269621" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="واتساپ">
+                    <!-- <a href="https://wa.me/989301269621" target="_blank" class="social-icon w-12 h-12 rounded-lg bg-navy border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="واتساپ">
                         <i class="fab fa-whatsapp text-xl"></i>
-                    </a>
+                    </a> -->
                 </div>
 
             </div>
@@ -1292,7 +1341,7 @@
                     </li>
                     <li class="text-grayLight text-sm flex items-center gap-2">
                         <i class="fas fa-map-marker-alt text-turquoise text-xs"></i>
-                        تبریز، آذربایجان شرقی
+                        آذربایجان شرقی، تبریز
                     </li>
                 </ul>
 
@@ -1310,9 +1359,9 @@
                     <a href="https://t.me/programmer1837" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="تلگرام">
                         <i class="fab fa-telegram"></i>
                     </a>
-                    <a href="https://wa.me/989301269621" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="واتساپ">
+                    <!-- <a href="https://wa.me/989301269621" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="واتساپ">
                         <i class="fab fa-whatsapp"></i>
-                    </a>
+                    </a> -->
                     <a href="https://x.com/Aydinc4av" target="_blank" class="w-9 h-9 rounded-lg bg-navyLight border border-turquoise/20 hover:border-turquoise/60 flex items-center justify-center text-grayLight hover:text-turquoise transition-all duration-300" title="توییتر">
                         <i class="fab fa-x-twitter"></i>
                     </a>
@@ -1350,11 +1399,52 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="assets/js/bg3d.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/js/bg3d.js"></script> -->
 <script src="assets/js/main.js"></script>
 
 
+<!-- ========== Project Modal ========== -->
+<div id="project-modal" class="modal-overlay">
+
+    <div class="modal-container">
+
+        <!-- دکمه بستن -->
+        <button class="modal-close" id="modal-close" aria-label="بستن">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- دکمه قبلی -->
+        <button class="modal-nav modal-prev" id="modal-prev" aria-label="قبلی">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- دکمه بعدی -->
+        <button class="modal-nav modal-next" id="modal-next" aria-label="بعدی">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- تصویر اصلی -->
+        <div class="modal-image-wrapper">
+            <img src="" alt="" id="modal-image" class="modal-image">
+        </div>
+
+        <!-- توضیحات -->
+        <div class="modal-info">
+            <h3 id="modal-title" class="modal-title"></h3>
+            <p id="modal-description" class="modal-description"></p>
+            <div id="modal-tags" class="modal-tags"></div>
+            <div class="modal-counter">
+                <span id="modal-counter"></span>
+            </div>
+        </div>
+
+        <!-- نقطه‌های ناوبری -->
+        <div class="modal-dots" id="modal-dots"></div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

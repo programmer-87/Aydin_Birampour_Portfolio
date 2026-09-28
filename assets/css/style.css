@@ -519,34 +519,7 @@ body.menu-open {
 
 
 
-/* ==========================================================================
-   Hero Section with Video Background
-   ========================================================================== */
 
-.hero-section {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #0A192F; /* رنگ پشتیبان در صورت لود نشدن ویدیو */
-}
-
-/* ویدیو پس‌زمینه */
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 1;
-}
 
 /* لایه تیره برای خوانایی متن */
 .hero-overlay {
@@ -578,7 +551,508 @@ body.menu-open {
     }
 }
 
-#bg-3d{
+
+/* ==========================================================================
+   Hero Background - Gradient Mesh + Grid + Noise
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0D0D0D;
+}
+
+/* لایه ۱: Gradient Mesh اصلی (طلایی + آبی محو) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(
+            ellipse 80% 60% at 20% 30%,
+            rgba(212, 175, 55, 0.18) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse 70% 50% at 80% 70%,
+            rgba(100, 255, 218, 0.10) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse 100% 80% at 50% 100%,
+            rgba(212, 175, 55, 0.08) 0%,
+            transparent 60%
+        );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* لایه ۲: شبکه‌ی ظریف طلایی (Subtle Grid) */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 2;
+    pointer-events: none;
+    mask-image: radial-gradient(
+        ellipse 80% 80% at 50% 50%,
+        black 30%,
+        transparent 90%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse 80% 80% at 50% 50%,
+        black 30%,
+        transparent 90%
+    );
+}
+
+/* محتوای Hero */
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+/* ==========================================================================
+   انیمیشن ملایم برای Gradient (اختیاری)
+   ========================================================================== */
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%, 100% 100%, 50% 100%;
+    }
+    50% {
+        background-position: 20% 10%, 80% 90%, 50% 90%;
+    }
+    100% {
+        background-position: 0% 0%, 100% 100%, 50% 100%;
+    }
+}
+
+.hero-section::before {
+    background-size: 200% 200%, 200% 200%, 200% 200%;
+    animation: gradientShift 20s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   برای کاربرانی که انیمیشن نمی‌خواهند
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-section::before {
+        animation: none;
+    }
+}
+
+.skill-progress-fill {
+    width: 100%; /* ← به جای width: 0 */
+    height: 100%;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+    transform: scaleX(0);           /* ← شروع از صفر */
+    transform-origin: right center; /* ← از راست به چپ (RTL) */
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card.visible .skill-progress-fill {
+    transform: scaleX(calc(var(--progress-width) / 100)); /* ← پر شدن */
+}
+
+/* ==========================================================================
+   Skill Progress Bar (Animated)
+   ========================================================================== */
+
+/* کانتینر نوار پیشرفت */
+.skill-progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #0A192F;
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* نوار پیشرفت */
+.skill-progress-fill {
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+    
+    /* انیمیشن از صفر تا مقدار */
+    transform: scaleX(0);
+    transform-origin: right center; /* برای RTL */
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card.visible .skill-progress-fill {
+    transform: scaleX(calc(var(--progress-width) / 100));
+}
+
+/* درخشش روی نوار پیشرفت هنگام پر شدن */
+.skill-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* کارت مهارت */
+.skill-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    
+    min-width: 0;    /* ← جلوگیری از سرریز */
+    flex: 1 1 0;     /* ← عرض مساوی */
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* تأخیر پله‌ای */
+.skill-card:nth-child(1) { transition-delay: 0s; }
+.skill-card:nth-child(2) { transition-delay: 0.15s; }
+.skill-card:nth-child(3) { transition-delay: 0.3s; }
+.skill-card:nth-child(4) { transition-delay: 0.45s; }
+
+/* درخشش طلایی روی کارت */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(212, 175, 55, 0.15) 50%,
+        transparent 60%,
+        transparent 100%
+    );
+    transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.skill-card:hover::before {
+    left: 100%;
+}
+
+.skill-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+
+/* ==========================================================================
+   Project Modal (Lightbox)
+   ========================================================================== */
+
+/* پس‌زمینه مودال */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 9999;
+
+    /* حالت مخفی */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* کانتینر مودال */
+.modal-container {
+    position: relative;
+    background-color: #1A1A1A;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 1.5rem;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+    /* انیمیشن ورود */
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1);
+}
+
+/* دکمه بستن */
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background-color: #D4AF37;
+    color: #0D0D0D;
+    transform: rotate(90deg);
+}
+
+/* دکمه‌های ناوبری */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-size: 1.25rem;
+}
+
+.modal-nav:hover {
+    background-color: #D4AF37;
+    color: #0D0D0D;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev {
+    right: 1rem;
+}
+
+.modal-next {
+    left: 1rem;
+}
+
+/* تصویر */
+.modal-image-wrapper {
+    width: 100%;
+    background-color: #0D0D0D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.modal-image.loading {
+    opacity: 0.3;
+}
+
+/* اطلاعات */
+.modal-info {
+    padding: 1.5rem 2rem 2rem;
+    text-align: right;
+    direction: rtl;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.75rem;
+}
+
+.modal-description {
+    font-size: 1rem;
+    color: #A0A0A0;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-tags span {
+    font-size: 0.75rem;
+    background-color: rgba(212, 175, 55, 0.15);
+    color: #D4AF37;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.modal-counter {
+    text-align: center;
+    color: #A0A0A0;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* نقطه‌های ناوبری */
+.modal-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.modal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.modal-dot:hover {
+    background-color: rgba(212, 175, 55, 0.6);
+}
+
+.modal-dot.active {
+    background-color: #D4AF37;
+    width: 24px;
+    border-radius: 9999px;
+}
+
+/* جلوگیری از اسکرول پس‌زمینه وقتی مودال بازه */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .modal-container {
+        max-height: 95vh;
+        border-radius: 1rem;
+    }
+
+    .modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .modal-prev {
+        right: 0.5rem;
+    }
+
+    .modal-next {
+        left: 0.5rem;
+    }
+
+    .modal-close {
+        width: 35px;
+        height: 35px;
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+
+    .modal-info {
+        padding: 1rem 1.25rem 1.5rem;
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    .modal-description {
+        font-size: 0.9rem;
+    }
+
+    .modal-image {
+        max-height: 50vh;
+    }
+}
+
+/* .hero-section {
+    background-image: 
+        linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.95)),
+        url('assets/img/header.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+} */
+
+/* #bg-3d{
   position:fixed;
   inset:0;
   width:100%;
@@ -589,4 +1063,5 @@ body.menu-open {
 .navbar, main, footer{position:relative;z-index:1}
 #hero,#about,#skills,#projects,#services,#resume,#contact{background:transparent !important}
 #about,#projects,#resume{background:rgba(17,34,64,.55) !important}
-.hero-overlay{background:linear-gradient(180deg,rgba(10,25,47,.55),rgba(10,25,47,.88)) !important}
+.hero-overlay{background:linear-gradient(180deg,rgba(10,25,47,.55),rgba(10,25,47,.88)) !important} */
+
