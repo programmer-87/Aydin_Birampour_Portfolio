@@ -1,0 +1,15 @@
+# تنظیم پایان خط برای همه فایل‌های متنی
+* text=auto eol=lf
+
+# فایل‌های باینری
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webm binary
+*.mp4 binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
