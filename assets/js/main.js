@@ -499,7 +499,7 @@ const projectsData = {
     // ⚠️ کلیدها با data-project کارت‌ها یکسان باشه
     'logo-1': {
         title: 'طراحی لوگو',
-        description: 'لوگوی مینیمال برای یک برند شخصی با تمرکز بر سادگی و ماندگاری.',
+        description: 'لوگوی خاص برای یک رستوران بنام آویژه',
         tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
         images: [
             { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' },
@@ -509,7 +509,7 @@ const projectsData = {
     },
     'logo-2': {
         title: 'طراحی لوگو',
-        description: 'لوگوی مینیمال برای یک برند شخصی با تمرکز بر سادگی و ماندگاری.',
+        description: 'لوگوی شخصی سازی شده برای یک دکتر متخصص',
         tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
         images: [
             { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
@@ -519,31 +519,37 @@ const projectsData = {
     },
     'logo-3': {
         title: 'طراحی لوگو',
-        description: 'لوگوی مینیمال برای یک برند شخصی با تمرکز بر سادگی و ماندگاری.',
-        tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+        description: 'بنر تبلیغاتی برای یک آرایشگاه',
+        tags: ['Illustrator', 'Logo Design', 'Photoshop'],
         images: [
             { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' },
             { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
             { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' }
         ]
     },
-    'card-1': {
-        title: 'کارت ویزیت',
-        description: 'کارت ویزیت دوطرفه برای یک شرکت مشاوره با طراحی مینیمال.',
-        tags: ['Photoshop', 'Print Design'],
-        images: [
-            { src: 'assets/img/projects/card-1.jpg', alt: 'کارت ۱' },
-            { src: 'assets/img/projects/card-2.jpg', alt: 'کارت ۲' }
-        ]
-    },
+
     'web-1': {
         title: 'وب‌سایت کافه خاطرات',
         description: 'وب‌سایت تک‌صفحه‌ای واکنش‌گرا برای یک کافه با منو، درباره ما و فرم تماس.',
         tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
         images: [
-            { src: 'assets/img/projects/web-1.jpg', alt: 'کافه خاطرات' },
-            { src: 'assets/img/projects/web-2.jpg', alt: 'صفحه منو' },
-            { src: 'assets/img/projects/web-3.jpg', alt: 'صفحه تماس' }
+            { src: 'assets/img/cafe_khatrat.jpg', alt: 'کافه خاطرات' }
+        ]
+    },
+    'web-2': {
+        title: 'پروژه فروشگاه لوازم',
+        description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند (Node.js، Django، Laravel) است.',
+        tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind', 'bootstrap'],
+        images: [
+            { src: 'assets/img/store.jpg', alt: 'فروشگاه لوازم' }
+        ]
+    },
+    'web-3': {
+        title: 'وبسایت فروشگاه لباس',
+        description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند است.',
+        tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind',  'bootstrap'],
+        images: [
+            { src: 'assets/img/store_clothes.jpg', alt: 'فروشگاه لباس' }
         ]
     },
     'software-1': {
