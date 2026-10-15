@@ -492,73 +492,525 @@ function initProjectModal() {
 
 
 /* ==========================================================================
-   Project Data
+   Campaign Modal - Instagram Phone Mockup
+   ==========================================================================
+   مدیریت مودال، ناوبری بین پست‌ها، لایک، نقطه‌ها و کیبورد
    ========================================================================== */
 
-const projectsData = {
-    // ⚠️ کلیدها با data-project کارت‌ها یکسان باشه
-    'logo-1': {
-        title: 'طراحی لوگو',
-        description: 'لوگوی خاص برای یک رستوران بنام آویژه',
-        tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
-        images: [
-            { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' },
-            { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
-            { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' }
-        ]
-    },
-    'logo-2': {
-        title: 'طراحی لوگو',
-        description: 'لوگوی شخصی سازی شده برای یک دکتر متخصص',
-        tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
-        images: [
-            { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
-            { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' },
-            { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' }
-        ]
-    },
-    'logo-3': {
-        title: 'طراحی لوگو',
-        description: 'بنر تبلیغاتی برای یک آرایشگاه',
-        tags: ['Illustrator', 'Logo Design', 'Photoshop'],
-        images: [
-            { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' },
-            { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' },
-            { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' }
-        ]
-    },
+document.addEventListener('DOMContentLoaded', function () {
 
-    'web-1': {
-        title: 'وب‌سایت کافه خاطرات',
-        description: 'وب‌سایت تک‌صفحه‌ای واکنش‌گرا برای یک کافه با منو، درباره ما و فرم تماس.',
-        tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
-        images: [
-            { src: 'assets/img/cafe_khatrat.jpg', alt: 'کافه خاطرات' }
-        ]
-    },
-    'web-2': {
-        title: 'پروژه فروشگاه لوازم',
-        description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند (Node.js، Django، Laravel) است.',
-        tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind', 'bootstrap'],
-        images: [
-            { src: 'assets/img/store.jpg', alt: 'فروشگاه لوازم' }
-        ]
-    },
-    'web-3': {
-        title: 'وبسایت فروشگاه لباس',
-        description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند است.',
-        tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind',  'bootstrap'],
-        images: [
-            { src: 'assets/img/store_clothes.jpg', alt: 'فروشگاه لباس' }
-        ]
-    },
-    'software-1': {
-        title: 'نرم‌افزار حسابداری',
-        description: 'سیستم مدیریت مالی برای کسب‌وکارهای کوچک با C# و SQL Server.',
-        tags: ['C#', 'SQL Server', 'Desktop App'],
-        images: [
-            { src: 'assets/img/projects/software-1.jpg', alt: 'نرم‌افزار ۱' },
-            { src: 'assets/img/projects/software-2.jpg', alt: 'نرم‌افزار ۲' }
-        ]
+    // ======================================================================
+    // ۱. داده‌های پروژه‌ها
+    // ======================================================================
+
+    const projectsData = {
+        // فقط مطمئن شو هر پروژه یه فیلد `type` داره:
+        // type: 'project' (پیش‌فرض) یا type: 'campaign'
+
+            'logo-1': {
+            title: 'طراحی لوگو',
+            description: 'لوگوی خاص برای یک رستوران بنام آویژه',
+            tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' }
+            ]
+        },
+        'logo-2': {
+            title: 'طراحی لوگو',
+            description: 'لوگوی شخصی سازی شده برای یک دکتر متخصص',
+            tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' }
+            ]
+        },
+        'logo-3': {
+            title: 'طراحی لوگو',
+            description: 'بنر تبلیغاتی برای یک آرایشگاه',
+            tags: ['Illustrator', 'Logo Design', 'Photoshop'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' }
+            ]
+        },
+
+        'web-1': {
+            title: 'وب‌سایت کافه خاطرات',
+            description: 'وب‌سایت تک‌صفحه‌ای واکنش‌گرا برای یک کافه با منو، درباره ما و فرم تماس.',
+            tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/cafe_khatrat.jpg', alt: 'کافه خاطرات' }
+            ]
+        },
+        'web-2': {
+            title: 'پروژه فروشگاه لوازم',
+            description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند (Node.js، Django، Laravel) است.',
+            tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind', 'bootstrap'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/store.jpg', alt: 'فروشگاه لوازم' }
+            ]
+        },
+        'web-3': {
+            title: 'وبسایت فروشگاه لباس',
+            description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند است.',
+            tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind',  'bootstrap'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/store_clothes.jpg', alt: 'فروشگاه لباس' }
+            ]
+        },
+
+        'software-1': {
+            title: 'نرم‌افزار حسابداری',
+            description: 'سیستم مدیریت مالی برای کسب‌وکارهای کوچک با C# و SQL Server.',
+            tags: ['C#', 'SQL Server', 'Desktop App'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/software/1_2.png', alt: 'نرم‌افزار ۱' }
+            ]
+        },
+        'software-2': {
+            title: 'نرم‌افزار اتوماسیون',
+            description: 'اتوماسیون فرآیندهای تکراری کسب‌وکار',
+            tags: ['Python', 'SQL Server', 'Desktop App'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/software/2_1.png', alt: 'نرم‌افزار ۲' }
+            ]
+        },
+        'software-3': {
+            title: 'نرم‌افزار مدیریتی',
+            description: 'سیستم مدیریت انبار و فروش',
+            tags: ['C#', 'SQL Server', 'Desktop App'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/software/1_1.png', alt: 'نرم‌افزار ۳' }
+            ]
+        },
+
+        'campaign-1': {
+            title: 'کمپین فروش آیدین استایل',
+            description: 'طراحی و اجرای کمپین ۷ روزه برای یک فروشگاه لباس مردانه — افزایش ۴۰٪ فروش و ۱۶۲٪ فالوور.',
+            tags: ['Copywriting', 'Sales Strategy', 'Sales Funnel'],
+            type: 'campaign',
+            images: [
+                { src: 'assets/img/campaign/1.jpg', alt: 'پست ۱' }
+            ]
+        }
+
+    };
+
+    // ======================================================================
+    // ۲. داده‌های پست‌های کمپین
+    // ======================================================================
+
+    const campaignPosts = [
+        // ========== روز ۱: اعتمادسازی ==========
+        {
+            day: 1,
+            dayLabel: 'روز ۱ — اعتمادسازی',
+            image: 'assets/img/campaign/1.jpg',
+            caption: `سلام، من آیدینم. 👋
+
+۳ ساله که توی دنیای پوشاک مردانه‌ام. ولی یه چیزی که همیشه آزارم می‌داد این بود:
+
+«چرا خرید یه لباس شیک باید اینقدر سخت باشه؟»
+
+برای همین تصمیم گرفتم یه فروشگاه بسازم که این مشکل رو حل کنه.
+
+اسمش «آیدین استایل»ه.
+
+اینجا قراره با هم بیشتر آشنا بشیم. 😊`,
+            hashtags: ['#آیدین_استایل', '#معرفی', '#پوشاک_مردانه', '#تبریز'],
+            likes: 1247,
+            date: '۱ روز پیش'
+        },
+        {
+            day: 1,
+            dayLabel: 'روز ۱ — اعتمادسازی',
+            image: 'assets/img/campaign/2.jpg',
+            caption: `یادم میاد روز اولی که فروشگاه رو باز کردم، فقط ۱۰ تا پیراهن داشتم.
+
+ولی یه باور داشتم:
+
+«اگه کیفیت خوب بدی، مشتری خودش برمی‌گرده.»
+
+امروز بعد از ۳ سال، صدها مشتری راضی دارم و هر روز بیشتر یاد می‌گیرم.
+
+این مسیر، مسیر عشقه. ❤️`,
+            hashtags: ['#آیدین_استایل', '#داستان_من', '#کارآفرینی'],
+            likes: 892,
+            date: '۱ روز پیش'
+        },
+        {
+            day: 1,
+            dayLabel: 'روز ۱ — اعتمادسازی',
+            image: 'assets/img/campaign/3.jpg',
+            caption: `۳ چیزی که توی آیدین استایل هیچوقت تغییر نمی‌کنه:
+
+🤝 صداقت — اگه لباسی بهت نخوره، بی‌سوال عوض می‌کنیم.
+⭐ کیفیت — لباسی می‌فروشیم که خودمون می‌پوشیم.
+🚀 سرعت — سفارشت رو همون روز آماده می‌کنیم.
+
+این تعهد ماست.`,
+            hashtags: ['#آیدین_استایل', '#تعهد', '#ارزش‌ها'],
+            likes: 1534,
+            date: '۱ روز پیش'
+        },
+        {
+            day: 1,
+            dayLabel: 'روز ۱ — اعتمادسازی',
+            image: 'assets/img/campaign/4.jpg',
+            caption: `یه خبر خوب برای مردهای شیک‌پوش تبریز... 👔
+
+ما یه ست کامل آماده کردیم که استایلت رو متحول می‌کنه.
+
+یه ترکیب خاص، با یه قیمت خاص.
+
+ولی فعلاً هیچی نمی‌گیم. 😉
+
+فردا همه چیز رو می‌فهمی.`,
+            hashtags: ['#آیدین_استایل', '#به_زودی', '#منتظر_باش'],
+            likes: 2103,
+            date: '۱ روز پیش'
+        }
+    ];
+
+    // ======================================================================
+    // ۳. مودال پروژه (Project Modal)
+    // ======================================================================
+
+    function initProjectModal() {
+        const modal = document.getElementById('project-modal');
+        if (!modal) return;
+
+        const els = {
+            image: document.getElementById('modal-image'),
+            title: document.getElementById('modal-title'),
+            desc: document.getElementById('modal-description'),
+            tags: document.getElementById('modal-tags'),
+            counter: document.getElementById('modal-counter'),
+            dots: document.getElementById('modal-dots'),
+            close: document.getElementById('modal-close'),
+            prev: document.getElementById('modal-prev'),
+            next: document.getElementById('modal-next')
+        };
+
+        let currentProject = null;
+        let currentIndex = 0;
+
+        function openModal(projectData, index = 0) {
+            if (!projectData) return;
+            currentProject = projectData;
+            currentIndex = index;
+            updateContent();
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+            setTimeout(() => els.close.focus(), 100);
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            currentProject = null;
+            currentIndex = 0;
+        }
+
+        function updateContent() {
+            if (!currentProject) return;
+            const image = currentProject.images[currentIndex];
+
+            els.image.classList.add('loading');
+            els.image.src = image.src;
+            els.image.alt = image.alt || currentProject.title;
+            els.image.onload = () => els.image.classList.remove('loading');
+
+            els.title.textContent = currentProject.title;
+            els.desc.textContent = currentProject.description;
+
+            els.tags.innerHTML = '';
+            (currentProject.tags || []).forEach(tag => {
+                const span = document.createElement('span');
+                span.textContent = tag;
+                els.tags.appendChild(span);
+            });
+
+            els.counter.textContent = `${currentIndex + 1} / ${currentProject.images.length}`;
+            renderDots();
+
+            const hasMultiple = currentProject.images.length > 1;
+            els.prev.style.display = hasMultiple ? 'flex' : 'none';
+            els.next.style.display = hasMultiple ? 'flex' : 'none';
+            els.dots.style.display = hasMultiple ? 'flex' : 'none';
+        }
+
+        function renderDots() {
+            if (!currentProject) return;
+            els.dots.innerHTML = '';
+            currentProject.images.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'modal-dot' + (i === currentIndex ? ' active' : '');
+                dot.setAttribute('aria-label', `تصویر ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateContent();
+                });
+                els.dots.appendChild(dot);
+            });
+        }
+
+        function nextImage() {
+            if (!currentProject) return;
+            currentIndex = (currentIndex + 1) % currentProject.images.length;
+            updateContent();
+        }
+
+        function prevImage() {
+            if (!currentProject) return;
+            currentIndex = (currentIndex - 1 + currentProject.images.length) % currentProject.images.length;
+            updateContent();
+        }
+
+        els.close.addEventListener('click', closeModal);
+        els.next.addEventListener('click', nextImage);
+        els.prev.addEventListener('click', prevImage);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') nextImage();
+            if (e.key === 'ArrowRight') prevImage();
+        });
+
+        // ==================================================================
+        // اتصال کارت‌های پروژه (با شرط type)
+        // ==================================================================
+
+        const projectCards = document.querySelectorAll('.project-card');
+
+        projectCards.forEach((card, index) => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                const projectKey = card.getAttribute('data-project');
+                const projectData = projectKey
+                    ? projectsData[projectKey]
+                    : Object.values(projectsData)[index];
+
+                if (!projectData) return;
+
+                // ⭐ شرط اصلی: اگه پروژه از نوع campaign باشه، مودال کمپین باز بشه
+                if (projectData.type === 'campaign') {
+                    closeModal();
+                    if (window.CampaignModal && typeof window.CampaignModal.open === 'function') {
+                        window.CampaignModal.open(0);
+                    }
+                } else {
+                    openModal(projectData, 0);
+                }
+            });
+        });
     }
-};
+
+    // ======================================================================
+    // ۴. مودال کمپین (Campaign Modal)
+    // ======================================================================
+
+    function initCampaignModal() {
+        const modal = document.getElementById('campaign-modal');
+        if (!modal) return;
+
+        const closeBtn = document.getElementById('campaign-modal-close');
+        const prevBtn = document.getElementById('campaign-prev');
+        const nextBtn = document.getElementById('campaign-next');
+        const postImage = document.getElementById('insta-post-image');
+        const captionText = document.getElementById('insta-caption-text');
+        const hashtagsContainer = document.querySelector('.insta-hashtags');
+        const likesElement = document.querySelector('.insta-likes strong');
+        const dateElement = document.getElementById('insta-post-date');
+        const postCounter = document.getElementById('campaign-post-counter');
+        const dayLabel = document.getElementById('campaign-day-label');
+        const dotsContainer = document.getElementById('campaign-dots');
+        const likeBtn = document.querySelector('.insta-action-btn[aria-label="لایک"]');
+
+        let currentIndex = 0;
+        let likedPosts = new Set();
+
+        function openModal(index = 0) {
+            currentIndex = index;
+            updatePost();
+            modal.classList.add('active');
+            document.body.classList.add('campaign-modal-open');
+            setTimeout(() => closeBtn.focus(), 100);
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.classList.remove('campaign-modal-open');
+        }
+
+        function updatePost() {
+            const post = campaignPosts[currentIndex];
+
+            postImage.src = post.image;
+            postImage.alt = `پست ${currentIndex + 1}`;
+
+            captionText.textContent = post.caption;
+
+            hashtagsContainer.innerHTML = '';
+            post.hashtags.forEach(tag => {
+                const span = document.createElement('span');
+                span.textContent = tag;
+                hashtagsContainer.appendChild(span);
+            });
+
+            likesElement.textContent = post.likes.toLocaleString('fa-IR');
+            dateElement.textContent = post.date;
+            postCounter.textContent = `پست ${currentIndex + 1} از ${campaignPosts.length}`;
+            dayLabel.textContent = post.dayLabel;
+
+            if (likedPosts.has(currentIndex)) {
+                likeBtn.classList.add('liked');
+                likeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+            } else {
+                likeBtn.classList.remove('liked');
+                likeBtn.innerHTML = '<i class="far fa-heart"></i>';
+            }
+
+            updateDots();
+
+            document.querySelector('.phone-screen').scrollTop = 0;
+        }
+
+        function nextPost() {
+            currentIndex = (currentIndex + 1) % campaignPosts.length;
+            updatePost();
+        }
+
+        function prevPost() {
+            currentIndex = (currentIndex - 1 + campaignPosts.length) % campaignPosts.length;
+            updatePost();
+        }
+
+        function buildDots() {
+            dotsContainer.innerHTML = '';
+            campaignPosts.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'campaign-dot';
+                dot.setAttribute('aria-label', `پست ${index + 1}`);
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updatePost();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('.campaign-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function toggleLike() {
+            if (likedPosts.has(currentIndex)) {
+                likedPosts.delete(currentIndex);
+                likeBtn.classList.remove('liked');
+                likeBtn.innerHTML = '<i class="far fa-heart"></i>';
+            } else {
+                likedPosts.add(currentIndex);
+                likeBtn.classList.add('liked');
+                likeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+
+                likeBtn.style.transform = 'scale(1.3)';
+                setTimeout(() => {
+                    likeBtn.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+
+        nextBtn.addEventListener('click', nextPost);
+        prevBtn.addEventListener('click', prevPost);
+        closeBtn.addEventListener('click', closeModal);
+        likeBtn.addEventListener('click', toggleLike);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') nextPost();
+            if (e.key === 'ArrowRight') prevPost();
+        });
+
+        buildDots();
+        updatePost();
+
+        // API عمومی
+        window.CampaignModal = {
+            open: openModal,
+            close: closeModal,
+            next: nextPost,
+            prev: prevPost
+        };
+    }
+
+    // ======================================================================
+    // ۵. راه‌اندازی
+    // ======================================================================
+
+    // ترتیب مهمه: اول مودال کمپین (تا window.CampaignModal ساخته بشه)،
+    // بعد مودال پروژه.
+    initCampaignModal();
+    initProjectModal();
+
+});
+
+    // ======================================================================
+    // ۶. راه‌اندازی اولیه
+    // ======================================================================
+
+    buildDots();
+    updatePost();
+
+    // ======================================================================
+    // ۷. اتصال به کارت‌های پروژه
+    // ======================================================================
+
+    /**
+     * جستجوی کارت‌هایی که باید مودال رو باز کنن
+     */
+    const campaignCards = document.querySelectorAll('[data-open-campaign]');
+
+    campaignCards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            openModal(0);
+        });
+    });
+
+    // ======================================================================
+    // ۸. API عمومی (برای استفاده خارجی)
+    // ======================================================================
+
+    window.CampaignModal = {
+        open: openModal,
+        close: closeModal,
+        next: nextPost,
+        prev: prevPost
+    };
+
+;
