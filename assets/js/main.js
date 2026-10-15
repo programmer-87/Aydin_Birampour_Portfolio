@@ -597,7 +597,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['Copywriting', 'Sales Strategy', 'Sales Funnel'],
             type: 'campaign',
             images: [
-                { src: 'assets/img/campaign/1.jpg', alt: 'پست ۱' }
+                { src: 'assets/img/campaign/1.jpg', alt: 'پست ۱' },
             ]
         }
 
@@ -956,6 +956,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (e.key === 'ArrowRight') prevPost();
         });
 
+        // ⭐ فراخوانی نهایی (بعد از تعریف همه‌ی توابع)
         buildDots();
         updatePost();
 
@@ -977,40 +978,4 @@ document.addEventListener('DOMContentLoaded', function () {
     initCampaignModal();
     initProjectModal();
 
-});
-
-    // ======================================================================
-    // ۶. راه‌اندازی اولیه
-    // ======================================================================
-
-    buildDots();
-    updatePost();
-
-    // ======================================================================
-    // ۷. اتصال به کارت‌های پروژه
-    // ======================================================================
-
-    /**
-     * جستجوی کارت‌هایی که باید مودال رو باز کنن
-     */
-    const campaignCards = document.querySelectorAll('[data-open-campaign]');
-
-    campaignCards.forEach(card => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', () => {
-            openModal(0);
-        });
-    });
-
-    // ======================================================================
-    // ۸. API عمومی (برای استفاده خارجی)
-    // ======================================================================
-
-    window.CampaignModal = {
-        open: openModal,
-        close: closeModal,
-        next: nextPost,
-        prev: prevPost
-    };
-
-;
+});  // ← ⭐ این خط مهمه! انتهای DOMContentLoaded
