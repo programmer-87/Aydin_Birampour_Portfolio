@@ -391,39 +391,38 @@ function initProjectModal() {
     }
 
     function updateContent() {
-        if (!currentProject) return;
-        const image = currentProject.images[currentIndex];
+    if (!currentProject) return;
+    const image = currentProject.images[currentIndex];
 
-        // تصویر
-        els.image.classList.add('loading');
-        els.image.src = image.src;
-        els.image.alt = image.alt || currentProject.title;
-        els.image.onload = () => els.image.classList.remove('loading');
+    // ========== تصویر ==========
+    els.image.classList.add('loading');
+    els.image.src = image.src;
+    els.image.alt = image.alt || currentProject.title;
+    els.image.onload = () => els.image.classList.remove('loading');
 
-        // متن
-        els.title.textContent = currentProject.title;
-        els.desc.textContent = currentProject.description;
+    // ========== متن‌ها (با پشتیبانی از متن‌های مخصوص هر عکس) ==========
+    // اگه عکس `title` مخصوص داشت، ازش استفاده کن؛ وگرنه از `title` پروژه
+    els.title.textContent = image.title || currentProject.title;
+    els.desc.textContent = image.description || currentProject.description;
 
-        // تگ‌ها
-        els.tags.innerHTML = '';
-        (currentProject.tags || []).forEach(tag => {
-            const span = document.createElement('span');
-            span.textContent = tag;
-            els.tags.appendChild(span);
-        });
+    // ========== تگ‌ها ==========
+    els.tags.innerHTML = '';
+    const tags = image.tags || currentProject.tags || [];
+    tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.textContent = tag;
+        els.tags.appendChild(span);
+    });
 
-        // شمارنده
-        els.counter.textContent = `${currentIndex + 1} / ${currentProject.images.length}`;
+    // ========== شمارنده ==========
+    els.counter.textContent = `${currentIndex + 1} / ${currentProject.images.length}`;
+    renderDots();
 
-        // نقطه‌ها
-        renderDots();
-
-        // دکمه‌های ناوبری
-        const hasMultiple = currentProject.images.length > 1;
-        els.prev.style.display = hasMultiple ? 'flex' : 'none';
-        els.next.style.display = hasMultiple ? 'flex' : 'none';
-        els.dots.style.display = hasMultiple ? 'flex' : 'none';
-    }
+    const hasMultiple = currentProject.images.length > 1;
+    els.prev.style.display = hasMultiple ? 'flex' : 'none';
+    els.next.style.display = hasMultiple ? 'flex' : 'none';
+    els.dots.style.display = hasMultiple ? 'flex' : 'none';
+}
 
     function renderDots() {
         if (!currentProject) return;
@@ -478,8 +477,8 @@ function initProjectModal() {
         card.addEventListener('click', () => {
             const projectKey = card.getAttribute('data-project');
             const projectData = projectKey
-                ? projectsData[projectKey]
-                : Object.values(projectsData)[index];
+                ? window.projectsData[projectKey]
+                : Object.values(window.projectsData)[index];
 
             if (projectData) openModal(projectData, 0);
         });
@@ -502,7 +501,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ======================================================================
     // ۱. داده‌های پروژه‌ها
     // ======================================================================
-
+    
     const projectsData = {
         // فقط مطمئن شو هر پروژه یه فیلد `type` داره:
         // type: 'project' (پیش‌فرض) یا type: 'campaign'
@@ -599,10 +598,63 @@ document.addEventListener('DOMContentLoaded', function () {
             images: [
                 { src: 'assets/img/campaign/1.jpg', alt: 'پست ۱' },
             ]
+        },
+        'campaign-2': {
+            title: 'صفحه فرود دوره پایتون',
+            description: 'طراحی و نوشتن متن قانع‌کننده برای یک دوره آنلاین پایتون — افزایش ۳۵٪ نرخ ثبت‌نام.',
+            tags: ['Copywriting', 'Sales Funnel', 'Landing Page'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/campaign/100.jpg', alt: 'صفحه فرود ۱' }
+            ]
+        },
+        'campaign-3': {
+            title: 'کمپین فروش لوازم خانگی',
+            description: 'طراحی و اجرای کمپین فروش برای یک فروشگاه لوازم خانگی — افزایش ۳۵٪ فروش در ۵ روز.',
+            tags: ['Copywriting', 'Sales Strategy', 'Marketing'],
+            type: 'project',
+            images: [
+                {
+                    src: 'assets/img/123.png',
+                    alt: 'اسلاید ۱',
+                    title: 'آیدین هوم — کیفیت برای خانه شما',
+                    description: 'از سال ۱۳۹۸، بهترین لوازم خانگی رو با قیمت منصفانه به مردم تبریز ارائه می‌دیم. اعتماد شما، افتخار ماست.',
+                    tags: ['معرفی برند', 'آیدین هوم', 'تبریز']
+                },
+                {
+                    src: 'assets/img/campaign/1.jpg',
+                    alt: 'اسلاید ۲',
+                    title: 'سرویس آشپزخانه ۱۰ پارچه',
+                    description: 'جنس استیل ضدزنگ، مقاوم در برابر حرارت، طراحی مدرن و شیک، مناسب برای ۴-۶ نفر.',
+                    tags: ['محصول', 'سرویس آشپزخانه', 'استیل']
+                },
+                {
+                    src: 'assets/img/campaign/2.jpg',
+                    alt: 'اسلاید ۳',
+                    title: 'چرا آیدین هوم؟',
+                    description: 'گارانتی ۲ ساله، ارسال رایگان، قیمت منصفانه، و پشتیبانی ۲۴/۷ — ما همیشه کنار شماییم.',
+                    tags: ['گارانتی', 'ارسال رایگان', 'پشتیبانی']
+                },
+                {
+                    src: 'assets/img/projects/home-4.jpg',
+                    alt: 'اسلاید ۴',
+                    title: 'پیشنهاد ویژه — فقط ۵ روز!',
+                    description: '۳۰٪ تخفیف + ارسال رایگان. قیمت اصلی: ۵,۰۰۰,۰۰۰ تومان. قیمت با تخفیف: ۳,۵۰۰,۰۰۰ تومان. فقط برای ۱۰۰ نفر اول.',
+                    tags: ['تخفیف', 'پیشنهاد ویژه', 'ارسال رایگان']
+                },
+                {
+                    src: 'assets/img/projects/home-5.jpg',
+                    alt: 'اسلاید ۵',
+                    title: 'همین حالا سفارش بده!',
+                    description: 'شماره تماس: [شماره] | شماره کارت: ۶۰۳۷-XXXX-XXXX-XXXX | واتساپ: [لینک]. فقط تا پایان هفته!',
+                    tags: ['اقدام', 'خرید', 'تماس']
+                }
+            ]
         }
-
     };
 
+    // ⭐ اضافه کن: دسترسی عمومی
+    window.projectsData = projectsData;
     // ======================================================================
     // ۲. داده‌های پست‌های کمپین
     // ======================================================================
@@ -679,144 +731,154 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     ];
 
+    window.campaignPosts = campaignPosts;
     // ======================================================================
     // ۳. مودال پروژه (Project Modal)
     // ======================================================================
 
     function initProjectModal() {
-        const modal = document.getElementById('project-modal');
-        if (!modal) return;
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
 
-        const els = {
-            image: document.getElementById('modal-image'),
-            title: document.getElementById('modal-title'),
-            desc: document.getElementById('modal-description'),
-            tags: document.getElementById('modal-tags'),
-            counter: document.getElementById('modal-counter'),
-            dots: document.getElementById('modal-dots'),
-            close: document.getElementById('modal-close'),
-            prev: document.getElementById('modal-prev'),
-            next: document.getElementById('modal-next')
-        };
+    const els = {
+        image: document.getElementById('modal-image'),
+        title: document.getElementById('modal-title'),
+        desc: document.getElementById('modal-description'),
+        tags: document.getElementById('modal-tags'),
+        counter: document.getElementById('modal-counter'),
+        dots: document.getElementById('modal-dots'),
+        close: document.getElementById('modal-close'),
+        prev: document.getElementById('modal-prev'),
+        next: document.getElementById('modal-next')
+    };
 
-        let currentProject = null;
-        let currentIndex = 0;
+    let currentProject = null;
+    let currentIndex = 0;
 
-        function openModal(projectData, index = 0) {
-            if (!projectData) return;
-            currentProject = projectData;
-            currentIndex = index;
-            updateContent();
-            modal.classList.add('active');
-            document.body.classList.add('modal-open');
-            setTimeout(() => els.close.focus(), 100);
-        }
+    function openModal(projectData, index = 0) {
+        if (!projectData) return;
+        currentProject = projectData;
+        currentIndex = index;
+        updateContent();
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+        setTimeout(() => els.close.focus(), 100);
+    }
 
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.classList.remove('modal-open');
-            currentProject = null;
-            currentIndex = 0;
-        }
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        currentProject = null;
+        currentIndex = 0;
+    }
 
-        function updateContent() {
-            if (!currentProject) return;
-            const image = currentProject.images[currentIndex];
+    // ======================================================================
+    // ⭐ تابع updateContent (نسخه‌ی نهایی با پشتیبانی از متن مخصوص هر عکس)
+    // ======================================================================
+    function updateContent() {
+        if (!currentProject) return;
+        const image = currentProject.images[currentIndex];
 
-            els.image.classList.add('loading');
-            els.image.src = image.src;
-            els.image.alt = image.alt || currentProject.title;
-            els.image.onload = () => els.image.classList.remove('loading');
+        // ========== تصویر ==========
+        els.image.classList.add('loading');
+        els.image.src = image.src;
+        els.image.alt = image.alt || currentProject.title;
+        els.image.onload = () => els.image.classList.remove('loading');
 
-            els.title.textContent = currentProject.title;
-            els.desc.textContent = currentProject.description;
+        // ========== متن‌ها (با پشتیبانی از متن مخصوص هر عکس) ==========
+        els.title.textContent = image.title || currentProject.title;
+        els.desc.textContent = image.description || currentProject.description;
 
-            els.tags.innerHTML = '';
-            (currentProject.tags || []).forEach(tag => {
-                const span = document.createElement('span');
-                span.textContent = tag;
-                els.tags.appendChild(span);
-            });
-
-            els.counter.textContent = `${currentIndex + 1} / ${currentProject.images.length}`;
-            renderDots();
-
-            const hasMultiple = currentProject.images.length > 1;
-            els.prev.style.display = hasMultiple ? 'flex' : 'none';
-            els.next.style.display = hasMultiple ? 'flex' : 'none';
-            els.dots.style.display = hasMultiple ? 'flex' : 'none';
-        }
-
-        function renderDots() {
-            if (!currentProject) return;
-            els.dots.innerHTML = '';
-            currentProject.images.forEach((_, i) => {
-                const dot = document.createElement('button');
-                dot.className = 'modal-dot' + (i === currentIndex ? ' active' : '');
-                dot.setAttribute('aria-label', `تصویر ${i + 1}`);
-                dot.addEventListener('click', () => {
-                    currentIndex = i;
-                    updateContent();
-                });
-                els.dots.appendChild(dot);
-            });
-        }
-
-        function nextImage() {
-            if (!currentProject) return;
-            currentIndex = (currentIndex + 1) % currentProject.images.length;
-            updateContent();
-        }
-
-        function prevImage() {
-            if (!currentProject) return;
-            currentIndex = (currentIndex - 1 + currentProject.images.length) % currentProject.images.length;
-            updateContent();
-        }
-
-        els.close.addEventListener('click', closeModal);
-        els.next.addEventListener('click', nextImage);
-        els.prev.addEventListener('click', prevImage);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+        // ========== تگ‌ها ==========
+        els.tags.innerHTML = '';
+        const tags = image.tags || currentProject.tags || [];
+        tags.forEach(tag => {
+            const span = document.createElement('span');
+            span.textContent = tag;
+            els.tags.appendChild(span);
         });
 
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('active')) return;
-            if (e.key === 'Escape') closeModal();
-            if (e.key === 'ArrowLeft') nextImage();
-            if (e.key === 'ArrowRight') prevImage();
-        });
+        // ========== شمارنده ==========
+        els.counter.textContent = `${currentIndex + 1} / ${currentProject.images.length}`;
 
-        // ==================================================================
-        // اتصال کارت‌های پروژه (با شرط type)
-        // ==================================================================
+        // ========== نقطه‌ها ==========
+        renderDots();
 
-        const projectCards = document.querySelectorAll('.project-card');
+        // ========== دکمه‌های ناوبری ==========
+        const hasMultiple = currentProject.images.length > 1;
+        els.prev.style.display = hasMultiple ? 'flex' : 'none';
+        els.next.style.display = hasMultiple ? 'flex' : 'none';
+        els.dots.style.display = hasMultiple ? 'flex' : 'none';
+    }
 
-        projectCards.forEach((card, index) => {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', () => {
-                const projectKey = card.getAttribute('data-project');
-                const projectData = projectKey
-                    ? projectsData[projectKey]
-                    : Object.values(projectsData)[index];
-
-                if (!projectData) return;
-
-                // ⭐ شرط اصلی: اگه پروژه از نوع campaign باشه، مودال کمپین باز بشه
-                if (projectData.type === 'campaign') {
-                    closeModal();
-                    if (window.CampaignModal && typeof window.CampaignModal.open === 'function') {
-                        window.CampaignModal.open(0);
-                    }
-                } else {
-                    openModal(projectData, 0);
-                }
+    function renderDots() {
+        if (!currentProject) return;
+        els.dots.innerHTML = '';
+        currentProject.images.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'modal-dot' + (i === currentIndex ? ' active' : '');
+            dot.setAttribute('aria-label', `تصویر ${i + 1}`);
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateContent();
             });
+            els.dots.appendChild(dot);
         });
     }
+
+    function nextImage() {
+        if (!currentProject) return;
+        currentIndex = (currentIndex + 1) % currentProject.images.length;
+        updateContent();
+    }
+
+    function prevImage() {
+        if (!currentProject) return;
+        currentIndex = (currentIndex - 1 + currentProject.images.length) % currentProject.images.length;
+        updateContent();
+    }
+
+    els.close.addEventListener('click', closeModal);
+    els.next.addEventListener('click', nextImage);
+    els.prev.addEventListener('click', prevImage);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') nextImage();
+        if (e.key === 'ArrowRight') prevImage();
+    });
+
+    // ======================================================================
+    // اتصال کارت‌های پروژه
+    // ======================================================================
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach((card, index) => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            const projectKey = card.getAttribute('data-project');
+            const projectData = projectKey
+                ? projectsData[projectKey]
+                : Object.values(projectsData)[index];
+
+            if (!projectData) return;
+
+            if (projectData.type === 'campaign') {
+                closeModal();
+                if (window.CampaignModal && typeof window.CampaignModal.open === 'function') {
+                    window.CampaignModal.open(0);
+                }
+            } else {
+                openModal(projectData, 0);
+            }
+        });
+    });
+}
 
     // ======================================================================
     // ۴. مودال کمپین (Campaign Modal)
