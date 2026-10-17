@@ -615,14 +615,14 @@ document.addEventListener('DOMContentLoaded', function () {
             type: 'project',
             images: [
                 {
-                    src: 'assets/img/123.png',
+                    src: 'assets/img/campaign/AydinHome.png',
                     alt: 'اسلاید ۱',
                     title: 'آیدین هوم — کیفیت برای خانه شما',
                     description: 'از سال ۱۳۹۸، بهترین لوازم خانگی رو با قیمت منصفانه به مردم تبریز ارائه می‌دیم. اعتماد شما، افتخار ماست.',
                     tags: ['معرفی برند', 'آیدین هوم', 'تبریز']
                 },
                 {
-                    src: 'assets/img/campaign/1.jpg',
+                    src: 'assets/img/campaign/Aydin12.png',
                     alt: 'اسلاید ۲',
                     title: 'سرویس آشپزخانه ۱۰ پارچه',
                     description: 'جنس استیل ضدزنگ، مقاوم در برابر حرارت، طراحی مدرن و شیک، مناسب برای ۴-۶ نفر.',
