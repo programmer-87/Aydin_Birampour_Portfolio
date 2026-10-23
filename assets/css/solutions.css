@@ -1,0 +1,1816 @@
+/* ==========================================
+   🎨 متغیرهای تم (Dark = پیش‌فرض)
+========================================== */
+:root {
+  --bg-main: #0A192F;
+  --bg-card: rgba(17, 34, 64, 0.4);
+  --bg-card-hover: rgba(17, 34, 64, 0.7);
+  --bg-modal: #112240;
+  --bg-footer: #060F1F;
+  --bg-input: rgba(10, 25, 47, 0.6);
+  --bg-input-focus: rgba(10, 25, 47, 0.9);
+  --bg-overlay: rgba(10, 25, 47, 0.85);
+  --bg-header: rgba(10, 25, 47, 0.8);
+  --bg-skeleton: rgba(17, 34, 64, 0.4);
+
+  --text-primary: #E6F1FF;
+  --text-white: #FFFFFF;
+  --text-slate: #8892B0;
+  --text-slateLight: #A8B2D1;
+
+  --accent: #64FFDA;
+  --accent-hover: #7CFFE0;
+  --accent-bg: rgba(100, 255, 218, 0.1);
+  --accent-border: rgba(100, 255, 218, 0.2);
+  --accent-border-strong: rgba(100, 255, 218, 0.45);
+
+  --border-soft: rgba(255, 255, 255, 0.05);
+  --border-card: rgba(100, 255, 218, 0.1);
+  --border-card-hover: rgba(100, 255, 218, 0.4);
+
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(100, 255, 218, 0.05);
+  --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.5);
+  --shadow-accent: 0 0 20px rgba(100, 255, 218, 0.28);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 🌞 حالت روشن */
+body.light-mode {
+  --bg-main: #F0F4F8;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-modal: #FFFFFF;
+  --bg-footer: #E2E8F0;
+  --bg-input: rgba(255, 255, 255, 0.9);
+  --bg-input-focus: #FFFFFF;
+  --bg-overlay: rgba(240, 244, 248, 0.85);
+  --bg-header: rgba(255, 255, 255, 0.85);
+  --bg-skeleton: rgba(203, 213, 225, 0.6);
+
+  --text-primary: #0F172A;
+  --text-white: #0A192F;
+  --text-slate: #475569;
+  --text-slateLight: #334155;
+
+  --accent: #0D9488;
+  --accent-hover: #0F766E;
+  --accent-bg: rgba(13, 148, 136, 0.1);
+  --accent-border: rgba(13, 148, 136, 0.25);
+  --accent-border-strong: rgba(13, 148, 136, 0.5);
+
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --border-card: rgba(13, 148, 136, 0.15);
+  --border-card-hover: rgba(13, 148, 136, 0.45);
+
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(13, 148, 136, 0.05);
+  --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.15);
+  --shadow-accent: 0 0 20px rgba(13, 148, 136, 0.2);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   انتقال نرم بین تم‌ها
+========================================== */
+body, body * {
+  transition: background-color 0.35s ease, border-color 0.35s ease,
+              color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* جلوگیری از پرش هنگام لود اولیه */
+body.no-transition, body.no-transition * { transition: none !important; }
+
+/* ==========================================
+   استایل‌های پایه
+========================================== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-slate);
+  overflow-x: hidden;
+}
+
+h1, p, span, div, h2, h3 { background-color: transparent; }
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 85% 8%, rgba(100, 255, 218, 0.10), transparent 42%),
+    radial-gradient(circle at 12% 85%, rgba(100, 140, 255, 0.08), transparent 45%);
+}
+body.light-mode .bg-glow {
+  background:
+    radial-gradient(circle at 85% 8%, rgba(13, 148, 136, 0.08), transparent 42%),
+    radial-gradient(circle at 12% 85%, rgba(59, 130, 246, 0.06), transparent 45%);
+}
+
+::selection { background: var(--accent-bg); color: var(--text-white); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: #1D2D50; border-radius: 10px; border: 2px solid var(--bg-main); }
+body.light-mode ::-webkit-scrollbar-thumb { background: #CBD5E1; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ==========================================
+   هدر و نوار پیشرفت
+========================================== */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent) 0%, #4EA8FF 100%);
+  z-index: 100;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* ==========================================
+   دکمه‌ها
+========================================== */
+.back-btn {
+  border: 1px solid var(--accent-border-strong);
+  color: var(--accent);
+  transition: all 0.28s ease;
+}
+.back-btn:hover {
+  background: var(--accent-bg);
+  box-shadow: var(--shadow-accent);
+  /* transform: translateY(-2px); */
+}
+
+/* 🆕 دکمه تغییر تم */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-border-strong);
+  color: var(--accent);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  font-size: 1rem;
+}
+.theme-toggle:hover {
+  background: var(--accent-bg);
+  box-shadow: var(--shadow-accent);
+  transform: rotate(20deg) scale(1.05);
+}
+
+.filter-btn {
+  border: 1px solid var(--accent-border-strong);
+  color: var(--text-slateLight);
+  background: transparent;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.filter-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  /* transform: translateY(-2px); */
+}
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-main);
+  font-weight: 700;
+  box-shadow: var(--shadow-accent);
+}
+
+/* ==========================================
+   تایپوگرافی و انیمیشن
+========================================== */
+.accent-gradient {
+  background: linear-gradient(90deg, var(--accent) 0%, #4EA8FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.75s ease-out both; }
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.26s; }
+.delay-3 { animation-delay: 0.4s; }
+
+/* ==========================================
+   نوار جستجو
+========================================== */
+.search-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+.search-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--accent-border);
+  color: var(--text-primary);
+  border-radius: 999px;
+  padding: 0.75rem 3rem 0.75rem 3rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: inherit;
+}
+.search-input::placeholder { color: var(--text-slate); }
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+  background: var(--bg-input-focus);
+}
+.search-icon {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+.search-clear {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-slate);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+.search-clear.visible { opacity: 1; visibility: visible; }
+.search-clear:hover { color: var(--accent); }
+
+/* ==========================================
+   کارت پروژه
+========================================== */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease-out both;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.3s ease, border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+}
+.project-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  box-shadow: var(--shadow-card);
+}
+.card-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  background: var(--accent-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+.project-card:hover .card-icon-wrapper {
+  background: var(--accent-bg);
+  transform: scale(1.05);
+}
+.card-action-btn {
+  color: var(--accent);
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-weight: 500;
+}
+.project-card:hover .card-action-btn { gap: 0.75rem; }
+
+.card-tag {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+.card-tag:hover {
+  background: var(--accent-bg) !important;
+  border-color: var(--accent-border-strong) !important;
+  color: var(--accent) !important;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   بخش آمار
+========================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+}
+.stat-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.stat-item:hover {
+  border-color: var(--border-card-hover);
+  background: var(--accent-bg);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+.stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  background: var(--accent-bg);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  margin: 0 auto 0.75rem;
+  transition: all 0.3s ease;
+}
+.stat-item:hover .stat-icon { transform: scale(1.1) rotate(-5deg); }
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 0.25rem;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-slate);
+  font-weight: 500;
+}
+
+/* ==========================================
+   فوتر
+========================================== */
+.site-footer {
+  background: var(--bg-footer);
+  border-top: 1px solid var(--border-soft);
+  margin-top: 3rem;
+}
+.footer-link {
+  color: var(--text-slate);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+.footer-link:hover { color: var(--accent); transform: translateX(-4px); }
+.footer-link i { color: var(--accent); }
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-border);
+  color: var(--text-slateLight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+.social-btn:hover {
+  color: var(--bg-main);
+  background: var(--accent);
+  border-color: var(--accent);
+  /* transform: translateY(-3px); */
+  box-shadow: var(--shadow-accent);
+}
+
+/* فرم تماس سریع */
+.quick-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--accent-border);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.82rem;
+  outline: none;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+.quick-input::placeholder { color: var(--text-slate); }
+.quick-input:focus {
+  border-color: var(--accent);
+  background: var(--bg-input-focus);
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+.quick-submit {
+  width: 100%;
+  background: var(--accent);
+  color: var(--bg-main);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.65rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+.quick-submit:hover {
+  background: var(--accent-hover);
+  /* transform: translateY(-2px); */
+  box-shadow: var(--shadow-accent);
+}
+
+/* ==========================================
+   دکمه بازگشت به بالا
+========================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: var(--shadow-accent);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { box-shadow: var(--shadow-accent); }
+
+/* ==========================================
+   Skeleton
+========================================== */
+.skeleton-card {
+  background: var(--bg-skeleton);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+}
+.skeleton-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.06), transparent);
+  animation: skeleton-shimmer 1.5s infinite;
+}
+@keyframes skeleton-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.skeleton-shape {
+  background: var(--text-slate);
+  opacity: 0.15;
+  border-radius: 0.5rem;
+}
+.skeleton-icon { width: 48px; height: 48px; margin-bottom: 1rem; }
+.skeleton-line { height: 12px; margin-bottom: 0.75rem; }
+.skeleton-line.short { width: 60%; }
+.skeleton-line.mid { width: 80%; }
+.skeleton-tag { height: 24px; width: 60px; display: inline-block; margin-left: 0.5rem; border-radius: 0.375rem; }
+
+/* ==========================================
+   مودال
+========================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+
+.modal-content {
+  background: var(--bg-modal);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-modal);
+}
+.modal-overlay.open .modal-content { transform: scale(1) translateY(0); }
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(4px);
+  color: #A8B2D1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+.modal-close-btn:hover { color: var(--accent); background: rgba(100, 255, 218, 0.15); transform: rotate(90deg); }
+
+/* 🆕 دکمه‌های اشتراک‌گذاری داخل مودال */
+.modal-share-bar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(6px);
+  padding: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.share-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: #A8B2D1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+.share-btn:hover {
+  background: var(--accent);
+  color: var(--bg-main);
+  transform: scale(1.1);
+}
+
+/* گالری و اسلایدر */
+.modal-gallery {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: var(--bg-main);
+  overflow: hidden;
+}
+@media (min-width: 640px) { .modal-gallery { height: 400px; } }
+
+.modal-slider-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  direction: ltr;
+}
+.modal-slider-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(10, 25, 47, 0.6);
+  backdrop-filter: blur(4px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 5;
+  cursor: pointer;
+}
+.slider-nav-btn:hover { background: var(--accent); color: var(--bg-main); }
+.slider-nav-btn.prev { left: 1rem; }
+.slider-nav-btn.next { right: 1rem; }
+
+.slider-counter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(4px);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 5;
+  direction: ltr;
+}
+.slider-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+}
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.slider-dot.active {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 999px;
+}
+
+#modal-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-slateLight);
+}
+#modal-features li i { color: var(--accent); margin-top: 0.25rem; font-size: 0.75rem; }
+
+/* پروژه‌های مرتبط */
+.related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 0.75rem;
+  padding: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.related-card:hover {
+  border-color: var(--border-card-hover);
+  background: var(--accent-bg);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+.related-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.5rem;
+  background: var(--accent-bg);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+.related-card-title {
+  font-size: 0.8rem;
+  color: var(--text-white);
+  font-weight: 600;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.related-card-cat { font-size: 0.7rem; color: var(--accent); opacity: 0.75; }
+
+/* ==========================================
+   Toast
+========================================== */
+.toast-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+.toast {
+  background: var(--bg-modal);
+  border: 1px solid var(--accent-border-strong);
+  border-right: 4px solid var(--accent);
+  color: var(--text-primary);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-modal);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 280px;
+  max-width: 380px;
+  font-size: 0.85rem;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
+}
+.toast.show { transform: translateX(0); }
+.toast.hide { transform: translateX(120%); }
+.toast-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+.toast.error { border-right-color: #EF4444; border-color: rgba(239, 68, 68, 0.4); }
+.toast.error .toast-icon { background: rgba(239, 68, 68, 0.15); color: #EF4444; }
+.toast-close {
+  margin-right: auto;
+  color: var(--text-slate);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+.toast-close:hover { color: var(--accent); }
+
+/* ==========================================
+   Intersection Observer
+========================================== */
+.observe-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.observe-fade.in-view { opacity: 1; transform: translateY(0); }
+
+/* ==========================================
+   ریسپانسیو موبایل
+========================================== */
+@media (max-width: 500px) {
+  .toast-container { left: 1rem; right: 1rem; bottom: 1rem; }
+  .toast { min-width: unset; width: 100%; }
+}
+@media (max-width: 400px) {
+  .modal-content { border-radius: 0.75rem; }
+  .modal-gallery { height: 240px; }
+  .modal-close-btn { width: 32px; height: 32px; top: 0.75rem; left: 0.75rem; }
+  .modal-share-bar { top: 0.75rem; right: 0.75rem; padding: 0.25rem; gap: 0.25rem; }
+  .share-btn { width: 28px; height: 28px; font-size: 0.7rem; }
+  .slider-nav-btn { width: 32px; height: 32px; }
+  .slider-nav-btn.prev { left: 0.5rem; }
+  .slider-nav-btn.next { right: 0.5rem; }
+  #modal-whatsapp-btn, #modal-demo-btn { font-size: 0.8rem; padding: 0.7rem 1rem; }
+  .filter-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+  .back-to-top { width: 42px; height: 42px; bottom: 1.25rem; left: 1.25rem; }
+  .theme-toggle { width: 36px; height: 36px; font-size: 0.85rem; }
+}
+
+/* ==========================================
+   🆕 اسکلت مودال (Modal Skeleton)
+========================================== */
+.modal-skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  background: var(--bg-modal);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+.modal-skeleton.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* اسکلت گالری */
+.sk-gallery {
+  width: 100%;
+  height: 300px;
+  background: var(--bg-skeleton);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 640px) { .sk-gallery { height: 400px; } }
+@media (max-width: 400px) { .sk-gallery { height: 240px; } }
+
+.sk-gallery::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.08), transparent);
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+/* اسکلت محتوای متنی */
+.sk-body {
+  padding: 1.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+@media (max-width: 640px) { .sk-body { padding: 1.25rem 1.5rem 1.5rem; } }
+
+.sk-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.sk-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.6rem;
+  background: var(--text-slate);
+  opacity: 0.15;
+  flex-shrink: 0;
+}
+.sk-pill {
+  height: 22px;
+  width: 90px;
+  border-radius: 999px;
+  background: var(--text-slate);
+  opacity: 0.15;
+}
+.sk-line {
+  height: 14px;
+  border-radius: 0.375rem;
+  background: var(--text-slate);
+  opacity: 0.13;
+  position: relative;
+  overflow: hidden;
+}
+.sk-line.title { height: 26px; width: 65%; margin-bottom: 0.75rem; }
+.sk-line.w100 { width: 100%; }
+.sk-line.w90 { width: 90%; }
+.sk-line.w80 { width: 80%; }
+.sk-line.w60 { width: 60%; }
+.sk-line.w40 { width: 40%; }
+
+/* تگ‌ها */
+.sk-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.sk-tag {
+  height: 28px;
+  width: 70px;
+  border-radius: 0.5rem;
+  background: var(--text-slate);
+  opacity: 0.15;
+}
+
+/* دکمه‌ها */
+.sk-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-soft);
+}
+.sk-btn {
+  flex: 1;
+  height: 46px;
+  border-radius: 0.5rem;
+  background: var(--text-slate);
+  opacity: 0.15;
+}
+
+/* خطای تصویر (Placeholder) */
+.img-error-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--bg-main);
+  color: var(--text-slate);
+  font-size: 0.8rem;
+}
+.img-error-placeholder i { font-size: 2rem; opacity: 0.4; }
+
+/* انیمیشن ورود محتوای واقعی */
+.modal-real-content {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.modal-real-content.revealed {
+  opacity: 1;
+}
+
+/* ==========================================
+   🆕 Autocomplete (پیشنهادهای جستجو)
+========================================== */
+.autocomplete-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: var(--bg-modal);
+  border: 1px solid var(--accent-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-modal);
+  max-height: 360px;
+  overflow-y: auto;
+  z-index: 50;
+  padding: 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: all 0.22s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.autocomplete-list.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* گروه‌بندی */
+.autocomplete-group-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-slate);
+  padding: 0.5rem 0.75rem 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+/* هر آیتم */
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  border: 1px solid transparent;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.autocomplete-item.active {
+  box-shadow: inset 0 0 0 1px var(--accent-border);
+}
+
+.autocomplete-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.autocomplete-icon.tag-icon {
+  background: rgba(78, 168, 255, 0.12);
+  color: #4EA8FF;
+}
+
+.autocomplete-icon.category-icon {
+  background: rgba(255, 184, 108, 0.12);
+  color: #FFB86C;
+}
+
+.autocomplete-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.autocomplete-title {
+  font-weight: 600;
+  color: var(--text-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.autocomplete-sub {
+  font-size: 0.7rem;
+  color: var(--text-slate);
+  opacity: 0.8;
+}
+
+/* Highlight بخش منطبق */
+.autocomplete-match {
+  color: var(--accent);
+  font-weight: 800;
+  background: var(--accent-bg);
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+/* برچسب نوع */
+.autocomplete-badge {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+.autocomplete-badge.tag-badge {
+  background: rgba(78, 168, 255, 0.12);
+  color: #4EA8FF;
+  border-color: rgba(78, 168, 255, 0.3);
+}
+.autocomplete-badge.category-badge {
+  background: rgba(255, 184, 108, 0.12);
+  color: #FFB86C;
+  border-color: rgba(255, 184, 108, 0.3);
+}
+
+/* حالت خالی */
+.autocomplete-empty {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--text-slate);
+  font-size: 0.8rem;
+}
+.autocomplete-empty i {
+  font-size: 1.5rem;
+  opacity: 0.4;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+/* اسکرول‌بار داخلی */
+.autocomplete-list::-webkit-scrollbar {
+  width: 6px;
+}
+.autocomplete-list::-webkit-scrollbar-thumb {
+  background: var(--accent-border);
+  border-radius: 3px;
+}
+
+/* سازگاری با تم روشن */
+body.light-mode .autocomplete-list {
+  background: #FFFFFF;
+  border-color: rgba(13, 148, 136, 0.25);
+}
+
+/* ریسپانسیو */
+@media (max-width: 640px) {
+  .autocomplete-list {
+    max-height: 280px;
+    border-radius: 0.75rem;
+  }
+  .autocomplete-item {
+    padding: 0.55rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  .autocomplete-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+  .autocomplete-badge {
+    font-size: 0.55rem;
+    padding: 0.1rem 0.4rem;
+  }
+}
+
+/* ==========================================
+   💬 چت‌بات
+========================================== */
+
+/* دکمه شناور */
+.chat-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-main);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.4), 0 0 0 0 rgba(100, 255, 218, 0.6);
+  z-index: 150;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chat-fab:hover {
+  transform: scale(1.08) rotate(-5deg);
+  box-shadow: 0 15px 40px rgba(100, 255, 218, 0.6), 0 0 0 4px rgba(100, 255, 218, 0.15);
+}
+
+.chat-fab:active {
+  transform: scale(0.95);
+}
+
+.chat-fab-icon-open,
+.chat-fab-icon-close {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.chat-fab-icon-close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.chat-fab.open .chat-fab-icon-open {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.chat-fab.open .chat-fab-icon-close {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* موج پالس */
+.chat-fab-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  animation: chat-pulse 2s infinite;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@keyframes chat-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* نشانگر تعداد پیام */
+.chat-fab-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #FF6B6B;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-main);
+  animation: badge-bounce 2s infinite;
+}
+
+.chat-fab-badge.hidden { display: none; }
+
+@keyframes badge-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* پنجره چت */
+.chat-window {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 2rem;
+  width: 380px;
+  max-width: calc(100vw - 4rem);
+  height: 560px;
+  max-height: calc(100vh - 8rem);
+  background: var(--bg-modal);
+  border: 1px solid var(--accent-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 149;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.96);
+  transform-origin: bottom right;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.chat-window.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* هدر چت */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid var(--border-soft);
+  background: linear-gradient(135deg, var(--accent-bg), transparent);
+  flex-shrink: 0;
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chat-avatar {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.chat-online-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 11px;
+  height: 11px;
+  background: #4ADE80;
+  border: 2px solid var(--bg-modal);
+  border-radius: 50%;
+  animation: online-pulse 2s infinite;
+}
+
+@keyframes online-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  50% { box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
+}
+
+.chat-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.chat-status {
+  font-size: 0.7rem;
+  color: var(--text-slate);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+}
+
+.chat-online-indicator {
+  width: 6px;
+  height: 6px;
+  background: #4ADE80;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chat-header-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 0.5rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-slate);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.chat-header-btn:hover {
+  color: #FF6B6B;
+  background: rgba(255, 107, 107, 0.1);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* بخش پیام‌ها */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--accent-border);
+  border-radius: 3px;
+}
+
+/* حباب پیام */
+.chat-msg {
+  display: flex;
+  gap: 0.5rem;
+  animation: msg-in 0.35s ease-out both;
+  max-width: 85%;
+}
+
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-msg.bot {
+  align-self: flex-start;
+}
+
+.chat-msg.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.chat-msg-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.chat-msg.bot .chat-msg-avatar {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.chat-msg.user .chat-msg-avatar {
+  background: rgba(78, 168, 255, 0.15);
+  color: #4EA8FF;
+}
+
+.chat-msg-bubble {
+  padding: 0.65rem 0.9rem;
+  border-radius: 1rem;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  word-wrap: break-word;
+}
+
+.chat-msg.bot .chat-msg-bubble {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+  border-top-right-radius: 0.25rem;
+}
+
+.chat-msg.user .chat-msg-bubble {
+  background: var(--accent);
+  color: var(--bg-main);
+  border-top-left-radius: 0.25rem;
+  font-weight: 500;
+}
+
+/* پیام‌های چند دکمه‌ای */
+.chat-msg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.chat-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--accent-border-strong);
+  background: var(--accent-bg);
+  color: var(--accent);
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.chat-action-btn:hover {
+  background: var(--accent);
+  color: var(--bg-main);
+  transform: translateY(-1px);
+}
+
+.chat-action-btn.whatsapp {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25D366;
+  border-color: rgba(37, 211, 102, 0.4);
+}
+
+.chat-action-btn.whatsapp:hover {
+  background: #25D366;
+  color: white;
+  border-color: #25D366;
+}
+
+/* نشانگر تایپ */
+.chat-typing {
+  display: flex;
+  gap: 4px;
+  padding: 0.75rem 0.9rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  border-top-right-radius: 0.25rem;
+  width: fit-content;
+}
+
+.chat-typing span {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: typing-bounce 1.4s infinite;
+  opacity: 0.6;
+}
+
+.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* پیشنهادهای سریع */
+.chat-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem 1.15rem;
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg-card);
+  flex-shrink: 0;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.chat-quick-replies:empty {
+  display: none;
+}
+
+.chat-quick-btn {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border-card);
+  background: var(--bg-input);
+  color: var(--text-slate);
+  transition: all 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.chat-quick-btn:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border-strong);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* نوار ورودی */
+.chat-input-area {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg-modal);
+  flex-shrink: 0;
+}
+
+.chat-input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--accent-border);
+  color: var(--text-primary);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.chat-input::placeholder {
+  color: var(--text-slate);
+  font-size: 0.8rem;
+}
+
+.chat-input:focus {
+  border-color: var(--accent);
+  background: var(--bg-input-focus);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.chat-send-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-main);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.chat-send-btn:hover {
+  background: var(--accent-hover);
+  transform: scale(1.08);
+}
+
+.chat-send-btn:active {
+  transform: scale(0.95);
+}
+
+.chat-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   ریسپانسیو چت‌بات
+========================================== */
+@media (max-width: 640px) {
+  .chat-fab {
+    width: 54px;
+    height: 54px;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  .chat-window {
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 7rem);
+    max-height: calc(100vh - 7rem);
+    right: 1rem;
+    left: 1rem;
+    bottom: 5.5rem;
+    border-radius: 1rem;
+  }
+  
+  .chat-messages {
+    padding: 0.75rem;
+  }
+  
+  .chat-msg {
+    max-width: 92%;
+  }
+  
+  .chat-msg-bubble {
+    font-size: 0.78rem;
+    padding: 0.55rem 0.8rem;
+  }
+}
+
+/* سازگاری با تم روشن */
+body.light-mode .chat-window {
+  background: #FFFFFF;
+  border-color: rgba(13, 148, 136, 0.25);
+}
+body.light-mode .chat-header {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.08), transparent);
+}
+body.light-mode .chat-online-dot {
+  border-color: #FFFFFF;
+}
+body.light-mode .chat-msg.bot .chat-msg-bubble {
+  background: rgba(240, 244, 248, 0.8);
+  border-color: rgba(13, 148, 136, 0.15);
+}
+body.light-mode .chat-typing {
+  background: rgba(240, 244, 248, 0.8);
+}
+body.light-mode .chat-quick-replies {
+  background: rgba(240, 244, 248, 0.5);
+}
+
+/* ==========================================
+   🎭 Magnetic Effect (جاذبه مغناطیسی)
+========================================== */
+
+/* کلاس پایه برای دکمه‌های مغناطیسی */
+.magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+/* وقتی موس داخل است، ترنزیشن سریع‌تر می‌شود */
+.magnetic.magnetic-active {
+  transition: transform 0.1s ease-out;
+}
+
+/* محتوای داخلی (برای اینکه متن و آیکون با هم حرکت کنند) */
+.magnetic > * {
+  pointer-events: none;
+}
+
+/* در حالت Reduce Motion غیرفعال */
+@media (prefers-reduced-motion: reduce) {
+  .magnetic,
+  .magnetic.magnetic-active {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================
+   ✨ Ripple Effect (موج)
+========================================== */
+
+.ripple-host {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  background: var(--accent);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+body.light-mode .ripple {
+  background: var(--accent);
+  opacity: 0.3;
+}
+
+@keyframes ripple-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* برای دکمه‌های تیره (که متن روشن دارند) رنگ موج روشن‌تر */
+.btn-ripple-light .ripple {
+  background: #FFFFFF;
+  opacity: 0.35;
+}
+
+/* اطمینان از اینکه محتوای دکمه بالای موج قرار دارد */
+.ripple-host > *:not(.ripple) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================
+   🌈 Parallax Effect
+========================================== */
+
+/* لایه‌های پارالاکس در هیرو */
+.hero-parallax-layer {
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* وقتی موس در هیرو است، ترنزیشن سریع‌تر و روان‌تر */
+.hero-parallax-layer.parallax-active {
+  transition: transform 0.08s linear;
+}
+
+/* Parallax با اسکرول در موبایل */
+@media (max-width: 768px) {
+  .hero-parallax-layer {
+    transform: translateY(0);
+    transition: transform 0.3s ease-out;
+  }
+}
+
+/* در Reduce Motion غیرفعال */
+@media (prefers-reduced-motion: reduce) {
+  .hero-parallax-layer,
+  .hero-parallax-layer.parallax-active {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* درخشش‌های پس‌زمینه - عمق دور */
+.bg-glow {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}

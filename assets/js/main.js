@@ -629,21 +629,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     tags: ['محصول', 'سرویس آشپزخانه', 'استیل']
                 },
                 {
-                    src: 'assets/img/campaign/2.jpg',
+                    src: 'assets/img/campaign/whyAydin.png',
                     alt: 'اسلاید ۳',
                     title: 'چرا آیدین هوم؟',
                     description: 'گارانتی ۲ ساله، ارسال رایگان، قیمت منصفانه، و پشتیبانی ۲۴/۷ — ما همیشه کنار شماییم.',
                     tags: ['گارانتی', 'ارسال رایگان', 'پشتیبانی']
                 },
                 {
-                    src: 'assets/img/projects/home-4.jpg',
+                    src: 'assets/img/campaign/Suggest.png',
                     alt: 'اسلاید ۴',
                     title: 'پیشنهاد ویژه — فقط ۵ روز!',
                     description: '۳۰٪ تخفیف + ارسال رایگان. قیمت اصلی: ۵,۰۰۰,۰۰۰ تومان. قیمت با تخفیف: ۳,۵۰۰,۰۰۰ تومان. فقط برای ۱۰۰ نفر اول.',
                     tags: ['تخفیف', 'پیشنهاد ویژه', 'ارسال رایگان']
                 },
                 {
-                    src: 'assets/img/projects/home-5.jpg',
+                    src: 'assets/img/campaign/CTA.png',
                     alt: 'اسلاید ۵',
                     title: 'همین حالا سفارش بده!',
                     description: 'شماره تماس: [شماره] | شماره کارت: ۶۰۳۷-XXXX-XXXX-XXXX | واتساپ: [لینک]. فقط تا پایان هفته!',

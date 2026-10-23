@@ -16,8 +16,8 @@
     <!-- لینک محلی به فایل کپی‌شده -->
     <link rel="stylesheet" href="assets/css/all.min.css">
 
-    <!-- Tailwind CSS -->
     
+
 
 
     <link rel="stylesheet" href="assets/css/tailwind-build.css">
@@ -81,6 +81,7 @@
             <li><a href="#skills">مهارت‌ها</a></li>
             <li><a href="#learning">مسیر یادگیری</a></li>
             <li><a href="#projects">پروژه‌ها</a></li>
+            <li><a href="solutions.html">ویترین محصولات</a></li>
             <li><a href="#services">خدمات</a></li>
             <li><a href="#contact">تماس</a></li>
         </ul>
@@ -159,13 +160,96 @@
 
         <!-- ستون عکس (سمت چپ در RTL) -->
         <div class="fade-in order-1 lg:order-2 flex justify-center lg:justify-start">
-            <img src="assets/img/profile.jpg" 
+            <img src="assets/img/Profile.png" 
                  alt="آیدین بیرام پور" 
                  class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-turquoise shadow-2xl">
         </div>
 
     </div>
 
+</section>
+
+<!-- ============================================================
+     بنر راه‌حل‌های آماده (نسخه A)
+============================================================ -->
+<section class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-20">
+  <div class="solutions-banner relative overflow-hidden rounded-2xl border">
+
+    <!-- درخشش تزئینی -->
+    <div class="banner-glow-1"></div>
+    <div class="banner-glow-2"></div>
+
+    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-8 items-center p-7 sm:p-10 lg:p-12">
+
+      <!-- ستون متن + دکمه (سمت راست) -->
+      <div class="lg:col-span-3 text-center lg:text-right">
+
+        <!-- برچسب کوچک بالا -->
+        <div class="inline-flex items-center gap-2 text-xs tracking-widest mb-4 banner-badge">
+          <span class="w-2 h-2 rounded-full bg-current animate-pulse"></span>
+          <span>جدید</span>
+          <span class="opacity-50">•</span>
+          <span>۶ پروژه آماده</span>
+        </div>
+
+        <!-- عنوان -->
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-4 banner-title">
+          ویترین <span class="accent-gradient">راه‌حل‌های آماده</span>
+        </h2>
+
+        <!-- توضیح -->
+        <p class="text-sm sm:text-base leading-7 mb-7 max-w-xl mx-auto lg:mx-0 banner-desc">
+          پروژه‌های پایه‌ی آماده برای توسعه وب، اتوماسیون، گرافیک و کمپین‌نویسی. هر کدام را می‌توانم مطابق با نیاز کسب‌وکار شما شخصی‌سازی کنم.
+        </p>
+
+        <!-- دکمه‌ها -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+          <a href="solutions.html" class="banner-cta-primary">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>مشاهده ویترین</span>
+            <i class="fa-solid fa-arrow-left text-xs"></i>
+          </a>
+          <a href="solutions.html#project-1" class="banner-cta-secondary">
+            <i class="fa-solid fa-eye"></i>
+            <span>دیدن یک نمونه</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ستون پیش‌نمایش کارت‌ها (سمت چپ) -->
+      <div class="lg:col-span-2 hidden lg:flex justify-center items-center relative h-64">
+
+        <!-- کارت پشتی (چپ‌ترین) -->
+        <div class="banner-mini-card banner-mini-back">
+          <div class="banner-mini-icon" style="color: #FFB86C;">
+            <i class="fa-solid fa-palette"></i>
+          </div>
+          <div class="banner-mini-title">هویت بصری</div>
+        </div>
+
+        <!-- کارت وسط (روی کارت راست) -->
+        <div class="banner-mini-card banner-mini-mid">
+          <div class="banner-mini-icon" style="color: #4EA8FF;">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="banner-mini-title">اتوماسیون</div>
+        </div>
+
+        <!-- کارت جلو (راست‌ترین) -->
+        <div class="banner-mini-card banner-mini-front">
+          <div class="banner-mini-icon" style="color: #64FFDA;">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <div class="banner-mini-title">توسعه وب</div>
+          <div class="banner-mini-tags">
+            <span>React</span>
+            <span>API</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
     <!-- ========== About Me Section ========== -->
@@ -1435,6 +1519,12 @@
                         <a href="#projects" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
                             <i class="fas fa-angle-left text-turquoise text-xs"></i>
                             پروژه‌ها
+                        </a>
+                    </li>
+                    <li>
+                        <a href="solutions.html" class="text-grayLight text-sm hover:text-turquoise transition-all duration-300 flex items-center gap-2">
+                            <i class="fas fa-angle-left text-turquoise text-xs"></i>
+                            ویترین محصولات
                         </a>
                     </li>
                     <li>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ویترین راه‌حل‌های آماده | آیدین بیرام پور</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- لینک محلی به فایل کپی‌شده -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/tailwind-build.css">
+  <!-- اسکریپت جلوگیری از پرش تم (باید قبل از رندر باشد) -->
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('solutions_theme');
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        const theme = saved || (prefersLight ? 'light' : 'dark');
+        if (theme === 'light') {
+          document.documentElement.classList.add('light-mode-html');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0A192F', navyLight: '#112240',
+            slate: '#8892B0', slateLight: '#A8B2D1', accent: '#64FFDA',
+          },
+          fontFamily: { vazir: ['Vazirmatn', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/solutions.css" />
+</head>
+
+<body class="font-vazir min-h-screen antialiased no-transition">
+
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+  <div class="bg-glow"></div>
+
+  <!-- هدر -->
+  <header  class="sticky top-0 z-50 backdrop-blur-md border-b" style="background: var(--bg-header); border-color: var(--border-soft);">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <nav class="flex items-center justify-between h-[72px]">
+        <a href="index.html" class="group flex items-center gap-2.5">
+          <span class="flex items-center justify-center w-9 h-9 rounded-lg border text-sm font-bold transition-colors" style="border-color: var(--accent-border-strong); color: var(--accent);">آب</span>
+          <span class="font-bold text-base sm:text-lg tracking-tight transition-colors" style="color: var(--text-slateLight);">آیدین بیرام پور</span>
+        </a>
+
+        <!-- ✅ دکمه‌ها + تغییر تم -->
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="theme-toggle" aria-label="تغییر تم">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+          </button>
+          <a href="index.html" class="back-btn inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm">
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+            <span class="hidden sm:inline">بازگشت به خانه</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 sm:px-8">
+    <!-- بخش عنوان -->
+        <!-- بخش عنوان -->
+    <section id="hero-section" class="pt-16 sm:pt-24 pb-12 sm:pb-16 text-center">
+      <p class="fade-up inline-flex items-center gap-2 text-xs sm:text-sm tracking-widest mb-6 hero-parallax-layer" data-depth="0.3" style="color: var(--accent);">
+        <span class="w-8 h-px" style="background: var(--accent);"></span>
+        <span>SOLUTIONS &amp; TEMPLATES</span>
+        <span class="w-8 h-px" style="background: var(--accent);"></span>
+      </p>
+      <h1 class="fade-up delay-1 text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.35] mb-6 hero-parallax-layer" data-depth="0.6" style="color: var(--text-white);">
+        ویترین <span class="accent-gradient">راه‌حل‌های آماده</span>
+      </h1>
+      <p class="fade-up delay-2 max-w-2xl mx-auto text-sm sm:text-lg leading-8 hero-parallax-layer" data-depth="0.4" style="color: var(--text-slate);">
+        این پروژه‌ها پایه‌های آماده هستند و من می‌توانم آن‌ها را مطابق با نیاز کسب‌وکار شما شخصی‌سازی کنم.
+      </p>
+    </section>
+
+    <!-- بخش آمار -->
+    <section class="pb-12 sm:pb-16">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-rocket"></i></div>
+          <div class="stat-number" data-count="24">۰</div>
+          <div class="stat-label">پروژه موفق</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="stat-number" data-count="98">۰</div>
+          <div class="stat-label">رضایت مشتری (٪)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="stat-number" data-count="5">۰</div>
+          <div class="stat-label">سال تجربه</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div class="stat-number" data-count="12">۰</div>
+          <div class="stat-label">همکار تجاری</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- فیلترها + جستجو -->
+    <section class="fade-up delay-3 pb-10 sm:pb-14" aria-label="فیلتر و جستجوی پروژه‌ها">
+      
+
+            <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" 
+               id="search-input" 
+               class="search-input" 
+               placeholder="جستجو در پروژه‌ها..." 
+               autocomplete="off"
+               role="combobox"
+               aria-autocomplete="list"
+               aria-expanded="false"
+               aria-controls="autocomplete-list" />
+        <button type="button" id="clear-search" class="search-clear" aria-label="پاک کردن جستجو">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- ✅ لیست Autocomplete -->
+        <div id="autocomplete-list" 
+             class="autocomplete-list" 
+             role="listbox" 
+             aria-label="پیشنهادهای جستجو"
+             aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="pb-24">
+      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- فوتر -->
+  <footer class="site-footer">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 py-12">
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-4 group w-fit">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg border text-sm font-bold" style="border-color: var(--accent-border-strong); color: var(--accent);">آب</span>
+            <span class="font-bold text-lg" style="color: var(--text-white);">آیدین بیرام پور</span>
+          </a>
+          <p class="text-sm leading-7" style="color: var(--text-slate);">
+            طراحی و توسعه راه‌حل‌های دیجیتال مدرن برای کسب‌وکارهای ایرانی. از ایده تا اجرا، همراه شما هستم.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-sm mb-4" style="color: var(--text-white);">لینک‌های سریع</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="index.html" class="footer-link"><i class="fa-solid fa-angle-left text-[10px]"></i> صفحه اصلی</a></li>
+            <li><a href="#" class="footer-link"><i class="fa-solid fa-angle-left text-[10px]"></i> درباره من</a></li>
+            <li><a href="#" class="footer-link"><i class="fa-solid fa-angle-left text-[10px]"></i> خدمات</a></li>
+            <li><a href="#" class="footer-link"><i class="fa-solid fa-angle-left text-[10px]"></i> تماس با من</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-sm mb-4" style="color: var(--text-white);">با من در ارتباط باشید</h4>
+          <div class="flex items-center gap-3 mb-4">
+            <a href="https://wa.me/989123456789" target="_blank" rel="noopener" class="social-btn" aria-label="واتساپ"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="mailto:info@example.ir" class="social-btn" aria-label="ایمیل"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#" class="social-btn" aria-label="لینکدین"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn" aria-label="گیت‌هاب"><i class="fa-brands fa-github"></i></a>
+          </div>
+          <p class="text-xs leading-6" style="color: var(--text-slate);">
+            <i class="fa-solid fa-location-dot ml-1" style="color: var(--accent);"></i>
+            ایران — آماده همکاری با تمام شهرها
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-sm mb-4" style="color: var(--text-white);">پیام سریع</h4>
+          <form id="quick-contact-form" class="space-y-3">
+            <input type="text" id="qc-name" class="quick-input" placeholder="نام شما" required />
+            <input type="tel" id="qc-phone" class="quick-input" placeholder="شماره موبایل" required />
+            <button type="submit" class="quick-submit">
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+              <span>ارسال درخواست</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="border-t py-5 flex flex-col sm:flex-row items-center justify-between gap-3" style="border-color: var(--border-soft);">
+        <p class="text-xs" style="color: var(--text-slate);">© ۱۴۰۳ آیدین بیرام پور. تمامی حقوق محفوظ است.</p>
+        <p class="text-xs flex items-center gap-1" style="color: var(--text-slate);">
+          طراحی و توسعه با <i class="fa-solid fa-heart" style="color: var(--accent);"></i> توسط آیدین بیرام پور
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="بازگشت به بالا">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ============================================================
+       مودال
+  ============================================================= -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+
+      <!-- 1️⃣ دکمه بستن (بیرون از محتوای واقعی) -->
+      <button id="modal-close" class="modal-close-btn" aria-label="بستن">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- 2️⃣ نوار اشتراک‌گذاری (بیرون از محتوای واقعی) -->
+      <div class="modal-share-bar" role="group" aria-label="اشتراک‌گذاری">
+        <button class="share-btn" data-share="copy" aria-label="کپی لینک" title="کپی لینک">
+          <i class="fa-solid fa-link"></i>
+        </button>
+        <button class="share-btn" data-share="telegram" aria-label="اشتراک در تلگرام" title="تلگرام">
+          <i class="fa-brands fa-telegram"></i>
+        </button>
+        <button class="share-btn" data-share="whatsapp" aria-label="اشتراک در واتساپ" title="واتساپ">
+          <i class="fa-brands fa-whatsapp"></i>
+        </button>
+        <button class="share-btn" data-share="linkedin" aria-label="اشتراک در لینکدین" title="لینکدین">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </button>
+      </div>
+
+      <!-- 3️⃣ اسکلت مودال (روی محتوای واقعی قرار می‌گیرد) -->
+      <div id="modal-skeleton" class="modal-skeleton" aria-hidden="true">
+        <div class="sk-gallery"></div>
+        <div class="sk-body">
+          <div class="sk-row">
+            <div class="sk-circle"></div>
+            <div class="sk-pill"></div>
+          </div>
+          <div class="sk-line title"></div>
+          <div class="sk-line w100"></div>
+          <div class="sk-line w90"></div>
+          <div class="sk-line w80"></div>
+          <div class="sk-line w60"></div>
+          <div class="sk-tags">
+            <div class="sk-tag"></div>
+            <div class="sk-tag"></div>
+            <div class="sk-tag"></div>
+          </div>
+          <div class="sk-actions">
+            <div class="sk-btn"></div>
+            <div class="sk-btn"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4️⃣ ✅ محتوای واقعی (کل گالری + بخش متنی داخل این div) -->
+      <div id="modal-real-content" class="modal-real-content">
+
+        <!-- گالری تصاویر -->
+        <div class="modal-gallery">
+          <div class="modal-slider-track" id="slider-track"></div>
+          <button id="prev-img" class="slider-nav-btn prev" aria-label="تصویر قبلی"><i class="fa-solid fa-chevron-right"></i></button>
+          <button id="next-img" class="slider-nav-btn next" aria-label="تصویر بعدی"><i class="fa-solid fa-chevron-left"></i></button>
+          <span id="img-counter" class="slider-counter">1 / 1</span>
+          <div id="slider-dots" class="slider-dots"></div>
+        </div>
+
+        <!-- بخش متنی -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent-bg); color: var(--accent);">
+              <i id="modal-icon"></i>
+            </div>
+            <span id="modal-category" class="text-xs px-3 py-1 rounded-full border" style="background: var(--accent-bg); color: var(--accent); border-color: var(--accent-border);"></span>
+          </div>
+
+          <h2 id="modal-title" class="text-2xl font-bold mb-4" style="color: var(--text-white);"></h2>
+          <p id="modal-long-desc" class="text-sm leading-7 mb-6 text-justify" style="color: var(--text-slate);"></p>
+
+          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">ویژگی‌های کلیدی:</h3>
+          <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6"></ul>
+
+          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">تکنولوژی‌های استفاده شده:</h3>
+          <div id="modal-tags" class="flex flex-wrap gap-2 mb-8"></div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t" style="border-color: var(--border-soft);">
+            <a id="modal-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-6 rounded-lg transition-all hover:-translate-y-0.5" style="background: var(--accent); color: var(--bg-main);">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>درخواست شخصی‌سازی در واتساپ</span>
+            </a>
+            <a id="modal-demo-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-lg transition-all hover:-translate-y-0.5 border" style="border-color: var(--accent-border-strong); color: var(--accent);">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>مشاهده دموی زنده</span>
+            </a>
+          </div>
+
+          <div id="related-projects-section" class="mt-8 pt-6 border-t hidden" style="border-color: var(--border-soft);">
+            <h3 class="font-bold text-sm mb-4 flex items-center gap-2" style="color: var(--text-white);">
+              <i class="fa-solid fa-layer-group" style="color: var(--accent);"></i>
+              <span>پروژه‌های مرتبط</span>
+            </h3>
+            <div id="related-projects" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
+          </div>
+        </div>
+        <!-- پایان بخش متنی -->
+
+      </div>
+      <!-- ✅ پایان محتوای واقعی -->
+
+    </div>
+  </div>
+
+    <!-- ============================================================
+       💬 چت‌بات هوشمند
+  ============================================================= -->
+  
+  <!-- دکمه شناور -->
+  <button id="chat-fab" class="chat-fab" aria-label="باز کردن چت">
+    <i class="fa-solid fa-comment-dots chat-fab-icon-open"></i>
+    <i class="fa-solid fa-xmark chat-fab-icon-close"></i>
+    <span class="chat-fab-pulse"></span>
+    <span class="chat-fab-badge" id="chat-badge">۱</span>
+  </button>
+
+  <!-- پنجره چت -->
+  <div id="chat-window" class="chat-window" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="chat-title">
+    
+    <!-- هدر -->
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">
+          <i class="fa-solid fa-robot"></i>
+          <span class="chat-online-dot"></span>
+        </div>
+        <div>
+          <h3 id="chat-title" class="chat-title">دستیار آیدین</h3>
+          <p class="chat-status">
+            <span class="chat-online-indicator"></span>
+            آنلاین — پاسخ فوری
+          </p>
+        </div>
+      </div>
+      <button id="chat-clear" class="chat-header-btn" aria-label="پاک کردن تاریخچه" title="پاک کردن تاریخچه">
+        <i class="fa-solid fa-trash-can"></i>
+      </button>
+    </div>
+
+    <!-- بخش پیام‌ها -->
+    <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
+
+    <!-- پیشنهادهای سریع -->
+    <div id="chat-quick-replies" class="chat-quick-replies"></div>
+
+    <!-- ورودی -->
+    <form id="chat-form" class="chat-input-area">
+      <input 
+        type="text" 
+        id="chat-input" 
+        class="chat-input" 
+        placeholder="پیام خود را بنویسید..." 
+        autocomplete="off"
+        aria-label="متن پیام" />
+      <button type="submit" class="chat-send-btn" aria-label="ارسال">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+
+  <script src="assets/js/solutions.js"></script>
+</body>
+</html>
