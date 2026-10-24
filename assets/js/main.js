@@ -1070,7 +1070,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 // ارسال درخواست به بک‌اند (آدرس لوکال)
-                const response = await fetch('http://127.0.0.1:5000/api/contact', {
+                const response = await fetch('https://aydin-birampour-portfolio.onrender.com/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
