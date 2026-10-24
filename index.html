@@ -1416,55 +1416,58 @@
             <!-- ========== ستون راست: فرم تماس ========== -->
             <div class="fade-in">
 
-                <h3 class="text-2xl font-bold mb-8 text-turquoise">
-                    <i class="fas fa-paper-plane ml-2"></i>
-                    ارسال پیام
-                </h3>
+    <h3 class="text-2xl font-bold mb-8 text-turquoise">
+        <i class="fas fa-paper-plane ml-2"></i>
+        ارسال پیام
+    </h3>
 
-                <form action="#" method="POST" class="space-y-6">
+    <form id="contact-form" class="space-y-6">
 
-                    <!-- نام -->
-                    <div>
-                        <label for="name" class="block text-grayLight text-sm mb-2">نام شما</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
-                               placeholder="نام و نام خانوادگی">
-                    </div>
+        <!-- نام -->
+        <div>
+            <label for="contact-name" class="block text-grayLight text-sm mb-2">نام شما</label>
+            <input type="text" id="contact-name" name="name" required
+                   class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
+                   placeholder="نام و نام خانوادگی">
+        </div>
 
-                    <!-- ایمیل -->
-                    <div>
-                        <label for="email" class="block text-grayLight text-sm mb-2">ایمیل شما</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
-                               placeholder="example@email.com" dir="ltr">
-                    </div>
+        <!-- ایمیل -->
+        <div>
+            <label for="contact-email" class="block text-grayLight text-sm mb-2">ایمیل شما</label>
+            <input type="email" id="contact-email" name="email" required
+                   class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
+                   placeholder="example@email.com" dir="ltr">
+        </div>
 
-                    <!-- موضوع -->
-                    <div>
-                        <label for="subject" class="block text-grayLight text-sm mb-2">موضوع</label>
-                        <input type="text" id="subject" name="subject"
-                               class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
-                               placeholder="موضوع پیام">
-                    </div>
+        <!-- موضوع -->
+        <div>
+            <label for="contact-subject" class="block text-grayLight text-sm mb-2">موضوع</label>
+            <input type="text" id="contact-subject" name="subject"
+                   class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300"
+                   placeholder="موضوع پیام">
+        </div>
 
-                    <!-- پیام -->
-                    <div>
-                        <label for="message" class="block text-grayLight text-sm mb-2">پیام شما</label>
-                        <textarea id="message" name="message" rows="6" required
-                                  class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300 resize-none"
-                                  placeholder="پیام خود را اینجا بنویسید..."></textarea>
-                    </div>
+        <!-- پیام -->
+        <div>
+            <label for="contact-message" class="block text-grayLight text-sm mb-2">پیام شما</label>
+            <textarea id="contact-message" name="message" rows="6" required
+                      class="w-full bg-navy border border-turquoise/20 focus:border-turquoise text-white px-4 py-3 rounded-lg outline-none transition-all duration-300 resize-none"
+                      placeholder="پیام خود را اینجا بنویسید..."></textarea>
+        </div>
 
-                    <!-- دکمه ارسال -->
-                    <button type="submit"
-                            class="btn-primary bg-turquoise text-navy font-bold py-3 px-8 rounded-lg transition-all duration-300 w-full">
-                        <i class="fas fa-paper-plane ml-2"></i>
-                        ارسال پیام
-                    </button>
+        <!-- دکمه ارسال -->
+        <button type="submit" id="contact-submit-btn"
+                class="btn-primary bg-turquoise text-navy font-bold py-3 px-8 rounded-lg transition-all duration-300 w-full">
+            <i class="fas fa-paper-plane ml-2"></i>
+            ارسال پیام
+        </button>
 
-                </form>
+        <!-- پیام وضعیت (برای نمایش موفقیت یا خطا) -->
+        <div id="contact-status" class="mt-4 text-sm hidden text-center"></div>
 
-            </div>
+    </form>
+
+</div>
 
         </div>
 

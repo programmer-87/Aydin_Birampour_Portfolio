@@ -1044,3 +1044,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+// ==========================================
+// ارسال فرم تماس به بک‌اند (Flask)
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); // جلوگیری از رفرش صفحه
+
+            const submitBtn = document.getElementById('contact-submit-btn');
+            const statusDiv = document.getElementById('contact-status');
+            
+            // گرفتن مقادیر از فیلدها
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            // تغییر ظاهر دکمه در حین ارسال
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin ml-2"></i> در حال ارسال...';
+            submitBtn.disabled = true;
+            statusDiv.classList.add('hidden');
+
+            try {
+                // ارسال درخواست به بک‌اند (آدرس لوکال)
+                const response = await fetch('http://127.0.0.1:5000/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, subject, message })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // موفقیت
+                    statusDiv.innerHTML = '<span style="color: #64FFDA;">✅ پیام شما با موفقیت ارسال شد. به زودی پاسخ می‌دهم.</span>';
+                    contactForm.reset();
+                } else {
+                    // خطای سرور
+                    statusDiv.innerHTML = `<span style="color: #EF4444;">❌ خطا: ${data.message}</span>`;
+                }
+            } catch (error) {
+                // خطای شبکه
+                statusDiv.innerHTML = '<span style="color: #EF4444;">❌ خطا در ارتباط با سرور. لطفاً اتصال اینترنت خود را بررسی کنید.</span>';
+            } finally {
+                // بازگرداندن دکمه به حالت اولیه
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                statusDiv.classList.remove('hidden');
+            }
+        });
+    }
+});
