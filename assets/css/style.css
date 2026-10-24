@@ -2768,3 +2768,215 @@ body.solutions-page {
   .back-to-top-sol { width: 42px; height: 42px; bottom: 1.25rem; left: 1.25rem; }
   .theme-toggle { width: 36px; height: 36px; font-size: 0.85rem; }
 }
+
+/* ==========================================================================
+   Ultra Diamond Bundle Package
+   ========================================================================== */
+
+/* انیمیشن‌ها */
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
+}
+.animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
+.animate-shimmer { animation: shimmer 2.5s infinite; }
+
+@keyframes sparkle-anim {
+    0% { transform: scale(0) translateY(0); opacity: 0; }
+    20% { transform: scale(1) translateY(-10px); opacity: 1; }
+    80% { transform: scale(1) translateY(-30px); opacity: 1; }
+    100% { transform: scale(0) translateY(-50px); opacity: 0; }
+}
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #64FFDA;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 3px #64FFDA, 0 0 30px 6px rgba(100, 255, 218, 0.6);
+    opacity: 0;
+    animation: sparkle-anim 3s infinite;
+}
+
+/* استایل‌های کارت الماسی */
+.diamond-card {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    box-shadow: 0 0 50px rgba(100, 255, 218, 0.2), inset 0 0 0 1px rgba(100, 255, 218, 0.3);
+}
+
+/* بج بالای کارت */
+.diamond-badge {
+    background-color: rgba(100, 255, 218, 0.15);
+    color: #64FFDA;
+    border: 1px solid rgba(100, 255, 218, 0.5);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+}
+
+/* تیتر کارت */
+.diamond-title {
+    color: #E6F1FF;
+    text-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+/* متن هایلایت (صفر تا صد) */
+.diamond-highlight {
+    background: linear-gradient(90deg, #64FFDA, #4EA8FF, #64FFDA);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-x 3s linear infinite;
+}
+@keyframes gradient-x {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* متن توضیحات */
+.diamond-text {
+    color: #A8F0E4;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.1);
+}
+
+/* دکمه واتساپ */
+.diamond-btn {
+    background-color: #64FFDA;
+    color: #0A192F;
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.4);
+    border: 1px solid #7CFFE0;
+}
+.diamond-btn:hover {
+    background-color: #7CFFE0;
+    box-shadow: 0 0 60px rgba(100, 255, 218, 0.8);
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* باکس‌های پایین (خدمات و قیمت) */
+.diamond-box, .diamond-price-box {
+    background: rgba(100, 255, 218, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.diamond-box:hover, .diamond-price-box:hover {
+    background: rgba(100, 255, 218, 0.1);
+    border-color: rgba(100, 255, 218, 0.6);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.15);
+}
+
+/* عنوان باکس خدمات */
+.diamond-box-title {
+    color: #64FFDA;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.4);
+}
+
+/* آیتم‌های لیست خدمات */
+.diamond-li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #E6F1FF;
+    font-size: 0.95rem;
+}
+.diamond-li:hover {
+    color: #64FFDA;
+    text-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
+}
+
+/* آیکون‌های لیست خدمات */
+.diamond-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(100, 255, 218, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64FFDA;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.1);
+}
+.diamond-li:hover .diamond-icon {
+    background: #64FFDA;
+    color: #0A192F;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.8);
+}
+
+/* آیکون الماس بزرگ */
+.diamond-icon-large {
+    color: #64FFDA;
+    filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.8));
+}
+
+/* قیمت */
+.diamond-price {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(90deg, #64FFDA, #7CFFE0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.5));
+    margin-bottom: 0.5rem;
+}
+
+/* واحد پول */
+.diamond-currency {
+    color: #64FFDA;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+/* تگ صرفه‌جویی */
+.diamond-save {
+    display: inline-block;
+    background: linear-gradient(90deg, #EF4444, #F97316);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    animation: bounce-slight 2s infinite;
+}
+@keyframes bounce-slight {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* آیکون‌های پایین قیمت */
+.bundle-icons i {
+    color: rgba(100, 255, 218, 0.6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.bundle-icons i:hover {
+    color: #64FFDA;
+    transform: scale(1.2) translateY(-5px);
+    filter: drop-shadow(0 0 15px rgba(100, 255, 218, 0.8));
+}

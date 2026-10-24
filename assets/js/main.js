@@ -1102,3 +1102,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ==========================================
+// افکت سه‌بعدی برای کارت پکیج الماسی
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const diamondCard = document.querySelector('.diamond-card');
+    
+    if (diamondCard && window.innerWidth > 768) {
+        diamondCard.addEventListener('mousemove', function(e) {
+            const rect = diamondCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // چرخش ملایم‌تر برای اینکه خیلی تند نشه
+            const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -3;
+            const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 3;
+            
+            diamondCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+        });
+
+        diamondCard.addEventListener('mouseleave', function() {
+            diamondCard.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)`;
+        });
+    }
+});
