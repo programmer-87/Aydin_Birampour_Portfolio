@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ساخت ربات تلگرام حرفه‌ای | آیدین بیرام پور</title>
+    <meta name="description" content="طراحی و ساخت ربات‌های تلگرام اختصاصی برای فروشگاه‌ها، پشتیبانی خودکار، نوبت‌دهی و مدیریت سفارشات. افزایش فروش با تلگرام.">
+
+    <!-- استایل‌های اصلی سایت -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/tailwind-build.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    
+    <style>
+        /* استایل‌های اختصاصی این صفحه */
+        body { font-family: 'Vazirmatn', sans-serif; background-color: #0A192F; color: #FFFFFF; }
+        .hero-gradient { background: linear-gradient(135deg, rgba(10,25,47,1) 0%, rgba(17,34,64,1) 100%); }
+        .glass-card { background: rgba(17, 34, 64, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(100, 255, 218, 0.2); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: rgba(100, 255, 218, 0.6); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1); }
+        .text-gradient { background: linear-gradient(90deg, #64FFDA, #4EA8FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .icon-box { width: 60px; height: 60px; border-radius: 1rem; background: rgba(100, 255, 218, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; transition: all 0.3s; }
+        .glass-card:hover .icon-box { background: rgba(100, 255, 218, 0.2); transform: scale(1.1); }
+        .telegram-glow { box-shadow: 0 0 30px rgba(0, 136, 204, 0.15); }
+    </style>
+</head>
+<body>
+
+    <!-- نوار ناوبری -->
+    <nav class="fixed w-full top-0 z-50 bg-[#0A192F]/90 backdrop-blur-md border-b border-[#64FFDA]/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center gap-2">
+                <span class="w-10 h-10 rounded-lg border border-[#64FFDA] text-[#64FFDA] flex items-center justify-center text-lg">آب</span>
+                آیدین بیرام پور
+            </a>
+            <a href="index.html" class="text-gray-300 hover:text-[#64FFDA] transition flex items-center gap-2">
+                <i class="fas fa-arrow-right"></i>
+                بازگشت به سایت اصلی
+            </a>
+        </div>
+    </nav>
+
+    <!-- بخش Hero -->
+    <header class="hero-gradient pt-32 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#0088cc] rounded-full blur-[150px] opacity-10"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-4 rounded-full bg-[#0088cc]/10 text-[#0088cc] text-sm font-bold mb-6 border border-[#0088cc]/30">
+                تخصص من: ربات‌های تلگرام
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-white">
+                کسب‌وکار شما در <span class="text-[#0088cc]">تلگرام</span>، خودکار و هوشمند.
+            </h1>
+            <p class="text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+                ربات تلگرام فقط برای سرگرمی نیست! من ربات‌هایی می‌سازم که ۲۴ ساعته سفارش می‌گیرند، به مشتریان پاسخ می‌دهند و فروش شما را افزایش می‌دهند.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="bg-[#0088cc] text-white font-bold py-4 px-8 rounded-lg hover:scale-105 transition shadow-[0_0_20px_rgba(0,136,204,0.4)]">
+                    <i class="fab fa-telegram ml-2"></i>
+                    درخواست ساخت ربات
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- بخش مزایا -->
+    <section class="py-20 px-6 bg-[#0A192F]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">چرا ربات <span class="text-[#0088cc]">تلگرام</span>؟</h2>
+                <div class="w-20 h-1 bg-[#0088cc] mx-auto rounded mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">مشتریان شما در تلگرام هستند. چرا آن‌ها را به سایت یا فروشگاه فیزیکی هدایت کنید؟</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card telegram-glow p-8 rounded-2xl text-center">
+                    <div class="icon-box"><i class="fas fa-clock text-3xl text-[#0088cc]"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">پاسخگویی ۲۴/۷</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">ربات شما هرگز نمی‌خوابد. حتی نیمه‌شب هم به مشتریان پاسخ می‌دهد و سفارش می‌گیرد.</p>
+                </div>
+                <div class="glass-card telegram-glow p-8 rounded-2xl text-center">
+                    <div class="icon-box"><i class="fas fa-bolt text-3xl text-[#0088cc]"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">سرعت و راحتی</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">مشتری بدون نصب اپلیکیشن جدید، فقط با یک کلیک در تلگرام خرید می‌کند.</p>
+                </div>
+                <div class="glass-card telegram-glow p-8 rounded-2xl text-center">
+                    <div class="icon-box"><i class="fas fa-users text-3xl text-[#0088cc]"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">مدیریت آسان</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">شما می‌توانید از داخل تلگرام، لیست سفارشات و موجودی را مدیریت کنید.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش نمونه‌کارها (ربات‌ها) -->
+    <section class="py-20 px-6 bg-[#112240]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">چه ربات‌هایی <span class="text-[#0088cc]">می‌سازیم؟</span></h2>
+                <div class="w-20 h-1 bg-[#0088cc] mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- ربات ۱ -->
+                <div class="glass-card p-6 rounded-xl flex items-start gap-4 border-[#0088cc]/30 hover:border-[#0088cc]">
+                    <div class="w-12 h-12 rounded-lg bg-[#0088cc]/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-shopping-cart text-xl text-[#0088cc]"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">ربات فروشگاهی</h3>
+                        <p class="text-gray-400 text-sm">نمایش محصولات، ثبت سفارش، دریافت رسید پرداخت و ارسال به انبار.</p>
+                    </div>
+                </div>
+                <!-- ربات ۲ -->
+                <div class="glass-card p-6 rounded-xl flex items-start gap-4 border-[#0088cc]/30 hover:border-[#0088cc]">
+                    <div class="w-12 h-12 rounded-lg bg-[#0088cc]/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-calendar-check text-xl text-[#0088cc]"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">ربات نوبت‌دهی</h3>
+                        <p class="text-gray-400 text-sm">مناسب برای آرایشگاه‌ها، مطب‌ها و کلینیک‌ها. رزرو و یادآوری خودکار.</p>
+                    </div>
+                </div>
+                <!-- ربات ۳ -->
+                <div class="glass-card p-6 rounded-xl flex items-start gap-4 border-[#0088cc]/30 hover:border-[#0088cc]">
+                    <div class="w-12 h-12 rounded-lg bg-[#0088cc]/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-headset text-xl text-[#0088cc]"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">ربات پشتیبانی هوشمند</h3>
+                        <p class="text-gray-400 text-sm">پاسخ به سوالات پرتکرار مشتریان با استفاده از هوش مصنوعی.</p>
+                    </div>
+                </div>
+                <!-- ربات ۴ -->
+                <div class="glass-card p-6 rounded-xl flex items-start gap-4 border-[#0088cc]/30 hover:border-[#0088cc]">
+                    <div class="w-12 h-12 rounded-lg bg-[#0088cc]/10 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-share-alt text-xl text-[#0088cc]"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-1">ربات مدیریت کانال</h3>
+                        <p class="text-gray-400 text-sm">ارسال محتوا، فوروارد اجباری و مدیریت اعضای کانال‌های تلگرامی.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش CTA -->
+    <section id="contact" class="py-20 px-6 bg-[#0A192F]">
+        <div class="max-w-3xl mx-auto text-center glass-card p-10 rounded-3xl border border-[#0088cc]/30 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[#0088cc] opacity-5 blur-[100px]"></div>
+            <h2 class="text-3xl font-bold text-white mb-4 relative z-10">آماده ساخت ربات تلگرام خود هستید؟</h2>
+            <p class="text-gray-300 mb-8 relative z-10">همین حالا پیام دهید تا درباره نوع ربات و امکاناتش صحبت کنیم.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 relative z-10">
+                <a href="https://t.me/programmer1837" target="_blank" class="bg-[#0088cc] text-white font-bold py-3 px-6 rounded-lg hover:scale-105 transition flex items-center gap-2">
+                    <i class="fab fa-telegram text-xl"></i>
+                    پیام در تلگرام
+                </a>
+                <a href="https://wa.me/989301269621?text=سلام،%20درباره%20ساخت%20ربات%20تلگرام%20میخواستم%20مشاوره%20بگیرم." target="_blank" class="bg-[#25D366] text-white font-bold py-3 px-6 rounded-lg hover:scale-105 transition flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    واتساپ
+                </a>
+                <a href="tel:+989301269621" class="bg-transparent border-2 border-[#0088cc] text-[#0088cc] font-bold py-3 px-6 rounded-lg hover:bg-[#0088cc] hover:text-white transition flex items-center gap-2">
+                    <i class="fas fa-phone"></i>
+                    تماس مستقیم
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer class="bg-[#060F1F] py-8 text-center text-gray-500 text-sm border-t border-[#0088cc]/10">
+        <p>© ۱۴۰۵ آیدین بیرام پور | تمامی حقوق محفوظ است.</p>
+    </footer>
+
+</body>
+</html>
