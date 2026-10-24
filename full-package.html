@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پکیج جامع صفر تا صد کسب‌وکار | آیدین بیرام پور</title>
+    <meta name="description" content="راه‌اندازی کامل کسب‌وکار دیجیتال شما در یک پکیج. شامل سایت اختصاصی، لوگو، بنر تبلیغاتی، ربات تلگرام و نرم‌افزار اتوماسیون. با تخفیف ویژه.">
+
+    <!-- لینک به فایل‌های اصلی و بیلد شده -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/tailwind-build.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    
+    <!-- فقط استایل‌های ساده که مطمئناً باگ نمی‌دهند -->
+    <style>
+        body { 
+            font-family: 'Vazirmatn', sans-serif; 
+            background-color: #0A192F; 
+            color: #FFFFFF; 
+            overflow-x: hidden; 
+        }
+        .hero-bg { 
+            background: linear-gradient(135deg, #0A192F 0%, #112240 100%); 
+        }
+        .text-gradient { 
+            background: linear-gradient(90deg, #64FFDA, #4EA8FF); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        /* افکت شیشه‌ای ساده برای کارت‌ها */
+        .card-glass { 
+            background: rgba(17, 34, 64, 0.8); 
+            border: 1px solid rgba(100, 255, 218, 0.2); 
+            transition: all 0.3s ease;
+        }
+        .card-glass:hover { 
+            border-color: rgba(100, 255, 218, 0.6); 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1); 
+        }
+        /* افکت شناور برای آیکون‌ها */
+        @keyframes float { 
+            0%, 100% { transform: translateY(0px); } 
+            50% { transform: translateY(-10px); } 
+        }
+        .icon-float { 
+            animation: float 3s ease-in-out infinite; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- نوار ناوبری -->
+    <nav class="fixed w-full top-0 z-50 bg-[#0A192F]/90 backdrop-blur-md border-b border-[#64FFDA]/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center gap-2">
+                <span class="w-10 h-10 rounded-lg border border-[#64FFDA] text-[#64FFDA] flex items-center justify-center text-lg">آب</span>
+                آیدین بیرام پور
+            </a>
+            <a href="index.html" class="text-gray-300 hover:text-[#64FFDA] transition flex items-center gap-2">
+                <i class="fas fa-arrow-right"></i>
+                بازگشت به سایت اصلی
+            </a>
+        </div>
+    </nav>
+
+    <!-- بخش Hero -->
+    <header class="hero-bg pt-32 pb-20 px-6 relative overflow-hidden">
+        <!-- ذرات ستاره‌ای -->
+        <div class="hero-particles" id="particles-container"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1.5 px-5 rounded-full bg-[#64FFDA]/10 text-[#64FFDA] text-sm font-bold mb-6 border border-[#64FFDA]/30">
+                <i class="fas fa-gem ml-2"></i> پیشنهاد ویژه و محدود
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-white">
+                کسب‌وکار خود را از <span class="text-gradient">صفر تا صد</span> به ما بسپارید.
+            </h1>
+            <p class="text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+                دیگر نیازی به هماهنگی با چندین شرکت و متخصص مختلف نیست. تمام زیرساخت‌های دیجیتال کسب‌وکار شما، در یک بسته‌ی کامل، هماهنگ و باکیفیت تحویل داده می‌شود.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="bg-[#64FFDA] text-[#0A192F] font-extrabold py-4 px-10 rounded-xl hover:bg-[#7CFFE0] transition text-lg">
+                    <i class="fas fa-rocket ml-2"></i> همین حالا شروع کنید
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- بخش محتویات پکیج -->
+    <section class="py-20 px-6 bg-[#0A192F]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">این پکیج شامل <span class="text-[#64FFDA]">چه مواردی</span> است؟</h2>
+                <div class="w-20 h-1 bg-[#64FFDA] mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- آیتم ۱: سایت -->
+                <div class="card-glass spotlight-card p-8 rounded-2xl text-center">
+                    <div class="w-20 h-20 mx-auto bg-[#64FFDA]/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-4xl text-[#64FFDA] icon-float"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">سایت اختصاصی</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">طراحی سایت مدرن، واکنش‌گرا و بهینه برای موتورهای جستجو، آماده برای اتصال به هر بک‌اند.</p>
+                </div>
+
+                <!-- آیتم ۲: لوگو -->
+                <div class="card-glass spotlight-card p-8 rounded-2xl text-center">
+                    <div class="w-20 h-20 mx-auto bg-[#64FFDA]/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-4xl text-[#64FFDA] icon-float" style="animation-delay: 0.2s;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">لوگو و هویت بصری</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">طراحی لوگوی اختصاصی، کارت ویزیت و ست اداری برای ایجاد یک برند ماندگار.</p>
+                </div>
+
+                <!-- آیتم ۳: بنر -->
+                <div class="card-glass spotlight-card p-8 rounded-2xl text-center">
+                    <div class="w-20 h-20 mx-auto bg-[#64FFDA]/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-image text-4xl text-[#64FFDA] icon-float" style="animation-delay: 0.4s;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">بنر تبلیغاتی</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">طراحی بنرهای حرفه‌ای برای شبکه‌های اجتماعی، تبلیغات آنلاین و چاپ.</p>
+                </div>
+
+                <!-- آیتم ۴: ربات تلگرام -->
+                <div class="card-glass spotlight-card p-8 rounded-2xl text-center">
+                    <div class="w-20 h-20 mx-auto bg-[#0088cc]/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fab fa-telegram text-4xl text-[#0088cc] icon-float" style="animation-delay: 0.6s;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">ربات تلگرام</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">ساخت ربات هوشمند برای پشتیبانی خودکار، ثبت سفارش یا نوبت‌دهی.</p>
+                </div>
+
+                <!-- آیتم ۵: نرم‌افزار اتوماسیون -->
+                <div class="card-glass spotlight-card p-8 rounded-2xl text-center">
+                    <div class="w-20 h-20 mx-auto bg-[#64FFDA]/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-4xl text-[#64FFDA] icon-float" style="animation-delay: 0.8s;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">نرم‌افزار اتوماسیون</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">یک ابزار اختصاصی برای خودکارسازی فرآیندهای تکراری (مثل مدیریت فاکتور یا انبار).</p>
+                </div>
+                
+                <!-- آیتم ۶: مشاوره -->
+                <div class="card-glass spotlight-card p-8 rounded-2xl text-center">
+                    <div class="w-20 h-20 mx-auto bg-[#64FFDA]/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-4xl text-[#64FFDA] icon-float" style="animation-delay: 1s;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">مشاوره و استراتژی</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">مشاوره تخصصی برای انتخاب بهترین مسیر دیجیتال و تدوین استراتژی فروش.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش مقایسه قیمت -->
+    <section class="py-20 px-6 bg-[#112240]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">صرفه‌جویی <span class="text-[#64FFDA]">هوشمندانه</span></h2>
+                <p class="text-gray-400">اگر هر کدام از این خدمات را جداگانه سفارش دهید، هزینه بسیار بیشتری می‌پردازید.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                
+                <!-- جداگانه -->
+                <div class="bg-[#0A192F] border border-gray-700 p-8 rounded-2xl opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale">
+                    <h3 class="text-xl font-bold text-gray-300 mb-6 text-center">خرید جداگانه</h3>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex justify-between text-gray-400 border-b border-gray-700 pb-2"><span>طراحی سایت</span> <span>۱۵,۰۰۰,۰۰۰</span></li>
+                        <li class="flex justify-between text-gray-400 border-b border-gray-700 pb-2"><span>طراحی لوگو</span> <span>۵,۰۰۰,۰۰۰</span></li>
+                        <li class="flex justify-between text-gray-400 border-b border-gray-700 pb-2"><span>ربات تلگرام</span> <span>۸,۰۰۰,۰۰۰</span></li>
+                        <li class="flex justify-between text-gray-400 border-b border-gray-700 pb-2"><span>اتوماسیون</span> <span>۱۲,۰۰۰,۰۰۰</span></li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-gray-400 text-sm">جمع کل:</p>
+                        <p class="text-3xl font-bold text-red-400 line-through">۴۵,۰۰۰,۰۰۰ تومان</p>
+                    </div>
+                </div>
+
+                <!-- پکیج (با هاله تنفسی) -->
+                <div class="package-glow-wrapper">
+                    <div class="spotlight-card bg-[#0A192F] p-8 rounded-2xl border-2 border-[#64FFDA] shadow-[0_0_20px_rgba(100,255,218,0.3)] relative z-10">
+                        <div class="absolute -top-3 right-6 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">پیشنهاد ویژه!</div>
+                        <h3 class="text-2xl font-bold text-[#64FFDA] mb-6 text-center">پکیج ویژه ما</h3>
+                        <!-- بقیه محتویات کارت قیمت بدون تغییر -->
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex justify-between text-white border-b border-[#64FFDA]/20 pb-2"><span>سایت + لوگو + ربات + اتوماسیون</span> <span class="text-[#64FFDA]">همه با هم!</span></li>
+                        <li class="flex justify-between text-white border-b border-[#64FFDA]/20 pb-2"><span>تحویل هماهنگ</span> <span class="text-[#64FFDA]"><i class="fas fa-check"></i></span></li>
+                        <li class="flex justify-between text-white border-b border-[#64FFDA]/20 pb-2"><span>پشتیبانی ۳ ماهه رایگان</span> <span class="text-[#64FFDA]"><i class="fas fa-check"></i></span></li>
+                    </ul>
+                    <div class="text-center">
+                        <p class="text-gray-300 text-sm mb-1">قیمت نهایی با تخفیف:</p>
+                        <p class="text-5xl font-extrabold text-[#64FFDA]">۳۵,۰۰۰,۰۰۰</p>
+                        <p class="text-[#64FFDA] font-bold mb-2">تومان</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش CTA نهایی -->
+    <section id="contact" class="py-20 px-6 bg-[#0A192F]">
+        <div class="max-w-3xl mx-auto text-center bg-[#112240] p-12 rounded-3xl border border-[#64FFDA]/30 shadow-lg relative overflow-hidden">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">آماده‌اید کسب‌وکارتان را متحول کنید؟</h2>
+            <p class="text-gray-300 text-lg mb-8">همین حالا با من در تماس باشید تا درباره جزئیات این پکیج صحبت کنیم.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/989301269621" target="_blank" class="bg-[#25D366] text-white font-bold py-4 px-8 rounded-lg hover:scale-105 transition flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-2xl"></i> درخواست در واتساپ
+                </a>
+                <a href="https://t.me/programmer1837" target="_blank" class="bg-[#0088cc] text-white font-bold py-4 px-8 rounded-lg hover:scale-105 transition flex items-center gap-2">
+                    <i class="fab fa-telegram text-2xl"></i> درخواست در تلگرام
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer class="bg-[#060F1F] py-8 text-center text-gray-500 text-sm border-t border-[#64FFDA]/10">
+        <p>© ۱۴۰۵ آیدین بیرام پور | تمامی حقوق محفوظ است.</p>
+    </footer>
+
+
+    <!-- اسکریپت‌های اصلی -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

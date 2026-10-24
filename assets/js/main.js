@@ -1127,3 +1127,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+/* ==========================================================================
+   Full Package Page Interactive Effects
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ۱. تولید ذرات ستاره‌ای
+    const particlesContainer = document.getElementById('particles-container');
+    if (particlesContainer) {
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'star-particle';
+            
+            // تنظیمات تصادفی برای هر ستاره
+            const size = Math.random() * 3 + 1; // سایز بین ۱ تا ۴ پیکسل
+            const left = Math.random() * 100; // موقعیت افقی
+            const animationDuration = Math.random() * 10 + 10; // زمان بین ۱۰ تا ۲۰ ثانیه
+            const animationDelay = Math.random() * 10; // تاخیر اولیه
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}%`;
+            particle.style.bottom = `-10px`;
+            particle.style.animationDuration = `${animationDuration}s`;
+            particle.style.animationDelay = `${animationDelay}s`;
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // ۲. افکت نور دنبال‌کننده موس
+    const spotlightCards = document.querySelectorAll('.spotlight-card');
+    spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+});
