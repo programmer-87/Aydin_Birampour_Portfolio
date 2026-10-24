@@ -228,10 +228,19 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('modal-tags').innerHTML = project.tags
             .map(t => `<span class="text-xs px-3 py-1 rounded-full border" style="background: var(--accent-bg-sol); color: var(--accent-sol); border-color: var(--accent-border-sol);">${t}</span>`).join('');
 
-        const message = `سلام، من پروژه «${project.title}» را در سایت شما دیدم و می‌خواهم آن را برای کسب‌وکارم شخصی‌سازی کنم.`;
+                const message = `سلام، من پروژه «${project.title}» را در سایت شما دیدم و می‌خواهم آن را برای کسب‌وکارم شخصی‌سازی کنم.`;
+        
+        // دکمه واتساپ
         const waBtn = document.getElementById('modal-whatsapp-btn');
         if (waBtn) {
             waBtn.href = `https://wa.me/989301269621?text=${encodeURIComponent(message)}`;
+        }
+
+        // دکمه تلگرام (آیدی تلگرام خودت رو اینجا بذار)
+        const tgBtn = document.getElementById('modal-telegram-btn');
+        if (tgBtn) {
+            // به جای programmer1837، آیدی خودت رو بذار
+            tgBtn.href = `https://t.me/programmer1837?text=${encodeURIComponent(message)}`;
         }
         const demoBtn = document.getElementById('modal-demo-btn');
         if (demoBtn) {
