@@ -1070,10 +1070,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 // ارسال درخواست به بک‌اند (آدرس لوکال)
-                const response = await fetch('https://aydin-birampour-portfolio.onrender.com/api/contact', {
+                // ارسال درخواست به Formspree
+                const response = await fetch('https://formspree.io/f/mqppaagl', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
                     body: JSON.stringify({ name, email, subject, message })
                 });
