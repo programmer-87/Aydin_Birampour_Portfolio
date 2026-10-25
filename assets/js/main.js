@@ -512,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
             type: 'project',
             images: [
-                { src: 'assets/img/logo_1.jpg', alt: 'لوگو ۱' }
+                { src: 'assets/img/logo_1.webp', alt: 'لوگو ۱' }
             ]
         },
         'logo-2': {
@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
             type: 'project',
             images: [
-                { src: 'assets/img/logo_2.jpg', alt: 'لوگو ۲' }
+                { src: 'assets/img/logo_2.webp', alt: 'لوگو ۲' }
             ]
         },
         'logo-3': {
@@ -530,7 +530,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['Illustrator', 'Logo Design', 'Photoshop'],
             type: 'project',
             images: [
-                { src: 'assets/img/logo_3.jpg', alt: 'لوگو ۳' }
+                { src: 'assets/img/logo_3.webp', alt: 'لوگو ۳' }
             ]
         },
 
@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
             type: 'project',
             images: [
-                { src: 'assets/img/cafe_khatrat.jpg', alt: 'کافه خاطرات' }
+                { src: 'assets/img/cafe_khatrat.webp', alt: 'کافه خاطرات' }
             ]
         },
         'web-2': {
@@ -549,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind', 'bootstrap'],
             type: 'project',
             images: [
-                { src: 'assets/img/store.jpg', alt: 'فروشگاه لوازم' }
+                { src: 'assets/img/store.webp', alt: 'فروشگاه لوازم' }
             ]
         },
         'web-3': {
@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind',  'bootstrap'],
             type: 'project',
             images: [
-                { src: 'assets/img/store_clothes.jpg', alt: 'فروشگاه لباس' }
+                { src: 'assets/img/store_clothes.webp', alt: 'فروشگاه لباس' }
             ]
         },
 
@@ -568,7 +568,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['C#', 'SQL Server', 'Desktop App'],
             type: 'project',
             images: [
-                { src: 'assets/img/software/1_2.png', alt: 'نرم‌افزار ۱' }
+                { src: 'assets/img/software/1_2.webp', alt: 'نرم‌افزار ۱' }
             ]
         },
         'software-2': {
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['Python', 'SQL Server', 'Desktop App'],
             type: 'project',
             images: [
-                { src: 'assets/img/software/2_1.png', alt: 'نرم‌افزار ۲' }
+                { src: 'assets/img/software/2_1.webp', alt: 'نرم‌افزار ۲' }
             ]
         },
         'software-3': {
@@ -586,7 +586,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['C#', 'SQL Server', 'Desktop App'],
             type: 'project',
             images: [
-                { src: 'assets/img/software/1_1.png', alt: 'نرم‌افزار ۳' }
+                { src: 'assets/img/software/1_1.webp', alt: 'نرم‌افزار ۳' }
             ]
         },
 
@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['Copywriting', 'Sales Strategy', 'Sales Funnel'],
             type: 'campaign',
             images: [
-                { src: 'assets/img/campaign/1.jpg', alt: 'پست ۱' },
+                { src: 'assets/img/campaign/1.webp', alt: 'پست ۱' },
             ]
         },
         'campaign-2': {
@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ['Copywriting', 'Sales Funnel', 'Landing Page'],
             type: 'project',
             images: [
-                { src: 'assets/img/campaign/100.jpg', alt: 'صفحه فرود ۱' }
+                { src: 'assets/img/campaign/100.webp', alt: 'صفحه فرود ۱' }
             ]
         },
         'campaign-3': {
@@ -615,35 +615,35 @@ document.addEventListener('DOMContentLoaded', function () {
             type: 'project',
             images: [
                 {
-                    src: 'assets/img/campaign/AydinHome.png',
+                    src: 'assets/img/campaign/AydinHome.webp',
                     alt: 'اسلاید ۱',
                     title: 'آیدین هوم — کیفیت برای خانه شما',
                     description: 'از سال ۱۳۹۸، بهترین لوازم خانگی رو با قیمت منصفانه به مردم تبریز ارائه می‌دیم. اعتماد شما، افتخار ماست.',
                     tags: ['معرفی برند', 'آیدین هوم', 'تبریز']
                 },
                 {
-                    src: 'assets/img/campaign/Aydin12.png',
+                    src: 'assets/img/campaign/Aydin12.webp',
                     alt: 'اسلاید ۲',
                     title: 'سرویس آشپزخانه ۱۰ پارچه',
                     description: 'جنس استیل ضدزنگ، مقاوم در برابر حرارت، طراحی مدرن و شیک، مناسب برای ۴-۶ نفر.',
                     tags: ['محصول', 'سرویس آشپزخانه', 'استیل']
                 },
                 {
-                    src: 'assets/img/campaign/whyAydin.png',
+                    src: 'assets/img/campaign/whyAydin.webp',
                     alt: 'اسلاید ۳',
                     title: 'چرا آیدین هوم؟',
                     description: 'گارانتی ۲ ساله، ارسال رایگان، قیمت منصفانه، و پشتیبانی ۲۴/۷ — ما همیشه کنار شماییم.',
                     tags: ['گارانتی', 'ارسال رایگان', 'پشتیبانی']
                 },
                 {
-                    src: 'assets/img/campaign/Suggest.png',
+                    src: 'assets/img/campaign/Suggest.webp',
                     alt: 'اسلاید ۴',
                     title: 'پیشنهاد ویژه — فقط ۵ روز!',
                     description: '۳۰٪ تخفیف + ارسال رایگان. قیمت اصلی: ۵,۰۰۰,۰۰۰ تومان. قیمت با تخفیف: ۳,۵۰۰,۰۰۰ تومان. فقط برای ۱۰۰ نفر اول.',
                     tags: ['تخفیف', 'پیشنهاد ویژه', 'ارسال رایگان']
                 },
                 {
-                    src: 'assets/img/campaign/CTA.png',
+                    src: 'assets/img/campaign/CTA.webp',
                     alt: 'اسلاید ۵',
                     title: 'همین حالا سفارش بده!',
                     description: 'شماره تماس: [شماره] | شماره کارت: ۶۰۳۷-XXXX-XXXX-XXXX | واتساپ: [لینک]. فقط تا پایان هفته!',
@@ -664,7 +664,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             day: 1,
             dayLabel: 'روز ۱ — اعتمادسازی',
-            image: 'assets/img/campaign/1.jpg',
+            image: 'assets/img/campaign/1.webp',
             caption: `سلام، من آیدینم. 👋
 
 ۳ ساله که توی دنیای پوشاک مردانه‌ام. ولی یه چیزی که همیشه آزارم می‌داد این بود:
@@ -683,7 +683,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             day: 1,
             dayLabel: 'روز ۱ — اعتمادسازی',
-            image: 'assets/img/campaign/2.jpg',
+            image: 'assets/img/campaign/2.webp',
             caption: `یادم میاد روز اولی که فروشگاه رو باز کردم، فقط ۱۰ تا پیراهن داشتم.
 
 ولی یه باور داشتم:
@@ -700,7 +700,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             day: 1,
             dayLabel: 'روز ۱ — اعتمادسازی',
-            image: 'assets/img/campaign/3.jpg',
+            image: 'assets/img/campaign/3.webp',
             caption: `۳ چیزی که توی آیدین استایل هیچوقت تغییر نمی‌کنه:
 
 🤝 صداقت — اگه لباسی بهت نخوره، بی‌سوال عوض می‌کنیم.
@@ -715,7 +715,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             day: 1,
             dayLabel: 'روز ۱ — اعتمادسازی',
-            image: 'assets/img/campaign/4.jpg',
+            image: 'assets/img/campaign/4.webp',
             caption: `یه خبر خوب برای مردهای شیک‌پوش تبریز... 👔
 
 ما یه ست کامل آماده کردیم که استایلت رو متحول می‌کنه.
