@@ -94,18 +94,18 @@ document.addEventListener('DOMContentLoaded', function () {
             demoLink: "#"
         },
         {
-            id: 6,
-            title: "قالب فروشگاهی اختصاصی (وب)",
-            description: "قالب فرانت‌اند آماده برای فروشگاه‌های اینترنتی با تمرکز بر تجربه کاربری.",
-            longDescription: "این قالب با استفاده از HTML، CSS و JavaScript طراحی شده و شامل صفحه محصول، سبد خرید و پنل کاربری است. کاملاً واکنش‌گرا و آماده اتصال به هر بک‌اندی است.",
+            id: 6, 
+            title: "قالب فروشگاه اینترنتی اختصاصی",
+            description: "طراحی رابط کاربری مدرن و واکنش‌گرا (نسخه دمو: انگلیسی) با تمرکز بر تجربه کاربری (UX).",
+            longDescription: "این قالب فروشگاهی با استفاده از React و Tailwind CSS طراحی شده است. شامل صفحه اصلی، لیست محصولات، سبد خرید و صفحه جزئیات محصول است. طراحی کاملاً واکنش‌گرا و آماده اتصال به هر بک‌اندی می‌باشد. (توجه: این نسخه دمو به زبان انگلیسی است و در نسخه نهایی، کاملاً فارسی‌سازی می‌شود.)",
             category: "web",
             categoryLabel: "توسعه وب",
             icon: "fa-solid fa-cart-shopping",
-            tags: ["HTML", "CSS", "JavaScript", "UI/UX"],
-            features: ["سبد خرید", "صفحه محصول", "پنل کاربری", "واکنش‌گرا"],
+            tags: ["React", "Tailwind", "UI/UX"],
+            features: ["طراحی واکنش‌گرا", "سبد خرید", "صفحه محصولات", "افکت‌های هاور", "نسخه دمو انگلیسی"],
             images: [
-                "assets/img/store_clothes.jpg",
-                "assets/img/store.jpg"
+                "assets/img/shop-1.webp",
+                "assets/img/shop-2.webp"
             ],
             demoLink: "#"
         }
