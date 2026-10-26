@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
             tags: ["Python", "PyMuPDF", "Pandas", "Excel"],
             features: ["استخراج هوشمند متن", "پشتیبانی از فارسی", "ذخیره در اکسل", "داشبورد وب"],
             images: [
-                "assets/img/software/2_1.png",
-                "assets/img/software/2_2.png",
-                "assets/img/software/2_3.png"
+                "assets/img/software/2_1.webp",
+                "assets/img/software/2_2.webp",
+                "assets/img/software/2_3.webp"
             ],
             demoLink: "https://github.com/programmer-87/invoice-bot"
         },
@@ -108,7 +108,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 "assets/img/shop-2.webp"
             ],
             demoLink: "#"
-        }
+        },
+        {
+            id: 7, // شماره ترتیبی پروژه
+            title: "ربات نوبت دهی در تلگرام",
+            description: "رباتی هوشمند برای دریافت نوبت‌های آنلاین در تلگرام، بدون نیاز به تماس تلفنی.",
+            longDescription: "این ربات که با استفاده از پایتون و Telegram Bot API ساخته شده است، به مشتریان اجازه می‌دهد تا در هر ساعت از شبانه‌روز، نوبت خود را در تلگرام رزرو کنند. این سیستم شامل انتخاب روز و ساعت، تایید خودکار و مدیریت نوبت‌هاست.",
+            category: "telegram",
+            categoryLabel: "ربات تلگرام",
+            icon: "fab fa-telegram", // آیکون تلگرام
+            tags: ["Python", "Telegram API", "Automation", "Bot"],
+            features: ["نوبت‌دهی ۲۴ ساعته", "بدون تماس تلفنی", "تایید خودکار", "مدیریت آسان"],
+            images: [
+                "assets/img/robotTelegram_1.webp"
+            ],
+            demoLink: "https://t.me/programmer1837" // آیدی ربات خودتون رو اینجا بذارید
+        },
     ];
     
 

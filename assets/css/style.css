@@ -3185,3 +3185,94 @@ body.solutions-page {
     box-shadow: 0 0 25px rgba(100, 255, 218, 0.8);
     transform: scale(1.05);
 }
+
+/* ==========================================================================
+   Responsive Navbar for Landing Pages
+   ========================================================================== */
+
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-navbar-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.custom-navbar-logo-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #64FFDA;
+    border-radius: 8px;
+    color: #64FFDA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.custom-navbar-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    color: #64FFDA;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.custom-navbar-back-btn:hover {
+    background: rgba(100, 255, 218, 0.2);
+    color: #FFFFFF;
+}
+
+/* در موبایل، متن‌های اضافی مخفی می‌شن */
+@media (max-width: 640px) {
+    .custom-navbar-text {
+        display: none;
+    }
+    
+    .custom-navbar-logo {
+        font-size: 1rem;
+    }
+    
+    .custom-navbar-logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .custom-navbar-back-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
