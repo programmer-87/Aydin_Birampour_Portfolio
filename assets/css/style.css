@@ -3276,3 +3276,106 @@ body.solutions-page {
         font-size: 0.8rem;
     }
 }
+
+/* ==========================================================================
+   Business Type Selector Section
+   ========================================================================== */
+
+/* کارت‌های انتخاب کسب‌وکار */
+.biz-card {
+    background-color: rgba(10, 25, 47, 0.5); /* هماهنگ با تم Navy */
+    border: 1px solid var(--turquoise-border);
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* افکت درخشش روی کارت‌ها */
+.biz-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.05), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+}
+
+.biz-card:hover::before {
+    left: 150%;
+}
+
+.biz-card:hover {
+    background-color: var(--navy-light);
+    border-color: var(--turquoise);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+}
+
+/* آیکون‌ها */
+.biz-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--turquoise-dim);
+    color: var(--turquoise);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.biz-card:hover .biz-icon {
+    background-color: var(--turquoise);
+    color: var(--navy);
+    transform: scale(1.1);
+}
+
+/* متن‌ها */
+.biz-title {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.biz-desc {
+    color: var(--gray-light);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 640px) {
+    .biz-card {
+        padding: 1.5rem 1rem;
+        flex-direction: row;
+        text-align: right;
+        justify-content: flex-start;
+    }
+    
+    .biz-icon {
+        margin-bottom: 0;
+        margin-left: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+    
+    .biz-card > div:last-child {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -229,5 +229,30 @@
 
     <!-- اسکریپت‌های اصلی -->
   <script src="assets/js/main.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        
+        if (category) {
+            const titleEl = document.querySelector('header h1');
+            const descEl = document.querySelector('header p');
+            
+            const content = {
+                'small': { title: 'پکیج راه‌اندازی مغازه و کسب‌وکار محلی', desc: 'هر چیزی که برای دیجیتال کردن مغازه‌ات لازم داری: از سایت و لوگو تا صندوق فروش و ربات.' },
+                'chain': { title: 'پکیج اتوماسیون فروشگاه‌های زنجیره‌ای', desc: 'مدیریت هوشمند چند شعبه، انبار مرکزی و اتوماسیون فاکتورها بدون خطای انسانی.' },
+                'corporate': { title: 'پکیج دیجیتال‌سازی شرکت و کارخانه', desc: 'زیرساخت کامل برای اتوماسیون اداری، مدیریت مالی و حضور حرفه‌ای در وب.' },
+                'online': { title: 'پکیج راه‌اندازی فروشگاه آنلاین', desc: 'سایت فروشگاهی مدرن، هویت بصری و کمپینی که محصولاتت رو می‌فروشه.' }
+            };
+
+            if (content[category]) {
+                titleEl.innerHTML = content[category].title;
+                descEl.innerHTML = content[category].desc;
+            }
+        }
+    });
+</script>
 </body>
 </html>

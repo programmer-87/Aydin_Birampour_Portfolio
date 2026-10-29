@@ -142,18 +142,144 @@ document.addEventListener('DOMContentLoaded', function () {
     const backToTopBtn = document.getElementById('back-to-top');
     const scrollProgress = document.getElementById('scroll-progress');
 
-    let currentFilter = 'all';
+    let currentFilters = ['all']; // حالا یک آرایه است
     let currentSearch = '';
     let currentImageIndex = 0;
     let totalImages = 0;
     let currentProject = null;
+
+            // ======================================================================
+    // 🎯 هدایت هوشمند (Smart Routing) و شخصی‌سازی کارت‌ها
+    // ======================================================================
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
+    const categoryData = {
+        'small': { 
+            filters: ['desktop', 'telegram', 'graphic'], // <--- حالا چندتاییه
+            label: 'مناسب برای مغازه‌ها',
+            ids: [4, 7, 5]
+        },
+        'chain': { 
+            filters: ['desktop', 'automation'], 
+            label: 'مناسب فروشگاه‌های زنجیره‌ای',
+            ids: [1, 4]
+        },
+        'corporate': { 
+            filters: ['automation', 'web'], 
+            label: 'مناسب شرکت‌ها و کارخانه‌ها',
+            ids: [1, 2, 3]
+        },
+        'online': { 
+            filters: ['web', 'copywriting', 'graphic'], 
+            label: 'مناسب فروش آنلاین',
+            ids: [6, 3, 5]
+        }
+    };
+
+    if (category && categoryData[category]) {
+        const data = categoryData[category];
+        
+        // ۱. فعال کردن خودکار چند فیلتر با هم
+        currentFilters = data.filters; 
+        
+        // پاک کردن حالت فعال از همه دکمه‌ها
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        
+        // فعال کردن دکمه‌های مربوطه
+        data.filters.forEach(f => {
+            const btn = document.querySelector(`.filter-btn[data-filter="${f}"]`);
+            if (btn) btn.classList.add('active');
+        });
+
+        // ۲. اضافه کردن برچسب شخصی‌سازی به کارت‌های مربوطه
+        setTimeout(() => {
+            data.ids.forEach(id => {
+                const card = document.querySelector(`.project-card[data-id="${id}"]`);
+                if (card) {
+                    const badge = document.createElement('span');
+                    badge.className = 'absolute top-3 right-3 bg-[#64FFDA] text-[#0A192F] text-xs font-bold px-3 py-1 rounded-full shadow-lg z-20';
+                    badge.innerText = data.label;
+                    card.style.position = 'relative';
+                    card.appendChild(badge);
+                }
+            });
+        }, 300); 
+    }
+
+    if (category && categoryData[category]) {
+        const data = categoryData[category];
+        
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filterValue = btn.getAttribute('data-filter');
+        
+        // اگر روی "همه" کلیک شد، بقیه پاک بشن
+        if (filterValue === 'all') {
+            currentFilters = ['all'];
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        } else {
+            // اگر "همه" فعال بود، غیرفعالش کن
+            currentFilters = currentFilters.filter(f => f !== 'all');
+            document.querySelector('.filter-btn[data-filter="all"]').classList.remove('active');
+
+            // اگر این فیلتر قبلاً فعال بود، غیرفعالش کن (Toggle)
+            if (currentFilters.includes(filterValue)) {
+                currentFilters = currentFilters.filter(f => f !== filterValue);
+                btn.classList.remove('active');
+            } else {
+                // اگر فعال نبود، اضافه‌اش کن
+                currentFilters.push(filterValue);
+                btn.classList.add('active');
+            }
+
+            // اگر هیچ فیلتری انتخاب نشد، به "همه" برگرد
+            if (currentFilters.length === 0) {
+                currentFilters = ['all'];
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+            }
+        }
+        
+        renderProjects();
+    });
+});
+
+        // ۲. اضافه کردن برچسب شخصی‌سازی به کارت‌های مربوطه بعد از رندر شدن
+        setTimeout(() => {
+            data.ids.forEach(id => {
+                const card = document.querySelector(`.project-card[data-id="${id}"]`);
+                if (card) {
+                    // ساخت برچسب
+                    const badge = document.createElement('span');
+                    badge.className = 'absolute top-3 right-3 bg-turquoise text-navy text-xs font-bold px-3 py-1 rounded-full shadow-lg z-20';
+                    badge.innerText = data.label;
+                    card.style.position = 'relative'; // برای اینکه برچسب درست قرار بگیره
+                    card.appendChild(badge);
+                }
+            });
+        }, 300); // صبر می‌کنیم تا کارت‌ها رندر بشن
+    }
+
+            // 🔗 داینامیک کردن لینک پکیج الماسی
+    const packageLinks = document.querySelectorAll('a[href="full-package.html"], a[href^="full-package.html?"]');
+    
+    if (packageLinks.length > 0) {
+        packageLinks.forEach(link => {
+            if (category) {
+                link.href = `full-package.html?category=${category}`;
+            } else {
+                link.href = `full-package.html`; // لینک عادی اگر کاربر از دسته‌بندی نیومده باشه
+            }
+        });
+    }
 
     // ======================================================================
     // ۳. توابع رندر
     // ======================================================================
     function renderProjects() {
         const filtered = solutionsData.filter(p => {
-            const matchFilter = currentFilter === 'all' || p.category === currentFilter;
+            const matchFilter = currentFilters.includes('all') || currentFilters.includes(p.category);
             const matchSearch = p.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
                                 p.description.toLowerCase().includes(currentSearch.toLowerCase()) ||
                                 p.tags.some(t => t.toLowerCase().includes(currentSearch.toLowerCase()));

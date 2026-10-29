@@ -54,7 +54,91 @@
         </p>
     </section>
 
-            <!-- ============================================================
+
+    <!-- فیلترها + جستجو -->
+    <section class="fade-up delay-3 pb-10 sm:pb-14">
+      
+      <!-- دکمه‌های فیلتر -->
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <button class="filter-btn active" data-filter="all">همه</button>
+        <button class="filter-btn" data-filter="web">توسعه وب</button>
+        <button class="filter-btn" data-filter="desktop">نرم‌افزار دسکتاپ</button>
+        <button class="filter-btn" data-filter="automation">اتوماسیون</button>
+        <button class="filter-btn" data-filter="telegram">ربات تلگرام</button>
+        <button class="filter-btn" data-filter="graphic">طراحی گرافیک</button>
+        <button class="filter-btn" data-filter="copywriting">کمپین‌نویسی</button>
+      </div>
+
+      <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="جستجو در پروژه‌ها..." autocomplete="off" />
+        <button type="button" id="clear-search" class="search-clear" aria-label="پاک کردن جستجو">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- گرید پروژه‌ها -->
+    <section class="pb-24">
+      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+  </main>
+
+  <!-- مودال -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close-btn" aria-label="بستن">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="modal-real-content" class="modal-real-content">
+        <div class="modal-gallery">
+          <div class="modal-slider-track" id="slider-track"></div>
+          <button id="prev-img" class="slider-nav-btn prev" aria-label="تصویر قبلی"><i class="fa-solid fa-chevron-right"></i></button>
+          <button id="next-img" class="slider-nav-btn next" aria-label="تصویر بعدی"><i class="fa-solid fa-chevron-left"></i></button>
+          <span id="img-counter" class="slider-counter">1 / 1</span>
+          <div id="slider-dots" class="slider-dots"></div>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent-bg-sol); color: var(--accent-sol);">
+              <i id="modal-icon"></i>
+            </div>
+            <span id="modal-category" class="text-xs px-3 py-1 rounded-full border" style="background: var(--accent-bg-sol); color: var(--accent-sol); border-color: var(--accent-border-sol);"></span>
+          </div>
+
+          <h2 id="modal-title" class="text-2xl font-bold mb-4" style="color: var(--text-white);"></h2>
+          <p id="modal-long-desc" class="text-sm leading-7 mb-6 text-justify" style="color: var(--text-slate-sol);"></p>
+
+          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">ویژگی‌های کلیدی:</h3>
+          <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6"></ul>
+
+          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">تکنولوژی‌های استفاده شده:</h3>
+          <div id="modal-tags" class="flex flex-wrap gap-2 mb-8"></div>
+
+                  <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t" style="border-color: var(--border-soft-sol);">
+            
+            <!-- دکمه واتساپ -->
+            <a id="modal-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105" style="background: var(--accent-sol); color: var(--bg-main-sol); box-shadow: 0 0 15px rgba(100,255,218,0.2);">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>مشاوره در واتساپ</span>
+            </a>
+
+            <!-- دکمه تلگرام -->
+            <a id="modal-telegram-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105 border" style="background: #0088cc; color: white; border-color: #0088cc; box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);">
+              <i class="fa-brands fa-telegram text-xl"></i>
+              <span>مشاوره در تلگرام</span>
+            </a>
+
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
          پکیج ویژه: صفر تا صد کسب‌وکار (نسخه نهایی الماسی)
     ============================================================ -->
     <section class="mb-20 relative z-10 group">
@@ -174,89 +258,7 @@
             </div>
         </div>
     </section>
-
-    <!-- فیلترها + جستجو -->
-    <section class="fade-up delay-3 pb-10 sm:pb-14">
-      
-      <!-- دکمه‌های فیلتر -->
-      <div class="flex flex-wrap justify-center gap-3 mb-6">
-        <button class="filter-btn active" data-filter="all">همه</button>
-        <button class="filter-btn" data-filter="web">توسعه وب</button>
-        <button class="filter-btn" data-filter="desktop">نرم‌افزار دسکتاپ</button>
-        <button class="filter-btn" data-filter="automation">اتوماسیون</button>
-        <button class="filter-btn" data-filter="telegram">ربات تلگرام</button>
-        <button class="filter-btn" data-filter="graphic">طراحی گرافیک</button>
-        <button class="filter-btn" data-filter="copywriting">کمپین‌نویسی</button>
-      </div>
-
-      <div class="search-wrapper">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="search-input" class="search-input" placeholder="جستجو در پروژه‌ها..." autocomplete="off" />
-        <button type="button" id="clear-search" class="search-clear" aria-label="پاک کردن جستجو">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-    </section>
-
-    <!-- گرید پروژه‌ها -->
-    <section class="pb-24">
-      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </section>
-  </main>
-
-  <!-- مودال -->
-  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button id="modal-close" class="modal-close-btn" aria-label="بستن">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div id="modal-real-content" class="modal-real-content">
-        <div class="modal-gallery">
-          <div class="modal-slider-track" id="slider-track"></div>
-          <button id="prev-img" class="slider-nav-btn prev" aria-label="تصویر قبلی"><i class="fa-solid fa-chevron-right"></i></button>
-          <button id="next-img" class="slider-nav-btn next" aria-label="تصویر بعدی"><i class="fa-solid fa-chevron-left"></i></button>
-          <span id="img-counter" class="slider-counter">1 / 1</span>
-          <div id="slider-dots" class="slider-dots"></div>
-        </div>
-
-        <div class="p-6 sm:p-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent-bg-sol); color: var(--accent-sol);">
-              <i id="modal-icon"></i>
-            </div>
-            <span id="modal-category" class="text-xs px-3 py-1 rounded-full border" style="background: var(--accent-bg-sol); color: var(--accent-sol); border-color: var(--accent-border-sol);"></span>
-          </div>
-
-          <h2 id="modal-title" class="text-2xl font-bold mb-4" style="color: var(--text-white);"></h2>
-          <p id="modal-long-desc" class="text-sm leading-7 mb-6 text-justify" style="color: var(--text-slate-sol);"></p>
-
-          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">ویژگی‌های کلیدی:</h3>
-          <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6"></ul>
-
-          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">تکنولوژی‌های استفاده شده:</h3>
-          <div id="modal-tags" class="flex flex-wrap gap-2 mb-8"></div>
-
-                  <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t" style="border-color: var(--border-soft-sol);">
-            
-            <!-- دکمه واتساپ -->
-            <a id="modal-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105" style="background: var(--accent-sol); color: var(--bg-main-sol); box-shadow: 0 0 15px rgba(100,255,218,0.2);">
-              <i class="fa-brands fa-whatsapp text-xl"></i>
-              <span>مشاوره در واتساپ</span>
-            </a>
-
-            <!-- دکمه تلگرام -->
-            <a id="modal-telegram-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105 border" style="background: #0088cc; color: white; border-color: #0088cc; box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);">
-              <i class="fa-brands fa-telegram text-xl"></i>
-              <span>مشاوره در تلگرام</span>
-            </a>
-
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    
 
   <!-- ========== Footer Section ========== -->
 <footer class="bg-navy border-t border-turquoise/20 pt-16 pb-8 px-6 md:px-12 lg:px-24">
