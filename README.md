@@ -183,9 +183,7 @@ Tailwind محلی: Build کردن Tailwind CSS به جای استفاده از C
 اینستاگرام: @aydinaicode
 
 تلگرام: @programmer1837
-
-تلگرام: @programmer1837
-
+_
 ایمیل: aydin1387tabriz@gmail.com
 
 
