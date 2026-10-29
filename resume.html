@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه | آیدین بیرام پور</title>
+    
+    <!-- فونت وزیرمتن -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- فونت آیکون‌ها (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --navy: #0A192F;
+            --navy-light: #112240;
+            --turquoise: #64FFDA;
+            --white: #FFFFFF;
+            --text-gray: #8892B0;
+            --border-color: rgba(100, 255, 218, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--navy);
+            color: var(--text-gray);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        /* کانتینر اصلی رزومه */
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--navy-light);
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* هدر رزومه */
+        .header {
+            padding: 3rem 3rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            background: linear-gradient(180deg, rgba(100, 255, 218, 0.05) 0%, transparent 100%);
+        }
+
+        .header h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .header h2 {
+            color: var(--turquoise);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-info a, .contact-info span {
+            color: var(--text-gray);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--turquoise);
+        }
+
+        .contact-info i {
+            color: var(--turquoise);
+        }
+
+        /* بدنه رزومه (دو ستون) */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 0;
+        }
+
+        .left-col {
+            padding: 2.5rem 3rem;
+            border-left: 1px solid var(--border-color); /* در RTL یعنی سمت راست */
+        }
+
+        .right-col {
+            padding: 2.5rem 3rem;
+            background-color: rgba(10, 25, 47, 0.3);
+        }
+
+        /* عناوین بخش‌ها */
+        .section-title {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            color: var(--turquoise);
+            font-size: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-right: 1rem;
+        }
+
+        /* متن‌ها و لیست‌ها */
+        .summary-text {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .job, .education-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .job-title, .edu-title {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .job-subtitle, .edu-subtitle {
+            color: var(--turquoise);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-desc {
+            font-size: 0.9rem;
+        }
+
+        .job-desc ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .job-desc li {
+            position: relative;
+            padding-right: 1.2rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .job-desc li::before {
+            content: '•';
+            color: var(--turquoise);
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+        /* مهارت‌ها */
+        .skill-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-group h4 {
+            color: var(--white);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tags span {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--turquoise);
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* دکمه‌های عملیاتی */
+        .action-buttons {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-print {
+            background-color: var(--turquoise);
+            color: var(--navy);
+        }
+
+        .btn-print:hover {
+            background-color: transparent;
+            color: var(--turquoise);
+            border-color: var(--turquoise);
+        }
+
+        .btn-back {
+            background-color: var(--navy-light);
+            color: var(--white);
+            border-color: var(--border-color);
+        }
+
+        .btn-back:hover {
+            border-color: var(--turquoise);
+            color: var(--turquoise);
+        }
+
+        /* ==========================================
+           تنظیمات مخصوص چاپ (Print)
+           ========================================== */
+        @media print {
+            body {
+                background-color: white;
+                color: #333;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border: none;
+                background-color: white;
+                max-width: 100%;
+            }
+
+            .header {
+                background: none;
+                border-bottom: 2px solid #333;
+                padding: 1rem 0;
+            }
+
+            .header h1 { color: #111; }
+            .header h2 { color: #555; }
+            .contact-info, .contact-info a, .contact-info span { color: #333; }
+            .contact-info i { color: #555; }
+
+            .left-col {
+                border-left: 1px solid #ddd;
+                padding: 1.5rem 1.5rem 1.5rem 0;
+            }
+
+            .right-col {
+                background: none;
+                padding: 1.5rem 0 1.5rem 1.5rem;
+            }
+
+            .section-title { color: #111; }
+            .section-title::after { background-color: #ccc; }
+            .section-title i { color: #555; }
+
+            .job-title, .edu-title, .skill-group h4 { color: #222; }
+            .job-subtitle, .edu-subtitle { color: #444; }
+            
+            .job-desc li::before { color: #555; }
+
+            .skill-tags span {
+                background: none;
+                border: 1px solid #999;
+                color: #333;
+            }
+
+            /* مخفی کردن دکمه‌ها در حالت پرینت */
+            .action-buttons {
+                display: none !important;
+            }
+        }
+
+        /* ریسپانسیو برای موبایل */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .left-col {
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 2rem;
+            }
+            .right-col {
+                padding: 2rem;
+            }
+            .header {
+                padding: 2rem;
+            }
+            .header h1 { font-size: 2rem; }
+            .contact-info { flex-direction: column; gap: 0.8rem; align-items: center; }
+            
+            .action-buttons {
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                width: 90%;
+            }
+            .btn { flex: 1; padding: 0.8rem; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        
+        <!-- هدر -->
+        <header class="header">
+            <h1>آیدین بیرام پور</h1>
+            <h2>توسعه‌دهنده فول‌استک | متخصص اتوماسیون و کپی‌رایتر فروش</h2>
+            
+            <div class="contact-info">
+                <a href="https://aydinbeyrampor.ir" target="_blank">
+                    <i class="fas fa-globe"></i> aydinbeyrampor.ir
+                </a>
+                <a href="https://github.com/programmer-87" target="_blank">
+                    <i class="fab fa-github"></i> github.com/programmer-87
+                </a>
+                <a href="mailto:aydin1387tabriz@gmail.com">
+                    <i class="fas fa-envelope"></i> aydin1387tabriz@gmail.com
+                </a>
+                <span>
+                    <i class="fas fa-phone-alt"></i> <span dir="ltr">0930 126 9621</span>
+                </span>
+                <span>
+                    <i class="fas fa-map-marker-alt"></i> ایران | تبریز
+                </span>
+            </div>
+        </header>
+
+        <!-- بدنه اصلی -->
+        <div class="main-content">
+            
+            <!-- ستون راست (اصلی) -->
+            <div class="left-col">
+                
+                <section>
+                    <h3 class="section-title"><i class="fas fa-user-tie"></i> درباره من</h3>
+                    <p class="summary-text">
+                        توسعه‌دهنده فول‌استک و متخصص اتوماسیون با تمرکز بر ساخت محصولات قابل فروش. تخصص من ترکیب کدنویسی (Python/C#) با درک عمیق از نیازهای کسب‌وکار است تا فرآیندهای پیچیده را به سیستم‌های خودکار، سریع و ساده تبدیل کنم.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="section-title"><i class="fas fa-briefcase"></i> پروژه‌های شاخص</h3>
+                    
+                    <div class="job">
+                        <div class="job-title">ربات پردازش خودکار فاکتور</div>
+                        <div class="job-subtitle">Python, PyMuPDF, Pandas</div>
+                        <div class="job-desc">
+                            <ul>
+                                <li>طراحی سیستم استخراج هوشمند داده‌ها از ایمیل و فایل‌های PDF به اکسل.</li>
+                                <li>کاهش زمان پردازش دستی فاکتورها به کمتر از ۱ ثانیه.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-title">سیستم مدیریت و فروش (دسکتاپ)</div>
+                        <div class="job-subtitle">C#, SQL Server</div>
+                        <div class="job-desc">
+                            <ul>
+                                <li>توسعه نرم‌افزار جامع انبار و فروش برای کسب‌وکارهای کوچک تا متوسط.</li>
+                                <li>اتوماسیون کامل فرآیندهای مالی و گزارش‌گیری با معماری تمیز دیتابیس.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-title">وب‌سایت‌های فروشگاهی واکنش‌گرا</div>
+                        <div class="job-subtitle">React, Tailwind CSS</div>
+                        <div class="job-desc">
+                            <ul>
+                                <li>طراحی رابط کاربری مدرن با تمرکز بر تجربه کاربری (UX).</li>
+                                <li>آماده‌سازی فرانت‌اند برای اتصال به هر نوع بک‌اند (Node.js, Django, Laravel).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ستون چپ (فرعی) -->
+            <div class="right-col">
+                
+                <section>
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> تحصیلات</h3>
+                    <div class="education-item">
+                        <div class="edu-title">کارشناسی مهندسی نرم‌افزار</div>
+                        <div class="edu-subtitle">دانشگاه ملی مهارت شماره ۱ آذربایجان شرقی</div>
+                        <div style="font-size: 0.85rem;">در حال تحصیل (۱۴۰۵)</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="section-title"><i class="fas fa-code"></i> مهارت‌های فنی</h3>
+                    
+                    <div class="skill-group">
+                        <h4>زبان‌ها</h4>
+                        <div class="skill-tags">
+                            <span>Python</span>
+                            <span>C#</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                            <span>C++</span>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h4>فرانت‌اند و بک‌اند</h4>
+                        <div class="skill-tags">
+                            <span>React</span>
+                            <span>Tailwind</span>
+                            <span>HTML/CSS</span>
+                            <span>Django</span>
+                            <span>Flask</span>
+                            <span>Node.js</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h4>دیتابیس و ابزارها</h4>
+                        <div class="skill-tags">
+                            <span>SQL Server</span>
+                            <span>MySQL</span>
+                            <span>SQLite</span>
+                            <span>Git</span>
+                            <span>REST APIs</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="section-title"><i class="fas fa-award"></i> آموزش‌ها</h3>
+                    <div class="job" style="margin-bottom: 0;">
+                        <div class="job-title" style="font-size: 0.95rem;">یادگیری خودآموز و مستمر</div>
+                        <div class="job-subtitle" style="font-size: 0.8rem;">پلتفرم‌های معتبر ایرانی (فرادرس، سبزلرن، کدیاد) و منابع بین‌المللی</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="section-title"><i class="fas fa-language"></i> زبان‌ها</h3>
+                    <div class="job">
+                        <div class="job-title" style="font-size: 0.95rem;">فارسی</div>
+                        <div class="job-subtitle">زبان مادری</div>
+                    </div>
+                    <div class="job">
+                        <div class="job-title" style="font-size: 0.95rem;">انگلیسی</div>
+                        <div class="job-subtitle">متوسط رو به بالا (در حال یادگیری جدی)</div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- دکمه‌ها -->
+    <div class="action-buttons">
+        <button onclick="window.print()" class="btn btn-print">
+            <i class="fas fa-print"></i> چاپ / ذخیره PDF
+        </button>
+        <a href="index.html" class="btn btn-back">
+            <i class="fas fa-arrow-right"></i> بازگشت به سایت
+        </a>
+    </div>
+
+</body>
+</html>
