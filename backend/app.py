@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 # فعال‌سازی CORS برای اینکه سایتت (فرانت‌اند) بتونه به این بک‌اند وصل بشه
-CORS(app)
+CORS(app, origins=["https://aydinbeyrampor.ir", "https://www.aydinbeyrampor.ir", "http://localhost:5500"])
 
 # تابع برای ساخت دیتابیس در صورت عدم وجود
 def init_db():
@@ -59,5 +59,4 @@ def receive_message():
         return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == '__main__':
-    # اجرای سرور روی پورت 5000
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
