@@ -646,6 +646,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const demoBtn = document.getElementById('modal-demo-btn');
         if (demoBtn) {
             demoBtn.href = project.demoLink || '#';
+            if (project.demoLink && project.demoLink !== '#') {
+                demoBtn.href = project.demoLink;
+                demoBtn.style.display = 'flex'; // نمایش دکمه
+            } else {
+                demoBtn.style.display = 'none'; // مخفی کردن اگر دمو نداشت
+            }
         }
 
         buildSlider(project.images);

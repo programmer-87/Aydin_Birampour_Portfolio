@@ -3379,3 +3379,67 @@ body.solutions-page {
         flex-direction: column;
     }
 }
+
+/* ==========================================================================
+   Demo Button - Glowing & Animated
+   ========================================================================== */
+
+.btn-live-demo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #64FFDA 0%, #4EA8FF 100%);
+    color: #0A192F;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    /* انیمیشن درخشش تنفسی */
+    animation: pulse-glow-demo 2s infinite;
+    z-index: 1;
+}
+
+.btn-live-demo:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.6);
+    animation: none; /* توقف انیمیشن در حالت هاور */
+}
+
+/* افکت عبور نور (Shine) */
+.btn-live-demo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.btn-live-demo:hover::before {
+    left: 100%;
+}
+
+/* انیمیشن درخشش (Pulse Glow) */
+@keyframes pulse-glow-demo {
+    0% {
+        box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(100, 255, 218, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
+    }
+}
