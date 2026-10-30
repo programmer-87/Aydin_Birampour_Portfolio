@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو کارت ویزیت دیجیتال | کافه آویژه</title>
+    
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <!-- آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #121212;
+            --card-bg: #1E1E1E;
+            --primary: #D4AF37; /* رنگ طلایی برای حس لاکچری کافه */
+            --text: #FFFFFF;
+            --text-muted: #A0A0A0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* کانتینر اصلی (شبیه موبایل) */
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--card-bg);
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* بخش هدر (کاور و لوگو) */
+        .header {
+            position: relative;
+            height: 180px;
+            background: linear-gradient(135deg, #2C2C2C, #121212);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* افکت نور پس‌زمینه لوگو */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px; height: 120px;
+            background: var(--primary);
+            filter: blur(60px);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            border: 2px solid var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--primary);
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .brand-name {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+            z-index: 1;
+        }
+
+        .brand-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            z-index: 1;
+        }
+
+        /* دکمه‌های اکشن سریع */
+        .quick-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .action-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .action-btn:hover .action-icon {
+            background-color: var(--primary);
+            color: var(--bg);
+            transform: translateY(-3px);
+        }
+
+        /* منوی محصولات */
+        .menu-section {
+            padding: 20px;
+        }
+
+        .menu-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-title i { color: var(--primary); }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.03);
+            padding: 12px;
+            border-radius: 1rem;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-item:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .product-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 0.8rem;
+            background-color: #2C2C2C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 15px;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .product-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .product-price {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        /* فوتر */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background-color: rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- هدر -->
+        <div class="header">
+            <div class="logo-circle">
+                <i class="fas fa-mug-hot"></i>
+            </div>
+            <div class="brand-name">کافه آویژه</div>
+            <div class="brand-subtitle">طعم اصیل، در قلب تبریز</div>
+        </div>
+
+        <!-- دکمه‌های اکشن -->
+        <div class="quick-actions">
+            <a href="#" class="action-btn">
+                <div class="action-icon"><i class="fas fa-phone-alt"></i></div>
+                <span>تماس</span>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="action-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <span>مسیریابی</span>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="action-icon"><i class="fab fa-instagram"></i></div>
+                <span>اینستاگرام</span>
+            </a>
+            <a href="#" class="action-btn">
+                <div class="action-icon"><i class="fas fa-wifi"></i></div>
+                <span>Wi-Fi</span>
+            </a>
+        </div>
+
+        <!-- منو -->
+        <div class="menu-section">
+            <div class="menu-title">
+                <i class="fas fa-utensils"></i> منوی امروز
+            </div>
+            
+            <div class="product-list">
+                <!-- آیتم ۱ -->
+                <div class="product-item">
+                    <div class="product-img"><i class="fas fa-coffee"></i></div>
+                    <div class="product-info">
+                        <div class="product-name">اسپرسو دبل</div>
+                        <div class="product-desc">دانه عربیکا، کرمای غلیظ</div>
+                    </div>
+                    <div class="product-price">۸۵,۰۰۰ تومان</div>
+                </div>
+
+                <!-- آیتم ۲ -->
+                <div class="product-item">
+                    <div class="product-img"><i class="fas fa-cocktail"></i></div>
+                    <div class="product-info">
+                        <div class="product-name">آیس لاته وانیلی</div>
+                        <div class="product-desc">شیر سرد، شربت وانیل</div>
+                    </div>
+                    <div class="product-price">۱۲۰,۰۰۰ تومان</div>
+                </div>
+
+                <!-- آیتم ۳ -->
+                <div class="product-item">
+                    <div class="product-img"><i class="fas fa-cake-candles"></i></div>
+                    <div class="product-info">
+                        <div class="product-name">چیزکیک نیویورکی</div>
+                        <div class="product-desc">با سس تمشک تازه</div>
+                    </div>
+                    <div class="product-price">۱۵۰,۰۰۰ تومان</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            طراحی شده با ❤️ توسط آیدین بیرام پور
+        </div>
+
+    </div>
+
+</body>
+</html>

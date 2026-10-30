@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو ربات فروشگاهی تلگرام | آیدین بیرام پور</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0A192F;
+            --tg-bg: #17212b;
+            --tg-bubble: #182533;
+            --tg-user-bubble: #2b5278;
+            --text: #FFFFFF;
+            --text-muted: #7f91a4;
+            --accent: #64FFDA;
+            --tg-btn-bg: rgba(100, 255, 218, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05) 0%, transparent 60%);
+        }
+
+        /* قاب گوشی */
+        .phone-frame {
+            width: 360px;
+            height: 700px;
+            background-color: #000;
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 0 2px #333;
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background-color: var(--tg-bg);
+            border-radius: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* هدر تلگرام */
+        .tg-header {
+            background-color: #242f3d;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 10;
+        }
+
+        .tg-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .tg-info h3 { font-size: 1rem; color: var(--text); margin-bottom: 2px; }
+        .tg-info span { font-size: 0.75rem; color: var(--accent); }
+
+        /* بدنه چت */
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-image: url('https://web.telegram.org/img/bg_0.png');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            animation: popIn 0.3s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes popIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-bot {
+            background-color: var(--tg-bubble);
+            color: var(--text);
+            align-self: flex-start;
+            border-bottom-right-radius: 5px;
+        }
+
+        .msg-user {
+            background-color: var(--tg-user-bubble);
+            color: var(--text);
+            align-self: flex-end;
+            border-bottom-left-radius: 5px;
+        }
+
+        /* تصویر محصول در چت */
+        .product-image-msg {
+            background-color: #2b3a4a;
+            height: 150px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .product-image-msg i { font-size: 3rem; margin-bottom: 10px; }
+
+        /* دکمه‌های شیشه‌ای ربات (Inline) */
+        .bot-keyboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            align-self: flex-start;
+            width: 85%;
+            margin-top: -5px;
+        }
+
+        .bot-btn {
+            background-color: var(--tg-btn-bg);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            animation: popIn 0.3s ease-out forwards;
+            opacity: 0;
+        }
+
+        .bot-btn:hover {
+            background-color: var(--accent);
+            color: var(--bg);
+        }
+
+        /* نوار پایین */
+        .tg-input {
+            background-color: #242f3d;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tg-input-field {
+            flex: 1;
+            background-color: var(--tg-bg);
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .tg-send {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-frame">
+        <div class="phone-screen">
+            
+            <div class="tg-header">
+                <div class="tg-avatar"><i class="fas fa-shopping-bag"></i></div>
+                <div class="tg-info">
+                    <h3>فروشگاه آیدین استایل</h3>
+                    <span>ربات فروشگاهی</span>
+                </div>
+            </div>
+
+            <div class="chat-body" id="chat-body">
+                <!-- پیام‌ها اینجا لود می‌شوند -->
+            </div>
+
+            <div class="tg-input">
+                <div class="tg-input-field">پیام...</div>
+                <div class="tg-send"><i class="fas fa-paper-plane"></i></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const chatBody = document.getElementById('chat-body');
+        let cart = [];
+
+        function createMessage(text, sender) {
+            const msg = document.createElement('div');
+            msg.className = `message ${sender === 'bot' ? 'msg-bot' : 'msg-user'}`;
+            msg.innerHTML = text;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function createKeyboard(buttonsArray, isGrid = false) {
+            const container = document.createElement('div');
+            container.className = 'bot-keyboard';
+            if (!isGrid) container.style.gridTemplateColumns = '1fr';
+
+            buttonsArray.forEach(btnInfo => {
+                const btn = document.createElement('div');
+                btn.className = 'bot-btn';
+                btn.innerText = btnInfo.text;
+                btn.onclick = () => {
+                    container.remove();
+                    createMessage(btnInfo.text, 'user');
+                    btnInfo.action();
+                };
+                container.appendChild(btn);
+            });
+            
+            chatBody.appendChild(container);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // شروع ربات
+        function startBot() {
+            setTimeout(() => {
+                createMessage("سلام! به فروشگاه آیدین استایل خوش آمدید. 👋<br>برای مشاهده محصولات، دسته‌بندی مورد نظر را انتخاب کنید:", 'bot');
+                
+                setTimeout(() => {
+                    createKeyboard([
+                        { text: '👔 پیراهن مردانه', action: showProduct1 },
+                        { text: '👖 شلوار جین', action: showProduct2 }
+                    ], true);
+                }, 500);
+            }, 500);
+        }
+
+        // نمایش محصول ۱
+        function showProduct1() {
+            setTimeout(() => {
+                const msg = document.createElement('div');
+                msg.className = 'message msg-bot';
+                msg.innerHTML = `
+                    <div class="product-image-msg">
+                        <i class="fas fa-tshirt"></i>
+                        <span>پیراهن مردانه آستین بلند</span>
+                    </div>
+                    <b>قیمت: ۸۰۰,۰۰۰ تومان</b><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">جنس ۱۰۰٪ پنبه، سایزبندی کامل</span>
+                `;
+                chatBody.appendChild(msg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                setTimeout(() => {
+                    createKeyboard([
+                        { text: '🛒 افزودن به سبد خرید', action: () => addToCart('پیراهن مردانه', 800000) },
+                        { text: '🔙 بازگشت به منو', action: startBot }
+                    ], true);
+                }, 300);
+            }, 500);
+        }
+
+        // نمایش محصول ۲
+        function showProduct2() {
+            setTimeout(() => {
+                const msg = document.createElement('div');
+                msg.className = 'message msg-bot';
+                msg.innerHTML = `
+                    <div class="product-image-msg">
+                        <i class="fas fa-socks"></i>
+                        <span>شلوار جین آبی</span>
+                    </div>
+                    <b>قیمت: ۱,۲۰۰,۰۰۰ تومان</b><br>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">جنس مرغوب، فیت اسلیم</span>
+                `;
+                chatBody.appendChild(msg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                setTimeout(() => {
+                    createKeyboard([
+                        { text: '🛒 افزودن به سبد خرید', action: () => addToCart('شلوار جین', 1200000) },
+                        { text: '🔙 بازگشت به منو', action: startBot }
+                    ], true);
+                }, 300);
+            }, 500);
+        }
+
+        // افزودن به سبد
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            setTimeout(() => {
+                createMessage(`✅ محصول <b>${name}</b> به سبد خرید اضافه شد.<br>تعداد اقلام سبد: ${cart.length}`, 'bot');
+                
+                setTimeout(() => {
+                    createKeyboard([
+                        { text: '🧾 مشاهده فاکتور و پرداخت', action: showInvoice },
+                        { text: '🔙 ادامه خرید', action: startBot }
+                    ], true);
+                }, 500);
+            }, 500);
+        }
+
+        // نمایش فاکتور
+        function showInvoice() {
+            let total = 0;
+            let itemsList = '';
+            cart.forEach((item, index) => {
+                total += item.price;
+                itemsList += `${index + 1}. ${item.name} - ${item.price.toLocaleString('fa-IR')} تومان<br>`;
+            });
+
+            setTimeout(() => {
+                createMessage(`
+                    <b>🧾 فاکتور فروش:</b><br><br>
+                    ${itemsList}
+                    <br>
+                    <b>مبلغ قابل پرداخت: ${total.toLocaleString('fa-IR')} تومان</b>
+                `, 'bot');
+                
+                setTimeout(() => {
+                    createKeyboard([
+                        { text: '💳 پرداخت آنلاین (زرین‌پال)', action: paymentSuccess },
+                        { text: '❌ انصراف', action: startBot }
+                    ], true);
+                }, 500);
+            }, 500);
+        }
+
+        // پرداخت موفق
+        function paymentSuccess() {
+            setTimeout(() => {
+                createMessage("✅ <b>پرداخت با موفقیت انجام شد!</b><br><br>سفارش شما ثبت گردید و به زودی برای هماهنگی ارسال با شما تماس گرفته می‌شود.", 'bot');
+                cart = []; // خالی کردن سبد
+            }, 800);
+        }
+
+        window.onload = startBot;
+    </script>
+</body>
+</html>

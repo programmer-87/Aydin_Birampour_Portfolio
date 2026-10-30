@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو فروشگاه اینترنتی | آیدین بیرام پور</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0A192F;
+            --card-bg: #112240;
+            --primary: #64FFDA;
+            --text: #FFFFFF;
+            --text-muted: #8892B0;
+            --border: rgba(100, 255, 218, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .product-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* بخش تصویر */
+        .product-image {
+            background-color: #1A365D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .product-image i {
+            font-size: 8rem;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px; right: 20px;
+            background-color: var(--primary);
+            color: var(--bg);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* بخش اطلاعات */
+        .product-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand { font-size: 0.9rem; color: var(--primary); margin-bottom: 5px; }
+        .title { font-size: 2rem; font-weight: 800; margin-bottom: 15px; }
+        
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .price { font-size: 1.8rem; font-weight: 900; color: var(--text); }
+        .old-price { font-size: 1.1rem; color: var(--text-muted); text-decoration: line-through; }
+
+        .description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* انتخاب رنگ و سایز */
+        .options { margin-bottom: 25px; }
+        .options label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; }
+        
+        .color-options, .size-options { display: flex; gap: 10px; }
+        
+        .color-btn {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .color-btn.active { border-color: var(--primary); transform: scale(1.1); }
+        .color-btn:hover { border-color: var(--text-muted); }
+
+        .size-btn {
+            width: 40px; height: 40px;
+            border-radius: 8px;
+            background-color: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text);
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .size-btn.active { background-color: var(--primary); color: var(--bg); border-color: var(--primary); }
+        .size-btn:hover:not(.active) { border-color: var(--primary); }
+
+        /* دکمه خرید */
+        .add-to-cart {
+            margin-top: auto;
+            background-color: var(--primary);
+            color: var(--bg);
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #7CFFE0;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        }
+
+        /* مودال پرداخت */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: all 0.3s;
+        }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+
+        .modal-content i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        .modal-content h3 { margin-bottom: 10px; }
+        .modal-content p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+        .modal-content button {
+            background-color: var(--primary);
+            color: var(--bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .product-container { grid-template-columns: 1fr; }
+            .product-image { min-height: 250px; }
+            .product-info { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product-container">
+        
+        <!-- تصویر محصول -->
+        <div class="product-image">
+            <span class="badge">۲۰٪ تخفیف ویژه</span>
+            <i class="fas fa-tshirt"></i>
+        </div>
+
+        <!-- اطلاعات محصول -->
+        <div class="product-info">
+            <div class="brand">آیدین استایل</div>
+            <h1 class="title">پیراهن مردانه آستین بلند</h1>
+            
+            <div class="price-row">
+                <div class="price">۸۰۰,۰۰۰ تومان</div>
+                <div class="old-price">۱,۰۰۰,۰۰۰ تومان</div>
+            </div>
+
+            <p class="description">
+                پیراهن مردانه با پارچه ۱۰۰٪ پنبه، طراحی مدرن و برش مناسب. مناسب برای محیط‌های کاری و استفاده روزمره. دوخت بسیار تمیز و با دوام.
+            </p>
+
+            <!-- انتخاب رنگ -->
+            <div class="options">
+                <label>رنگ:</label>
+                <div class="color-options">
+                    <button class="color-btn active" style="background-color: #FFFFFF;" onclick="selectColor(this)"></button>
+                    <button class="color-btn" style="background-color: #000000;" onclick="selectColor(this)"></button>
+                    <button class="color-btn" style="background-color: #1A365D;" onclick="selectColor(this)"></button>
+                </div>
+            </div>
+
+            <!-- انتخاب سایز -->
+            <div class="options">
+                <label>سایز:</label>
+                <div class="size-options">
+                    <button class="size-btn" onclick="selectSize(this)">M</button>
+                    <button class="size-btn active" onclick="selectSize(this)">L</button>
+                    <button class="size-btn" onclick="selectSize(this)">XL</button>
+                    <button class="size-btn" onclick="selectSize(this)">XXL</button>
+                </div>
+            </div>
+
+            <!-- دکمه خرید -->
+            <button class="add-to-cart" onclick="openCheckout()">
+                <i class="fas fa-shopping-cart"></i> افزودن به سبد خرید
+            </button>
+        </div>
+
+    </div>
+
+    <!-- مودال درگاه پرداخت -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content">
+            <i class="fas fa-credit-card"></i>
+            <h3>اتصال به درگاه پرداخت</h3>
+            <p>در یک فروشگاه واقعی، کاربر به صفحه بانک هدایت می‌شود. این یک شبیه‌سازی است.</p>
+            <button onclick="closeCheckout()">بستن</button>
+        </div>
+    </div>
+
+    <script>
+        // تغییر رنگ فعال
+        function selectColor(btn) {
+            document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // تغییر سایز فعال
+        function selectSize(btn) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // باز کردن مودال پرداخت
+        function openCheckout() {
+            document.getElementById('checkout-modal').classList.add('active');
+        }
+
+        // بستن مودال
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

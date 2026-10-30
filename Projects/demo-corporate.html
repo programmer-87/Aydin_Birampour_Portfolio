@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو وب‌سایت شرکتی | صنایع تولیدی پارس</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0A192F;
+            --bg-light: #112240;
+            --primary: #64FFDA;
+            --text: #FFFFFF;
+            --text-muted: #8892B0;
+            --border: rgba(100, 255, 218, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* نوار ناوبری */
+        .navbar {
+            background-color: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* بخش هیرو */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(100, 255, 218, 0.05) 0%, transparent 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-catalog {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-catalog:hover {
+            background-color: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        }
+
+        /* بخش محصولات */
+        .products-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+        }
+        .section-title span { color: var(--primary); }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .product-image {
+            height: 180px;
+            background-color: #1A365D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+        }
+
+        .product-info { padding: 20px; }
+        .product-info h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .product-info p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; }
+
+        .specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .spec-tag {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 5px;
+        }
+
+        .btn-inquiry {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-inquiry:hover {
+            background-color: var(--primary);
+            color: var(--bg);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- نویگیشن -->
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-industry"></i> صنایع پارس</div>
+        <div class="nav-links">
+            <a href="#">خانه</a>
+            <a href="#">درباره ما</a>
+            <a href="#">محصولات</a>
+            <a href="#">تماس با ما</a>
+        </div>
+    </nav>
+
+    <!-- هیرو -->
+    <header class="hero">
+        <h1>تولیدکننده قطعات صنعتی <span style="color: var(--primary);">پارس</span></h1>
+        <p>با کیفیت‌ترین قطعات یدکی و صنعتی برای کارخانه‌ها و خطوط تولید. کاتالوگ دیجیتال محصولات ما را مشاهده کنید.</p>
+        <button class="btn-catalog" onclick="alert('کاتالوگ PDF در حال دانلود...')">
+            <i class="fas fa-file-pdf"></i> دانلود کاتالوگ محصولات
+        </button>
+    </header>
+
+    <!-- محصولات -->
+    <section class="products-section">
+        <h2 class="section-title">محصولات <span>تولیدی</span></h2>
+        
+        <div class="products-grid">
+            
+            <!-- محصول ۱ -->
+            <div class="product-card">
+                <div class="product-image"><i class="fas fa-cog"></i></div>
+                <div class="product-info">
+                    <h3>شیر صنعتی فشار قوی</h3>
+                    <p>مناسب برای خطوط انتقال گاز و مایعات در فشارهای بالا. مقاوم در برابر خوردگی.</p>
+                    <div class="specs">
+                        <span class="spec-tag">فولاد ضد زنگ</span>
+                        <span class="spec-tag">تحمل فشار ۵۰۰ بار</span>
+                    </div>
+                    <button class="btn-inquiry" onclick="alert('درخواست استعلام قیمت ثبت شد. کارشناسان ما با شما تماس می‌گیرند.')">
+                        <i class="fas fa-envelope"></i> استعلام قیمت
+                    </button>
+                </div>
+            </div>
+
+            <!-- محصول ۲ -->
+            <div class="product-card">
+                <div class="product-image"><i class="fas fa-compress-arrows-alt"></i></div>
+                <div class="product-info">
+                    <h3>پمپ هیدرولیک صنعتی</h3>
+                    <p>پمپ‌های هیدرولیک با راندمان بالا برای ماشین‌آلات سنگین و خطوط تولید.</p>
+                    <div class="specs">
+                        <span class="spec-tag">دبی ۱۰۰ لیتر</span>
+                        <span class="spec-tag">گارانتی ۱۸ ماهه</span>
+                    </div>
+                    <button class="btn-inquiry" onclick="alert('درخواست استعلام قیمت ثبت شد. کارشناسان ما با شما تماس می‌گیرند.')">
+                        <i class="fas fa-envelope"></i> استعلام قیمت
+                    </button>
+                </div>
+            </div>
+
+            <!-- محصول ۳ -->
+            <div class="product-card">
+                <div class="product-image"><i class="fas fa-tools"></i></div>
+                <div class="product-info">
+                    <h3>بلبرینگ‌های صنعتی</h3>
+                    <p>بلبرینگ‌های دقیق برای کاهش اصطکاک و افزایش عمر مفید ماشین‌آلات.</p>
+                    <div class="specs">
+                        <span class="spec-tag">دقت بالا</span>
+                        <span class="spec-tag">استاندارد SKF</span>
+                    </div>
+                    <button class="btn-inquiry" onclick="alert('درخواست استعلام قیمت ثبت شد. کارشناسان ما با شما تماس می‌گیرند.')">
+                        <i class="fas fa-envelope"></i> استعلام قیمت
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

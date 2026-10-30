@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو ربات نوبت‌دهی تلگرام | آیدین بیرام پور</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0A192F;
+            --tg-bg: #17212b; /* رنگ پس‌زمینه چت تلگرام */
+            --tg-bubble: #182533; /* حباب پیام ربات */
+            --tg-user-bubble: #2b5278; /* حباب پیام کاربر */
+            --text: #FFFFFF;
+            --text-muted: #7f91a4;
+            --accent: #64FFDA;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.05) 0%, transparent 60%);
+        }
+
+        /* قاب گوشی موبایل */
+        .phone-frame {
+            width: 360px;
+            height: 700px;
+            background-color: #000;
+            border-radius: 40px;
+            padding: 10px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 0 2px #333;
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background-color: var(--tg-bg);
+            border-radius: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* هدر تلگرام */
+        .tg-header {
+            background-color: #242f3d;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 10;
+        }
+
+        .tg-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .tg-info h3 { font-size: 1rem; color: var(--text); margin-bottom: 2px; }
+        .tg-info span { font-size: 0.75rem; color: var(--accent); }
+
+        /* بدنه چت */
+        .chat-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-image: url('https://web.telegram.org/img/bg_0.png'); /* بک‌گراند تلگرام */
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        /* حباب پیام‌ها */
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            animation: popIn 0.3s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes popIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-bot {
+            background-color: var(--tg-bubble);
+            color: var(--text);
+            align-self: flex-start;
+            border-bottom-right-radius: 5px;
+        }
+
+        .msg-user {
+            background-color: var(--tg-user-bubble);
+            color: var(--text);
+            align-self: flex-end;
+            border-bottom-left-radius: 5px;
+        }
+
+        /* دکمه‌های شیشه‌ای ربات */
+        .bot-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-self: flex-start;
+            width: 80%;
+            margin-top: -5px;
+        }
+
+        .bot-btn {
+            background-color: rgba(100, 255, 218, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            animation: popIn 0.3s ease-out forwards;
+            opacity: 0;
+        }
+
+        .bot-btn:hover {
+            background-color: var(--accent);
+            color: var(--bg);
+        }
+
+        /* نوار تایپ / ارسال */
+        .tg-input {
+            background-color: #242f3d;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tg-input-field {
+            flex: 1;
+            background-color: var(--tg-bg);
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .tg-send {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-frame">
+        <div class="phone-screen">
+            
+            <!-- هدر -->
+            <div class="tg-header">
+                <div class="tg-avatar"><i class="fab fa-telegram"></i></div>
+                <div class="tg-info">
+                    <h3>آرایشگاه مردانه آقای رضایی</h3>
+                    <span>ربات آنلاین</span>
+                </div>
+            </div>
+
+            <!-- چت -->
+            <div class="chat-body" id="chat-body">
+                <!-- پیام‌ها با جاوااسکریپت اضافه می‌شوند -->
+            </div>
+
+            <!-- نوار پایین -->
+            <div class="tg-input">
+                <div class="tg-input-field">پیام...</div>
+                <div class="tg-send"><i class="fas fa-paper-plane"></i></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const chatBody = document.getElementById('chat-body');
+        let step = 0;
+
+        // تابع ساخت پیام
+        function createMessage(text, sender) {
+            const msg = document.createElement('div');
+            msg.className = `message ${sender === 'bot' ? 'msg-bot' : 'msg-user'}`;
+            msg.innerHTML = text;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight; // اسکرول به پایین
+        }
+
+        // تابع ساخت دکمه‌ها
+        function createButtons(buttonsArray) {
+            const container = document.createElement('div');
+            container.className = 'bot-buttons';
+            
+            buttonsArray.forEach(btnInfo => {
+                const btn = document.createElement('div');
+                btn.className = 'bot-btn';
+                btn.innerText = btnInfo.text;
+                btn.onclick = () => {
+                    // وقتی کاربر کلیک می‌کند، دکمه‌ها حذف می‌شوند و پیام کاربر ثبت می‌شود
+                    container.remove();
+                    createMessage(btnInfo.text, 'user');
+                    btnInfo.action();
+                };
+                container.appendChild(btn);
+            });
+            
+            chatBody.appendChild(container);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // شروع سناریو
+        function startBot() {
+            setTimeout(() => {
+                createMessage("سلام! به آرایشگاه آقای رضایی خوش آمدید. 👋<br>برای رزرو نوبت، یکی از گزینه‌های زیر را انتخاب کنید:", 'bot');
+                
+                setTimeout(() => {
+                    createButtons([
+                        { text: '✂️ رزرو نوبت جدید', action: askDate },
+                        { text: '💰 تعرفه خدمات', action: () => alert('تعرفه‌ها به زودی...') },
+                        { text: '📍 آدرس و موقعیت', action: () => alert('آدرس: خیابان ولیعصر...') }
+                    ]);
+                }, 500);
+            }, 500);
+        }
+
+        // مرحله انتخاب روز
+        function askDate() {
+            setTimeout(() => {
+                createMessage("لطفاً روز مورد نظر خود را انتخاب کنید:", 'bot');
+                setTimeout(() => {
+                    createButtons([
+                        { text: '📅 امروز (شنبه)', action: askTime },
+                        { text: '📅 فردا (یکشنبه)', action: askTime }
+                    ]);
+                }, 500);
+            }, 800);
+        }
+
+        // مرحله انتخاب ساعت
+        function askTime() {
+            setTimeout(() => {
+                createMessage("ساعت مورد نظر را انتخاب کنید:", 'bot');
+                setTimeout(() => {
+                    createButtons([
+                        { text: '⏰ ساعت ۱۶:۰۰', action: confirmBooking },
+                        { text: '⏰ ساعت ۱۸:۳۰', action: confirmBooking }
+                    ]);
+                }, 500);
+            }, 800);
+        }
+
+        // مرحله تایید نهایی
+        function confirmBooking() {
+            setTimeout(() => {
+                createMessage("در حال ثبت نوبت...", 'bot');
+                setTimeout(() => {
+                    createMessage("✅ <b>نوبت شما با موفقیت ثبت شد!</b><br><br>زمان: امروز ساعت انتخابی<br>لطفاً ۵ دقیقه قبل از زمان نوبت در آرایشگاه حاضر باشید. یک پیام یادآوری نیز برای شما ارسال خواهد شد.", 'bot');
+                }, 1000);
+            }, 800);
+        }
+
+        // اجرای ربات با لود شدن صفحه
+        window.onload = startBot;
+    </script>
+</body>
+</html>

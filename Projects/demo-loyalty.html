@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو باشگاه مشتریان | آیدین بیرام پور</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0A192F;
+            --card-bg: #112240;
+            --primary: #64FFDA;
+            --secondary: #4EA8FF;
+            --text: #FFFFFF;
+            --text-muted: #8892B0;
+            --gold: #FFD700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at 50% 0%, rgba(100, 255, 218, 0.1) 0%, transparent 50%);
+        }
+
+        .loyalty-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* کارت اصلی باشگاه مشتریان */
+        .membership-card {
+            background: linear-gradient(135deg, #112240 0%, #1A365D 100%);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(100, 255, 218, 0.2);
+        }
+
+        /* افکت درخشش روی کارت */
+        .membership-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .tier-badge {
+            background-color: rgba(255, 215, 0, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .user-info {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 25px;
+        }
+
+        .user-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .user-info p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* بخش امتیازات */
+        .points-section {
+            background-color: rgba(10, 25, 47, 0.6);
+            border-radius: 12px;
+            padding: 15px;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .points-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .points-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .points-label { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* نوار پیشرفت */
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 65%; /* ۶۵ درصد پر شده */
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+
+        .next-reward {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* بخش تاریخچه و جایزه */
+        .history-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .history-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .history-title i { color: var(--primary); }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .history-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .item-info h4 { font-size: 0.9rem; margin-bottom: 3px; }
+        .item-info span { font-size: 0.75rem; color: var(--text-muted); }
+        .item-points { font-weight: bold; color: var(--primary); font-size: 0.9rem; }
+
+    </style>
+</head>
+<body>
+
+    <div class="loyalty-container">
+        
+        <!-- کارت عضویت -->
+        <div class="membership-card">
+            <div class="card-header">
+                <div class="brand-logo">
+                    <i class="fas fa-crown"></i> باشگاه مشتریان
+                </div>
+                <div class="tier-badge">
+                    <i class="fas fa-star"></i> سطح طلایی
+                </div>
+            </div>
+
+            <div class="user-info">
+                <h3>سارا محمدی</h3>
+                <p>عضو از: فروردین ۱۴۰۵</p>
+            </div>
+
+            <div class="points-section">
+                <div class="points-row">
+                    <div>
+                        <div class="points-value">۱,۶۵۰</div>
+                        <div class="points-label">امتیاز فعلی</div>
+                    </div>
+                    <div style="text-align: left;">
+                        <div class="points-label">تا جایزه بعدی</div>
+                        <div style="font-size: 1.1rem; font-weight: bold; color: var(--gold);">۳۵۰ امتیاز</div>
+                    </div>
+                </div>
+                
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill"></div>
+                </div>
+                <div class="next-reward">
+                    با ۲۰۰۰ امتیاز، یک خرید رایگان تا سقف ۵۰۰,۰۰۰ تومان دریافت کنید!
+                </div>
+            </div>
+        </div>
+
+        <!-- تاریخچه امتیازات -->
+        <div class="history-card">
+            <div class="history-title">
+                <i class="fas fa-history"></i> آخرین فعالیت‌ها
+            </div>
+            
+            <div class="history-item">
+                <div class="item-info">
+                    <h4>خرید از شعبه ولیعصر</h4>
+                    <span>دیروز - ۲۴۵,۰۰۰ تومان</span>
+                </div>
+                <div class="item-points">+۲۴۵ امتیاز</div>
+            </div>
+
+            <div class="history-item">
+                <div class="item-info">
+                    <h4>خرید از شعبه امام</h4>
+                    <span>۳ روز پیش - ۱۲۰,۰۰۰ تومان</span>
+                </div>
+                <div class="item-points">+۱۲۰ امتیاز</div>
+            </div>
+
+            <div class="history-item">
+                <div class="item-info">
+                    <h4>استفاده از کد تخفیف</h4>
+                    <span>هفته گذشته</span>
+                </div>
+                <div class="item-points" style="color: #EF4444;">-۵۰۰ امتیاز</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

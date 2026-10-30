@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو صفحه فرود (Landing Page) | آیدین بیرام پور</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0A192F;
+            --bg-light: #112240;
+            --primary: #64FFDA;
+            --text: #FFFFFF;
+            --text-muted: #8892B0;
+            --danger: #EF4444;
+            --border: rgba(100, 255, 218, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* هدر فوری */
+        .top-bar {
+            background-color: var(--danger);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        /* بخش اصلی (Hero) */
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero h1 span { color: var(--primary); }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        /* دکمه CTA اصلی */
+        .btn-main {
+            background-color: var(--primary);
+            color: var(--bg);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-main:hover {
+            background-color: #7CFFE0;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.6);
+        }
+
+        /* بخش مزایا */
+        .benefits {
+            padding: 60px 20px;
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .grid-3 {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background-color: var(--bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .benefit-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+        .benefit-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* بخش قیمت */
+        .pricing {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(100, 255, 218, 0.1);
+            position: relative;
+        }
+
+        .price-card::before {
+            content: 'پیشنهاد ویژه';
+            position: absolute;
+            top: -15px; left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: var(--bg);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .old-price {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .new-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .new-price span { font-size: 1.2rem; color: var(--text); }
+
+        .features-list {
+            text-align: right;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .features-list li i { color: var(--primary); }
+
+        /* فوتر */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .btn-main { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- هدر فوریت -->
+    <div class="top-bar">
+        <i class="fas fa-fire"></i> تخفیف ۵۰٪ فقط تا پایان امروز!
+    </div>
+
+    <!-- هیرو -->
+    <header class="hero">
+        <span class="hero-badge">دوره جامع برنامه‌نویسی</span>
+        <h1>از صفر تا استخدام، فقط در <span>۳ ماه</span>.</h1>
+        <p>با جدیدترین متدهای روز دنیا، بدون نیاز به مدرک دانشگاهی، وارد بازار کار شوید. پروژه‌محور و کاملاً عملی.</p>
+        
+        <button class="btn-main" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-rocket"></i> ثبت‌نام و شروع یادگیری
+        </button>
+    </header>
+
+    <!-- مزایا -->
+    <section class="benefits">
+        <div class="grid-3">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>پروژه‌محور</h3>
+                <p>در طول دوره ۵ پروژه واقعی بازار را پیاده‌سازی می‌کنید تا رزومه‌تان خالی نباشد.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                <h3>پشتیبانی رفع اشکال</h3>
+                <p>تیم پشتیبانی ما ۲۴ ساعته در تلگرام و دیسکورد پاسخگوی سوالات شماست.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+                <h3>مدرک معتبر</h3>
+                <p>در پایان دوره، مدرک فنی و حرفه‌ای دریافت می‌کنید که در بازار کار اعتبار دارد.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قیمت -->
+    <section class="pricing" id="pricing">
+        <div class="price-card">
+            <p class="old-price">۲,۰۰۰,۰۰۰ تومان</p>
+            <div class="new-price">۱,۰۰۰,۰۰۰ <span>تومان</span></div>
+            
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> دسترسی مادام‌العمر به ویدیوها</li>
+                <li><i class="fas fa-check-circle"></i> ۵ پروژه عملی و واقعی</li>
+                <li><i class="fas fa-check-circle"></i> پشتیبانی ۶ ماهه</li>
+                <li><i class="fas fa-check-circle"></i> جلسات رفع اشکال آنلاین</li>
+            </ul>
+
+            <button class="btn-main" style="width: 100%;" onclick="alert('برای ثبت‌نام به درگاه پرداخت هدایت می‌شوید.')">
+                <i class="fas fa-shopping-cart"></i> ثبت‌نام در دوره
+            </button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        © ۱۴۰۵ - طراحی شده توسط آیدین بیرام پور | تمامی حقوق محفوظ است.
+    </footer>
+
+</body>
+</html>

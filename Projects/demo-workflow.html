@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو اتوماسیون اداری (Workflow) | آیدین بیرام پور</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --navy: #0A192F;
+            --navy-light: #112240;
+            --turquoise: #64FFDA;
+            --text: #E6F1FF;
+            --text-muted: #8892B0;
+            --border: rgba(100, 255, 218, 0.15);
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--navy);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container { width: 100%; max-width: 900px; }
+
+        /* هدر */
+        .header { margin-bottom: 30px; }
+        .header h1 { font-size: 1.5rem; margin-bottom: 5px; }
+        .header p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* کارت اصلی درخواست */
+        .workflow-card {
+            background-color: var(--navy-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            background-color: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h2 { font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+        .card-header h2 i { color: var(--turquoise); }
+
+        .request-status {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .request-details {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .detail-item span { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px; }
+        .detail-item p { font-size: 1rem; font-weight: bold; }
+
+        /* نمودار گردش کار (Timeline) */
+        .workflow-steps {
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        /* خط اتصال بین مراحل */
+        .workflow-steps::before {
+            content: '';
+            position: absolute;
+            top: 50px; /* تنظیم ارتفاع خط */
+            right: 10%; left: 10%;
+            height: 2px;
+            background-color: var(--border);
+            z-index: 1;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+            width: 25%;
+        }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--navy);
+            border: 2px solid var(--border);
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .step-title { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+
+        /* حالت‌های مختلف مرحله */
+        .step.completed .step-icon {
+            background-color: var(--success);
+            border-color: var(--success);
+            color: var(--navy);
+        }
+        .step.completed .step-title { color: var(--text); }
+
+        .step.active .step-icon {
+            background-color: var(--warning);
+            border-color: var(--warning);
+            color: var(--navy);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+            transform: scale(1.1);
+        }
+        .step.active .step-title { color: var(--warning); font-weight: bold; }
+
+        /* دکمه‌های اقدام */
+        .action-buttons {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            background-color: rgba(0,0,0,0.1);
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-approve { background-color: var(--success); color: var(--navy); }
+        .btn-approve:hover { background-color: #059669; color: white; }
+        
+        .btn-reject { background-color: rgba(239, 68, 68, 0.1); color: var(--danger); border: 1px solid var(--danger); }
+        .btn-reject:hover { background-color: var(--danger); color: white; }
+
+        @media (max-width: 600px) {
+            .workflow-steps { flex-direction: column; align-items: flex-start; gap: 20px; padding-right: 30px; }
+            .workflow-steps::before { top: 10%; bottom: 10%; right: 39px; left: auto; width: 2px; height: auto; }
+            .step { flex-direction: row; width: 100%; gap: 15px; }
+            .step-title { text-align: right; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- هدر -->
+        <div class="header">
+            <h1>اتوماسیون اداری و گردش کار</h1>
+            <p>درخواست‌ها را بدون کاغذبازی و با نظم سیستمی تایید کنید.</p>
+        </div>
+
+        <!-- کارت درخواست -->
+        <div class="workflow-card">
+            <div class="card-header">
+                <h2><i class="fas fa-file-signature"></i> درخواست مرخصی استحقاقی</h2>
+                <div class="request-status" id="status-badge">در انتظار تایید مدیر</div>
+            </div>
+
+            <div class="request-details">
+                <div class="detail-item">
+                    <span>درخواست‌دهنده</span>
+                    <p>رضا کریمی (واحد تولید)</p>
+                </div>
+                <div class="detail-item">
+                    <span>مدت درخواست</span>
+                    <p>۳ روز (از ۱۰ تا ۱۲ آبان)</p>
+                </div>
+            </div>
+
+            <!-- گردش کار (Timeline) -->
+            <div class="workflow-steps" id="workflow-steps">
+                <!-- مرحله ۱: ثبت درخواست (همیشه انجام شده) -->
+                <div class="step completed">
+                    <div class="step-icon"><i class="fas fa-paper-plane"></i></div>
+                    <div class="step-title">ثبت درخواست</div>
+                </div>
+
+                <!-- مرحله ۲: تایید مدیر مستقیم -->
+                <div class="step active" id="step-manager">
+                    <div class="step-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="step-title">تایید مدیر</div>
+                </div>
+
+                <!-- مرحله ۳: تایید منابع انسانی -->
+                <div class="step" id="step-hr">
+                    <div class="step-icon"><i class="fas fa-users"></i></div>
+                    <div class="step-title">تایید منابع انسانی</div>
+                </div>
+
+                <!-- مرحله ۴: ثبت نهایی -->
+                <div class="step" id="step-final">
+                    <div class="step-icon"><i class="fas fa-check-double"></i></div>
+                    <div class="step-title">ثبت در سیستم</div>
+                </div>
+            </div>
+
+            <!-- دکمه‌های اقدام -->
+            <div class="action-buttons">
+                <button class="btn btn-approve" onclick="approveStep()" id="btn-approve">
+                    <i class="fas fa-check"></i> تایید درخواست
+                </button>
+                <button class="btn btn-reject">
+                    <i class="fas fa-times"></i> رد درخواست
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentStep = 1; // شروع از مرحله ۱ (تایید مدیر)
+
+        function approveStep() {
+            if (currentStep === 1) {
+                // تایید مدیر
+                document.getElementById('step-manager').classList.remove('active');
+                document.getElementById('step-manager').classList.add('completed');
+                
+                document.getElementById('step-hr').classList.add('active');
+                document.getElementById('status-badge').innerText = 'در انتظار منابع انسانی';
+                document.getElementById('status-badge').style.color = 'var(--turquoise)';
+                document.getElementById('status-badge').style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
+                
+                currentStep = 2;
+
+            } else if (currentStep === 2) {
+                // تایید منابع انسانی
+                document.getElementById('step-hr').classList.remove('active');
+                document.getElementById('step-hr').classList.add('completed');
+                
+                document.getElementById('step-final').classList.add('active');
+                
+                setTimeout(() => {
+                    document.getElementById('step-final').classList.remove('active');
+                    document.getElementById('step-final').classList.add('completed');
+                    
+                    document.getElementById('status-badge').innerText = 'تایید نهایی شد ✅';
+                    document.getElementById('status-badge').style.color = 'var(--success)';
+                    document.getElementById('status-badge').style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+                    
+                    // تغییر دکمه تایید
+                    const btn = document.getElementById('btn-approve');
+                    btn.innerHTML = '<i class="fas fa-check-double"></i> درخواست بسته شد';
+                    btn.style.backgroundColor = 'var(--navy-light)';
+                    btn.style.color = 'var(--text-muted)';
+                    btn.style.pointerEvents = 'none';
+                }, 800);
+                
+                currentStep = 3;
+            }
+        }
+    </script>
+</body>
+</html>

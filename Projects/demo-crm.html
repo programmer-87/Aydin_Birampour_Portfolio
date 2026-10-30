@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دمو نرم‌افزار CRM | آیدین بیرام پور</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --navy: #0A192F;
+            --navy-light: #112240;
+            --turquoise: #64FFDA;
+            --text: #E6F1FF;
+            --text-muted: #8892B0;
+            --border: rgba(100, 255, 218, 0.15);
+            --success: #10B981;
+            --danger: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--navy);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .crm-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* پروفایل مشتری */
+        .profile-card {
+            background-color: var(--navy-light);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            right: 0; top: 0; bottom: 0;
+            width: 5px;
+            background-color: var(--turquoise);
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--turquoise);
+        }
+
+        .profile-text h2 { font-size: 1.4rem; margin-bottom: 5px; }
+        .profile-text p { font-size: 0.9rem; color: var(--text-muted); }
+        .tag {
+            display: inline-block;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--turquoise);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 8px;
+        }
+
+        .financial-status {
+            text-align: left;
+            background-color: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .financial-status span { font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 5px; }
+        .financial-status p { font-size: 1.3rem; font-weight: bold; color: var(--danger); }
+        .financial-status small { font-size: 0.7rem; color: var(--text-muted); display: block; margin-top: 5px;}
+
+        /* گرید اصلی */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background-color: var(--navy-light);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 15px 20px;
+            background-color: rgba(0,0,0,0.2);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header h3 { font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+        .panel-header h3 i { color: var(--turquoise); }
+
+        /* تایم‌لاین تماس‌ها */
+        .timeline {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 15px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: 15px; top: 30px; bottom: -15px;
+            width: 1px;
+            background-color: var(--border);
+        }
+        .timeline-item:last-child::before { display: none; }
+
+        .t-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--turquoise);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .t-content {
+            background-color: rgba(255,255,255,0.02);
+            padding: 12px;
+            border-radius: 8px;
+            flex: 1;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .t-content h4 { font-size: 0.9rem; margin-bottom: 5px; }
+        .t-content p { font-size: 0.8rem; color: var(--text-muted); }
+        .t-content span { font-size: 0.7rem; color: var(--turquoise); display: block; margin-top: 5px; }
+
+        /* خلاصه خریدها */
+        .summary-list {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border);
+        }
+        .summary-item:last-child { border: none; padding-bottom: 0; }
+        .summary-item span { font-size: 0.85rem; color: var(--text-muted); }
+        .summary-item p { font-size: 0.9rem; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .profile-card { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .financial-status { width: 100%; }
+            .main-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="crm-container">
+        
+        <!-- پروفایل مشتری -->
+        <div class="profile-card">
+            <div class="profile-info">
+                <div class="avatar"><i class="fas fa-building"></i></div>
+                <div class="profile-text">
+                    <h2>شرکت پخش مواد غذایی آریا</h2>
+                    <p>مدیر عامل: جناب آقای احمدی</p>
+                    <span class="tag">مشتری عمده (B2B)</span>
+                </div>
+            </div>
+            <div class="financial-status">
+                <span>مانده حساب (بدهی)</span>
+                <p>۱۲۵,۰۰۰,۰۰۰ تومان</p>
+                <small>سررسید چک: ۳ روز آینده</small>
+            </div>
+        </div>
+
+        <!-- گرید محتوا -->
+        <div class="main-grid">
+            
+            <!-- تاریخچه تماس‌ها (سمت راست) -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-history"></i> تاریخچه تعاملات فروش</h3>
+                    <button style="background: none; border: none; color: var(--turquoise); cursor: pointer;"><i class="fas fa-plus"></i> ثبت تماس جدید</button>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="t-icon"><i class="fas fa-phone"></i></div>
+                        <div class="t-content">
+                            <h4>تماس تلفنی (پیگیری بدهی)</h4>
+                            <p>با واحد حسابداری آریا صحبت شد. قرار شد تا پایان هفته بخشی از بدهی تسویه شود.</p>
+                            <span>امروز - ساعت ۱۰:۳۰</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="t-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="t-content">
+                            <h4>ملاقات حضوری در شرکت</h4>
+                            <p>معرفی محصولات جدید (لبنیات). آقای احمدی برای سفارش ۵۰۰ کارتن ابراز تمایل کرد.</p>
+                            <span>دیروز - ساعت ۱۵:۰۰</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="t-icon"><i class="fas fa-file-invoice"></i></div>
+                        <div class="t-content">
+                            <h4>ارسال پیش‌فاکتور</h4>
+                            <p>پیش‌فاکتور خرید روغن مایع از طریق ایمیل برای مشتری ارسال شد.</p>
+                            <span>۳ روز پیش</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- خلاصه اطلاعات (سمت چپ) -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-chart-pie"></i> خلاصه خرید</h3>
+                </div>
+                <div class="summary-list">
+                    <div class="summary-item">
+                        <span>کل خرید (۳ ماه اخیر):</span>
+                        <p>۴۵۰,۰۰۰,۰۰۰ تومان</p>
+                    </div>
+                    <div class="summary-item">
+                        <span>تعداد سفارشات:</span>
+                        <p>۱۲ سفارش</p>
+                    </div>
+                    <div class="summary-item">
+                        <span>محصول محبوب:</span>
+                        <p>روغن مایع</p>
+                    </div>
+                    <div class="summary-item">
+                        <span>وضعیت مشتری:</span>
+                        <p style="color: var(--success);">فعال (وفادار)</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
