@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEYLA | پوشاک لیلا - خاص بپوش، خاص بدرخش</title>
+  <meta name="description" content="پوشاک لیلا. عرضه انواع لباس‌های زنانه و دخترانه، مانتو مجلسی، کت شلوار. خرید حضوری و آنلاین.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+      <!-- فایل CSS اختصاصی لیلا -->
+  <link rel="stylesheet" href="/assets/css/demo-Leyla.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            dark: '#111111',
+            darker: '#0a0a0a',
+            gold: '#D4AF37',
+            rosegold: '#B76E79',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Vazirmatn', sans-serif; background-color: #111111; color: #fff; }
+    .gold-text { color: #D4AF37; }
+    .btn-gold { 
+      background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
+      color: #111; transition: all 0.3s ease;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+  </style>
+</head>
+
+<body class="text-white">
+
+  <!-- ================= هدر ================= -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-darker/90 backdrop-blur border-b border-gold/20">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+            <a href="#hero" class="flex items-center gap-3">
+        <!-- تصویر لوگو -->
+        <img 
+          src="/assets/img/demo-Leyla/logo.png" 
+          alt="لوگوی لیلا" 
+          class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border border-gold shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <!-- جایگزین در صورت لود نشدن عکس -->
+        <div class="hidden w-10 h-10 md:w-12 md:h-12 rounded-full border border-gold items-center justify-center">
+          <span class="font-serif text-xl gold-text">L</span>
+        </div>
+        
+        <div class="leading-tight">
+          <p class="font-serif font-bold text-lg tracking-widest text-white">LEILA</p>
+          <p class="text-[10px] tracking-widest gold-text">CLOTHING</p>
+        </div>
+      </a>
+      
+      <nav class="hidden md:flex gap-6 text-sm font-medium text-gray-300">
+        <a href="#categories" class="hover:text-gold transition">دسته‌بندی‌ها</a>
+        <a href="#gallery" class="hover:text-gold transition">کالکشن</a>
+        <a href="#contact" class="hover:text-gold transition">آدرس و تماس</a>
+        <a href="https://rubika.ir/Pooshakeleidy" target="_blank" class="btn-gold px-5 py-2 rounded-full font-bold text-sm">سفارش در روبیکا</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= هیرو (Banner) ================= -->
+  <section id="hero" class="pt-32 pb-16 px-4 relative overflow-hidden">
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
+    
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="text-center md:text-right">
+        <span class="inline-block bg-rosegold/20 text-rosegold border border-rosegold/50 text-xs px-4 py-1.5 rounded-full mb-6 font-bold">
+          🔥 بمب فروش 🔥
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          بیشتر از یک لباس... <br>
+          <span class="font-serif italic gold-text text-5xl md:text-7xl">یک حسِ</span>
+        </h1>
+        <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+          خاص بپوش، خاص بدرخش. عرضه انواع لباس‌های زنانه و دخترانه، مانتو مجلسی، کت‌شلوار و ست‌های راحتی. 
+        </p>
+        
+        <!-- باکس تخفیف ویژه -->
+        <div class="bg-gradient-to-r from-rosegold/20 to-transparent border-r-4 border-gold p-4 rounded-lg mb-8 text-right">
+          <p class="text-lg font-bold text-white mb-1">🎶 بشتابید بشتابید! 🎶</p>
+          <p class="text-sm text-gray-300">تک‌سایزها و تک‌رنگ‌ها شامل <span class="text-gold font-bold text-lg">۵۰٪ تخفیف</span> می‌باشند.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center md:justify-start gap-4">
+          <a href="#gallery" class="btn-gold px-8 py-3 rounded-full font-bold shadow-lg">
+            مشاهده محصولات
+          </a>
+          <a href="#contact" class="border border-gold/50 text-gold px-8 py-3 rounded-full font-medium hover:bg-gold/10 transition">
+            خرید حضوری
+          </a>
+        </div>
+      </div>
+
+            <!-- قاب لوگو -->
+      <div class="flex justify-center animate-fade delay-2">
+        <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full border border-gold/40 p-2 shadow-[0_0_50px_rgba(212,175,55,0.2)]">
+          
+          <!-- تصویر اصلی لوگو -->
+          <img 
+            src="/assets/img/demo-Leyla/logo.png" 
+            alt="لوگوی لیلا کالکشن - خاص بپوش، خاص بدرخش" 
+            class="w-full h-full object-cover rounded-full"
+            onerror="this.parentElement.innerHTML='<div class=\'w-full h-full rounded-full bg-gradient-to-br from-[#1a1a1a] to-black border border-gold/20 flex flex-col items-center justify-center text-center p-6\'><span class=\'text-6xl mb-4 text-gold\'>👑</span><p class=\'font-serif text-4xl text-gold tracking-widest\'>LEILA</p><p class=\'text-xs tracking-widest text-gray-400 mt-2\'>CLOTHING</p><p class=\'text-[10px] italic text-rosegold mt-4\'>It\'s a feeling</p></div>'"
+          >
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= دسته‌بندی محصولات ================= -->
+  <section id="categories" class="py-16 px-4 bg-darker border-t border-white/5">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-10">تنوع بی‌نظیر <span class="gold-text">برای هر سلیقه</span></h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+        <!-- کارت دسته‌بندی -->
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">💃🏻</div>
+          <h3 class="text-sm font-bold text-gray-200">لباس زنانه و دخترانه</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">🌚</div>
+          <h3 class="text-sm font-bold text-gray-200">عباهای کارشده محرم</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">🧥</div>
+          <h3 class="text-sm font-bold text-gray-200">مانتو مجلسی</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">👗</div>
+          <h3 class="text-sm font-bold text-gray-200">شومیز و تونیک</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">👖</div>
+          <h3 class="text-sm font-bold text-gray-200">کت شلوار و شلوار جین</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">🥻</div>
+          <h3 class="text-sm font-bold text-gray-200">ست‌های راحتی</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">🏖️</div>
+          <h3 class="text-sm font-bold text-gray-200">مانتو و ساحلی</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">👙</div>
+          <h3 class="text-sm font-bold text-gray-200">لباس زیر</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">🧣</div>
+          <h3 class="text-sm font-bold text-gray-200">شال و روسری</h3>
+        </div>
+        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-5 hover:border-gold/50 hover:bg-[#222] transition cursor-default">
+          <div class="text-3xl mb-2">✨</div>
+          <h3 class="text-sm font-bold text-gray-200">شومیز مجلسی</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= گالری (نمونه کارها) ================= -->
+  <section id="gallery" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">کالکشن <span class="gold-text font-serif">لیلا</span></h2>
+        <p class="text-gray-400 text-sm max-w-xl mx-auto">هر تکه، یک اثر هنری است. برای سفارش روی محصول کلیک کنید.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- محصول ۱ -->
+        <article class="product-card group relative rounded-2xl overflow-hidden group bg-[#1a1a1a] border border-white/5 hover:border-gold/30 transition-all duration-300">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="/assets/img/demo-Leyla/product-leila-1.jpg" alt="لباس مجلسی" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1515347619252-60a6bf4fffce?q=80&w=600&auto=format&fit=crop'">
+            <span class="absolute top-4 right-4 bg-rosegold text-white text-[10px] px-3 py-1 rounded-full">جدید</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-1 group-hover:text-gold transition">مانتو مجلسی</h3>
+            <p class="text-xs text-gray-400 mb-4">دوخت اختصاصی، طرح خاص</p>
+            <div class="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+              <span class="gold-text font-bold">۲٬۵۰۰٬۰۰۰ تومان</span>
+              <a href="https://rubika.ir/Pooshakeleidy" target="_blank" class="text-xs border border-gold/40 text-gold px-3 py-1.5 rounded hover:bg-gold/10 transition">سفارش</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- محصول ۲ -->
+        <article class="product-card group relative rounded-2xl overflow-hidden group bg-[#1a1a1a] border border-white/5 hover:border-gold/30 transition-all duration-300">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="/assets/img/demo-Leyla/product-leila-2.jpg" alt="ست راحتی" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600&auto=format&fit=crop'">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-1 group-hover:text-gold transition">ست راحتی</h3>
+            <p class="text-xs text-gray-400 mb-4">مناسب استایل روزمره</p>
+            <div class="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+              <span class="gold-text font-bold">۱٬۸۰۰٬۰۰۰ تومان</span>
+              <a href="https://rubika.ir/Pooshakeleidy" target="_blank" class="text-xs border border-gold/40 text-gold px-3 py-1.5 rounded hover:bg-gold/10 transition">سفارش</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- محصول ۳ -->
+        <article class="product-card group relative rounded-2xl overflow-hidden group bg-[#1a1a1a] border border-white/5 hover:border-gold/30 transition-all duration-300">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="/assets/img/demo-Leyla/product-leila-3.jpg" alt="کت شلوار" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=600&auto=format&fit=crop'">
+            <span class="absolute top-4 right-4 bg-gold text-black text-[10px] px-3 py-1 rounded-full font-bold">۵۰٪ تخفیف</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-1 group-hover:text-gold transition">کت شلوار مجلسی</h3>
+            <p class="text-xs text-gray-400 mb-4">تک‌سایز - شامل تخفیف ویژه</p>
+            <div class="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+              <div class="flex flex-col">
+                <span class="text-[10px] text-gray-500 line-through">۳٬۲۰۰٬۰۰۰</span>
+                <span class="gold-text font-bold">۱٬۶۰۰٬۰۰۰ تومان</span>
+              </div>
+              <a href="https://rubika.ir/Pooshakeleidy" target="_blank" class="text-xs border border-gold/40 text-gold px-3 py-1.5 rounded hover:bg-gold/10 transition">سفارش</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- محصول ۴ -->
+        <article class="product-card group relative rounded-2xl overflow-hidden group bg-[#1a1a1a] border border-white/5 hover:border-gold/30 transition-all duration-300">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="/assets/img/demo-Leyla/product-leila-4.jpg" alt="شومیز" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=600&auto=format&fit=crop'">
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-1 group-hover:text-gold transition">شومیز مجلسی</h3>
+            <p class="text-xs text-gray-400 mb-4">خوش‌دوخت و راحت</p>
+            <div class="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+              <span class="gold-text font-bold">۱٬۴۵۰٬۰۰۰ تومان</span>
+              <a href="https://rubika.ir/Pooshakeleidy" target="_blank" class="text-xs border border-gold/40 text-gold px-3 py-1.5 rounded hover:bg-gold/10 transition">سفارش</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= تماس و آدرس ================= -->
+  <section id="contact" class="py-20 px-4 bg-darker border-t border-white/5 text-center">
+    <div class="max-w-3xl mx-auto">
+<h2 class="text-2xl md:text-3xl font-bold mb-4 shine-text">
+  آماده‌اید <span class="gold-text font-serif">خاص</span> بدرخشید؟
+</h2>
+      <p class="text-gray-400 mb-10">فروش به صورت حضوری و آنلاین. برای سفارش یا مراجعه حضوری از راه‌های زیر اقدام کنید.</p>
+      
+      <div class="grid md:grid-cols-2 gap-6 text-right">
+        <!-- کارت آدرس -->
+        <div class="bg-[#1a1a1a] border border-gold/20 p-6 rounded-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-20 h-20 bg-gold/5 rounded-bl-full pointer-events-none"></div>
+          <h3 class="font-bold text-gold mb-3 text-lg flex items-center gap-2">
+            <span>📍</span> آدرس فروشگاه حضوری
+          </h3>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            اسلام‌آباد، بی‌اس‌ام‌تری مدنی، پایین‌تر از چراغ قرمز جاده همایون، روبروی سیسمونی آی سودا.
+          </p>
+        </div>
+
+        <!-- کارت ارتباط آنلاین -->
+        <div class="bg-[#1a1a1a] border border-gold/20 p-6 rounded-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-20 h-20 bg-rosegold/5 rounded-bl-full pointer-events-none"></div>
+          <h3 class="font-bold text-gold mb-3 text-lg flex items-center gap-2">
+            <span>🛍️</span> سفارش آنلاین
+          </h3>
+          <div class="space-y-3 mt-4">
+            <a href="https://rubika.ir/Pooshakeleidy" target="_blank" class="flex items-center justify-between bg-white/5 hover:bg-white/10 p-3 rounded-lg transition">
+              <span class="text-sm text-gray-200">کانال روبیکا</span>
+              <span class="text-xs text-rosegold font-mono" dir="ltr">@Pooshakeleidy</span>
+            </a>
+            <a href="https://instagram.com/Pooshake.leila" target="_blank" class="flex items-center justify-between bg-white/5 hover:bg-white/10 p-3 rounded-lg transition">
+              <span class="text-sm text-gray-200">پیج اینستاگرام</span>
+              <span class="text-xs text-rosegold font-mono" dir="ltr">Pooshake.leila</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black py-6 text-center border-t border-white/5">
+    <p class="font-serif text-gold tracking-widest text-lg">LEILA CLOTHING</p>
+    <p class="text-xs text-gray-500 mt-2">© 1405 تمامی حقوق محفوظ است.</p>
+  </footer>
+
+</body>
+</html>

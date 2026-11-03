@@ -1,0 +1,306 @@
+/* =========================================
+   ۱. تنظیمات پایه و اسکرول‌بار
+   ========================================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* اسکرول‌بار طلایی و باریک برای حس لاکچری */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F3E5AB;
+}
+
+/* انتخاب متن */
+::selection {
+  background: #D4AF37;
+  color: #111;
+}
+
+/* =========================================
+   ۲. انیمیشن‌های ورود (با عملکرد عالی روی موبایل)
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade { animation: fadeUp 1s ease forwards; }
+.delay-1 { animation-delay: 0.2s; opacity: 0; }
+.delay-2 { animation-delay: 0.4s; opacity: 0; }
+.delay-3 { animation-delay: 0.6s; opacity: 0; }
+
+/* =========================================
+   ۳. افکت‌های لوکس (کارت‌ها و دکمه‌ها)
+   ========================================= */
+
+/* دکمه طلایی با درخشش */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: all 0.5s ease;
+}
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+/* کارت‌های محصولات با افکت شناور و درخشش ملایم */
+.product-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* افکت زوم نرم روی عکس محصول */
+.product-card img {
+  transition: transform 0.7s ease;
+}
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+/* =========================================
+   ۴. استایل اختصاصی برای لوگوی هیرو (چرخش طلایی)
+   ========================================= */
+.hero-logo-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* حلقه چرخان طلایی دور لوگو */
+.hero-logo-container::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent, #D4AF37, transparent, #B76E79, transparent);
+  animation: slowSpin 8s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* هاله درخشش پشت لوگو */
+.hero-logo-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 40px rgba(212, 175, 55, 0.2);
+  pointer-events: none;
+}
+
+/* =========================================
+   ۵. افکت شیشه‌ای (Glassmorphism) برای هدر
+   ========================================= */
+header {
+  background: rgba(10, 10, 10, 0.7) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* =========================================
+   ۶. تنظیمات ویژه موبایل (بهینه‌سازی)
+   ========================================= */
+@media (max-width: 768px) {
+  /* توقف انیمیشن‌های سنگین در موبایل برای جلوگیری از لگ */
+  .hero-logo-container::before {
+    animation: none;
+    background: #D4AF37; /* در موبایل فقط یک حلقه ساده طلایی نشان بده */
+    opacity: 0.3;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px); /* حرکت کمتر در موبایل */
+  }
+
+  /* تنظیم فاصله‌ها برای صفحه‌های کوچک */
+  h1 { font-size: 2.5rem !important; line-height: 1.2 !important; }
+  h2 { font-size: 1.8rem !important; }
+  
+  /* اسکرول‌بار در موبایل مخفی بشه بهتره */
+  ::-webkit-scrollbar { width: 0px; }
+}
+
+/* =========================================
+   ۷. احترام به تنظیمات کاهش انیمیشن کاربر
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================
+   ۸. جادوی موبایل (انیمیشن‌های خودکار بدون نیاز به کلیک)
+   ========================================= */
+@media (max-width: 768px) {
+  
+  /* ۱. درخشش نبض‌دار روی لوگوی هیرو (بدون توقف) */
+  .hero-logo-container img {
+    animation: pulseImage 3s infinite ease-in-out;
+  }
+  
+  @keyframes pulseImage {
+    0% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8)); transform: scale(1.02); }
+    100% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); transform: scale(1); }
+  }
+
+    /* ۲. حرکت ملایم و شناور کارت‌های محصولات (مثل نفس کشیدن) - سرعت بیشتر و واضح‌تر */
+  #gallery article {
+    animation: floatCards 2.5s ease-in-out infinite;
+  }
+  
+  /* تاخیر متفاوت برای هر کارت تا با هم حرکت نکنند و طبیعی به نظر برسه */
+  #gallery article:nth-child(1) { animation-delay: 0s; }
+  #gallery article:nth-child(2) { animation-delay: 0.4s; }
+  #gallery article:nth-child(3) { animation-delay: 0.8s; }
+  #gallery article:nth-child(4) { animation-delay: 1.2s; }
+
+  @keyframes floatCards {
+    0%, 100% { 
+      transform: translateY(0); 
+    }
+    50% { 
+      transform: translateY(-10px); /* حرکت بیشتر برای وضوح بهتر */
+      box-shadow: 0 20px 30px rgba(212, 175, 55, 0.15); /* سایه واضح‌تر هنگام بالا آمدن */
+    }
+  }
+
+  /* ۳. درخشش نور روی دکمه طلایی (مثل برق زدن جواهر) */
+  .btn-gold {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-gold::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+  }
+
+  /* ۴. افکت تایپ شدن یا ظاهر شدن نرم برای متن‌ها (هر بار که اسکرول کنه) */
+  .text-reveal {
+    animation: fadeSlideUp 1s ease-out forwards;
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ۵. پس‌زمینه متحرک کهکشانی (نورهای محو) */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+    animation: rotateBg 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* ۶. جذابیت لیست دسته‌بندی‌ها (تغییر رنگ آرام آیکون‌ها) */
+  #categories .text-3xl {
+    animation: colorPulse 3s infinite alternate;
+  }
+
+  @keyframes colorPulse {
+    0% { filter: grayscale(0.5) brightness(1); transform: scale(1); }
+    100% { filter: grayscale(0) brightness(1.2); transform: scale(1.1); }
+  }
+}
+
+/* =========================================
+   ۹. افکت ورق طلایی روی متن (Shine Text)
+   ========================================= */
+.shine-text {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* جلوگیری از بیرون زدن نور */
+  color: #D4AF37;
+}
+
+/* لایه نوری که روی کل متن حرکت می‌کند */
+.shine-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.7) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  /* زمان‌بندی: ۳ ثانیه طول می‌کشه، بعدش ۲ ثانیه صبر می‌کنه و دوباره تکرار میشه */
+  animation: fullTextShine 5s infinite; 
+  pointer-events: none;
+}
+
+/* انیمیشن حرکت نور از سمت راست به چپ (چون سایت راست‌چینه) */
+@keyframes fullTextShine {
+  0% { left: 100%; } /* شروع از بیرون سمت راست */
+  40% { left: -100%; } /* عبور کامل به سمت چپ */
+  100% { left: -100%; } /* توقف و استراحت */
+}

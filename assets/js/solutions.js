@@ -13,6 +13,27 @@ document.addEventListener('DOMContentLoaded', function () {
     // ======================================================================
     const solutionsData = [
         {
+            id: 20,
+            title: "وب‌سایت پوشاک زنانه لیلا (Leyla)",
+            description: "یک وب‌سایت تک‌صفحه‌ای، ریسپانسیو و فوق‌العاده شیک برای برند پوشاک زنانه. با تمرکز بر تجربه کاربری و نمایش لوکس محصولات.",
+            longDescription: "این پروژه یک دموی اختصاصی برای یک برند پوشاک زنانه است. طراحی مدرن، رنگ‌بندی جذاب و چیدمان محصولات به گونه‌ای است که مشتری را ترغیب به ماندن و خرید می‌کند. سایت کاملاً موبایل‌پسند بوده و سرعت لود بالایی دارد.",
+            category: "web",
+            categoryLabel: "توسعه وب",
+            icon: "fa-solid fa-crown", // آیکون تاج برای نشون دادن لوکس بودن
+            tags: ["HTML", "CSS", "Responsive", "UI/UX"],
+            features: [
+                "طراحی تک‌صفحه‌ای و لوکس", 
+                "کاملاً واکنش‌گرا (موبایل و دسکتاپ)", 
+                "گالری تصاویر محصولات", 
+                "تجربه کاربری روان و مدرن"
+            ],
+            images: [
+                "assets/img/demo-Leyla/demo-Leyla.webp"
+            ],
+            demoLink: "Projects/demo-Leyla.html",
+            featured: true // ⭐ این فیلد رو اضافه کردیم که بگیم این پروژه ویژه است
+        },
+        {
             id: 1,
             title: "ربات پردازش خودکار فاکتور",
             description: "خداحافظی با تایپ دستی فاکتورها. سیستمی که فایل‌های PDF را می‌خواند و اطلاعات را مستقیم در اکسل یا دیتابیس شما ثبت می‌کند.",
@@ -364,6 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ],
             demoLink: "Projects/demo-shop-bot.html" // مسیر آپدیت شد
         },
+        
 
     ];
     
@@ -532,29 +554,43 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        filtered.forEach((project, index) => {
+                filtered.forEach((project, index) => {
             const card = document.createElement('article');
             card.style.animationDelay = `${index * 0.06}s`;
-            card.className = 'project-card p-6';
-            card.setAttribute('data-id', project.id);
             
+            // ⭐ چک کردن اینکه پروژه ویژه است یا نه
+            if (project.featured) {
+                card.className = 'project-card featured-card p-6';
+            } else {
+                card.className = 'project-card p-6';
+            }
+            
+            card.setAttribute('data-id', project.id);
+
             card.addEventListener('click', () => openModal(project));
 
             const tagsHtml = project.tags.map(tag =>
                 `<span class="card-tag inline-block text-[11px] px-2.5 py-1 rounded-md border mx-1 my-1" style="background: var(--bg-input-sol); border-color: var(--border-soft-sol); color: var(--text-slate-sol);">${tag}</span>`
             ).join('');
 
+            // ساخت محتوای کارت (اگر ویژه بود، برچسب اضافه میشه)
             card.innerHTML = `
-                <div class="card-icon-wrapper"><i class="${project.icon}"></i></div>
-                <div class="flex items-start justify-between mb-2 gap-2">
-                    <h3 class="text-lg font-bold mt-1" style="color: var(--text-white);">${project.title}</h3>
-                    <span class="text-[10px] px-2 py-1 rounded-full border whitespace-nowrap" style="background: var(--accent-bg-sol); color: var(--accent-sol); border-color: var(--accent-border-sol);">${project.categoryLabel}</span>
+                ${project.featured ? '<div class="featured-badge"><i class="fas fa-star"></i> پروژه ویژه</div>' : ''}
+                <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden" style="${project.featured ? 'width: 50%;' : ''}">
+                    <img src="${project.images[0]}" alt="${project.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <p class="text-sm leading-6 mb-4 text-justify" style="color: var(--text-slate-sol);">${project.description}</p>
-                <div class="flex flex-wrap gap-1.5 mb-2">${tagsHtml}</div>
-                <div class="card-action-btn mt-auto">
-                    <span>مشاهده جزئیات</span>
-                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                <div class="${project.featured ? 'p-8' : 'p-6'}">
+                    <div class="card-icon-wrapper"><i class="${project.icon}"></i></div>
+                    <div class="flex items-start justify-between mb-2 gap-2">
+                        <h3 class="text-lg font-bold mt-1" style="color: var(--text-white);">${project.title}</h3>
+                        <span class="text-[10px] px-2 py-1 rounded-full border whitespace-nowrap" style="background: var(--accent-bg-sol); color: var(--accent-sol); border-color: var(--accent-border-sol);">${project.categoryLabel}</span>
+                    </div>
+                    <p class="text-sm leading-6 mb-4 text-justify" style="color: var(--text-slate-sol);">${project.description}</p>
+                    <div class="flex flex-wrap gap-1.5 mb-2">${tagsHtml}</div>
+                    <div class="card-action-btn mt-auto">
+                        <span>مشاهده جزئیات</span>
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                    </div>
                 </div>
             `;
             grid.appendChild(card);
@@ -746,3 +782,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // ======================================================================
     renderProjects();
 });
+
+    // ======================================================================
+    // 🎯 باز کردن خودکار مودال از طریق لینک مستقیم (Deep Linking)
+    // ======================================================================
+    const projectIdParam = urlParams.get('project');
+    
+    if (projectIdParam) {
+        // پیدا کردن پروژه بر اساس آیدی که توی لینک هست
+        const targetProject = solutionsData.find(p => p.id == projectIdParam);
+        
+        if (targetProject) {
+            // یک تاخیر خیلی کوتاه برای اینکه مطمئن بشیم صفحه رندر شده
+            setTimeout(() => {
+                openModal(targetProject);
+            }, 300);
+        }
+    }

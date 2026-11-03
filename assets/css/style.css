@@ -3443,3 +3443,89 @@ body.solutions-page {
         box-shadow: 0 0 0 0 rgba(100, 255, 218, 0);
     }
 }
+
+/* ==========================================================================
+   Featured Project Card (Leyla)
+   ========================================================================== */
+
+/* کارت ویژه در گرید */
+.project-card.featured-card {
+    grid-column: 1 / -1; /* تمام عرض گرید رو اشغال می‌کنه (در موبایل و دسکتاپ) */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(17, 34, 64, 0.95) 0%, rgba(100, 255, 218, 0.05) 100%) !important;
+    border: 2px solid var(--turquoise) !important;
+    box-shadow: 0 0 40px rgba(100, 255, 218, 0.2), inset 0 0 20px rgba(100, 255, 218, 0.05) !important;
+    position: relative;
+    overflow: hidden;
+    animation: pulse-border 3s infinite alternate;
+}
+
+/* انیمیشن درخشش حاشیه */
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 20px rgba(100, 255, 218, 0.1); }
+    100% { box-shadow: 0 0 50px rgba(100, 255, 218, 0.4); }
+}
+
+/* اصلاح تصویر در حالت ویژه */
+.project-card.featured-card .h-64 {
+    height: 100% !important;
+    min-height: 300px;
+    width: 50% !important;
+}
+
+.project-card.featured-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* اصلاح محتوا در حالت ویژه */
+.project-card.featured-card > div:last-child {
+    width: 50%;
+    padding: 3rem !important;
+}
+
+.project-card.featured-card h4 {
+    font-size: 2rem !important;
+    color: var(--turquoise);
+}
+
+.project-card.featured-card p {
+    font-size: 1rem !important;
+    line-height: 1.8;
+}
+
+/* برچسب ویژه */
+.featured-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--turquoise);
+    color: var(--navy);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
+}
+
+/* ریسپانسیو برای کارت ویژه */
+@media (max-width: 768px) {
+    .project-card.featured-card {
+        flex-direction: column;
+    }
+    .project-card.featured-card .h-64 {
+        width: 100% !important;
+        min-height: 200px;
+    }
+    .project-card.featured-card > div:last-child {
+        width: 100%;
+        padding: 1.5rem !important;
+    }
+    .project-card.featured-card h4 {
+        font-size: 1.5rem !important;
+    }
+}
