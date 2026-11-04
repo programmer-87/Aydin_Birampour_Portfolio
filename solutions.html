@@ -102,44 +102,47 @@
         </div>
 
         <div class="p-6 sm:p-8">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent-bg-sol); color: var(--accent-sol);">
-              <i id="modal-icon"></i>
-            </div>
-            <span id="modal-category" class="text-xs px-3 py-1 rounded-full border" style="background: var(--accent-bg-sol); color: var(--accent-sol); border-color: var(--accent-border-sol);"></span>
-          </div>
 
-          <h2 id="modal-title" class="text-2xl font-bold mb-4" style="color: var(--text-white);"></h2>
-          <p id="modal-long-desc" class="text-sm leading-7 mb-6 text-justify" style="color: var(--text-slate-sol);"></p>
+  <!-- 🟢 دکمه دموی زنده (حالا اینجاست، بالای همه چیز) -->
+  <a id="modal-demo-btn" href="#" target="_blank" class="btn-live-demo" style="display: none; margin-bottom: 2rem;">
+      <i class="fas fa-play-circle"></i>
+      <span>تست دمو به صورت زنده</span>
+  </a>
 
-          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">ویژگی‌های کلیدی:</h3>
-          <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6"></ul>
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--accent-bg-sol); color: var(--accent-sol);">
+      <i id="modal-icon"></i>
+    </div>
+    <span id="modal-category" class="text-xs px-3 py-1 rounded-full border" style="background: var(--accent-bg-sol); color: var(--accent-sol); border-color: var(--accent-border-sol);"></span>
+  </div>
 
-          <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">تکنولوژی‌های استفاده شده:</h3>
-          <div id="modal-tags" class="flex flex-wrap gap-2 mb-8"></div>
+  <h2 id="modal-title" class="text-2xl font-bold mb-4" style="color: var(--text-white);"></h2>
+  <p id="modal-long-desc" class="text-sm leading-7 mb-6 text-justify" style="color: var(--text-slate-sol);"></p>
 
-                  <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t" style="border-color: var(--border-soft-sol);">
-            
-            <!-- دکمه دموی زنده (فقط اگر پروژه دمو داشته باشد نمایش داده می‌شود) -->
-            <a id="modal-demo-btn" href="#" target="_blank" class="btn-live-demo" style="display: none;">
-                <i class="fas fa-play-circle"></i>
-                <span>تست دمو به صورت زنده</span>
-            </a>
+  <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">ویژگی‌های کلیدی:</h3>
+  <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6"></ul>
 
-            <!-- دکمه واتساپ -->
-            <a id="modal-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105" style="background: var(--accent-sol); color: var(--bg-main-sol); box-shadow: 0 0 15px rgba(100,255,218,0.2);">
-              <i class="fa-brands fa-whatsapp text-xl"></i>
-              <span>مشاوره در واتساپ</span>
-            </a>
+  <h3 class="font-bold text-sm mb-3" style="color: var(--text-white);">تکنولوژی‌های استفاده شده:</h3>
+  <div id="modal-tags" class="flex flex-wrap gap-2 mb-8"></div>
 
-            <!-- دکمه تلگرام -->
-            <a id="modal-telegram-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105 border" style="background: #0088cc; color: white; border-color: #0088cc; box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);">
-              <i class="fa-brands fa-telegram text-xl"></i>
-              <span>مشاوره در تلگرام</span>
-            </a>
+  <!-- 🔵 دکمه‌های واتساپ و تلگرام (پایین مودال) -->
+  <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t" style="border-color: var(--border-soft-sol);">
+    
+    <!-- دکمه واتساپ -->
+    <a id="modal-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105" style="background: var(--accent-sol); color: var(--bg-main-sol); box-shadow: 0 0 15px rgba(100,255,218,0.2);">
+      <i class="fa-brands fa-whatsapp text-xl"></i>
+      <span>مشاوره در واتساپ</span>
+    </a>
 
-          </div>
-          </div>
+    <!-- دکمه تلگرام -->
+    <a id="modal-telegram-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-2 font-bold py-3 px-4 rounded-lg transition-all hover:scale-105 border" style="background: #0088cc; color: white; border-color: #0088cc; box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);">
+      <i class="fa-brands fa-telegram text-xl"></i>
+      <span>مشاوره در تلگرام</span>
+    </a>
+
+  </div>
+
+</div>
         </div>
       </div>
     </div>
