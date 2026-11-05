@@ -12,26 +12,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // ۱. داده‌های پروژه‌های واقعی (ویترین)
     // ======================================================================
     const solutionsData = [
-        {
-            id: 20,
-            title: "وب‌سایت پوشاک زنانه لیلا (Leyla)",
-            description: "یک وب‌سایت تک‌صفحه‌ای، ریسپانسیو و فوق‌العاده شیک برای برند پوشاک زنانه. با تمرکز بر تجربه کاربری و نمایش لوکس محصولات.",
-            longDescription: "این پروژه یک دموی اختصاصی برای یک برند پوشاک زنانه است. طراحی مدرن، رنگ‌بندی جذاب و چیدمان محصولات به گونه‌ای است که مشتری را ترغیب به ماندن و خرید می‌کند. سایت کاملاً موبایل‌پسند بوده و سرعت لود بالایی دارد.",
+                {
+            id: 21,
+            title: "وب‌سایت پوشاک بچگانه عصر جدید (Asr Jdid)",
+            description: "یک وب‌سایت تک‌صفحه‌ای، شاد و کاملاً ریسپانسیو برای فروش پوشاک بچگانه. طراحی رنگارنگ و جذاب که والدین را ترغیب به خرید می‌کند.",
+            longDescription: "این پروژه یک دموی اختصاصی برای یک فروشگاه پوشاک بچگانه است. طراحی مدرن، رنگ‌بندی شاد و چیدمان محصولات به گونه‌ای است که حس اعتماد و شادی را به والدین منتقل می‌کند. سایت کاملاً موبایل‌پسند بوده و سرعت لود بسیار بالایی دارد.",
             category: "web",
             categoryLabel: "توسعه وب",
-            icon: "fa-solid fa-crown", // آیکون تاج برای نشون دادن لوکس بودن
+            icon: "fa-solid fa-child", // آیکون کودک برای این پروژه
             tags: ["HTML", "CSS", "Responsive", "UI/UX"],
             features: [
-                "طراحی تک‌صفحه‌ای و لوکس", 
+                "طراحی تک‌صفحه‌ای و شاد", 
                 "کاملاً واکنش‌گرا (موبایل و دسکتاپ)", 
                 "گالری تصاویر محصولات", 
-                "تجربه کاربری روان و مدرن"
+                "تجربه کاربری روان برای والدین"
             ],
             images: [
-                "assets/img/demo-Leyla/demo-Leyla.webp"
+                "assets/img/demo-asrJdid/asrJdid.webp" // مسیر عکسی که گفتی
             ],
-            demoLink: "Projects/demo-Leyla.html",
-            featured: true // ⭐ این فیلد رو اضافه کردیم که بگیم این پروژه ویژه است
+            demoLink: "Projects/demo-asrJdid.html",
+            featured: true // ⭐ این پروژه رو ویژه می‌کنه
         },
         {
             id: 1,
@@ -385,7 +385,26 @@ document.addEventListener('DOMContentLoaded', function () {
             ],
             demoLink: "Projects/demo-shop-bot.html" // مسیر آپدیت شد
         },
-        
+        {
+            id: 20,
+            title: "وب‌سایت پوشاک زنانه لیلا (Leyla)",
+            description: "یک وب‌سایت تک‌صفحه‌ای، ریسپانسیو و فوق‌العاده شیک برای برند پوشاک زنانه. با تمرکز بر تجربه کاربری و نمایش لوکس محصولات.",
+            longDescription: "این پروژه یک دموی اختصاصی برای یک برند پوشاک زنانه است. طراحی مدرن، رنگ‌بندی جذاب و چیدمان محصولات به گونه‌ای است که مشتری را ترغیب به ماندن و خرید می‌کند. سایت کاملاً موبایل‌پسند بوده و سرعت لود بالایی دارد.",
+            category: "web",
+            categoryLabel: "توسعه وب",
+            icon: "fa-solid fa-crown",
+            tags: ["HTML", "CSS", "Responsive", "UI/UX"],
+            features: [
+                "طراحی تک‌صفحه‌ای و لوکس", 
+                "کاملاً واکنش‌گرا (موبایل و دسکتاپ)", 
+                "گالری تصاویر محصولات", 
+                "تجربه کاربری روان و مدرن"
+            ],
+            images: [
+                "assets/img/demo-Leyla/demo-Leyla.webp"
+            ],
+            demoLink: "Projects/demo-Leyla.html"
+        } // <--- ویرگول انتهایی رو حواست باشه        
 
     ];
     
@@ -573,7 +592,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 `<span class="card-tag inline-block text-[11px] px-2.5 py-1 rounded-md border mx-1 my-1" style="background: var(--bg-input-sol); border-color: var(--border-soft-sol); color: var(--text-slate-sol);">${tag}</span>`
             ).join('');
 
-            // ساخت محتوای کارت (اگر ویژه بود، برچسب اضافه میشه)
+            // ساخت محتوای کارت (اگر ویژه بود، برچسب و ساختار خاص می‌گیره)
             card.innerHTML = `
                 ${project.featured ? '<div class="featured-badge"><i class="fas fa-star"></i> پروژه ویژه</div>' : ''}
                 <div class="h-64 bg-navyLight flex items-center justify-center overflow-hidden" style="${project.featured ? 'width: 50%;' : ''}">

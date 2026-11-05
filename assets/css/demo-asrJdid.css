@@ -1,0 +1,120 @@
+/* =========================================
+   ۱. تنظیمات پایه و جلوگیری از اسکرول افقی
+   ========================================= */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   ۲. استایل‌های عمومی المان‌ها (شبکه نقطه‌چین، کارت‌ها، اشکال)
+   ========================================= */
+.bg-dots {
+  background-image: radial-gradient(#E5E7EB 2px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+.blob-shape {
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+
+/* افکت هاور کارت‌ها (مخصوص دسکتاپ) */
+.sticker-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.sticker-card:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  z-index: 20;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================================
+   ۳. استایل‌های هدر و فوتر (تمام عرض)
+   ========================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+footer {
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* =========================================
+   ۴. تنظیمات و انیمیشن‌های ویژه موبایل
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* الف. وسط‌چین کردن محتوا در موبایل */
+  #hero .text-center, 
+  #gallery .text-center,
+  #contact .text-center {
+    text-align: center !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .flex.justify-start, 
+  .flex.justify-center {
+    justify-content: center !important;
+  }
+
+  /* ب. انیمیشن شناور شدن کارت‌ها (با سرعت ۲ ثانیه و درخشش طلایی) */
+  .sticker-card {
+    animation: floatToy 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* تاخیر متفاوت برای هر کارت تا پشت سر هم حرکت کنند */
+  #gallery article:nth-child(1) { animation-delay: 0s; }
+  #gallery article:nth-child(2) { animation-delay: 0.4s; }
+  #gallery article:nth-child(3) { animation-delay: 0.8s; }
+
+  /* جلوگیری از افتادن درخشش روی عکس‌های داخل کارت */
+  .sticker-card > div {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    border-radius: 0.75rem;
+  }
+
+  @keyframes floatToy {
+    0%, 100% { 
+      transform: translateY(0) rotate(var(--rotation, 0deg)); 
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 0 0px rgba(253, 224, 71, 0); 
+    }
+    50% { 
+      transform: translateY(-8px) rotate(var(--rotation, 0deg)); 
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 0 25px 5px rgba(253, 224, 71, 0.6); 
+    }
+  }
+
+  /* ج. افکت فشرده شدن هنگام کلیک (برای همه دکمه‌ها و کارت‌ها) */
+  a:active, 
+  button:active,
+  .sticker-card:active {
+    transform: scale(0.92) !important; 
+    opacity: 0.8;
+    transition: all 0.1s ease;
+  }
+
+  /* د. افکت مخصوص دکمه‌های رنگی (حس فرو رفتن سه‌بعدی) */
+  a[class*="bg-kidblue"]:active,
+  a[class*="bg-kidpink"]:active,
+  a[class*="bg-kidgreen"]:active,
+  a[class*="bg-white"]:active {
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.15) !important;
+    transform: translateY(4px) scale(0.95) !important;
+  }
+}
