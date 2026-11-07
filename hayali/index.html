@@ -470,75 +470,115 @@
                 </a>
             </div>
 
-            <!-- گرید محصولات -->
-            <!-- ارتفاع ثابت (h-[400px]) روی خود کانتینر کارت اعمال شده تا همه یک اندازه باشند -->
+                        <!-- گرید محصولات -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 
-                <!-- کارت 1: مانتو و پالتو -->
-                <a href="#contact" class="group relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg block reveal bg-gray-100">
-                    <!-- تصویر: استفاده از object-cover باعث می‌شود عکس کل کارت را پر کند -->
-                    <img src="pic1.webp" 
-                         alt="کالکشن مانتو و پالتو" 
-                         class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
+                <!-- کارت 1: تونیک ناروین -->
+                <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col reveal">
                     
-                    <!-- اورلی گرادیانت -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-                    
-                    <!-- محتوا -->
-                    <div class="absolute bottom-0 right-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-10">
-                        <span class="inline-block bg-brand text-white text-xs font-bold px-3 py-1 rounded-full mb-3">پرفروش</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">مانتو و پالتو</h3>
-                        <p class="text-gray-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            شکوه و وقار را با طرح‌های خاص ما تجربه کنید.
-                        </p>
-                        <div class="flex items-center gap-2 text-white font-semibold text-sm">
-                            <span>مشاهده کالکشن</span>
-                            <i class="fas fa-arrow-left text-xs transform group-hover:-translate-x-1 transition-transform"></i>
-                        </div>
+                    <!-- بخش عکس (ارتفاع ثابت 250 پیکسل) -->
+                    <div class="relative w-full h-[250px] overflow-hidden bg-gray-100">
+                        <img src="pic1.webp" 
+                             alt="تونیک کتانه ناروین" 
+                             class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-brand text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">پرفروش</div>
                     </div>
-                </a>
 
-                <!-- کارت 2: شومیز و بلوز -->
-                <a href="#contact" class="group relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg block reveal delay-100 bg-gray-100">
-                    <img src="pic2.webp" 
-                         alt="کالکشن شومیز و بلوز" 
-                         class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-                    
-                    <div class="absolute bottom-0 right-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-10">
-                        <span class="inline-block bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full mb-3 border border-white/30">جدید</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">شومیز و بلوز</h3>
-                        <p class="text-gray-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            لطافت و زیبایی را در جزئیات دوخت ببینید.
-                        </p>
-                        <div class="flex items-center gap-2 text-white font-semibold text-sm">
-                            <span>مشاهده کالکشن</span>
-                            <i class="fas fa-arrow-left text-xs transform group-hover:-translate-x-1 transition-transform"></i>
+                    <!-- بخش متن و قیمت -->
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">تونیــک کتانـه نـارویــن</h3>
+                            <p class="text-sm text-gray-500 mb-4 h-10 overflow-hidden">پنبهٔ پنبه‌ست! شیک، آزاد و راحت. مناسب برای استایل‌های روزمره.</p>
+                            
+                            <ul class="text-xs text-gray-600 space-y-2 mb-4">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> جنس: پنبهٔ پنبه‌ست (ضخیم و گرم)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> ویژگی: کشی نیست، تن‌خور فوق‌العاده زیبا</li>
+                            </ul>
                         </div>
-                    </div>
-                </a>
 
-                <!-- کارت 3: ست‌های خاص -->
-                <a href="#contact" class="group relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg block reveal delay-200 bg-gray-100">
-                    <img src="pic3.webp" 
-                         alt="کالکشن ست‌های خاص" 
-                         class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-                    
-                    <div class="absolute bottom-0 right-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-10">
-                        <span class="inline-block bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">ویژه</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">ست‌های خاص</h3>
-                        <p class="text-gray-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            هماهنگی کامل برای یک استایل بی‌نقص.
-                        </p>
-                        <div class="flex items-center gap-2 text-white font-semibold text-sm">
-                            <span>مشاهده کالکشن</span>
-                            <i class="fas fa-arrow-left text-xs transform group-hover:-translate-x-1 transition-transform"></i>
+                        <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-400 line-through">۱,۹۰۰,۰۰۰</span>
+                                <span class="text-lg font-extrabold text-brand">۱,۷۰۰,۰۰۰ <span class="text-xs font-normal text-gray-500">تومان</span></span>
+                            </div>
+                            <a href="#contact" class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center hover:bg-brand hover:text-white transition-colors duration-300" title="ثبت سفارش">
+                                <i class="fas fa-shopping-bag"></i>
+                            </a>
                         </div>
                     </div>
-                </a>
+                </div>
+
+                <!-- کارت 2: شلوار راسته -->
+                <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col reveal delay-100">
+                    
+                    <!-- بخش عکس (ارتفاع ثابت 250 پیکسل) -->
+                    <div class="relative w-full h-[250px] overflow-hidden bg-gray-100">
+                        <img src="pic2.webp" 
+                             alt="شلوار راسته دورس" 
+                             class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">ارسال فوری</div>
+                    </div>
+
+                    <!-- بخش متن و قیمت -->
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">شلوار راسته دورس</h3>
+                            <p class="text-sm text-gray-500 mb-4 h-10 overflow-hidden">سبک، لطیف و مناسب برای چهار فصل. انتخابی عالی برای راحتی روزانه.</p>
+                            
+                            <ul class="text-xs text-gray-600 space-y-2 mb-4">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> سایز: فری‌سایز (۳۶ تا ۴۴)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> مشخصات: عرض ران ۲۸ | فاق ۳۵ | قد ۹۶</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> ویژگی: ضخیم نیست، بسیار لطیف</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-400 line-through">۶۵۰,۰۰۰</span>
+                                <span class="text-lg font-extrabold text-brand">۵۳۷,۰۰۰ <span class="text-xs font-normal text-gray-500">تومان</span></span>
+                            </div>
+                            <a href="#contact" class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center hover:bg-brand hover:text-white transition-colors duration-300" title="ثبت سفارش">
+                                <i class="fas fa-shopping-bag"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کارت 3: تیشرت بابونه -->
+                <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col reveal delay-200">
+                    
+                    <!-- بخش عکس (ارتفاع ثابت 250 پیکسل) -->
+                    <div class="relative w-full h-[250px] overflow-hidden bg-gray-100">
+                        <img src="pic3.webp" 
+                             alt="تیشرت بابونه" 
+                             class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">ویژه</div>
+                    </div>
+
+                    <!-- بخش متن و قیمت -->
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-xl font-extrabold text-gray-800 mb-2">تیشرت بابونه 🌻</h3>
+                            <p class="text-sm text-gray-500 mb-4 h-10 overflow-hidden">طراحی خاص با گل‌های گلدوزی شده. استایلی متفاوت و چشم‌نواز برای شما.</p>
+                            
+                            <ul class="text-xs text-gray-600 space-y-2 mb-4">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> جنس: نخ پنبه درجه یک</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> جزئیات: گیپور روی سینه و سرآستین</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brand"></i> سایز: فری‌سایز (پیشنهاد ۳۶ تا ۴۴)</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-400 line-through">۸۵۰,۰۰۰</span>
+                                <span class="text-lg font-extrabold text-brand">۶۹۷,۰۰۰ <span class="text-xs font-normal text-gray-500">تومان</span></span>
+                            </div>
+                            <a href="#contact" class="w-10 h-10 rounded-full bg-brand/10 text-brand flex items-center justify-center hover:bg-brand hover:text-white transition-colors duration-300" title="ثبت سفارش">
+                                <i class="fas fa-shopping-bag"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
