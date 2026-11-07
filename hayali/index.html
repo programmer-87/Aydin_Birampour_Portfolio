@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حیالی (Hayali) | تولیدی پوشاک یوسفی</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (آیکون‌ها) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- فونت فارسی وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <!-- تنظیمات سفارشی Tailwind (رنگ‌های برند) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#6A2E2E', // قهوه‌ای لوگو
+                            light: '#8B4545',
+                            dark: '#4A1E1E',
+                            bg: '#E2D4C8' // بژ لوگو
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- فایل CSS جداگانه -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- بخش 1: هدر و ناوبری (Header & Navigation) -->
+    <!-- ========================================== -->
+    <header class="glass-header fixed w-full top-0 z-50 transition-all duration-300" id="main-header">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 transition-all duration-300" id="header-inner">
+                
+                <!-- لوگو -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                    <img src="./logo4.png" 
+                         alt="لوگوی حیالی" 
+                         class="h-12 w-12 md:h-14 md:w-14 rounded-full border-2 border-brand/20 shadow-sm object-cover">
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-xl md:text-2xl text-brand-dark tracking-wider leading-tight">HAYALI</span>
+                        <span class="text-xs md:text-sm text-gray-500 font-medium">تولیدی پوشاک یوسفی</span>
+                    </div>
+                </div>
+
+                <!-- منوی دسکتاپ -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">خانه</a>
+                    <a href="#about" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">درباره من</a>
+                    <a href="#licenses" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">مجوزها</a>
+                    <a href="#contact" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">تماس با ما</a>
+                </nav>
+
+                <!-- دکمه سمت چپ (دسکتاپ) -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="tel:09116247682" class="btn-primary flex items-center gap-2 bg-brand text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-dark transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        <i class="fas fa-phone-alt text-xs"></i>
+                        <span>تماس مستقیم</span>
+                    </a>
+                </div>
+
+                <!-- دکمه منوی موبایل -->
+                <button id="mobile-menu-btn" class="lg:hidden text-brand-dark text-2xl p-2 focus:outline-none transition-transform active:scale-90">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- منوی موبایل -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t border-gray-100">
+            <div class="flex flex-col px-4 py-4 space-y-4">
+                <a href="#home" class="text-gray-700 font-semibold hover:text-brand transition-colors">خانه</a>
+                <a href="#about" class="text-gray-700 font-semibold hover:text-brand transition-colors">درباره من</a>
+                <a href="#licenses" class="text-gray-700 font-semibold hover:text-brand transition-colors">مجوزها</a>
+                <a href="#contact" class="text-gray-700 font-semibold hover:text-brand transition-colors">تماس با ما</a>
+                <hr class="border-gray-100">
+                <a href="tel:09116247682" class="flex items-center justify-center gap-2 bg-brand text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-brand-dark transition-colors w-full">
+                    <i class="fas fa-phone-alt text-xs"></i>
+                    <span>تماس مستقیم با ما</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- بخش 2: هیرو (Hero Section) -->
+    <!-- ========================================== -->
+    <section id="home" class="hero-section relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+        
+        <!-- المان‌های تزئینی پس‌زمینه -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-bg/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
+                
+                <!-- بخش متنی (سمت راست در دسکتاپ) -->
+                <div class="w-full lg:w-1/2 text-center lg:text-right space-y-6 reveal">
+                    
+                    <!-- نماد ﷽ و استیکر خوش‌آمدگویی -->
+                    <div class="inline-flex items-center gap-2 bg-brand/5 border border-brand/10 text-brand px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
+                        <span>﷽</span>
+                        <span class="w-px h-4 bg-brand/20"></span>
+                        <span>سلام، من یوسفی هستم 👋</span>
+                    </div>
+
+                    <!-- تیتر اصلی -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-[1.2]">
+                        تولیدکننده پوشاک <br>
+                        <span class="text-brand relative inline-block mt-2">
+                            با مجوز رسمی
+                            <!-- خط تزئینی زیر متن -->
+                            <svg class="absolute w-full h-3 -bottom-1 right-0 text-brand-bg -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </h1>
+
+                    <!-- توضیحات -->
+                    <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        اینجا بهت کمک می‌کنم قشنگ‌ترین و شیک‌ترین لباس‌ها رو برای خودت انتخاب کنی. 
+                        <span class="inline-block text-2xl animate-pulse">🪻</span>
+                        <br>
+                        <span class="text-base text-gray-500 mt-2 block">کیفیت بالا، طرح‌های خاص و راحتی در انتخاب.</span>
+                    </p>
+                    
+                                        <!-- دکمه‌های اقدام (CTA) -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        
+                        <!-- دکمه اول: مشاهده و سفارش -->
+                        <a href="#contact" class="btn-hero-primary group relative inline-flex items-center justify-center gap-3 bg-brand text-white px-8 py-4 rounded-full text-lg font-bold overflow-hidden shadow-lg shadow-brand/30">
+                            <!-- افکت درخشش پس‌زمینه -->
+                            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+                            
+                            <i class="fas fa-shopping-bag transform group-hover:scale-110 transition-transform duration-300"></i>
+                            <span>مشاهده و سفارش</span>
+                        </a>
+                        
+                        <!-- دکمه دوم: بیشتر بدانید -->
+                        <a href="#about" class="btn-hero-secondary group inline-flex items-center justify-center gap-3 bg-white text-brand border-2 border-gray-200 px-8 py-4 rounded-full text-lg font-bold">
+                            <span>بیشتر بدانید</span>
+                            <i class="fas fa-arrow-left text-sm transform group-hover:-translate-x-2 transition-transform duration-300"></i>
+                        </a>
+                        
+                    </div>
+
+                    <!-- نشان‌های اعتماد کوچک -->
+                    <div class="flex items-center justify-center lg:justify-start gap-6 pt-6 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-green-600"></i>
+                            <span>تضمین کیفیت</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-truck text-brand"></i>
+                            <span>ارسال به سراسر کشور</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بخش تصویر (سمت چپ در دسکتاپ) -->
+                <div class="w-full lg:w-1/2 flex justify-center lg:justify-end reveal delay-200">
+                    <div class="relative group">
+                        <!-- هاله پشت لوگو -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-bg to-white rounded-full transform scale-105 rotate-6 opacity-60 blur-sm group-hover:rotate-12 transition-transform duration-700"></div>
+                        
+                        <!-- قاب اصلی لوگو -->
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[450px] bg-brand-bg rounded-full flex items-center justify-center shadow-2xl overflow-hidden border-[6px] border-white/80 backdrop-blur-sm group-hover:scale-[1.02] transition-transform duration-500">
+                            
+                            <!-- آدرس عکس لوگوی اصلی خود را اینجا قرار دهید -->
+                            <img src="./logo4.png" 
+                                 alt="لوگوی بزرگ حیالی" 
+                                 class="object-cover w-full h-full opacity-90 mix-blend-multiply">
+                            
+                            <!-- المان تزئینی روی لوگو -->
+                            <div class="absolute bottom-6 left-6 bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-white/50 flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-green-500 animate-ping"></div>
+                                <span class="text-xs font-bold text-brand-dark">آماده سفارش</span>
+                            </div>
+                        </div>
+
+                        <!-- المان‌های تزئینی شناور (Stickers) -->
+                        <div class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl animate-bounce-slow border border-gray-100">
+                            <span class="text-2xl">👗</span>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-white p-3 rounded-2xl shadow-xl animate-bounce-slow border border-gray-100" style="animation-delay: 1s;">
+                            <span class="text-2xl">✨</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 3: نوار اعتماد (Trust Bar) -->
+    <!-- ========================================== -->
+    <section class="trust-bar-section bg-white border-y border-gray-100 py-8 relative z-20 reveal">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-x divide-x-reverse divide-gray-100">
+                
+                <!-- آیتم 1: مجوز رسمی -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-12 h-12 rounded-full bg-brand/5 text-brand flex items-center justify-center text-xl group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base">مجوز رسمی</h4>
+                    <p class="text-xs text-gray-500">وزارت صنعت و کار</p>
+                </div>
+
+                <!-- آیتم 2: تضمین کیفیت -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-12 h-12 rounded-full bg-brand/5 text-brand flex items-center justify-center text-xl group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base">تضمین کیفیت</h4>
+                    <p class="text-xs text-gray-500">پارچه و دوخت عالی</p>
+                </div>
+
+                <!-- آیتم 3: ارسال سریع -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-12 h-12 rounded-full bg-brand/5 text-brand flex items-center justify-center text-xl group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base">ارسال سراسری</h4>
+                    <p class="text-xs text-gray-500">به تمام نقاط کشور</p>
+                </div>
+
+                <!-- آیتم 4: پشتیبانی مستقیم -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-12 h-12 rounded-full bg-brand/5 text-brand flex items-center justify-center text-xl group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base">پشتیبانی مستقیم</h4>
+                    <p class="text-xs text-gray-500">ارتباط با خود تولیدکننده</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 4: درباره من (About Section) -->
+    <!-- ========================================== -->
+    <section id="about" class="py-24 bg-gradient-to-b from-white to-brand-bg/10 relative overflow-hidden">
+        
+        <!-- المان تزئینی پس‌زمینه -->
+        <div class="absolute top-1/2 right-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- تیتر بخش -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-brand font-bold text-sm tracking-wider uppercase mb-2 block">داستان ما</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">چرا حیالی؟</h2>
+                <div class="w-24 h-1.5 bg-brand mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 leading-relaxed">
+                    چون ما فقط لباس نمی‌دوزیم؛ ما به شما کمک می‌کنیم تا بهترین نسخه از خودتان باشید.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                
+                <!-- بخش تصویر (سمت راست در دسکتاپ) -->
+                <div class="w-full lg:w-5/12 relative reveal">
+                    <!-- قاب اصلی -->
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <!-- تصویر (می‌توانید عکس خودتان یا کارگاه را جایگزین کنید) -->
+                        <img src="./logo4.png" 
+                             alt="کارگاه تولیدی حیالی" 
+                             class="w-full h-[400px] lg:h-[500px] object-cover hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- اورلی گرادیانت -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent"></div>
+                    </div>
+
+                    <!-- کارت شناور تجربه (UX Element) -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 animate-bounce-slow hidden sm:block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand/10 text-brand rounded-full flex items-center justify-center text-2xl">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-brand-dark text-xl">+۱۰ سال</h4>
+                                <p class="text-xs text-gray-500">تجربه در تولید پوشاک</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بخش متنی (سمت چپ در دسکتاپ) -->
+                <div class="w-full lg:w-7/12 space-y-6 reveal delay-200">
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 leading-snug">
+                        اینجا، شیک‌پوشی یک <span class="text-brand">هنر</span> است که با دقت و عشق شکل می‌گیرد.
+                    </h3>
+                    
+                    <p class="text-gray-600 leading-loose text-justify">
+                        سلام، من یوسفی هستم. سال‌هاست که با عشق به دنیای پوشاک و طراحی، در تلاشم تا بهترین‌ها را برای شما خلق کنم. 
+                        من باور دارم که هر زن، شایسته پوشیدن لباسی است که در آن هم راحت باشد و هم احساس زیبایی کند. 
+                        به همین دلیل، تمامی محصولات در برند <strong class="text-brand-dark">حیالی (HAYALI)</strong> با وسواس و دقت بالا تولید می‌شوند.
+                    </p>
+
+                    <p class="text-gray-600 leading-loose text-justify">
+                        از انتخاب پارچه‌های باکیفیت و طرح‌های خاص تا ریزترین جزئیات دوخت، همه چیز زیر نظر مستقیم خودم انجام می‌شود. 
+                        هدف من فقط فروش نیست؛ هدف من این است که شما با دریافت محصول، لبخند رضایت بزنید و با خیال راحت به ما اعتماد کنید.
+                    </p>
+
+                    <!-- لیست ویژگی‌ها با آیکون -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-xl shadow-sm border border-gray-50">
+                            <i class="fas fa-check-circle text-brand text-xl"></i>
+                            <span class="text-sm font-semibold text-gray-700">پارچه باکیفیت و ضدحساسیت</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-xl shadow-sm border border-gray-50">
+                            <i class="fas fa-check-circle text-brand text-xl"></i>
+                            <span class="text-sm font-semibold text-gray-700">دوخت تمیز و بادوام</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-xl shadow-sm border border-gray-50">
+                            <i class="fas fa-check-circle text-brand text-xl"></i>
+                            <span class="text-sm font-semibold text-gray-700">طرح‌های خاص و متفاوت</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded-xl shadow-sm border border-gray-50">
+                            <i class="fas fa-check-circle text-brand text-xl"></i>
+                            <span class="text-sm font-semibold text-gray-700">پشتیبانی مستقیم و صمیمی</span>
+                        </div>
+                    </div>
+
+                    <!-- دکمه اقدام -->
+                    <div class="pt-6">
+                        <a href="#contact" class="inline-flex items-center gap-2 text-brand font-bold text-lg hover:text-brand-dark transition-colors group">
+                            <span>بیا با هم شروع کنیم</span>
+                            <i class="fas fa-arrow-left transform group-hover:-translate-x-2 transition-transform"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 5: مجوزها (Licenses Section) -->
+    <!-- ========================================== -->
+    <section id="licenses" class="py-24 bg-white relative overflow-hidden">
+        
+        <!-- المان تزئینی پس‌زمینه -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-bg/30 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- تیتر بخش -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-1.5 rounded-full text-sm font-bold mb-4 border border-green-100">
+                    <i class="fas fa-shield-check"></i>
+                    <span>خرید امن و مطمئن</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">مجوزهای رسمی ما</h2>
+                <div class="w-24 h-1.5 bg-brand mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 leading-relaxed">
+                    اعتماد شما، بزرگ‌ترین سرمایه ماست. برند «حیالی» با افتخار دارای مجوزهای رسمی از وزارتخانه‌های مربوطه است تا با خیالی آسوده از ما خرید کنید.
+                </p>
+            </div>
+
+            <!-- کارت‌های مجوز -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- کارت مجوز 1: وزارت صنعت -->
+                <div class="group relative bg-gray-50/50 p-8 md:p-10 rounded-3xl border border-gray-100 hover:bg-white hover:shadow-2xl hover:border-brand/20 transition-all duration-500 reveal">
+                    
+                    <!-- آیکون بزرگ پس‌زمینه -->
+                    <div class="absolute top-0 left-0 text-[150px] text-gray-100/50 group-hover:text-brand/5 transition-colors duration-500 pointer-events-none -mt-8 -ml-8">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <!-- آیکون اصلی -->
+                        <div class="w-20 h-20 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-4xl text-brand mb-6 group-hover:-translate-y-2 transition-transform duration-500">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        
+                        <!-- عنوان و توضیحات -->
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">مجوز وزارت صنعت</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            دارای پروانه رسمی کسب و کار از وزارت صنعت، معدن و تجارت. نشان‌دهنده فعالیت قانونی و استاندارد در حوزه تولید پوشاک.
+                        </p>
+
+                        <!-- بج تایید -->
+                        <div class="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-xs font-bold border border-green-100">
+                            <i class="fas fa-check-circle"></i>
+                            <span>تایید شده و معتبر</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کارت مجوز 2: مشاغل خانگی -->
+                <div class="group relative bg-gray-50/50 p-8 md:p-10 rounded-3xl border border-gray-100 hover:bg-white hover:shadow-2xl hover:border-brand/20 transition-all duration-500 reveal delay-200">
+                    
+                    <!-- آیکون بزرگ پس‌زمینه -->
+                    <div class="absolute top-0 left-0 text-[150px] text-gray-100/50 group-hover:text-brand/5 transition-colors duration-500 pointer-events-none -mt-8 -ml-8">
+                        <i class="fas fa-award"></i>
+                    </div>
+
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <!-- آیکون اصلی -->
+                        <div class="w-20 h-20 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-4xl text-brand mb-6 group-hover:-translate-y-2 transition-transform duration-500">
+                            <i class="fas fa-house-chimney-user"></i>
+                        </div>
+                        
+                        <!-- عنوان و توضیحات -->
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">مجوز مشاغل خانگی</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            دارای مجوز رسمی مشاغل خانگی از وزارت تعاون، کار و رفاه اجتماعی. تضمین کیفیت دوخت و حمایت از تولید داخلی.
+                        </p>
+
+                        <!-- بج تایید -->
+                        <div class="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-xs font-bold border border-green-100">
+                            <i class="fas fa-check-circle"></i>
+                            <span>تایید شده و معتبر</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- متن پایین بخش (کپی‌رایتینگ برای رفع نگرانی) -->
+            <div class="mt-12 text-center reveal">
+                <p class="text-gray-400 text-sm flex items-center justify-center gap-2">
+                    <i class="fas fa-lock text-brand/50"></i>
+                    تمامی فعالیت‌های ما تحت نظارت و مطابق با قوانین جمهوری اسلامی ایران است.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    
+        <!-- ========================================== -->
+    <!-- بخش 6: محصولات و دسته‌بندی‌ها (Collections) -->
+    <!-- ========================================== -->
+    <section id="collections" class="py-24 bg-brand-bg/10 relative overflow-hidden">
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- تیتر بخش -->
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div class="max-w-2xl">
+                    <span class="text-brand font-bold text-sm tracking-wider uppercase mb-2 block">کالکشن‌های حیالی</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">سبک خودت رو پیدا کن</h2>
+                    <p class="text-gray-600">هر تکه از لباس، داستانی برای گفتن دارد. کدام داستان مال شماست؟</p>
+                </div>
+                <!-- لینک مشاهده همه (دسکتاپ) -->
+                <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-brand font-bold hover:text-brand-dark transition-colors group mt-4">
+                    <span>مشاهده همه محصولات</span>
+                    <i class="fas fa-arrow-left transform group-hover:-translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- گرید محصولات -->
+            <!-- ارتفاع ثابت (h-[400px]) روی خود کانتینر کارت اعمال شده تا همه یک اندازه باشند -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- کارت 1: مانتو و پالتو -->
+                <a href="#contact" class="group relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg block reveal bg-gray-100">
+                    <!-- تصویر: استفاده از object-cover باعث می‌شود عکس کل کارت را پر کند -->
+                    <img src="pic1.webp" 
+                         alt="کالکشن مانتو و پالتو" 
+                         class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
+                    
+                    <!-- اورلی گرادیانت -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    
+                    <!-- محتوا -->
+                    <div class="absolute bottom-0 right-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-10">
+                        <span class="inline-block bg-brand text-white text-xs font-bold px-3 py-1 rounded-full mb-3">پرفروش</span>
+                        <h3 class="text-2xl font-bold text-white mb-2">مانتو و پالتو</h3>
+                        <p class="text-gray-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            شکوه و وقار را با طرح‌های خاص ما تجربه کنید.
+                        </p>
+                        <div class="flex items-center gap-2 text-white font-semibold text-sm">
+                            <span>مشاهده کالکشن</span>
+                            <i class="fas fa-arrow-left text-xs transform group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- کارت 2: شومیز و بلوز -->
+                <a href="#contact" class="group relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg block reveal delay-100 bg-gray-100">
+                    <img src="pic2.webp" 
+                         alt="کالکشن شومیز و بلوز" 
+                         class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute bottom-0 right-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-10">
+                        <span class="inline-block bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full mb-3 border border-white/30">جدید</span>
+                        <h3 class="text-2xl font-bold text-white mb-2">شومیز و بلوز</h3>
+                        <p class="text-gray-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            لطافت و زیبایی را در جزئیات دوخت ببینید.
+                        </p>
+                        <div class="flex items-center gap-2 text-white font-semibold text-sm">
+                            <span>مشاهده کالکشن</span>
+                            <i class="fas fa-arrow-left text-xs transform group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- کارت 3: ست‌های خاص -->
+                <a href="#contact" class="group relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg block reveal delay-200 bg-gray-100">
+                    <img src="pic3.webp" 
+                         alt="کالکشن ست‌های خاص" 
+                         class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    
+                    <div class="absolute bottom-0 right-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-10">
+                        <span class="inline-block bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">ویژه</span>
+                        <h3 class="text-2xl font-bold text-white mb-2">ست‌های خاص</h3>
+                        <p class="text-gray-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            هماهنگی کامل برای یک استایل بی‌نقص.
+                        </p>
+                        <div class="flex items-center gap-2 text-white font-semibold text-sm">
+                            <span>مشاهده کالکشن</span>
+                            <i class="fas fa-arrow-left text-xs transform group-hover:-translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- دکمه مشاهده همه (موبایل) -->
+            <div class="mt-10 text-center md:hidden reveal">
+                <a href="#contact" class="inline-flex items-center justify-center gap-2 w-full bg-white text-brand border-2 border-brand/20 px-6 py-3 rounded-full font-bold hover:bg-brand-bg/30 transition-colors">
+                    <span>مشاهده همه محصولات</span>
+                    <i class="fas fa-arrow-left text-sm"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 7: فرم تماس و سفارش (Contact / Order) -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-24 bg-white relative overflow-hidden">
+        
+        <!-- المان تزئینی پس‌زمینه -->
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-bg/30 rounded-full blur-3xl translate-y-1/3 translate-x-1/3"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="max-w-6xl mx-auto bg-gray-50/50 rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col lg:flex-row">
+                
+                <!-- بخش اطلاعات تماس (سمت راست) -->
+                <div class="w-full lg:w-5/12 bg-brand-dark text-white p-10 md:p-12 relative overflow-hidden reveal">
+                    <!-- المان تزئینی داخل کارت -->
+                    <div class="absolute top-0 left-0 w-40 h-40 bg-white/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4">بیایید با هم صحبت کنیم</h3>
+                            <p class="text-brand-bg/80 leading-relaxed mb-8">
+                                سوالی درباره سایز، پارچه یا سفارش دارید؟ من اینجا هستم تا به شما کمک کنم بهترین انتخاب را داشته باشید.
+                            </p>
+
+                            <!-- راه‌های ارتباطی -->
+                            <div class="space-y-6">
+                                <!-- تماس تلفنی -->
+                                <div class="flex items-center gap-4 group cursor-pointer">
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-xl group-hover:bg-white group-hover:text-brand transition-colors duration-300">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-brand-bg/60 mb-1">تماس مستقیم با تولیدکننده</p>
+                                        <a href="tel:09116247682" class="font-bold text-lg tracking-wider hover:text-brand-bg transition-colors" dir="ltr">۰۹۱۱ ۶۲۴ ۷۶۸۲</a>
+                                    </div>
+                                </div>
+
+                                <!-- واتساپ -->
+                                <div class="flex items-center gap-4 group cursor-pointer">
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-xl group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-brand-bg/60 mb-1">ارسال پیام در واتساپ</p>
+                                        <a href="https://wa.me/989116247682" target="_blank" class="font-bold text-lg hover:text-green-400 transition-colors">پیام در واتساپ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                                                    <!-- شبکه‌های اجتماعی -->
+                            <div class="flex gap-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand transition-colors duration-300" aria-label="اینستاگرام">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand transition-colors duration-300" aria-label="تلگرام">
+                                    <i class="fab fa-telegram-plane"></i>
+                                </a>
+                                                                <!-- ✅ لینک ایتا با آیکون اختصاصی -->
+                                <a href="https://eitaa.com/Hayali_shop" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand transition-colors duration-300" aria-label="کانال ایتا">
+                                    <img src="https://proicons.com/icon/618278.svg" alt="ایتا" class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" style="filter: invert(1);">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بخش فرم (سمت چپ) -->
+                <div class="w-full lg:w-7/12 p-10 md:p-12 bg-white reveal delay-200">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">ثبت سفارش یا درخواست مشاوره</h3>
+                    <p class="text-gray-500 text-sm mb-8">فرم زیر را پر کنید، در اسرع وقت با شما تماس می‌گیریم.</p>
+
+                    <!-- فرم -->
+                    <form id="contact-form" class="space-y-5">
+                        <!-- نام و نام خانوادگی -->
+                        <div>
+                            <label for="name" class="block text-sm font-bold text-gray-700 mb-2">نام و نام خانوادگی <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <i class="fas fa-user absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" id="name" name="name" required placeholder="مثلاً: آیدین بیرام پور" 
+                                       class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pr-12 pl-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all">
+                            </div>
+                        </div>
+
+                        <!-- شماره تماس -->
+                        <div>
+                            <label for="phone" class="block text-sm font-bold text-gray-700 mb-2">شماره تماس <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <i class="fas fa-phone absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="tel" id="phone" name="phone" required placeholder="0914*******" dir="ltr"
+                                       class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pr-12 pl-4 text-gray-700 text-left focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all">
+                            </div>
+                        </div>
+
+                        <!-- موضوع (دسته‌بندی) -->
+                        <div>
+                            <label for="subject" class="block text-sm font-bold text-gray-700 mb-2">موضوع درخواست</label>
+                            <div class="relative">
+                                <i class="fas fa-tag absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <select id="subject" name="subject" 
+                                        class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 pr-12 pl-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all appearance-none cursor-pointer">
+                                    <option value="order">ثبت سفارش جدید</option>
+                                    <option value="consult">درخواست مشاوره استایل</option>
+                                    <option value="size">راهنمای سایز</option>
+                                    <option value="other">سایر موارد</option>
+                                </select>
+                                <i class="fas fa-chevron-down absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-xs"></i>
+                            </div>
+                        </div>
+
+                        <!-- پیام -->
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-gray-700 mb-2">توضیحات پیام</label>
+                            <textarea id="message" name="message" rows="4" placeholder="لطفاً جزئیات درخواست خود را بنویسید..." 
+                                      class="w-full bg-gray-50 border border-gray-200 rounded-xl py-3 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all resize-none"></textarea>
+                        </div>
+
+                        <!-- دکمه ارسال -->
+                        <button type="submit" id="submit-btn" 
+                                class="w-full bg-brand text-white font-bold text-lg py-4 rounded-xl hover:bg-brand-dark transition-all duration-300 shadow-lg shadow-brand/30 hover:shadow-brand/50 flex items-center justify-center gap-2 group">
+                            <span id="btn-text">ارسال پیام</span>
+                            <i id="btn-icon" class="fas fa-paper-plane transform group-hover:-translate-x-1 transition-transform"></i>
+                            <!-- لودر (مخفی در ابتدا) -->
+                            <i id="btn-loader" class="fas fa-circle-notch fa-spin hidden"></i>
+                        </button>
+                    </form>
+
+                    <!-- پیام موفقیت (مخفی در ابتدا) -->
+                    <div id="success-message" class="hidden mt-6 bg-green-50 border border-green-200 text-green-700 p-4 rounded-xl flex items-start gap-3">
+                        <i class="fas fa-check-circle text-2xl mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold">پیام شما با موفقیت دریافت شد!</h4>
+                            <p class="text-sm mt-1">همکاران ما به زودی با شما تماس خواهند گرفت. ممنون از اعتماد شما به حیالی.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- بخش 8: فوتر (Footer) -->
+    <!-- ========================================== -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 relative overflow-hidden">
+        
+        <!-- المان تزئینی پس‌زمینه -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- ستون 1: درباره برند -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="./logo4.png" 
+                             alt="لوگوی حیالی" 
+                             class="h-12 w-12 rounded-full border-2 border-white/20 object-cover">
+                        <div class="flex flex-col">
+                            <span class="font-extrabold text-xl text-white tracking-wider">HAYALI</span>
+                            <span class="text-xs text-brand-bg/60">تولیدی پوشاک یوسفی</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-brand-bg/70 leading-relaxed mt-4">
+                        ما در «حیالی» با عشق به هنر طراحی و دوخت، تلاش می‌کنیم تا شیک‌ترین و باکیفیت‌ترین پوشاک را برای شما خلق کنیم. زیبایی شما، افتخار ماست.
+                    </p>
+                </div>
+
+                <!-- ستون 2: دسترسی سریع -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white relative inline-block">
+                        دسترسی سریع
+                        <span class="absolute -bottom-2 right-0 w-8 h-0.5 bg-brand-bg rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3 text-sm text-brand-bg/70">
+                        <li><a href="#home" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> صفحه اصلی</a></li>
+                        <li><a href="#about" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> درباره من</a></li>
+                        <li><a href="#licenses" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> مجوزهای رسمی</a></li>
+                        <li><a href="#collections" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> کالکشن‌ها</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون 3: خدمات مشتریان -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white relative inline-block">
+                        خدمات مشتریان
+                        <span class="absolute -bottom-2 right-0 w-8 h-0.5 bg-brand-bg rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3 text-sm text-brand-bg/70">
+                        <li><a href="#contact" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> راهنمای سایز</a></li>
+                        <li><a href="#contact" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> شرایط ارسال</a></li>
+                        <li><a href="#contact" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> پیگیری سفارش</a></li>
+                        <li><a href="#contact" class="hover:text-white hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون 4: اطلاعات تماس -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white relative inline-block">
+                        در ارتباط باشیم
+                        <span class="absolute -bottom-2 right-0 w-8 h-0.5 bg-brand-bg rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-4 text-sm text-brand-bg/70">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-bg"></i>
+                            <span>تهران، (آدرس کارگاه خود را اینجا وارد کنید)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-brand-bg"></i>
+                            <a href="tel:09116247682" class="hover:text-white transition-colors" dir="ltr">۰۹۱۱ ۶۲۴ ۷۶۸۲</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-bg"></i>
+                            <a href="mailto:info@hayali.com" class="hover:text-white transition-colors">info@hayali.com</a>
+                        </li>
+                    </ul>
+                    
+                                        <!-- شبکه‌های اجتماعی -->
+                    <div class="flex gap-3 mt-6">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors duration-300" aria-label="اینستاگرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-colors duration-300" aria-label="تلگرام">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://wa.me/989116247682" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-500 hover:text-white transition-colors duration-300" aria-label="واتساپ">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                                                <!-- ✅ لینک ایتا با آیکون اختصاصی -->
+                        <a href="https://eitaa.com/Hayali_shop" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange-500 hover:text-white transition-colors duration-300" aria-label="کانال ایتا">
+                            <img src="https://proicons.com/icon/618278.svg" alt="ایتا" class="w-4 h-4" style="filter: invert(1);">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- خط جداکننده و کپی‌رایت -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-brand-bg/50">
+                <p>© 1405 برند حیالی (HAYALI). تمامی حقوق محفوظ است.</p>
+                <p class="flex items-center gap-1">
+                    طراحی شده با <i class="fas fa-heart text-red-500 animate-pulse"></i> برای شما
+                </p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- ========================================== -->
+    <!-- بخش 9: دکمه‌های شناور (Floating Action Buttons) -->
+    <!-- ========================================== -->
+    <div class="floating-buttons fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+        
+                <!-- دکمه کانال ایتا -->
+        <a href="https://eitaa.com/Hayali_shop" target="_blank" 
+           class="group relative w-14 h-14 bg-orange-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-orange-600 transition-all duration-300 hover:scale-110"
+           aria-label="کانال ایتا">
+            <img src="https://proicons.com/icon/618278.svg" alt="ایتا" class="w-7 h-7" style="filter: invert(1);">
+            <!-- تولتیپ -->
+            <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">کانال ایتا</span>
+        </a>
+
+        <!-- دکمه واتساپ -->
+        <a href="https://wa.me/989116247682" target="_blank" 
+           class="group relative w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110"
+           aria-label="تماس با واتساپ">
+            <i class="fab fa-whatsapp"></i>
+            <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">پیام در واتساپ</span>
+        </a>
+
+        <!-- دکمه تماس تلفنی -->
+        <a href="tel:09116247682" 
+           class="group relative w-14 h-14 bg-brand text-white rounded-full flex items-center justify-center text-xl shadow-lg hover:bg-brand-dark transition-all duration-300 hover:scale-110 animate-pulse-slow"
+           aria-label="تماس تلفنی">
+            <i class="fas fa-phone-alt"></i>
+            <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">تماس مستقیم</span>
+        </a>
+        
+    </div>
+
+    <!-- ========================================== -->
+    <!-- اسکریپت‌ها -->
+    <!-- ========================================== -->
+    <script src="./script.js"></script>
+</body>
+</html>

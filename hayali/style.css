@@ -1,0 +1,298 @@
+/* ==========================================
+   تنظیمات پایه و فونت
+   ========================================== */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #F8F6F4; /* پس‌زمینه روشن و گرم */
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* اسکرول نرم */
+}
+
+/* ==========================================
+   استایل‌های هدر (بخش 1)
+   ========================================== */
+.glass-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(106, 46, 46, 0.1);
+}
+
+.mobile-menu {
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.mobile-menu.active {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    right: 0;
+    background-color: #6A2E2E;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   استایل‌های بخش هیرو (بخش 2)
+   ========================================== */
+.hero-section {
+    background: radial-gradient(circle at 10% 20%, rgba(226, 212, 200, 0.3) 0%, rgba(248, 246, 244, 1) 90%);
+}
+
+/* انیمیشن ظاهر شدن (Reveal) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+/* انیمیشن شناور بودن (برای استیکرها) */
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* انیمیشن درخشش (Shimmer) برای دکمه */
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
+
+/* تنظیمات ریسپانسیو برای بخش هیرو */
+@media (max-width: 1024px) {
+    .hero-section {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ==========================================
+   استایل‌های فرم تماس (بخش 7)
+   ========================================== */
+
+/* استایل برای فیلدهای فرم در حالت فوکوس */
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+    background-color: #ffffff;
+}
+
+/* انیمیشن برای پیام موفقیت */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#success-message:not(.hidden) {
+    animation: slideDown 0.4s ease-out forwards;
+}
+
+/* استایل انتخابی برای سلکت باکس */
+select {
+    background-image: none; /* حذف فلش پیش‌فرض مرورگر */
+}
+
+/* ==========================================
+   استایل‌های فوتر و دکمه‌های شناور (بخش 8 و 9)
+   ========================================== */
+
+/* انیمیشن نبض آهسته برای دکمه تماس */
+@keyframes pulse-slow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(106, 46, 46, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(106, 46, 46, 0);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 2s infinite;
+}
+
+/* تنظیمات دکمه‌های شناور برای موبایل و دسکتاپ */
+.floating-buttons {
+    display: flex; /* در همه دستگاه‌ها نمایش داده شود */
+}
+
+/* در دسکتاپ ممکن است کمی مزاحم باشد، پس کمی کوچک‌ترش می‌کنیم */
+@media (min-width: 1024px) {
+    .floating-buttons {
+        bottom: 2rem;
+        left: 2rem;
+    }
+    .floating-buttons a {
+        width: 3.5rem;  /* 56px */
+        height: 3.5rem; /* 56px */
+    }
+}
+
+/* ==========================================
+   استایل‌های تعاملی (Interactive Styles) برای دکمه‌ها
+   ========================================== */
+
+/* --- 1. دکمه‌های اصلی (CTA Buttons) --- */
+/* دکمه‌های قهوه‌ای رنگ اصلی سایت */
+.btn-primary,
+a[href^="tel"],
+button[type="submit"] {
+    position: relative;
+    overflow: hidden; /* برای نگه داشتن افکت درخشش داخل دکمه */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* افکت هاور: دکمه کمی بالا می‌آید و سایه‌اش بیشتر می‌شود */
+.btn-primary:hover,
+a[href^="tel"]:hover,
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(106, 46, 46, 0.4);
+}
+
+/* افکت کلیک: دکمه به حالت اول برمی‌گردد و کمی کوچک می‌شود (حس لمس) */
+.btn-primary:active,
+a[href^="tel"]:active,
+button[type="submit"]:active {
+    transform: translateY(0) scale(0.97);
+    box-shadow: 0 4px 10px rgba(106, 46, 46, 0.3);
+}
+
+/* افکت فوکوس برای دسترسی‌پذیری (وقتی با Tab روی دکمه می‌رویم) */
+.btn-primary:focus-visible,
+a[href^="tel"]:focus-visible,
+button[type="submit"]:focus-visible {
+    outline: 3px solid #E2D4C8;
+    outline-offset: 3px;
+}
+
+/* --- 2. دکمه‌های شناور (Floating Buttons) --- */
+/* دکمه‌های گوشه صفحه (واتساپ، ایتا، تماس) */
+.floating-buttons a {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+/* افکت هاور: بزرگ‌تر می‌شود و کمی می‌چرخد */
+.floating-buttons a:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* افکت کلیک: کوچک می‌شود */
+.floating-buttons a:active {
+    transform: scale(0.9) rotate(0deg);
+}
+
+/* --- 3. لینک‌های ناوبری (Nav Links) --- */
+/* زیرخط جادویی برای لینک‌های منو (اگر کلاس nav-link دارند) */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* لینک‌های داخل فوتر */
+footer a {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+footer a:hover {
+    transform: translateX(-5px); /* حرکت به سمت چپ (در RTL) */
+}
+
+/* --- 4. کارت‌های محصولات و مجوزها --- */
+/* افزودن افکت عمق به کارت‌ها هنگام هاور */
+.group:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 5. دکمه‌های داخل فرم (Input Focus) --- */
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 4px rgba(106, 46, 46, 0.1);
+}
+
+/* --- 6. افکت خاص برای دکمه ارسال فرم --- */
+/* وقتی فرم در حال ارسال است */
+button[type="submit"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- 7. افکت تغییر رنگ متن در هاور برای آیکون‌های شبکه‌های اجتماعی --- */
+/* (این مورد از قبل در HTML با Tailwind بود، اما برای اطمینان اینجا هم تاکید می‌کنیم) */
+a[aria-label] {
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   استایل اختصاصی دکمه‌های بخش Hero
+   ========================================== */
+
+/* --- دکمه اول (قهوه‌ای) --- */
+.btn-hero-primary {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* هاور: دکمه بالا می‌آید و سایه عمیق‌تر می‌شود */
+.btn-hero-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px -5px rgba(106, 46, 46, 0.5);
+}
+
+/* کلیک: دکمه کمی فرو می‌رود (حس لمس) */
+.btn-hero-primary:active {
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 5px 10px rgba(106, 46, 46, 0.4);
+}
+
+/* --- دکمه دوم (سفید با حاشیه) --- */
+.btn-hero-secondary {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* سایه بسیار ملایم */
+}
+
+/* هاور: حاشیه رنگی می‌شود و پس‌زمینه کمی بژ می‌شود */
+.btn-hero-secondary:hover {
+    border-color: #6A2E2E; /* رنگ برند */
+    background-color: #F8F6F4; /* پس‌زمینه روشن */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* کلیک: دکمه کمی کوچک می‌شود */
+.btn-hero-secondary:active {
+    transform: translateY(0) scale(0.96);
+    box-shadow: none;
+}
