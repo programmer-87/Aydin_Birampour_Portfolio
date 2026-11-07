@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پوشاک زنانه | ارسال رایگان به سراسر ایران</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (آیکون‌ها) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- فونت فارسی وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <!-- تنظیمات سفارشی Tailwind (رنگ‌های برند جدید) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#7B1C2E', // زرشکی لوکس
+                            light: '#9A2D42',
+                            dark: '#5C101E',
+                            gold: '#D4AF37',    // طلایی برای تاکید
+                            bg: '#FDFBF7'       // پس‌زمینه گرم و کرم
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- فایل CSS جداگانه -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-brand-bg text-gray-800 antialiased">
+
+    <!-- ========================================== -->
+    <!-- بخش 1: هدر و ناوبری (Header) -->
+    <!-- ========================================== -->
+    <header class="glass-header fixed w-full top-0 z-50 transition-all duration-300" id="main-header">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 transition-all duration-300" id="header-inner">
+                
+                <!-- لوگو / نام برند -->
+                <div class="flex items-center gap-3 cursor-pointer">
+                                        <!-- قاب لوگو -->
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100 overflow-hidden p-1">
+                        <!-- تصویر لوگوی اصلی (آدرس را جایگزین کنید) -->
+                        <img src="logo.webp" 
+                             alt="لوگو پوشاک زنانه" 
+                             class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-xl md:text-2xl text-brand tracking-wider leading-tight">پوشاک زنانه</span>
+                        <span class="text-[10px] md:text-xs text-gray-500 font-medium">ارسال به سراسر ایران</span>
+                    </div>
+                </div>
+
+                <!-- منوی دسکتاپ -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">خانه</a>
+                    <a href="#products" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">محصولات</a>
+                    <a href="#rules" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">قوانین خرید</a>
+                    <a href="#trust" class="nav-link text-gray-700 font-semibold hover:text-brand transition-colors">رضایت مشتریان</a>
+                </nav>
+
+                <!-- دکمه اصلی (CTA) در دسکتاپ -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="flex items-center gap-2 bg-brand text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-dark transition-all duration-300 shadow-lg shadow-brand/30 hover:-translate-y-0.5">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                        <span>ثبت سفارش در ایتا</span>
+                    </a>
+                </div>
+
+                <!-- دکمه منوی موبایل -->
+                <button id="mobile-menu-btn" class="lg:hidden text-brand text-2xl p-2 focus:outline-none transition-transform active:scale-90">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- منوی موبایل (Dropdown) -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="flex flex-col px-4 py-4 space-y-4">
+                <a href="#home" class="text-gray-700 font-semibold hover:text-brand transition-colors">خانه</a>
+                <a href="#products" class="text-gray-700 font-semibold hover:text-brand transition-colors">محصولات</a>
+                <a href="#rules" class="text-gray-700 font-semibold hover:text-brand transition-colors">قوانین خرید</a>
+                <a href="#trust" class="text-gray-700 font-semibold hover:text-brand transition-colors">رضایت مشتریان</a>
+                <hr class="border-gray-100">
+                <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="flex items-center justify-center gap-2 bg-brand text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-brand-dark transition-colors w-full shadow-md">
+                    <i class="fas fa-paper-plane text-xs"></i>
+                    <span>ثبت سفارش در ایتا</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- فاصله‌گذاری برای هدر ثابت -->
+    <div class="h-20"></div>
+
+        <!-- ========================================== -->
+    <!-- بخش 2: هیرو (Hero Section) -->
+    <!-- ========================================== -->
+    <section id="home" class="relative min-h-[90vh] flex items-center pt-10 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
+        
+        <!-- المان‌های تزئینی پس‌زمینه (دایره‌های محو) -->
+        <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-brand/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-brand-gold/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-8">
+                
+                <!-- بخش متنی (در موبایل زیر عکس، در دسکتاپ سمت راست) -->
+                <div class="w-full lg:w-1/2 text-center lg:text-right space-y-6 reveal">
+                    
+                    <!-- برچسب کوچک بالای تیتر -->
+                    <div class="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 text-brand px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                        <span>ارسال رایگان برای سفارش‌های بالای ۲ لباس</span>
+                    </div>
+
+                    <!-- تیتر اصلی (با فونت درشت برای موبایل) -->
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-gray-900 leading-[1.3] lg:leading-[1.2]">
+                        زیبایی را با 
+                        <span class="text-brand relative inline-block mx-1">
+                            ارسال رایگان
+                            <!-- خط تزئینی زیر متن -->
+                            <svg class="absolute w-full h-2.5 -bottom-1 right-0 text-brand-gold/60 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        تجربه کنید
+                    </h1>
+
+                    <!-- توضیحات -->
+                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        جدیدترین و شیک‌ترین پوشاک زنانه با کیفیت عالی و دوخت تمیز. 
+                        <br class="hidden sm:block">
+                        ما به تمام نقاط ایران ارسال داریم؛ فقط کافیست سفارش خود را در ایتا ثبت کنید.
+                    </p>
+                    
+                    <!-- دکمه‌های اقدام (در موبایل تمام عرض، در دسکتاپ کنار هم) -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-4 w-full">
+                        
+                        <!-- دکمه اول: مشاهده محصولات -->
+                        <a href="#products" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand text-white px-8 py-4 rounded-xl sm:rounded-full text-base sm:text-lg font-bold transition-all duration-300 shadow-lg shadow-brand/30 hover:bg-brand-dark hover:-translate-y-1">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>مشاهده کالکشن</span>
+                        </a>
+                        
+                        <!-- دکمه دوم: ثبت سفارش در ایتا -->
+                        <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-brand border-2 border-brand/30 px-8 py-4 rounded-xl sm:rounded-full text-base sm:text-lg font-bold transition-all duration-300 hover:bg-brand/5 hover:border-brand">
+                            <i class="fab fa-telegram-plane"></i>
+                            <span>ثبت سفارش در ایتا</span>
+                        </a>
+                    </div>
+
+                    <!-- نشان‌های اعتماد کوچک -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-6 text-xs sm:text-sm text-gray-500">
+                        <div class="flex items-center gap-1.5">
+                            <i class="fas fa-truck text-brand"></i>
+                            <span>ارسال به سراسر ایران</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <i class="fas fa-check-circle text-green-600"></i>
+                            <span>تضمین کیفیت و دوخت</span>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- بخش تصویر (در موبایل بالای متن، در دسکتاپ سمت چپ) -->
+                <div class="w-full lg:w-1/2 flex justify-center lg:justify-end mb-8 lg:mb-0 reveal delay-200">
+                    
+                    <!-- کانتینر اصلی (با نسبت تصویر مشخص) -->
+                    <div class="relative w-full max-w-[280px] sm:max-w-sm lg:max-w-md">
+                        
+                        <!-- قاب پشت (افکت کج) -->
+                        <div class="absolute inset-0 bg-brand/10 rounded-[2rem] transform rotate-3 scale-105"></div>
+                        
+                        <!-- قاب اصلی عکس (نسبت ۴:۵ برای حالت موبایل) -->
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-[6px] border-white bg-white aspect-[4/5] p-4 flex items-center justify-center">
+                            
+                            <!-- تصویر لوگو: استفاده از object-contain برای جا شدن کامل لوگو در هر سایزی -->
+                            <img src="logo.webp" 
+                                 alt="پوشاک زنانه شیک" 
+                                 class="w-full h-full object-contain object-center">
+                            
+                            <!-- المان تزئینی روی عکس (اختیاری) -->
+                            <div class="absolute bottom-4 right-4 left-4 bg-white/90 backdrop-blur-md p-3 rounded-xl shadow-lg border border-white/50 flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-gray-500 mb-1">جدیدترین طرح</span>
+                                    <span class="text-sm font-bold text-brand">ارسال رایگان + ۲ لباس</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- المان شناور (Sticker) -->
+                        <div class="absolute -top-4 -left-4 bg-white p-3 rounded-2xl shadow-xl animate-bounce-slow border border-gray-100 flex items-center gap-2 z-20">
+                            <span class="text-2xl">✨</span>
+                            <span class="text-xs font-bold text-gray-700">کیفیت تضمینی</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 3: نوار مزیت‌ها و اعتماد (Trust Bar) -->
+    <!-- ========================================== -->
+    <section class="trust-bar-section bg-white border-y border-gray-100 py-10 relative z-20 reveal">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- گرید ۲ ستونه در موبایل و ۴ ستونه در دسکتاپ -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-4 lg:divide-x lg:divide-x-reverse lg:divide-gray-100">
+                
+                <!-- آیتم 1: ارسال رایگان -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-14 h-14 rounded-full bg-green-50 text-green-600 flex items-center justify-center text-2xl group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base mt-2">ارسال رایگان</h4>
+                    <p class="text-[11px] md:text-xs text-gray-500">برای سفارش بالای ۲ لباس</p>
+                </div>
+
+                <!-- آیتم 2: ارسال به سراسر کشور -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-14 h-14 rounded-full bg-brand/5 text-brand flex items-center justify-center text-2xl group-hover:bg-brand group-hover:text-white transition-colors duration-300 shadow-sm">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base mt-2">ارسال سراسری</h4>
+                    <p class="text-[11px] md:text-xs text-gray-500">فقط از طریق پست به همه‌جا</p>
+                </div>
+
+                <!-- آیتم 3: عدم خرید حضوری (شفافیت) -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-14 h-14 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-2xl group-hover:bg-red-500 group-hover:text-white transition-colors duration-300 shadow-sm">
+                        <i class="fas fa-store-slash"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base mt-2">بدون خرید حضوری</h4>
+                    <p class="text-[11px] md:text-xs text-gray-500">فقط از طریق کانال ایتا</p>
+                </div>
+
+                <!-- آیتم 4: عدم پرداخت درب منزل (شفافیت) -->
+                <div class="flex flex-col items-center justify-center text-center gap-2 group px-2">
+                    <div class="w-14 h-14 rounded-full bg-red-50 text-red-500 flex items-center justify-center text-2xl group-hover:bg-red-500 group-hover:text-white transition-colors duration-300 shadow-sm">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 text-sm md:text-base mt-2">بدون پرداخت درب منزل</h4>
+                    <p class="text-[11px] md:text-xs text-gray-500">واریز وجه قبل از ارسال</p>
+                </div>
+
+            </div>
+
+            <!-- خط جداکننده موبایل -->
+            <div class="w-full h-px bg-gray-100 my-6 lg:hidden"></div>
+
+            <!-- بخش کوچک اعتمادسازی با ایتا (اضافه شده برای UX بهتر) -->
+            <div class="flex justify-center items-center gap-2 text-sm text-gray-500 mt-4 lg:mt-8">
+                <i class="fas fa-shield-check text-brand"></i>
+                <span>مشاهده سابقه و رضایت مشتریان در کانال ایتا:</span>
+                <a href="https://eitaa.com/rezayatakpik" target="_blank" class="font-bold text-brand hover:text-brand-dark transition-colors dir-ltr" dir="ltr">@rezayatakpik</a>
+            </div>
+
+        </div>
+    </section>
+
+            <!-- ========================================== -->
+    <!-- بخش 4: محصولات (Products Section) -->
+    <!-- ========================================== -->
+    <section id="products" class="py-12 lg:py-20 bg-brand-bg/30 relative overflow-hidden">
+        
+        <div class="container mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- تیتر بخش -->
+            <div class="text-center max-w-2xl mx-auto mb-8 lg:mb-12 reveal">
+                <span class="text-brand font-bold text-xs sm:text-sm tracking-wider uppercase mb-2 block">کالکشن جدید</span>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">جدیدترین طرح‌های ما</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-600 text-xs sm:text-base px-4">
+                    برای ثبت سفارش، روی دکمه سبد خرید زیر هر محصول کلیک کنید.
+                </p>
+            </div>
+
+            <!-- گرید محصولات: 2 ستونه در موبایل، 3 ستونه در تبلت، 4 ستونه در دسکتاپ -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+                
+                <!-- محصول 1: ست تیشرت و شلوار قلب و گل -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col reveal">
+                    <div class="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden">
+                        <img src="pic1.webp" 
+                             alt="ست تیشرت و شلوار قلب و گل" 
+                             class="absolute inset-0 w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-800 line-clamp-2 mb-1 leading-relaxed">ست دو تیکه تیشرت و شلوار تمام چاپ طرح قلب و گل</h3>
+                            <p class="text-[10px] sm:text-xs text-gray-500 mb-2 line-clamp-1">لباس راحتی خوشگل برای قلب خونه! ❤️</p>
+                            
+                            <!-- جزئیات بازشونده (Accordion) -->
+                            <details class="text-[10px] sm:text-xs text-gray-600 mb-3 bg-gray-50 p-2 rounded-lg cursor-pointer">
+                                <summary class="font-bold text-brand">مشاهده جنس و سایزبندی</summary>
+                                <ul class="mt-2 space-y-1 list-disc list-inside">
+                                    <li>جنس: ویسکوز (فری سایز تا ۵۰)</li>
+                                    <li>برای سایز ۵۲ حتماً اندازه‌ها را چک کنید.</li>
+                                    <li>عرض: ۵۶ | قد: ۷۱ | قد آستین: ۲۱</li>
+                                    <li>قد شلوار: ۹۹ | قد فاق: ۳۷</li>
+                                    <li class="text-red-500 text-[9px] mt-1">۱ الی ۲ سانت خطا و تفاوت رنگ (نور) محتمل است.</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-2 border-t border-gray-50">
+                            <span class="text-xs sm:text-sm font-extrabold text-gray-700">۸۲۵,۰۰۰ <span class="text-[10px] font-normal text-gray-500">تومان</span></span>
+                            <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="text-brand-gold hover:text-brand transition-colors p-1">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 2: ست شومیز و شلوار پیش و آستین گل (عکس ۱) -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col reveal delay-100">
+                    <div class="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden">
+                        <img src="pic2.webp" 
+                             alt="ست شومیز و شلوار گل" 
+                             class="absolute inset-0 w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md z-10 shadow-sm">فروش ویژه</span>
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-800 line-clamp-2 mb-1 leading-relaxed">ست دو تیکه شومیز و شلوار پیش و آستین گل</h3>
+                            <p class="text-[10px] sm:text-xs text-gray-500 mb-2 line-clamp-1">پرفروش‌ترین ست سال، برای آخرین بار! 😍</p>
+                            
+                            <details class="text-[10px] sm:text-xs text-gray-600 mb-3 bg-gray-50 p-2 rounded-lg cursor-pointer">
+                                <summary class="font-bold text-brand">مشاهده جنس و سایزبندی</summary>
+                                <ul class="mt-2 space-y-1 list-disc list-inside">
+                                    <li>جنس شومیز: الیزه | جنس شلوار: مازراتی</li>
+                                    <li>فری سایز تا ۴۴</li>
+                                    <li>عرض شومیز: ۴۷-۴۸ | قد: ۶۶</li>
+                                    <li>قد شلوار: ۹۱</li>
+                                    <li class="text-red-500 text-[9px] mt-1">۱ الی ۲ سانت خطا و تفاوت رنگ (نور) محتمل است.</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-2 border-t border-gray-50">
+                            <span class="text-xs sm:text-sm font-extrabold text-gray-700">۹۹۸,۰۰۰ <span class="text-[10px] font-normal text-gray-500">تومان</span></span>
+                            <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="text-brand-gold hover:text-brand transition-colors p-1">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 3: ست شومیز و شلوار پیش و آستین گل (عکس ۲ - غیرژورنالی) -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col reveal delay-200">
+                    <div class="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden">
+                        <img src="pic3.webp" 
+                             alt="ست شومیز و شلوار گل (عکس دوم)" 
+                             class="absolute inset-0 w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-800 line-clamp-2 mb-1 leading-relaxed">ست دو تیکه شومیز و شلوار پیش و آستین گل</h3>
+                            <p class="text-[10px] sm:text-xs text-gray-500 mb-2 line-clamp-1">همان مدل پرفروش (عکس غیرژورنالی)</p>
+                            
+                            <details class="text-[10px] sm:text-xs text-gray-600 mb-3 bg-gray-50 p-2 rounded-lg cursor-pointer">
+                                <summary class="font-bold text-brand">مشاهده جنس و سایزبندی</summary>
+                                <ul class="mt-2 space-y-1 list-disc list-inside">
+                                    <li>جنس شومیز: الیزه | جنس شلوار: مازراتی</li>
+                                    <li>فری سایز تا ۴۴</li>
+                                    <li>عرض شومیز: ۴۷-۴۸ | قد: ۶۶</li>
+                                    <li>قد شلوار: ۹۱</li>
+                                    <li class="text-red-500 text-[9px] mt-1">۱ الی ۲ سانت خطا و تفاوت رنگ (نور) محتمل است.</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-2 border-t border-gray-50">
+                            <span class="text-xs sm:text-sm font-extrabold text-gray-700">۹۹۸,۰۰۰ <span class="text-[10px] font-normal text-gray-500">تومان</span></span>
+                            <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="text-brand-gold hover:text-brand transition-colors p-1">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 4: تیشرت مجلسی آستین سه ربع -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col reveal">
+                    <div class="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden">
+                        <img src="pic4.webp" 
+                             alt="تیشرت مجلسی آستین سه ربع" 
+                             class="absolute inset-0 w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-800 line-clamp-2 mb-1 leading-relaxed">تیشرت مجلسی آستین سه ربع نگین دار طرح موج</h3>
+                            <p class="text-[10px] sm:text-xs text-gray-500 mb-2 line-clamp-1">جنس ویسکوز، مناسب مجالس 👍</p>
+                            
+                            <details class="text-[10px] sm:text-xs text-gray-600 mb-3 bg-gray-50 p-2 rounded-lg cursor-pointer">
+                                <summary class="font-bold text-brand">مشاهده جنس و سایزبندی</summary>
+                                <ul class="mt-2 space-y-1 list-disc list-inside">
+                                    <li>جنس: ویسکوز (فری سایز تا ۵۰)</li>
+                                    <li>برای سایز ۵۲ اندازه‌ها را چک کنید.</li>
+                                    <li>عرض: ۵۱-۵۲ | قد: ۶۹ | قد آستین: ۳۴</li>
+                                    <li class="text-red-500 text-[9px] mt-1">۱ الی ۲ سانت خطا و تفاوت رنگ محتمل است.</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-2 border-t border-gray-50">
+                            <span class="text-xs sm:text-sm font-extrabold text-gray-700">۶۵۰,۰۰۰ <span class="text-[10px] font-normal text-gray-500">تومان</span></span>
+                            <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="text-brand-gold hover:text-brand transition-colors p-1">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 5: شومیز یقه دیپلمات -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col reveal delay-100">
+                    <div class="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden">
+                        <img src="pic5.webp" 
+                             alt="شومیز یقه دیپلمات" 
+                             class="absolute inset-0 w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-800 line-clamp-2 mb-1 leading-relaxed">شومیز یقه دیپلمات دو گل منگوله دار</h3>
+                            <p class="text-[10px] sm:text-xs text-gray-500 mb-2 line-clamp-1">مناسب ایام فاطمیه، جنس صوفیا</p>
+                            
+                            <details class="text-[10px] sm:text-xs text-gray-600 mb-3 bg-gray-50 p-2 rounded-lg cursor-pointer">
+                                <summary class="font-bold text-brand">مشاهده جنس و سایزبندی</summary>
+                                <ul class="mt-2 space-y-1 list-disc list-inside">
+                                    <li>جنس: صوفیا (سبک و راحت)</li>
+                                    <li>فری سایز تا ۴۸</li>
+                                    <li>عرض: ۵۶ | قد: ۷۱ | قد آستین از یقه: ۷۳</li>
+                                    <li class="text-red-500 text-[9px] mt-1">۱ الی ۲ سانت خطا و تفاوت رنگ محتمل است.</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-2 border-t border-gray-50">
+                            <span class="text-xs sm:text-sm font-extrabold text-gray-700">۷۳۵,۰۰۰ <span class="text-[10px] font-normal text-gray-500">تومان</span></span>
+                            <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="text-brand-gold hover:text-brand transition-colors p-1">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول 6: شلوار ویسکوز تمام چاپ -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col reveal delay-200">
+                    <div class="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden">
+                        <img src="pic6.webp" 
+                             alt="شلوار ویسکوز تمام چاپ" 
+                             class="absolute inset-0 w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-800 line-clamp-2 mb-1 leading-relaxed">شلوار ویسکوز تمام چاپ (طرح فانتزی)</h3>
+                            <p class="text-[10px] sm:text-xs text-gray-500 mb-2 line-clamp-1">انرژی مثبت و آرامش برای خونه 😍</p>
+                            
+                            <details class="text-[10px] sm:text-xs text-gray-600 mb-3 bg-gray-50 p-2 rounded-lg cursor-pointer">
+                                <summary class="font-bold text-brand">مشاهده جنس و سایزبندی</summary>
+                                <ul class="mt-2 space-y-1 list-disc list-inside">
+                                    <li>جنس: ویسکوز</li>
+                                    <li>سایز: فری سایز ۵۰</li>
+                                    <li>قد شلوار: ۹۸ | قد فاق: ۳۷</li>
+                                    <li class="text-red-500 text-[9px] mt-1">۱ الی ۲ سانت خطا و تفاوت رنگ محتمل است.</li>
+                                </ul>
+                            </details>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-2 border-t border-gray-50">
+                            <span class="text-xs sm:text-sm font-extrabold text-gray-700">۵۸۰,۰۰۰ <span class="text-[10px] font-normal text-gray-500">تومان</span></span>
+                            <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="text-brand-gold hover:text-brand transition-colors p-1">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- دکمه مشاهده همه محصولات -->
+            <div class="mt-10 text-center reveal">
+                <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-brand-dark transition-all duration-300 shadow-md">
+                    <span>مشاهده همه محصولات در ایتا</span>
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 5: قوانین و شرایط خرید (Terms & Rules) -->
+    <!-- ========================================== -->
+    <section id="rules" class="py-16 lg:py-24 bg-white relative overflow-hidden">
+        
+        <!-- المان تزئینی پس‌زمینه -->
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- تیتر بخش -->
+            <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16 reveal">
+                <div class="inline-flex items-center gap-2 bg-brand/5 border border-brand/10 text-brand px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold mb-4 shadow-sm">
+                    <i class="fas fa-info-circle"></i>
+                    <span>لطفاً قبل از ثبت سفارش مطالعه کنید</span>
+                </div>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">قوانین و شرایط خرید</h2>
+                <div class="w-16 h-1.5 bg-brand-gold mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                    برای اینکه تجربه خرید راحت‌تر و شفاف‌تری داشته باشید، لطفاً شرایط زیر را با دقت مطالعه کنید.
+                </p>
+            </div>
+
+            <!-- گرید قوانین (2 ستون در موبایل، 4 ستون در دسکتاپ) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                
+                <!-- قانون 1: ارسال رایگان -->
+                <div class="bg-green-50/50 rounded-2xl p-6 border border-green-100 text-center hover:-translate-y-1 transition-transform duration-300 reveal">
+                    <div class="w-16 h-16 mx-auto bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-4 shadow-sm">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-base mb-2">ارسال رایگان</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        برای سفارش‌های <strong class="text-green-700">بیش از ۲ لباس</strong>، هزینه ارسال به صورت کاملاً رایگان محاسبه می‌شود.
+                    </p>
+                </div>
+
+                <!-- قانون 2: ارسال با پست -->
+                <div class="bg-brand/5 rounded-2xl p-6 border border-brand/10 text-center hover:-translate-y-1 transition-transform duration-300 reveal delay-100">
+                    <div class="w-16 h-16 mx-auto bg-brand/10 text-brand rounded-full flex items-center justify-center text-3xl mb-4 shadow-sm">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-base mb-2">ارسال فقط با پست</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        ارسال سفارشات به <strong class="text-brand">تمام نقاط ایران</strong> فقط از طریق اداره پست انجام می‌شود.
+                    </p>
+                </div>
+
+                <!-- قانون 3: بدون خرید حضوری -->
+                <div class="bg-red-50/50 rounded-2xl p-6 border border-red-100 text-center hover:-translate-y-1 transition-transform duration-300 reveal delay-200">
+                    <div class="w-16 h-16 mx-auto bg-red-100 text-red-500 rounded-full flex items-center justify-center text-3xl mb-4 shadow-sm">
+                        <i class="fas fa-store-slash"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-base mb-2">بدون خرید حضوری</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        ما فروشگاه فیزیکی نداریم. ثبت سفارش و ارتباط با ما <strong class="text-red-600">فقط از طریق کانال ایتا</strong> انجام می‌شود.
+                    </p>
+                </div>
+
+                <!-- قانون 4: بدون پرداخت درب منزل -->
+                <div class="bg-red-50/50 rounded-2xl p-6 border border-red-100 text-center hover:-translate-y-1 transition-transform duration-300 reveal delay-300">
+                    <div class="w-16 h-16 mx-auto bg-red-100 text-red-500 rounded-full flex items-center justify-center text-3xl mb-4 shadow-sm">
+                        <i class="fas fa-money-bill-wave-alt"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-base mb-2">پرداخت قبل از ارسال</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        امکان پرداخت درب منزل وجود ندارد. هزینه سفارش باید <strong class="text-red-600">قبل از ارسال</strong> واریز شود.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- هشدار مهم در پایین بخش (برای UX) -->
+            <div class="mt-10 bg-amber-50 border border-amber-200 rounded-xl p-4 sm:p-5 flex items-start gap-3 max-w-3xl mx-auto reveal">
+                <i class="fas fa-exclamation-triangle text-amber-500 text-xl mt-0.5"></i>
+                <p class="text-xs sm:text-sm text-amber-800 leading-relaxed text-justify">
+                    <strong>توجه مهم:</strong> لطفاً قبل از واریز وجه، حتماً سایز، رنگ و جزئیات محصول را با پشتیبانی ما در ایتا هماهنگ کنید. پس از واریز وجه، سفارش شما وارد مرحله بسته‌بندی و ارسال می‌شود.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 6: اعتمادسازی و کانال رضایت (Social Proof) -->
+    <!-- ========================================== -->
+    <section id="trust" class="py-16 lg:py-24 bg-brand relative overflow-hidden">
+        
+        <!-- المان‌های تزئینی پس‌زمینه -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <!-- آیکون‌های محو در پس‌زمینه -->
+        <i class="fas fa-quote-right absolute top-10 left-10 text-white/5 text-8xl pointer-events-none"></i>
+        <i class="fas fa-quote-left absolute bottom-10 right-10 text-white/5 text-8xl pointer-events-none"></i>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="max-w-4xl mx-auto text-center reveal">
+                
+                <!-- آیکون بزرگ -->
+                <div class="w-20 h-20 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-gold text-4xl mb-6 shadow-lg border border-white/20">
+                    <i class="fas fa-heart"></i>
+                </div>
+
+                <!-- تیتر و متن -->
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-6 leading-relaxed">
+                    اعتماد شما، بزرگ‌ترین سرمایه ماست
+                </h2>
+                <p class="text-base sm:text-lg text-brand-bg/80 leading-loose mb-10 max-w-2xl mx-auto text-justify sm:text-center">
+                    ما به کیفیت محصولاتمان افتخار می‌کنیم و دوست داریم شما هم قبل از خرید، از زبان مشتریان قبلی ما بشنوید. 
+                    برای دیدن نظرات، پیام‌ها و تصاویر ارسال‌شده توسط مشتریان واقعی، به کانال رضایت ما در ایتا بپیوندید.
+                </p>
+
+                <!-- باکس کانال رضایت (UX Card) -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 sm:p-8 max-w-lg mx-auto transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                        
+                        <!-- آیدی کانال -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-white text-brand rounded-full flex items-center justify-center text-2xl shadow-md">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-xs text-brand-bg/70 mb-1">کانال اعتماد و رضایت مشتریان</span>
+                                <span class="block text-lg font-bold text-white dir-ltr" dir="ltr">@rezayatakpik</span>
+                            </div>
+                        </div>
+
+                        <!-- دکمه ورود -->
+                        <a href="https://eitaa.com/rezayatakpik" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-dark px-6 py-3 rounded-xl font-bold hover:bg-yellow-500 transition-colors shadow-lg">
+                            <span>مشاهده رضایت‌ها</span>
+                            <i class="fas fa-arrow-left text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- نکته کوچک پایین -->
+                <p class="mt-6 text-xs text-brand-bg/60">
+                    <i class="fas fa-lock ml-1"></i> این کانال صرفاً جهت مشاهده رضایت مشتریان است.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 7: دعوت به اقدام نهایی (Final CTA) -->
+    <!-- ========================================== -->
+    <section class="py-16 lg:py-24 bg-brand-bg relative overflow-hidden">
+        
+        <!-- المان‌های تزئینی پس‌زمینه -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-[2.5rem] shadow-xl border border-gray-100 p-8 sm:p-12 text-center relative overflow-hidden reveal">
+                
+                <!-- خط تزئینی بالای کارت -->
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand via-brand-gold to-brand"></div>
+
+                <!-- استیکر شناور -->
+                <div class="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 text-5xl sm:text-6xl transform rotate-12 animate-bounce-slow pointer-events-none">
+                    🛍️
+                </div>
+
+                <!-- تیتر -->
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                    آماده‌ی <span class="text-brand">شیک پوشیدن</span> هستی؟
+                </h2>
+                <p class="text-sm sm:text-base text-gray-600 mb-8 max-w-lg mx-auto leading-relaxed">
+                    همین حالا به کانال ما در ایتا بیا، سایز و رنگ مورد علاقه‌ات رو انتخاب کن و سفارشت رو ثبت کن. ما بقیه کارها رو انجام می‌دیم!
+                </p>
+
+                <!-- دکمه‌های اقدام (در موبایل تمام عرض، در دسکتاپ کنار هم) -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
+                    
+                    <!-- دکمه اصلی: ثبت سفارش -->
+                    <a href="https://eitaa.com/apkhanevadeh" target="_blank" 
+                       class="w-full sm:w-auto group relative inline-flex items-center justify-center gap-3 bg-brand text-white px-8 py-4 rounded-xl sm:rounded-full text-base sm:text-lg font-bold transition-all duration-300 shadow-lg shadow-brand/30 hover:bg-brand-dark hover:-translate-y-1 overflow-hidden">
+                        <!-- افکت درخشش -->
+                        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+                        <i class="fab fa-telegram-plane text-xl"></i>
+                        <span>ثبت سفارش در ایتا</span>
+                    </a>
+
+                    <!-- دکمه ثانویه: کانال رضایت -->
+                    <a href="https://eitaa.com/rezayatakpik" target="_blank" 
+                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gray-50 text-gray-700 border-2 border-gray-200 px-8 py-4 rounded-xl sm:rounded-full text-base sm:text-lg font-bold hover:bg-gray-100 hover:border-gray-300 transition-all duration-300">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>کانال رضایت مشتریان</span>
+                    </a>
+                </div>
+
+                <!-- خط جداکننده -->
+                <hr class="border-gray-100 my-8 max-w-md mx-auto">
+
+                <!-- آیدی‌های متنی (برای افرادی که نمی‌توانند روی دکمه کلیک کنند) -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 text-sm text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <span>آیدی سفارش:</span>
+                        <span class="font-bold text-brand bg-brand/5 px-3 py-1 rounded-lg dir-ltr" dir="ltr">@apkhanevadeh</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>آیدی رضایت:</span>
+                        <span class="font-bold text-green-600 bg-green-50 px-3 py-1 rounded-lg dir-ltr" dir="ltr">@rezayatakpik</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+        <!-- ========================================== -->
+    <!-- بخش 8: فوتر (Footer) -->
+    <!-- ========================================== -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 relative overflow-hidden">
+        
+        <!-- المان تزئینی پس‌زمینه -->
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12 text-center md:text-right">
+                
+                <!-- ستون 1: درباره برند -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <div class="w-12 h-12 bg-brand text-white rounded-full flex items-center justify-center text-xl shadow-md">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="flex flex-col text-right">
+                            <span class="font-extrabold text-xl text-white tracking-wider">پوشاک زنانه</span>
+                            <span class="text-xs text-gray-400">ارسال به سراسر ایران</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed mt-4">
+                        ما با ارائه جدیدترین و باکیفیت‌ترین پوشاک زنانه، تلاش می‌کنیم تا زیبایی و راحتی را به شما هدیه دهیم. خرید از ما آسان، امن و همراه با ارسال رایگان برای سفارش‌های بالای ۲ لباس است.
+                    </p>
+                </div>
+
+                <!-- ستون 2: دسترسی سریع -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white relative inline-block">
+                        دسترسی سریع
+                        <span class="absolute -bottom-2 right-0 w-8 h-0.5 bg-brand-gold rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3 text-sm text-gray-400 flex flex-col items-center md:items-start">
+                        <li><a href="#home" class="hover:text-brand-gold hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> صفحه اصلی</a></li>
+                        <li><a href="#products" class="hover:text-brand-gold hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> محصولات</a></li>
+                        <li><a href="#rules" class="hover:text-brand-gold hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> قوانین خرید</a></li>
+                        <li><a href="#trust" class="hover:text-brand-gold hover:pr-2 transition-all duration-300 flex items-center gap-2"><i class="fas fa-angle-left text-xs"></i> رضایت مشتریان</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون 3: ارتباط با ما (ایتا) -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white relative inline-block">
+                        ارتباط با ما در ایتا
+                        <span class="absolute -bottom-2 right-0 w-8 h-0.5 bg-brand-gold rounded-full"></span>
+                    </h4>
+                    <div class="space-y-4">
+                        <!-- آیدی سفارش -->
+                        <a href="https://eitaa.com/apkhanevadeh" target="_blank" class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center text-lg shadow-sm">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="flex flex-col text-right">
+                                <span class="text-[10px] text-gray-400">ثبت سفارش و پشتیبانی</span>
+                                <span class="text-sm font-bold text-white dir-ltr" dir="ltr">@apkhanevadeh</span>
+                            </div>
+                        </a>
+
+                        <!-- آیدی رضایت -->
+                        <a href="https://eitaa.com/rezayatakpik" target="_blank" class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10 hover:bg-white/10 transition-colors group">
+                            <div class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center text-lg shadow-sm">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="flex flex-col text-right">
+                                <span class="text-[10px] text-gray-400">کانال رضایت مشتریان</span>
+                                <span class="text-sm font-bold text-white dir-ltr" dir="ltr">@rezayatakpik</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- خط جداکننده و کپی‌رایت -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <p>© 1405 پوشاک زنانه. تمامی حقوق محفوظ است.</p>
+                <p class="flex items-center gap-1">
+                    طراحی شده با <i class="fas fa-heart text-brand animate-pulse"></i> برای شما
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- بخش 9: دکمه‌های شناور (Floating Action Buttons) -->
+    <!-- ========================================== -->
+    <div class="floating-buttons fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+        
+        <!-- دکمه رضایت مشتریان -->
+        <a href="https://eitaa.com/rezayatakpik" target="_blank" 
+           class="group relative w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110"
+           aria-label="کانال رضایت مشتریان">
+            <i class="fas fa-check-circle"></i>
+            <!-- تولتیپ -->
+            <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">کانال رضایت</span>
+        </a>
+
+        <!-- دکمه اصلی سفارش در ایتا -->
+        <a href="https://eitaa.com/apkhanevadeh" target="_blank" 
+           class="group relative w-14 h-14 bg-brand text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-brand-dark transition-all duration-300 hover:scale-110 animate-pulse-slow"
+           aria-label="ثبت سفارش در ایتا">
+            <i class="fas fa-paper-plane"></i>
+            <!-- تولتیپ -->
+            <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">ثبت سفارش</span>
+        </a>
+        
+    </div>
+
+
+    <!-- فایل JS جداگانه -->
+    <script src="./script.js"></script>
+</body>
+</html>
