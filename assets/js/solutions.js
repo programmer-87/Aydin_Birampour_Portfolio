@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
             images: [
                 "assets/img/robotTelegram_1.webp"
             ],
-            demoLink: "https://t.me/programmer1837" // آیدی ربات خودتون رو اینجا بذارید
+            demoLink: "Projects/robotTelegram.html" // آیدی ربات خودتون رو اینجا بذارید
         },
         {
             id: 7,
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
             images: [
                 "assets/img/projects-Picture/digital-card-demo.webp" // نام عکسی که از دمو گرفتی
             ],
-            demoLink: "demo-digital-card.html" // لینک به فایل دمو
+            demoLink: "Projects/demo-digital-card.html" // لینک به فایل دمو
         },
         {
             id: 10,
@@ -366,9 +366,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 "تجربه کاربری روان و مدرن"
             ],
             images: [
-                "assets/img/demo-Leyla/demo-Leyla.webp"
+                "Demos/Leyla/Leyla.webp"
             ],
-            demoLink: "Projects/demo-Leyla.html"
+            demoLink: "Demos/Leyla/demo-Leyla.html"
         }, 
         {
             id: 20,
@@ -386,11 +386,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 "تجربه کاربری روان برای والدین"
             ],
             images: [
-                "assets/img/demo-asrJdid/asrJdid.webp" // مسیر عکسی که گفتی
+                "Demos/asrJdid/asrJdid.webp" // مسیر عکسی که گفتی
             ],
-            demoLink: "Projects/demo-asrJdid.html",
-            featured: false // ⭐ این پروژه رو ویژه می‌کنه
-        },
+            demoLink: "Demos/asrJdid/demo-asrJdid.html",
+         },
         {
             id: 21,
             title: "وب‌سایت برند تولیدی پوشاک حیالی (Hayali)",
@@ -407,9 +406,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 "معرفی برند و فرآیند تولید"
             ],
             images: [
-                "hayali/hayali.webp" // عکس کاور پروژه (همون لوگویی که گفتی)
+                "Demos/hayali/hayali.webp" // عکس کاور پروژه (همون لوگویی که گفتی)
             ],
-            demoLink: "hayali/" // لینک مستقیم به پوشه تمیز
+            demoLink: "Demos/hayali/" // لینک مستقیم به پوشه تمیز
         },
         {
             id: 22,
@@ -427,9 +426,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 "بخش اعتمادسازی و قوانین شفاف"
             ],
             images: [
-                "arsanCada/arsanCada.webp" // عکس کاور (می‌تونی اسم عکس اصلی رو عوض کنی)
+                "Demos/arsanCada/arsanCada.webp" // عکس کاور (می‌تونی اسم عکس اصلی رو عوض کنی)
             ],
-            demoLink: "arsanCada/" // لینک مستقیم به پوشه تمیز
+            demoLink: "Demos/arsanCada/" // لینک مستقیم به پوشه تمیز
+        },
+        {
+            id: 23,
+            title: "وب‌سایت ماه دخت کالکشن (Mah Dokht Collection)",
+            description: "یک وب‌سایت تک‌صفحه‌ای، مینیمال و ریسپانسیو برای فروش پوشاک زنانه، با تم سبز زیتونی و طلایی، همراه با سیستم سبد خرید و فرم ثبت سفارش هوشمند.",
+            longDescription: "این پروژه یک فروشگاه آنلاین اختصاصی برای برند پوشاک زنانه «ماه دخخت» است. طراحی این سایت با الهام از لوگوی برند، از پالت رنگی سبز زیتونی، کرم و طلایی استفاده می‌کند تا حس اصالت و کیفیت را منتقل کند. در بخش محصولات، چیدمان آجری (Masonry) ریسپانسیو پیاده‌سازی شده تا عکس‌ها با نسبت اصلی خود نمایش داده شوند. همچنین یک سیستم ثبت سفارش اختصاصی با قابلیت انتخاب تعداد (سبد خرید) و دریافت اطلاعات مشتری (نام، شماره تماس و آدرس) در آن تعبیه شده است که فایل نهایی سفارش را برای مدیریت ذخیره می‌کند.",
+            category: "web",
+            categoryLabel: "توسعه وب",
+            icon: "fa-solid fa-shirt", // آیکون لباس برای پوشاک
+            tags: ["HTML", "Tailwind CSS", "JavaScript", "Local Storage (Simulated)"],
+            features: [
+                "طراحی مینیمال با پالت سبز زیتونی و طلایی", 
+                "کاملاً واکنش‌گرا (Mobile-First)", 
+                "چیدمان آجری (Masonry) عکس‌های محصولات", 
+                "سیستم ثبت سفارش و سبد خرید هوشمند"
+            ],
+            images: [
+                "Demos/mahDokht/mahDokht.webp" // عکس کاور (اسم پوشه رو مطابق هاست خودت تنظیم کن)
+            ],
+            demoLink: "Demos/mahDokht/" // لینک مستقیم به پوشه دمو
         },
 
     ];

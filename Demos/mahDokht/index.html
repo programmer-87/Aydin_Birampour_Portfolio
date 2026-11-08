@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ماه دخت کالکشن | لباس‌هایی با امضای ماه دخت</title>
+  <meta name="description" content="پوشاک زنانه با هنر دست. کیفیت بالا، قیمت پایین. فروش حضوری در زنجان و آنلاین.">
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- فونت فارسی Vazirmatn -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  
+  <!-- فایل CSS اختصاصی -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- تنظیمات سفارشی Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+          },
+          colors: {
+            sage:  '#7A8B6F', // سبز زیتونی
+            sagedark: '#4A5D3F',
+            gold:  '#C9A961', // طلایی
+            goldlight: '#E8D5A8',
+            cream: '#FAF6EE', // کرم
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="text-sagedark">
+
+  <!-- ================= هدر ================= -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-cream/90 backdrop-blur border-b border-gold/30">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-2">
+      <!-- لوگو -->
+      <a href="#hero" class="flex items-center gap-3">
+        <img 
+          src="logo.webp" 
+          alt="لوگوی ماه دخت کالکشن" 
+          class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-gold shadow-md"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <!-- fallback: اگر عکس لود نشد -->
+        <span class="hidden w-12 h-12 rounded-full bg-goldlight items-center justify-center text-xl border-2 border-gold">👑</span>
+        
+        <div class="leading-tight">
+          <p class="font-bold text-base md:text-lg text-sagedark">ماه دخت</p>
+          <p class="text-[10px] tracking-widest text-gold">Mah Dokht Collection</p>
+        </div>
+      </a>
+      
+      <!-- منوی دسکتاپ -->
+      <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#features" class="hover:text-gold transition">چرا ما؟</a>
+        <a href="#gallery" class="hover:text-gold transition">نمونه‌ها</a>
+        <a href="#order" class="hover:text-gold transition">روش خرید</a>
+        <a href="#contact" class="bg-sage text-white px-4 py-2 rounded-full hover:bg-sagedark transition">تماس</a>
+      </nav>
+      <!-- دکمه تماس موبایل -->
+      <a href="tel:09196110087" class="md:hidden bg-sage text-white px-3 py-2 rounded-full text-sm">📱 تماس</a>
+    </div>
+  </header>
+
+  <!-- ================= هیرو ================= -->
+  <section id="hero" class="pt-28 pb-16 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      
+      <!-- متن -->
+      <div class="animate-fade order-2 md:order-1">
+        <span class="inline-block bg-goldlight/50 text-sagedark text-xs px-3 py-1 rounded-full mb-4">
+          ✂️ پوشاک زنانه با هنر دست
+        </span>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+          لباسی که <span class="text-gold">دقیقاً</span> اندازه‌ی اندامته
+        </h1>
+        <p class="text-base md:text-lg text-sagedark/80 leading-relaxed mb-6">
+          دیگه نگران سایز و تناسب نباش. هر لباسی که تو ذهنته، با هنر دست من دوخته می‌شه؛
+          با <strong>کیفیت بالا</strong> و <strong>قیمتی که باورت نمی‌شه</strong>.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#contact" class="bg-sage text-white px-6 py-3 rounded-full font-bold hover:bg-sagedark transition shadow-lg btn-pulse">
+            🌸 سفارش و مشاوره
+          </a>
+          <a href="#features" class="border border-gold text-sagedark px-6 py-3 rounded-full font-medium hover:bg-gold/10 transition">
+            مقایسه کن 🙂
+          </a>
+        </div>
+        <p class="mt-4 text-xs text-sagedark/60">
+          📍 فروش حضوری در زنجان با هماهنگی قبلی • فروش آنلاین در سراسر ایران
+        </p>
+      </div>
+
+      <!-- لوگوی اصلی (بزرگ و قاب‌شده) -->
+      <div class="flex justify-center animate-fade delay-2 order-1 md:order-2">
+        <div class="relative float-logo">
+          <div class="absolute -inset-3 rounded-full border border-gold/40 pointer-events-none"></div>
+          <div class="absolute -inset-6 rounded-full border border-gold/20 pointer-events-none hidden md:block"></div>
+
+          <img 
+            src="logo.webp" 
+            alt="لوگوی ماه دخت کالکشن - پوشاک زنانه با هنر دست"
+            class="relative w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4 border-gold shadow-2xl gold-ring bg-cream"
+            onerror="this.outerHTML='<div class=\'w-72 h-72 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-goldlight to-cream border-4 border-gold flex flex-col items-center justify-center text-center shadow-2xl\'><span class=\'text-6xl mb-3\'>👑</span><p class=\'font-bold text-2xl\'>ماه دخت</p><p class=\'text-xs tracking-widest text-gold mt-1\'>Mah Dokht Collection</p><p class=\'text-[10px] mt-2 text-sagedark/60\'>(جای لوگوی اصلی)</p></div>'"
+          >
+
+          <div class="absolute inset-0 rounded-full pointer-events-none" style="box-shadow: inset 0 0 60px rgba(201,169,97,0.25);"></div>
+          <span class="absolute -bottom-2 -left-2 bg-gold text-white w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg border-2 border-cream">
+            👑
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- ================= مزیت‌ها ================= -->
+  <section id="features" class="py-16 px-4 bg-white/60">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2 title-underline">چرا ماه دخت؟</h2>
+      <p class="text-center text-sagedark/70 mb-10 mt-4 text-sm">چون لباس خوب، حق هر زنی‌ست.</p>
+
+      <!-- ترتیب کارت‌ها به صورت راست به چپ: کیفیت، قیمت، مقایسه -->
+      <div class="grid md:grid-cols-3 gap-6">
+        
+        <!-- کارت ۱: کیفیت بالا (سمت راست) -->
+        <div class="bg-cream rounded-2xl p-8 border border-gold/30 text-center hover:shadow-xl transition animate-fade delay-1">
+          <div class="text-4xl mb-4">🤩</div>
+          <h3 class="font-bold text-lg text-sagedark mb-3">کیفیت تضمینی</h3>
+          <p class="text-sm text-sagedark/70 leading-relaxed">
+            پارچه‌های دست‌چین و دوخت تمیز. لباسی که سال‌ها همراهته و رنگ و فرمش رو حفظ می‌کنه.
+          </p>
+        </div>
+
+        <!-- کارت ۲: قیمت پایین (وسط) -->
+        <div class="bg-cream rounded-2xl p-8 border border-gold/30 text-center hover:shadow-xl transition animate-fade delay-2">
+          <div class="text-4xl mb-4">😉</div>
+          <h3 class="font-bold text-lg text-sagedark mb-3">قیمت بدون واسطه</h3>
+          <p class="text-sm text-sagedark/70 leading-relaxed">
+            مستقیم از دست هنرمند، بدون هزینه‌های اضافی. همون کیفیت بوتیک‌ها با قیمتی منصفانه.
+          </p>
+        </div>
+
+        <!-- کارت ۳: مقایسه کن (سمت چپ) -->
+        <div class="bg-cream rounded-2xl p-8 border border-gold/30 text-center hover:shadow-xl transition animate-fade delay-3">
+          <div class="text-4xl mb-4">🙂</div>
+          <h3 class="font-bold text-lg text-sagedark mb-3">با خیال راحت مقایسه کن</h3>
+          <p class="text-sm text-sagedark/70 leading-relaxed">
+            بازار آزاده. ما مطمئنیم بعد از مقایسه، برمی‌گردی پیش ما. راضی‌بودنت سرمایه‌ی ماست.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- ================= گالری محصولات ================= -->
+  <section id="gallery" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2 title-underline">نگاهی به هنر دست ما</h2>
+      <p class="text-center text-sagedark/70 mb-10 text-sm mt-4">
+        هر دوخت، یک داستان. این‌ها فقط چند نمونه از کارهاییه که با عشق دوخته شدن.
+      </p>
+
+      <!-- گرید ۲ ستونه در موبایل -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 items-start">
+
+        <!-- محصول ۱ -->
+        <article class="bg-white rounded-2xl overflow-hidden border border-gold/30 shadow-sm flex flex-col">
+          <!-- کادر عکس -->
+          <div class="w-full relative bg-cream">
+            <img src="product-1.webp" alt="شومیز یقه مردانه" class="w-full h-auto block object-contain" onerror="this.src='https://via.placeholder.com/400x500?text=Product+1'">
+          </div>
+          <!-- کادر متن -->
+          <div class="p-3 md:p-4 flex flex-col flex-grow border-t border-gray-100">
+            <h3 class="text-xs md:text-sm font-bold text-sagedark mb-1">شومیز یقه مردانه</h3>
+            <p class="text-[10px] md:text-xs text-sagedark/60 mb-3 line-clamp-1">لینن خنک و سبک</p>
+            
+            <div class="mt-auto flex items-center justify-between">
+              <span class="text-xs md:text-sm font-bold text-gold">۹۶۶٬۰۰۰ تومان</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- محصول ۲ -->
+        <article class="bg-white rounded-2xl overflow-hidden border border-gold/30 shadow-sm flex flex-col">
+          <div class="w-full relative bg-cream">
+            <img src="product-2.webp" alt="کفتان مخمل" class="w-full h-auto block object-contain" onerror="this.src='https://via.placeholder.com/400x500?text=Product+2'">
+          </div>
+          <div class="p-3 md:p-4 flex flex-col flex-grow border-t border-gray-100">
+            <h3 class="text-xs md:text-sm font-bold text-sagedark mb-1">کفتان مخمل</h3>
+            <p class="text-[10px] md:text-xs text-sagedark/60 mb-3 line-clamp-1">نیم‌زیپ و کمردار</p>
+            
+            <div class="mt-auto flex items-center justify-between">
+              <span class="text-xs md:text-sm font-bold text-gold">۲٬۹۰۰٬۰۰۰ تومان</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- محصول ۳ -->
+        <article class="bg-white rounded-2xl overflow-hidden border border-gold/30 shadow-sm flex flex-col">
+          <div class="w-full relative bg-cream">
+            <img src="product-3.webp" alt="ست شومیز و وست" class="w-full h-auto block object-contain" onerror="this.src='https://via.placeholder.com/400x500?text=Product+3'">
+          </div>
+          <div class="p-3 md:p-4 flex flex-col flex-grow border-t border-gray-100">
+            <h3 class="text-xs md:text-sm font-bold text-sagedark mb-1">ست شومیز و وست</h3>
+            <p class="text-[10px] md:text-xs text-sagedark/60 mb-3 line-clamp-1">کرپ و لینن کارشده</p>
+            
+            <div class="mt-auto flex items-center justify-between">
+              <span class="text-xs md:text-sm font-bold text-gold">۱٬۸۰۰٬۰۰۰ تومان</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- محصول ۴ -->
+        <article class="bg-white rounded-2xl overflow-hidden border border-gold/30 shadow-sm flex flex-col">
+          <div class="w-full relative bg-cream">
+            <img src="product-4.webp" alt="ست گیپور" class="w-full h-auto block object-contain" onerror="this.src='https://via.placeholder.com/400x500?text=Product+4'">
+          </div>
+          <div class="p-3 md:p-4 flex flex-col flex-grow border-t border-gray-100">
+            <h3 class="text-xs md:text-sm font-bold text-sagedark mb-1">ست گیپور</h3>
+            <p class="text-[10px] md:text-xs text-sagedark/60 mb-3 line-clamp-1">مجلسی و کارشده</p>
+            
+            <div class="mt-auto flex items-center justify-between">
+              <span class="text-xs md:text-sm font-bold text-gold">۴٬۸۹۰٬۰۰۰ تومان</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      
+      <!-- دکمه پایین -->
+      <div class="text-center mt-10">
+        <a href="#contact" class="inline-block bg-gold text-white px-6 py-3 rounded-full font-bold hover:bg-sagedark transition shadow-lg">
+          🌸 مشاهده و سفارش سایر مدل‌ها
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= روش خرید ================= -->
+  <section id="order" class="py-16 px-4 bg-sage text-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">چطور سفارش بدم؟</h2>
+      <p class="text-white/80 mb-10 text-sm">فقط سه قدم ساده تا لباس رویایی‌ت.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-right">
+        
+        <!-- قدم ۱ -->
+        <div class="bg-white/10 rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition">
+          <span class="inline-block text-3xl font-bold text-goldlight mb-3">۱</span>
+          <h3 class="font-bold text-lg mb-2">تماس بگیر</h3>
+          <p class="text-sm text-white/80 leading-relaxed">
+            با شماره پایین تماس بگیر یا پیام بده. مدل و سایز رو با هم هماهنگ می‌کنیم.
+          </p>
+        </div>
+
+        <!-- قدم ۲ -->
+        <div class="bg-white/10 rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition">
+          <span class="inline-block text-3xl font-bold text-goldlight mb-3">۲</span>
+          <h3 class="font-bold text-lg mb-2">هماهنگی و پرداخت</h3>
+          <p class="text-sm text-white/80 leading-relaxed">
+            سفارش آنلاین (ارسال به سراسر ایران) یا حضوری در زنجان با هماهنگی قبلی.
+          </p>
+        </div>
+
+        <!-- قدم ۳ -->
+        <div class="bg-white/10 rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition">
+          <span class="inline-block text-3xl font-bold text-goldlight mb-3">۳</span>
+          <h3 class="font-bold text-lg mb-2">تحویل با لبخند</h3>
+          <p class="text-sm text-white/80 leading-relaxed">
+            لباست با دقت دوخته و بسته‌بندی می‌شه و به دستت می‌رسه. 😊
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= تماس ================= -->
+  <section id="contact" class="py-16 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">همین حالا سفارشت رو ثبت کن</h2>
+      <p class="text-sagedark/70 mb-8 text-sm">منتظرتم! هر سوالی داری، راحت بپرس. 💐</p>
+
+      <div class="bg-white rounded-2xl shadow-xl border border-gold/30 p-8">
+        <p class="text-sm text-sagedark/60 mb-2">شماره تماس</p>
+        <p class="text-3xl md:text-4xl font-extrabold text-sagedark mb-6 tracking-wider" dir="ltr">0919 611 0087</p>
+
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="tel:09196110087" class="bg-sage text-white px-6 py-3 rounded-full font-bold hover:bg-sagedark transition shadow-lg">
+            📞 تماس مستقیم
+          </a>
+          <button onclick="copyNumber()" class="border border-gold text-sagedark px-6 py-3 rounded-full font-medium hover:bg-gold/10 transition">
+            📋 کپی شماره
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= فوتر ================= -->
+  <footer class="bg-sagedark text-cream/80 py-8 px-4 text-center">
+    <img 
+      src="logo.webp" 
+      alt="لوگوی ماه دخت کالکشن" 
+      class="w-16 h-16 mx-auto rounded-full object-cover border-2 border-gold mb-3"
+      onerror="this.style.display='none'"
+    >
+    <p class="font-bold text-cream text-lg">ماه دخت کالکشن</p>
+    <p class="text-xs tracking-widest text-gold mt-1">Mah Dokht Collection</p>
+    <p class="text-sm mt-3">لباس‌هایی با امضای ماه دخت • پوشاک زنانه با هنر دست</p>
+    <p class="text-xs mt-4 text-cream/50">© 1405 تمامی حقوق محفوظ است.</p>
+  </footer>
+
+  <!-- ================= JS ================= -->
+  <script>
+    // کپی شماره تماس
+    function copyNumber() {
+      navigator.clipboard.writeText('09196110087').then(() => {
+        alert('شماره تماس کپی شد! 📋');
+      }).catch(() => {
+        alert('کپی نشد، لطفاً دستی شماره رو بردار: 09196110087');
+      });
+    }
+  </script>
+  
+  <!-- فایل JS اختصاصی -->
+  <script src="app.js"></script>
+</body>
+</html>
