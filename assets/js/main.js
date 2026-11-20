@@ -565,6 +565,34 @@ document.addEventListener('DOMContentLoaded', function () {
             ]
         },
 
+            'telegram-booking': {
+            title: 'ربات تلگرام نوبت‌دهی (منشی دیجیتال)',
+            description: 'دستیار ۲۴ ساعته شما. رباتی که بدون وقفه نوبت مشتریان را ثبت می‌کند و خطای انسانی (مثل فراموش کردن نوبت‌ها) را صفر می‌کند.',
+            tags: ['Python', 'Telegram API', 'Automation', 'Bot'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/projects-Picture/telegram-booking-demo.webp', alt: 'ربات نوبت‌دهی' }
+            ]
+        },
+        'telegram-shop': {
+            title: 'ربات تلگرام فروشگاهی (مینی‌اپ)',
+            description: 'فروشگاه خود را به تلگرام ببرید. رباتی که محصولات را با عکس نشان می‌دهد، سبد خرید دارد و مشتری بدون خروج از تلگرام پرداخت می‌کند.',
+            tags: ['Python', 'E-Commerce', 'Telegram API', 'Payment'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/projects-Picture/shop-bot-demo.webp', alt: 'ربات فروشگاهی' }
+            ]
+        },
+        'telegram-support': {
+            title: 'ربات پشتیبانی هوشمند (AI)',
+            description: 'پاسخ به سوالات پرتکرار مشتریان با استفاده از هوش مصنوعی. رباتی که مثل یک کارشناس پشتیبانی همیشه بیدار است.',
+            tags: ['Python', 'OpenAI', 'Chatbot', 'Telegram API'],
+            type: 'project',
+            images: [
+                { src: 'assets/img/projects-Picture/telegram-support-demo.webp', alt: 'ربات پشتیبانی' }
+            ]
+        },
+
         'campaign-1': {
             title: 'کمپین فروش آیدین استایل',
             description: 'طراحی و اجرای کمپین ۷ روزه برای یک فروشگاه لباس مردانه — افزایش ۴۰٪ فروش و ۱۶۲٪ فالوور.',
