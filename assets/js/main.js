@@ -506,87 +506,62 @@ document.addEventListener('DOMContentLoaded', function () {
         // فقط مطمئن شو هر پروژه یه فیلد `type` داره:
         // type: 'project' (پیش‌فرض) یا type: 'campaign'
 
-            'logo-1': {
-            title: 'طراحی لوگو',
-            description: 'لوگوی خاص برای یک رستوران بنام آویژه',
-            tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+
+                // === پروژه‌های وب ===
+        'web-qr': {
+            title: 'منو و کارت ویزیت دیجیتال',
+            description: 'منو و ویترین دیجیتال با یک اسکن ساده. جایگزین بروشورهای کاغذی که دور ریخته می‌شوند؛ مشتری با یک اسکن به همه‌چیز دسترسی دارد.',
+            tags: ['HTML', 'CSS', 'JavaScript', 'QR-Code'],
             type: 'project',
             images: [
-                { src: 'assets/img/logo_1.webp', alt: 'لوگو ۱' }
+                { src: 'assets/img/projects-Picture/digital-card-demo.webp', alt: 'منو و کارت ویزیت دیجیتال' }
             ]
         },
-        'logo-2': {
-            title: 'طراحی لوگو',
-            description: 'لوگوی شخصی سازی شده برای یک دکتر متخصص',
-            tags: ['Illustrator', 'Branding', 'Logo Design', 'Photoshop'],
+        'web-leyla': {
+            title: 'وب‌سایت پوشاک زنانه لیلا (Leyla)',
+            description: 'یک وب‌سایت تک‌صفحه‌ای، ریسپانسیو و فوق‌العاده شیک برای برند پوشاک زنانه. با تمرکز بر تجربه کاربری و نمایش لوکس محصولات.',
+            tags: ['HTML', 'CSS', 'Responsive', 'UI/UX'],
             type: 'project',
             images: [
-                { src: 'assets/img/logo_2.webp', alt: 'لوگو ۲' }
+                { src: 'assets/img/projects-Picture/demo-Leyla.webp', alt: 'وب‌سایت پوشاک زنانه لیلا' }
             ]
         },
-        'logo-3': {
-            title: 'طراحی لوگو',
-            description: 'بنر تبلیغاتی برای یک آرایشگاه',
-            tags: ['Illustrator', 'Logo Design', 'Photoshop'],
+        'web-corporate': {
+            title: 'وب‌سایت شرکت + کاتالوگ دیجیتال محصولات',
+            description: 'حضور حرفه‌ای در وب برای کارخانه‌ها. به جای بروشورهای کاغذی، محصولات و مشخصات فنی خود را در یک کاتالوگ دیجیتال به خریداران عمده نشان دهید.',
+            tags: ['HTML', 'Tailwind', 'UI/UX', 'B2B'],
             type: 'project',
             images: [
-                { src: 'assets/img/logo_3.webp', alt: 'لوگو ۳' }
+                { src: 'assets/img/projects-Picture/corporate-demo.webp', alt: 'وب‌سایت شرکت + کاتالوگ' }
             ]
         },
 
-        'web-1': {
-            title: 'وب‌سایت کافه خاطرات',
-            description: 'وب‌سایت تک‌صفحه‌ای واکنش‌گرا برای یک کافه با منو، درباره ما و فرم تماس.',
-            tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
+        // === نرم‌افزارهای اتوماسیونی و مدیریتی ===
+        'pos': {
+            title: 'نرم‌افزار صندوق فروش (POS) + مدیریت انبار',
+            description: 'صندوق فروش هوشمند و مدیریت انبار. دفتر و دستک و ماشین‌حساب را کنار بگذارید؛ فروش مغازه‌تان را دیجیتال و بدون خطا مدیریت کنید.',
+            tags: ['C#', 'SQL Server', 'POS', 'Desktop'],
             type: 'project',
             images: [
-                { src: 'assets/img/cafe_khatrat.webp', alt: 'کافه خاطرات' }
+                { src: 'assets/img/projects-Picture/pos-demo.webp', alt: 'نرم‌افزار صندوق فروش' }
             ]
         },
-        'web-2': {
-            title: 'پروژه فروشگاه لوازم',
-            description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند (Node.js، Django، Laravel) است.',
-            tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind', 'bootstrap'],
+        'dashboard': {
+            title: 'داشبورد مدیریت مرکزی و انتقال موجودی',
+            description: 'کنترل کامل همه شعبه‌ها در یک نگاه. سیستمی که مدیرعامل بتواند لحظه‌ای موجودی تمام شعبه‌ها را ببیند و کالاها را بین شعبه‌ها جابه‌جا کند.',
+            tags: ['React', 'Node.js', 'Dashboard', 'Management'],
             type: 'project',
             images: [
-                { src: 'assets/img/store.webp', alt: 'فروشگاه لوازم' }
+                { src: 'assets/img/projects-Picture/chain-dashboard-demo.webp', alt: 'داشبورد مدیریت مرکزی' }
             ]
         },
-        'web-3': {
-            title: 'وبسایت فروشگاه لباس',
-            description: 'طراحی رابط کاربری فروشگاه آنلاین با تمرکز بر تجربه کاربری (UX) و طراحی واکنش‌گرا (Responsive). این پروژه به‌عنوان یک نمونه‌ی Frontend طراحی شده و آماده‌ی اتصال به هر بک‌اند است.',
-            tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind',  'bootstrap'],
+        'crm': {
+            title: 'نرم‌افزار مدیریت ارتباط با مشتری (CRM)',
+            description: 'مشتریان عمده را فراموش نکنید. سیستمی که سابقه تماس‌ها، مذاکرات، بدهی‌ها و خریدهای هر مشتری را در یک پنل شفاف نشان می‌دهد.',
+            tags: ['C#', 'SQL Server', 'CRM', 'B2B'],
             type: 'project',
             images: [
-                { src: 'assets/img/store_clothes.webp', alt: 'فروشگاه لباس' }
-            ]
-        },
-
-        'software-1': {
-            title: 'نرم‌افزار حسابداری',
-            description: 'سیستم مدیریت مالی برای کسب‌وکارهای کوچک با C# و SQL Server.',
-            tags: ['C#', 'SQL Server', 'Desktop App'],
-            type: 'project',
-            images: [
-                { src: 'assets/img/software/1_2.webp', alt: 'نرم‌افزار ۱' }
-            ]
-        },
-        'software-2': {
-            title: 'نرم‌افزار اتوماسیون',
-            description: 'اتوماسیون فرآیندهای تکراری کسب‌وکار',
-            tags: ['Python', 'SQL Server', 'Desktop App'],
-            type: 'project',
-            images: [
-                { src: 'assets/img/software/2_1.webp', alt: 'نرم‌افزار ۲' }
-            ]
-        },
-        'software-3': {
-            title: 'نرم‌افزار مدیریتی',
-            description: 'سیستم مدیریت انبار و فروش',
-            tags: ['C#', 'SQL Server', 'Desktop App'],
-            type: 'project',
-            images: [
-                { src: 'assets/img/software/1_1.webp', alt: 'نرم‌افزار ۳' }
+                { src: 'assets/img/projects-Picture/crm-demo.webp', alt: 'نرم‌افزار CRM' }
             ]
         },
 
